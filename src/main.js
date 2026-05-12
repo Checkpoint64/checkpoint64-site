@@ -589,22 +589,22 @@ if (autoEl) {
 document.querySelectorAll('[data-notify-form]').forEach((form) => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
-    
+
     const emailInput = form.querySelector('input[type="email"]')
     const submitBtn = form.querySelector('button[type="submit"]')
     const email = emailInput.value.trim()
-    
+
     if (!email) {
       alert('Please enter your email address')
       return
     }
-    
+
     // Disable form while submitting
     emailInput.disabled = true
     submitBtn.disabled = true
     const originalText = submitBtn.innerHTML
     submitBtn.innerHTML = '<span>SENDING...</span>'
-    
+
     try {
       const response = await fetch('https://savebetter.fly.dev/public/api/waitingList', {
         method: 'POST',
@@ -613,7 +613,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
         },
         body: JSON.stringify({email})
       })
-      
+
       if (response.ok) {
         // Success
         submitBtn.innerHTML = '<span>✓ ADDED</span>'
