@@ -4,11 +4,13 @@
       "WebFetch(domain:api.anthropic.com)",
       "Bash(mkdir -p /tmp/design)",
       "Read(//tmp/**)",
+      "Bash(cp \"C:\\\\Users\\\\ducti\\\\.claude\\\\projects\\\\C--Users-ducti-IdeaProjects-savebetter-site\\\\0214b290-d7ea-4bfd-ad7e-10ada1b41aa2\\\\tool-results\\\\webfetch-1778599203453-72phn7.bin\" design.gz)",
       "Bash(gunzip -f design.gz)",
       "Bash(tar -tf design)",
       "Bash(mkdir -p out)",
       "Bash(tar -xf design -C out)",
-      "Bash(npx vite *)"
+      "Bash(npx vite *)",
+      "WebFetch(domain:vite.dev)"
     ]
   }
 }
