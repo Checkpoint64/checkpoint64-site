@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(mkdir -p /tmp/design)",
+      "Read(//tmp/**)",
+      "Bash(gunzip -f design.gz)",
+      "Bash(tar -tf design)",
+      "Bash(mkdir -p out)",
+      "Bash(tar -xf design -C out)",
+      "Bash(npx vite *)"
+    ]
+  }
+}
