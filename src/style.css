@@ -315,7 +315,8 @@ section .head .tape::before {
   border: 1.5px solid var(--ink);
   padding: 8px 10px;
   background: #fff;
-  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: break-word;
   margin-bottom: 12px;
   font-family: var(--f-mono); font-size: 12px;
 }
@@ -395,7 +396,10 @@ section .head .tape::before {
 .shelf-frame .sechead .pa {
   font-family: var(--f-mono); font-size: 12px;
   color: rgba(244, 236, 216, 0.55);
-  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  flex: 1;
+  min-width: 0;
 }
 .shelf-frame .sechead .add {
   margin-left: auto; font-family: var(--f-hand); font-size: 18px;
@@ -427,6 +431,25 @@ section .head .tape::before {
 @media (max-width: 560px) {
   .shelf-grid { gap: 28px; justify-content: center; }
   .shelf-grid .empty { flex-basis: 100%; max-width: 250px; }
+}
+
+@media (max-width: 640px) {
+  .shelf-frame .sechead {
+    flex-wrap: wrap;
+  }
+  .shelf-frame .sechead .pa {
+    flex-basis: 100%;
+    order: 3;
+    margin-top: 8px;
+    font-size: 11px;
+  }
+  .shelf-frame .sechead .add {
+    font-size: 16px;
+  }
+  .step-upload .src-path {
+    font-size: 10px;
+    padding: 6px 8px;
+  }
 }
 
 /* ---------- PROBLEM STRIP ---------- */
