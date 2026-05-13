@@ -100,9 +100,9 @@ function hero() {
             </div>
             <h1>NEVER LOSE<br/>A SAVE <span class="accent">AGAIN.</span></h1>
             <p class="sub">
-              Checkpoint64 watches your game save folders and quietly versions
-              them to the cloud. Restore from any checkpoint. Co-op with friends
-              without overwriting each other. Sleep well after that 14-hour run.
+              Checkpoint64 keeps an eye on your save folders and quietly copies
+              them to the cloud. Roll back to any save, any time. Play with friends
+              without anyone wiping your progress. Sleep easy after that 14-hour run.
             </p>
             <div class="ctas">
               <a href="#download" class="btn prim">JOIN THE LIST <span>↗</span></a>
@@ -127,18 +127,18 @@ function hero() {
 
 function problemStrip() {
   const woes = [
-    { stamp: '01:14 AM', text: "the host's factorio update crashed mid-write — 80h shared world bricked",  tag: 'RIP'   },
-    { stamp: 'WED 6PM',  text: 'co-op partner played solo on the world file and overwrote your last run',  tag: 'OW'    },
-    { stamp: '$15/MO',   text: 'paying for a dedicated server for a group that plays six hours a week',    tag: 'BILL'  },
-    { stamp: 'SAT',      text: "host is on holiday — nobody else has the latest valheim world",            tag: 'STUCK' },
+    { stamp: '01:14 AM', text: "the host's factorio crashed mid-save — 80 hours of shared world, gone",     tag: 'RIP'   },
+    { stamp: 'WED 6PM',  text: 'your co-op friend played alone and saved over your run',                    tag: 'OW'    },
+    { stamp: '$15/MO',   text: 'paying for a 24/7 server when your group only plays six hours a week',      tag: 'BILL'  },
+    { stamp: 'SAT',      text: "host is on holiday — nobody else has the latest valheim world",             tag: 'STUCK' },
   ]
   return `
     <section style="padding:90px 0 100px">
       <div class="wrap">
         <div class="head">
-          <span class="tape">A LOAD-BEARING TYPE OF PAIN</span>
+          <span class="tape">STUFF THAT REALLY HURTS</span>
         </div>
-        <h2>WHAT THIS SOLVES,<br/><span class="accent">ROUGHLY.</span></h2>
+        <h2>WHAT THIS FIXES,<br/><span class="accent">BASICALLY.</span></h2>
         <div class="problem-grid">
           ${woes.map(w => `
             <div class="problem-card">
@@ -172,8 +172,8 @@ function howItWorks() {
           <div class="step">
             <div class="n">01 · UPLOAD</div>
             <h3>HIT UPLOAD ↑</h3>
-            <p>Grab whatever your save folder looks like right now and send a copy
-            to the cloud. Each upload becomes its own labelled <em>version</em>.</p>
+            <p>Grab a snapshot of your save folder and send a copy to the cloud.
+            Each upload becomes its own labelled <em>version</em>.</p>
             <div class="visual step-upload">
               <div class="src-label">SOURCE</div>
               <div class="src-path">C:\\Users\\you\\AppData\\Local\\FactoryGame\\Saved\\…</div>
@@ -185,9 +185,9 @@ function howItWorks() {
           <div class="step">
             <div class="n">02 · AUTO-BACKUP</div>
             <h3>FLIP AUTO ON</h3>
-            <p>Checkpoint64 peeks at your save folder every couple of minutes. If
-            anything changed since last time, it uploads a fresh version on its
-            own. Differential — only changed files transfer.</p>
+            <p>Checkpoint64 checks your save folder every couple of minutes. If
+            anything changed, it uploads a fresh version on its own. Only the
+            changed files get sent — the rest is skipped.</p>
             <div class="visual step-auto" data-step-auto>
               <div class="bars">
                 <div class="bar on"></div>
@@ -196,16 +196,16 @@ function howItWorks() {
                 <div class="bar"></div>
               </div>
               <div class="label" data-auto-label>WATCHING…</div>
-              <div class="meta">every 2 minutes · differential</div>
+              <div class="meta">every 2 minutes · only what changed</div>
             </div>
           </div>
 
           <div class="step">
             <div class="n">03 · RESTORE</div>
             <h3>ROLL IT BACK</h3>
-            <p>Click <b>Versions →</b> on any save to see every backup. From there,
-            download or <b>Restore</b> — Checkpoint64 writes the files back
-            and marks that version as current.</p>
+            <p>Click <b>Versions →</b> on any save to see every backup. Pick one
+            and hit <b>Restore</b> — Checkpoint64 puts the files back and marks
+            that version as the current one.</p>
             <div class="visual step-restore">
               <div class="v-row"><span>v#012</span><span class="when">12m ago</span><span class="restore">RESTORE</span></div>
               <div class="v-row cur"><span>v#011</span><span class="when">2h ago</span><span class="here">← HERE</span></div>
@@ -257,8 +257,8 @@ function shelfMock() {
         </div>
         <h2>YOUR LIBRARY<br/>IS A <span class="accent">CARTRIDGE SHELF.</span></h2>
         <p class="lede">
-          Every save is a cartridge. Same game, different runs? Same shelf, different
-          carts. Hover, click, drag — it's an app, not a backup tool with a UI bolted on.
+          Every save is a cartridge. Same game, different runs? Same shelf,
+          different carts.
         </p>
 
         <div class="shelf-frame">
@@ -290,17 +290,17 @@ function shelfMock() {
 function features() {
   const feats = [
     { tag: 'VERSION HISTORY', title: 'EVERY UPLOAD\nIS A VERSION.',
-      body: 'Browse a flat timeline of every backup with file count, size, and the diff from the previous version. Restore writes back AND marks current — no confusion.' },
+      body: 'Scroll through every backup with file count, size, and what changed since last time. Hit Restore and it puts the save back AND marks it as current — no confusion.' },
     { tag: 'CO-OP LOCKS', title: 'ONE PERSON\nHOLDS THE WORLD.',
-      body: 'Singular co-op saves (Factorio, Satisfactory, Valheim, V Rising) only have one live world file at a time. Whoever holds the lock can upload it; everyone else pulls. Lock idle? Take it over with a warning prompt — no more "who has the latest save?"' },
-    { tag: 'DIFFERENTIAL', title: 'ONLY CHANGED\nBYTES TRANSFER.',
-      body: 'Every save is split into content-addressed blobs. A 14 MB save where only one file moved uploads 8 KB. Your bandwidth and quota will be fine.' },
-    { tag: 'PER-GAME RULES', title: 'INCLUDE / EXCLUDE\nWHAT MATTERS.',
-      body: 'Glob patterns per save. Skip the crash dumps and screenshots, keep the .sav. Auto-detected for the 40+ games Checkpoint64 already knows.' },
-    { tag: 'AGENT', title: 'RUNS IN THE\nBACKGROUND.',
-      body: "Native Tauri app — tiny memory, no Electron. Polls every 2 minutes, sleeps when nothing changes. Doesn't lock files while the game is running." },
+      body: 'Games like Factorio, Satisfactory, Valheim, and V Rising only have one live world file at a time. Whoever holds the lock can upload it; everyone else just downloads. Nobody using it? Grab the lock yourself — no more "who has the latest save?"' },
+    { tag: 'ONLY WHAT CHANGED', title: 'TINY\nUPLOADS.',
+      body: 'We only send the bits that actually changed. A 14 MB save where one file moved? Uploads 8 KB. Easy on your internet, easy on your storage.' },
+    { tag: 'PER-GAME RULES', title: 'PICK WHAT\nGETS BACKED UP.',
+      body: 'Choose which files to back up and which to ignore. Skip the crash logs and screenshots, keep the save. Already set up for the 40+ games Checkpoint64 knows about.' },
+    { tag: 'BACKGROUND APP', title: 'RUNS IN THE\nBACKGROUND.',
+      body: "A small, light app that barely uses any memory. Checks every 2 minutes and rests when nothing's changed. Won't get in the way while you're playing." },
     { tag: 'LOGBOOK', title: 'WHO DID WHAT,\nWHEN.',
-      body: 'Every claim, upload, restore, and lock-takeover ends up in the namespace logbook. Useful when your co-op partner blames you for the bad run.' },
+      body: "Every upload, restore, and lock-grab gets written down in your group's logbook. Handy when your co-op partner blames you for the bad run." },
   ]
   return `
     <section id="features">
@@ -310,8 +310,8 @@ function features() {
         </div>
         <h2>WHAT'S IN <span class="accent">THE BOX.</span></h2>
         <p class="lede">
-          Built the way a long-time save-scummer would build it. No ceremony,
-          no SaaS fluff, no "powered by AI." Just a working save vault.
+          Built by people who reload saves a lot. No fluff, no monthly fees,
+          no "powered by AI." Just a save vault that works.
         </p>
         <div class="features">
           ${feats.map(f => `
@@ -341,12 +341,13 @@ function logbookPreview() {
       <div class="wrap">
         <div class="head">
           <span class="tape" style="color:#a82828">▮ LOGBOOK · LIVE</span>
-          <span class="hand" style="color:#a82828;font-size:22px">shared with your namespace</span>
+          <span class="hand" style="color:#a82828;font-size:22px">shared with your group</span>
         </div>
         <h2>BLAME THE <span class="accent">RIGHT PERSON.</span></h2>
         <p class="lede">
-          Every action a namespace member takes is written to a tape. Useful for
-          co-op groups, modded servers, speedrunning teams, and "wait, who deleted that?"
+          Everything anyone in your group does gets written down. Handy for
+          co-op friends, modded servers, speedrun teams, and the classic
+          "wait, who deleted that?"
         </p>
 
         <div class="logbook">
@@ -397,9 +398,9 @@ function pricing() {
         </div>
         <h2>PAY ONCE.<br/><span class="accent">KEEP IT FOREVER.</span></h2>
         <p class="lede">
-          A one-time license. No subscription, no per-seat games, no surprise bill
-          when you forget to cancel. Pricing's not locked in yet — sign up below
-          and we'll let you know before launch.
+          Pay once, keep it forever. No monthly bill, no charge per person, no
+          surprise fees when you forget to cancel. The final price isn't set yet —
+          drop your email and we'll tell you before launch.
         </p>
 
         <div class="price-grid">
@@ -407,7 +408,7 @@ function pricing() {
           ${priceCard({
             tag: 'CO-OP', price: '$TBC', unit: 'one-time',
             tagline: 'for groups up to 8',
-            features: [ 'shared namespaces', 'co-op locks', 'activity logbook'],
+            features: [ 'shared group saves', 'co-op locks', 'activity logbook'],
             cta: 'NOTIFY ME', highlight: true,
           })}
          
@@ -436,8 +437,8 @@ function downloadStrip() {
           <div>
             <h2>SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span></h2>
             <p>
-              We're in private beta. Drop your email, pick a platform, and we'll
-              ping you the moment your build is ready.
+              We're still testing in private. Drop your email, pick what you
+              play on, and we'll let you know the moment it's ready.
             </p>
             <div class="signoff">↘ no spam, one email at launch</div>
           </div>
@@ -459,19 +460,19 @@ function downloadStrip() {
 function faq() {
   const items = [
     { q: "WHAT IS A 'SAVE'?",
-      a: 'Whatever your game decides to put on disk. Checkpoint64 treats one or more files in a folder as one save and versions the whole bundle together. You point it at the folder and tell it which files matter. We have defaults for 40+ common games.' },
+      a: 'Whatever your game writes to your hard drive. Checkpoint64 treats the files in a folder as one save and backs them up together. You point it at the folder and pick which files count. We’ve already set this up for 40+ popular games.' },
     { q: 'DO YOU UPLOAD WHILE THE GAME IS RUNNING?',
-      a: 'Yes, carefully. The agent never holds a write lock on save files. If a file is mid-write when it polls, the upload skips that tick and tries again — no torn writes, no crashes. Most games close their handles between autosaves anyway.' },
+      a: 'Yes, carefully. Checkpoint64 never locks your save files. If the game is in the middle of saving when we check, we wait a moment and try again — no broken files, no crashes. Most games finish saving in a split second anyway.' },
     { q: 'WHAT HAPPENS IF MY CO-OP PARTNER OVERWRITES MY UPLOAD?',
-      a: "They can't, by design. Only the lock-holder can upload. If they want to push, they have to claim the lock — which kicks you out with a warning. Your last version stays intact in history; you can always restore back to it." },
+      a: "They can’t, on purpose. Only the person holding the lock can upload. If they want to push their version, they have to grab the lock first — and that warns you before it happens. Your last version stays safe in the history; you can always roll back to it." },
     { q: 'DO I STILL NEED A DEDICATED SERVER?',
-      a: "For most groups, no. The point of a dedicated server is keeping the world available when the host's PC is off. Checkpoint64 gives you ~90% of that for a one-time fee: anyone with the lock pulls the latest version, plays their session, pushes it back. A typical co-op group saves $120–240 a year compared to renting a 24/7 box that idles 18 hours a day." },
+      a: "For most groups, no. The whole point of a dedicated server is keeping your world online when the host’s PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves $120–240 a year compared to renting a 24/7 server that sits idle 18 hours a day." },
     { q: 'DOES THIS WORK FOR CONSOLE SAVES?',
-      a: 'Only for consoles that expose their save folder to a PC — so emulators, cloud save exports from PS+/Xbox, and Steam-cloud-via-PC. The agent runs on Win/Mac/Linux only; no console clients.' },
+      a: 'Only if you can get your console saves onto a PC — like emulators, Xbox or PS+ cloud save exports, and Steam Cloud through your PC. Checkpoint64 itself only runs on Windows, Mac, and Linux.' },
     { q: 'WHAT WILL IT COST?',
-      a: "A one-time license — no subscription, no per-month, no per-seat fees. We're still settling on the exact number. Sign up to the launch list and we'll tell you before everyone else, and lock you in at the early-bird rate." },
+      a: "A one-time payment — no monthly fee, no charge per person. We’re still picking the exact number. Sign up to the launch list and we’ll tell you before everyone else, plus lock you in at the early-bird price." },
     { q: 'WHEN DOES IT SHIP?',
-      a: "Soon — we're in private beta now and aiming for a public launch later this year. Get on the list and we'll send one email the day Windows / Mac / Linux builds are ready." },
+      a: "Soon — we’re testing in private now and aiming for a public launch later this year. Get on the list and we’ll send one email the day the Windows / Mac / Linux versions are ready." },
   ]
   return `
     <section id="faq">
@@ -501,8 +502,8 @@ function footer() {
           <div class="col1">
             <div class="brand">CHECKPOINT64</div>
             <div class="blurb">
-              A save-vault for big runs. Built by people who lost a 200-hour
-              Factorio base and never recovered.
+              A safe place for your big runs. Built by people who lost a
+              200-hour Factorio base and never got over it.
             </div>
             <div class="sign">made for me. ✦</div>
           </div>

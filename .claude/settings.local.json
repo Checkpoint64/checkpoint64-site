@@ -9,7 +9,9 @@
       "Bash(mkdir -p out)",
       "Bash(tar -xf design -C out)",
       "Bash(npx vite *)",
-      "WebFetch(domain:vite.dev)"
+      "WebFetch(domain:vite.dev)",
+      "Bash(rtk npm *)",
+      "Bash(npm run *)"
     ]
   }
 }
