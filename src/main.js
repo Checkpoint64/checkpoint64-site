@@ -85,7 +85,7 @@ function hero() {
   const heroCarts = [
     { slot: 'slot-a', opts: { color: '#3df0ff', name: 'FACTORIO',          meta: '6h · 14.2 MB',  files: '48 files', status: 'SYNCED',  statusKind: 'on',   tilt: -7, size: 'md' } },
     { slot: 'slot-b', opts: { color: '#ffd23f', name: 'STARDEW Y3 SPRING', meta: 'just now · 4.1 MB', files: '3 files', status: 'AUTO ON', statusKind: 'on',   lock: { txt: 'LOCK U', kind: 'on' }, tilt: 5, size: 'md' } },
-    { slot: 'slot-c', opts: { color: '#ff5f4e', name: 'SATISFACTORY DEDI', meta: '2d · 308 KB',   files: '2 files',  status: 'AUTO ON', statusKind: 'on',   tilt: 2,  size: 'lg', scribble: 'latest run!' } },
+    { slot: 'slot-c', opts: { color: '#ff5f4e', name: 'SATISFACTORY', meta: '2d · 308 KB',   files: '2 files',  status: 'AUTO ON', statusKind: 'on',   tilt: 2,  size: 'lg', scribble: 'latest run!' } },
     { slot: 'slot-d', opts: { color: '#a07cff', name: 'ELDEN RING NG+3',   meta: '11h · 92 KB',   files: '1 file',   status: 'DIRTY',   statusKind: 'warn', tilt: -3, size: 'sm' } },
   ]
 
@@ -96,7 +96,7 @@ function hero() {
           <div>
             <div class="eyebrow">
               <span class="dot"></span>
-              v1.4.2 · OUT NOW · WIN · MAC · LINUX
+              v1 · OUT SOON · WIN · MAC · LINUX
             </div>
             <h1>NEVER LOSE<br/>A SAVE <span class="accent">AGAIN.</span></h1>
             <p class="sub">
@@ -114,7 +114,7 @@ function hero() {
               <span>yours, forever</span>
             </div>
           </div>
-          <div style="position:relative;min-height:480px">
+          <div class="hero-art">
             <div class="hero-stack">
               ${heroCarts.map(c => `<div class="slot ${c.slot}">${cartridge(c.opts)}</div>`).join('')}
             </div>
@@ -127,10 +127,10 @@ function hero() {
 
 function problemStrip() {
   const woes = [
-    { stamp: '01:14 AM', text: 'factorio 2.1 dropped, your save migration crashed mid-write', tag: 'RIP' },
-    { stamp: 'WED 6PM', text: 'co-op partner saved over your stardew year 4 wedding run',     tag: 'OW'  },
-    { stamp: 'TUE',     text: 'swapped to the new laptop, your appdata folder did not come along', tag: 'SAD' },
-    { stamp: '??',      text: "you don't even know which file is the right one anymore",      tag: '?'   },
+    { stamp: '01:14 AM', text: "the host's factorio update crashed mid-write — 80h shared world bricked",  tag: 'RIP'   },
+    { stamp: 'WED 6PM',  text: 'co-op partner played solo on the world file and overwrote your last run',  tag: 'OW'    },
+    { stamp: '$15/MO',   text: 'paying for a dedicated server for a group that plays six hours a week',    tag: 'BILL'  },
+    { stamp: 'SAT',      text: "host is on holiday — nobody else has the latest valheim world",            tag: 'STUCK' },
   ]
   return `
     <section style="padding:90px 0 100px">
@@ -291,8 +291,8 @@ function features() {
   const feats = [
     { tag: 'VERSION HISTORY', title: 'EVERY UPLOAD\nIS A VERSION.',
       body: 'Browse a flat timeline of every backup with file count, size, and the diff from the previous version. Restore writes back AND marks current — no confusion.' },
-    { tag: 'CO-OP LOCKS', title: 'ONE PERSON\nUPLOADS AT A TIME.',
-      body: 'Share a namespace with friends. Whoever holds the lock can upload; everyone else sees who. Lock expired? Take it over with a warning prompt.' },
+    { tag: 'CO-OP LOCKS', title: 'ONE PERSON\nHOLDS THE WORLD.',
+      body: 'Singular co-op saves (Factorio, Satisfactory, Valheim, V Rising) only have one live world file at a time. Whoever holds the lock can upload it; everyone else pulls. Lock idle? Take it over with a warning prompt — no more "who has the latest save?"' },
     { tag: 'DIFFERENTIAL', title: 'ONLY CHANGED\nBYTES TRANSFER.',
       body: 'Every save is split into content-addressed blobs. A 14 MB save where only one file moved uploads 8 KB. Your bandwidth and quota will be fine.' },
     { tag: 'PER-GAME RULES', title: 'INCLUDE / EXCLUDE\nWHAT MATTERS.',
@@ -403,24 +403,14 @@ function pricing() {
         </p>
 
         <div class="price-grid">
-          ${priceCard({
-            tag: 'SOLO', price: '$TBC', unit: 'one-time',
-            tagline: 'for one player',
-            features: ['unlimited games', 'full version history', 'local backups', 'cloud sync', 'lifetime updates'],
-            cta: 'NOTIFY ME',
-          })}
+        
           ${priceCard({
             tag: 'CO-OP', price: '$TBC', unit: 'one-time',
             tagline: 'for groups up to 8',
-            features: ['everything in solo', 'shared namespaces', 'co-op locks', 'activity logbook', '8 seats included'],
+            features: [ 'shared namespaces', 'co-op locks', 'activity logbook'],
             cta: 'NOTIFY ME', highlight: true,
           })}
-          ${priceCard({
-            tag: 'CLAN', price: '$TBC', unit: 'one-time',
-            tagline: 'for modded servers',
-            features: ['everything in co-op', 'unlimited seats', 'webhook integrations', 'retention policies', 'priority support'],
-            cta: 'TALK TO US',
-          })}
+         
         </div>
 
         <div class="notify-strip">
@@ -469,13 +459,13 @@ function downloadStrip() {
 function faq() {
   const items = [
     { q: "WHAT IS A 'SAVE'?",
-      a: 'Whatever your game decides to put on disk. Checkpoint64 treats one or more files in a folder as one save and versions the whole bundle together. You point it at the folder and tell it which files matter (glob patterns) — defaults are set for 40+ common games.' },
+      a: 'Whatever your game decides to put on disk. Checkpoint64 treats one or more files in a folder as one save and versions the whole bundle together. You point it at the folder and tell it which files matter. We have defaults for 40+ common games.' },
     { q: 'DO YOU UPLOAD WHILE THE GAME IS RUNNING?',
       a: 'Yes, carefully. The agent never holds a write lock on save files. If a file is mid-write when it polls, the upload skips that tick and tries again — no torn writes, no crashes. Most games close their handles between autosaves anyway.' },
-    { q: 'CAN I USE IT WITHOUT THE CLOUD?',
-      a: "Yep. Local-only mode keeps every version on a second disk or external drive. You lose co-op and cross-device, but you keep version history and restore — useful if you self-host or just don't trust the cloud." },
     { q: 'WHAT HAPPENS IF MY CO-OP PARTNER OVERWRITES MY UPLOAD?',
       a: "They can't, by design. Only the lock-holder can upload. If they want to push, they have to claim the lock — which kicks you out with a warning. Your last version stays intact in history; you can always restore back to it." },
+    { q: 'DO I STILL NEED A DEDICATED SERVER?',
+      a: "For most groups, no. The point of a dedicated server is keeping the world available when the host's PC is off. Checkpoint64 gives you ~90% of that for a one-time fee: anyone with the lock pulls the latest version, plays their session, pushes it back. A typical co-op group saves $120–240 a year compared to renting a 24/7 box that idles 18 hours a day." },
     { q: 'DOES THIS WORK FOR CONSOLE SAVES?',
       a: 'Only for consoles that expose their save folder to a PC — so emulators, cloud save exports from PS+/Xbox, and Steam-cloud-via-PC. The agent runs on Win/Mac/Linux only; no console clients.' },
     { q: 'WHAT WILL IT COST?',
@@ -511,10 +501,10 @@ function footer() {
           <div class="col1">
             <div class="brand">CHECKPOINT64</div>
             <div class="blurb">
-              A small save-vault for big runs. Built by people who lost a 200-hour
+              A save-vault for big runs. Built by people who lost a 200-hour
               Factorio base and never recovered.
             </div>
-            <div class="sign">made on a long weekend ✦</div>
+            <div class="sign">made for me. ✦</div>
           </div>
           <div>
             <h5>PRODUCT</h5>
@@ -539,14 +529,14 @@ function footer() {
             <h5>COMPANY</h5>
             <ul>
               <li><a href="#">About</a></li>
-              <li><a href="#">Discord</a></li>
+              <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank">Discord</a></li>
               <li><a href="#">Privacy</a></li>
               <li><a href="#">Status</a></li>
             </ul>
           </div>
         </div>
         <div class="copyline">
-          <span>© 2026 CHECKPOINT64 · ALL RIGHTS RESERVED</span>
+          <span>© ${new Date().getFullYear()} CHECKPOINT64 · ALL RIGHTS RESERVED</span>
           <span style="opacity:.6">NOT AFFILIATED WITH ANY GAME LISTED ABOVE</span>
         </div>
       </div>
@@ -606,7 +596,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
     submitBtn.innerHTML = '<span>SENDING...</span>'
 
     try {
-      const response = await fetch('https://savebetter.fly.dev/public/api/waitingList', {
+      const response = await fetch('https://app.checkpoint64.com/public/api/waitingList', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

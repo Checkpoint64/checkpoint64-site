@@ -403,13 +403,18 @@ section .head .tape::before {
 }
 .shelf-frame .sechead .add b { color: var(--accent); }
 
-.shelf-game { margin-bottom: 36px; }
+.shelf-game { padding: 0; margin-bottom: 40px; }
+.shelf-game:last-child { margin-bottom: 0; }
 
 .shelf-grid {
-  display: grid; gap: 28px;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  display: flex; flex-wrap: wrap;
+  gap: 32px 24px;
+  align-items: stretch;
+  padding-bottom: 14px; /* leave room for cart pins on the last row */
 }
+.shelf-grid > .cart { flex: 0 0 auto; }
 .shelf-grid .empty {
+  flex: 0 0 250px;
   background: transparent;
   border: 2px dashed rgba(244, 236, 216, 0.45);
   color: rgba(244, 236, 216, 0.5);
@@ -417,6 +422,11 @@ section .head .tape::before {
   display: flex; align-items: center; justify-content: center;
   min-height: 220px;
   text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .shelf-grid { gap: 28px; justify-content: center; }
+  .shelf-grid .empty { flex-basis: 100%; max-width: 250px; }
 }
 
 /* ---------- PROBLEM STRIP ---------- */
@@ -718,6 +728,7 @@ footer.bot .copyline {
 }
 
 /* Hero stack positioning */
+.hero-art { position: relative; min-height: 480px; }
 .hero-stack {
   position: relative;
   width: 100%;
@@ -731,6 +742,39 @@ footer.bot .copyline {
 .hero-stack .slot-b { top: 0; right: 6%; z-index: 2; }
 .hero-stack .slot-c { bottom: 30px; left: 30%; z-index: 3; }
 .hero-stack .slot-d { bottom: 0; right: 4%; z-index: 1; }
+
+@media (max-width: 940px) {
+  .hero-art { min-height: 0; margin-top: 24px; }
+  .hero-stack {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 16px;
+    place-items: center;
+    padding: 28px 0 12px;
+    overflow: visible;
+  }
+  .hero-stack > .slot {
+    position: static;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .hero-stack .cart {
+    width: 100% !important;
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stack { gap: 32px 12px; }
+  .hero-stack .cart { max-width: 100%; }
+  /* Soften the rotations so tilted carts don't clip neighbours on narrow screens */
+  .hero-stack .slot-a .cart { transform: rotate(-3deg) !important; }
+  .hero-stack .slot-b .cart { transform: rotate(2deg)  !important; }
+  .hero-stack .slot-c .cart { transform: rotate(1deg)  !important; }
+  .hero-stack .slot-d .cart { transform: rotate(-1deg) !important; }
+}
 
 .tilt-n7 { transform: rotate(-7deg); }
 .tilt-n3 { transform: rotate(-3deg); }
