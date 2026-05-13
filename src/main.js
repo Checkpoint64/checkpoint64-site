@@ -100,9 +100,9 @@ function hero() {
             </div>
             <h1>NEVER LOSE<br/>A SAVE <span class="accent">AGAIN.</span></h1>
             <p class="sub">
-              Checkpoint64 keeps an eye on your save folders and quietly copies
-              them to the cloud. Roll back to any save, any time. Play with friends
-              without anyone wiping your progress. Sleep easy after that 14-hour run.
+              Your saves, backed up forever. Pass worlds between friends like cartridges. 
+              No more "who has the latest?" Everyone stays in sync. Roll back bad runs. 
+              Host goes offline? Someone else picks up. Solo or co-op, always protected.
             </p>
             <div class="ctas">
               <a href="#download" class="btn prim">JOIN THE LIST <span>↗</span></a>
