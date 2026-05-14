@@ -1,8 +1,9 @@
 # Checkpoint64 — robots.txt
-# Allow all well-behaved crawlers.
+# Allow all well-behaved crawlers, but keep PR previews out of the index.
 
 User-agent: *
 Allow: /
+Disallow: /pr-preview/
 
 # Block known bad-actor scrapers (optional, polite blocks)
 User-agent: SemrushBot

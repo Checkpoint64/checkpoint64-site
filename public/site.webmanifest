@@ -2,8 +2,8 @@
   "name": "Checkpoint64 — game save backup",
   "short_name": "Checkpoint64",
   "description": "Automatic cloud backup, version history, and co-op locks for PC game saves.",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#f5efe1",
   "theme_color": "#ff5f4e",
@@ -11,13 +11,13 @@
   "categories": ["utilities", "games", "productivity"],
   "icons": [
     {
-      "src": "/retro_save_icon.svg",
+      "src": "./retro_save_icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     },
     {
-      "src": "/favicon.svg",
+      "src": "./favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml"
     }
