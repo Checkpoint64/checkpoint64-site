@@ -23,9 +23,9 @@
       ${f?`<span class="scribble">${e(f)}</span>`:``}
     </div>
   `}function r(){return`
-    <nav class="top">
+    <nav class="top" aria-label="Primary">
       <div class="inner">
-        <div class="brand">CHECKPOINT64</div>
+        <a href="/" class="brand" aria-label="Checkpoint64 — home">CHECKPOINT64</a>
         <div class="links">
           <a href="#how">HOW IT WORKS</a>
           <a href="#shelf">THE SHELF</a>
@@ -33,35 +33,35 @@
           <a href="#pricing">PRICING</a>
           <a href="#faq">FAQ</a>
         </div>
-        <a class="cta" href="#download">JOIN LIST ↗</a>
+        <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
       </div>
     </nav>
   `}function i(){return`
-    <header class="hero">
+    <header class="hero" role="banner">
       <div class="wrap">
         <div class="grid">
           <div>
-            <div class="eyebrow">
-              <span class="dot"></span>
+            <p class="eyebrow">
+              <span class="dot" aria-hidden="true"></span>
               v1 · OUT SOON · WIN · MAC · LINUX
-            </div>
+            </p>
             <h1>NEVER LOSE<br/>A SAVE <span class="accent">AGAIN.</span></h1>
             <p class="sub">
-              Your saves, backed up forever. Pass worlds between friends like cartridges. 
-              No more "who has the latest?" Everyone stays in sync. Roll back bad runs. 
+              Your saves, backed up forever. Pass worlds between friends like cartridges.
+              No more "who has the latest?" Everyone stays in sync. Roll back bad runs.
               Host goes offline? Someone else picks up. Solo or co-op, always protected.
             </p>
             <div class="ctas">
-              <a href="#download" class="btn prim">JOIN THE LIST <span>↗</span></a>
-              <a href="#how" class="btn ghost">SEE IT WORK</a>
+              <a href="#download" class="btn prim" aria-label="Join the Checkpoint64 launch list">JOIN THE LIST <span aria-hidden="true">↗</span></a>
+              <a href="#how" class="btn ghost" aria-label="See how Checkpoint64 works">SEE IT WORK</a>
             </div>
-            <div class="small">
+            <p class="small">
               <span>one-time purchase</span>
               <span>no subscription</span>
               <span>yours, forever</span>
-            </div>
+            </p>
           </div>
-          <div class="hero-art">
+          <div class="hero-art" aria-hidden="true">
             <div class="hero-stack">
               ${[{slot:`slot-a`,opts:{color:`#3df0ff`,name:`FACTORIO`,meta:`6h · 14.2 MB`,files:`48 files`,status:`SYNCED`,statusKind:`on`,tilt:-7,size:`md`}},{slot:`slot-b`,opts:{color:`#ffd23f`,name:`STARDEW Y3 SPRING`,meta:`just now · 4.1 MB`,files:`3 files`,status:`AUTO ON`,statusKind:`on`,lock:{txt:`LOCK U`,kind:`on`},tilt:5,size:`md`}},{slot:`slot-c`,opts:{color:`#ff5f4e`,name:`SATISFACTORY`,meta:`2d · 308 KB`,files:`2 files`,status:`AUTO ON`,statusKind:`on`,tilt:2,size:`lg`,scribble:`latest run!`}},{slot:`slot-d`,opts:{color:`#a07cff`,name:`ELDEN RING NG+3`,meta:`11h · 92 KB`,files:`1 file`,status:`DIRTY`,statusKind:`warn`,tilt:-3,size:`sm`}}].map(e=>`<div class="slot ${e.slot}">${n(e.opts)}</div>`).join(``)}
             </div>
@@ -70,32 +70,32 @@
       </div>
     </header>
   `}function a(){return`
-    <section style="padding:90px 0 100px">
+    <section style="padding:90px 0 100px" aria-labelledby="problems-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape">STUFF THAT REALLY HURTS</span>
         </div>
-        <h2>WHAT THIS FIXES,<br/><span class="accent">BASICALLY.</span></h2>
-        <div class="problem-grid">
+        <h2 id="problems-heading">WHAT THIS FIXES,<br/><span class="accent">BASICALLY.</span></h2>
+        <ul class="problem-grid">
           ${[{stamp:`01:14 AM`,text:`the host's factorio crashed mid-save — 80 hours of shared world, gone`,tag:`RIP`},{stamp:`WED 6PM`,text:`your co-op friend played alone and saved over your run`,tag:`OW`},{stamp:`$15/MO`,text:`paying for a 24/7 server when your group only plays six hours a week`,tag:`BILL`},{stamp:`SAT`,text:`host is on holiday — nobody else has the latest valheim world`,tag:`STUCK`}].map(t=>`
-            <div class="problem-card">
+            <li class="problem-card">
               <div class="head">
-                <span>▸ ${e(t.stamp)}</span>
+                <span><span aria-hidden="true">▸ </span>${e(t.stamp)}</span>
                 <span class="tag">${e(t.tag)}</span>
               </div>
-              <div class="text">${e(t.text)}</div>
-            </div>
+              <p class="text">${e(t.text)}</p>
+            </li>
           `).join(``)}
-        </div>
+        </ul>
       </div>
     </section>
   `}function o(){return`
-    <section class="paper" id="how">
+    <section class="paper" id="how" aria-labelledby="how-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape" style="color:#a82828">▮ HOW CHECKPOINT64 WORKS</span>
         </div>
-        <h2>POINT IT AT A FOLDER.<br/><span class="accent">FORGET ABOUT IT.</span></h2>
+        <h2 id="how-heading">POINT IT AT A FOLDER.<br/><span class="accent">FORGET ABOUT IT.</span></h2>
         <p class="lede">
           The whole point is that you don't have to think about save files anymore.
           Three steps, once, and you're done forever.
@@ -149,13 +149,13 @@
       </div>
     </section>
   `}function s(){return`
-    <section id="shelf">
+    <section id="shelf" aria-labelledby="shelf-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape">▮ A LOOK AT THE APP</span>
           <span class="hand" style="color:var(--accent);font-size:22px">not a screenshot — live</span>
         </div>
-        <h2>YOUR LIBRARY<br/>IS A <span class="accent">CARTRIDGE SHELF.</span></h2>
+        <h2 id="shelf-heading">YOUR LIBRARY<br/>IS A <span class="accent">CARTRIDGE SHELF.</span></h2>
         <p class="lede">
           Every save is a cartridge. Same game, different runs? Same shelf,
           different carts.
@@ -185,12 +185,12 @@
       </div>
     </section>
   `}function c(){return`
-    <section id="features">
+    <section id="features" aria-labelledby="features-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape">▮ FEATURES</span>
         </div>
-        <h2>WHAT'S IN <span class="accent">THE BOX.</span></h2>
+        <h2 id="features-heading">WHAT'S IN <span class="accent">THE BOX.</span></h2>
         <p class="lede">
           Built by people who reload saves a lot. No fluff, no monthly fees,
           no "powered by AI." Just a save vault that works.
@@ -213,13 +213,13 @@ WHEN.`,body:`Every upload, restore, and lock-grab gets written down in your grou
       </div>
     </section>
   `}function l(){let t=[{t:`12m`,who:`you`,tag:`v#012`,body:`uploaded a new version`,id:`8af23901`},{t:`1h`,who:`jess`,tag:`lock`,body:`claimed the lock`,id:`8af23901`},{t:`1h`,who:`jess`,tag:`v#011`,body:`auto-backed up`,id:`8af23901`},{t:`3h`,who:`you`,tag:`lock`,body:`released the lock`,id:`8af23901`},{t:`yest`,who:`kel`,tag:`rest`,body:`restored a prior version`,id:`2b91f0c4`},{t:`yest`,who:`you`,tag:`save`,body:`created <b>STARDEW Y3 SPRING</b>`,id:`2b91f0c4`}];return`
-    <section class="paper">
+    <section class="paper" aria-labelledby="logbook-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape" style="color:#a82828">▮ LOGBOOK · LIVE</span>
           <span class="hand" style="color:#a82828;font-size:22px">shared with your group</span>
         </div>
-        <h2>BLAME THE <span class="accent">RIGHT PERSON.</span></h2>
+        <h2 id="logbook-heading">BLAME THE <span class="accent">RIGHT PERSON.</span></h2>
         <p class="lede">
           Everything anyone in your group does gets written down. Handy for
           co-op friends, modded servers, speedrun teams, and the classic
@@ -259,12 +259,12 @@ WHEN.`,body:`Every upload, restore, and lock-grab gets written down in your grou
       <a href="#download" class="cta-btn">${e(o)}</a>
     </div>
   `}function d(){return`
-    <section id="pricing">
+    <section id="pricing" aria-labelledby="pricing-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape">▮ PRICING</span>
         </div>
-        <h2>PAY ONCE.<br/><span class="accent">KEEP IT FOREVER.</span></h2>
+        <h2 id="pricing-heading">PAY ONCE.<br/><span class="accent">KEEP IT FOREVER.</span></h2>
         <p class="lede">
           Pay once, keep it forever. No monthly bill, no charge per person, no
           surprise fees when you forget to cancel. The final price isn't set yet —
@@ -282,44 +282,46 @@ WHEN.`,body:`Every upload, restore, and lock-grab gets written down in your grou
             <span class="hand" style="color:var(--accent);font-size:20px;margin-right:10px">↘</span>
             Pricing isn't final yet. Drop your email and we'll tell you the day it ships.
           </div>
-          <form data-notify-form>
-            <input type="email" placeholder="you@somewhere.com" />
+          <form data-notify-form aria-label="Notify me about Checkpoint64 pricing">
+            <label for="notify-email-pricing" class="visually-hidden">Email address</label>
+            <input id="notify-email-pricing" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
             <button type="submit" class="btn prim">NOTIFY ME</button>
           </form>
         </div>
       </div>
     </section>
   `}function f(){return`
-    <section class="cta-strip" id="download">
+    <section class="cta-strip" id="download" aria-labelledby="download-heading">
       <div class="wrap">
         <div class="inner">
           <div>
-            <h2>SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span></h2>
+            <h2 id="download-heading">SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span></h2>
             <p>
               We're still testing in private. Drop your email, pick what you
               play on, and we'll let you know the moment it's ready.
             </p>
-            <div class="signoff">↘ no spam, one email at launch</div>
+            <p class="signoff"><span aria-hidden="true">↘ </span>no spam, one email at launch</p>
           </div>
           <div class="downloads">
-            <a class="dl" href="#"><span>WINDOWS</span><span class="arch">.msi · coming soon</span></a>
-            <a class="dl" href="#"><span>MACOS</span><span class="arch">.dmg · arm64 + x64 · soon</span></a>
-            <a class="dl" href="#"><span>LINUX</span><span class="arch">.appimage · coming soon</span></a>
-            <form data-notify-form>
-              <input type="email" placeholder="you@somewhere.com" />
-              <button type="submit" class="dl"><span>NOTIFY ↗</span></button>
+            <a class="dl" href="#" aria-label="Checkpoint64 for Windows — coming soon"><span>WINDOWS</span><span class="arch">.msi · coming soon</span></a>
+            <a class="dl" href="#" aria-label="Checkpoint64 for macOS — coming soon"><span>MACOS</span><span class="arch">.dmg · arm64 + x64 · soon</span></a>
+            <a class="dl" href="#" aria-label="Checkpoint64 for Linux — coming soon"><span>LINUX</span><span class="arch">.appimage · coming soon</span></a>
+            <form data-notify-form aria-label="Notify me when Checkpoint64 ships">
+              <label for="notify-email-download" class="visually-hidden">Email address</label>
+              <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
+              <button type="submit" class="dl"><span>NOTIFY <span aria-hidden="true">↗</span></span></button>
             </form>
           </div>
         </div>
       </div>
     </section>
   `}function p(){return`
-    <section id="faq">
+    <section id="faq" aria-labelledby="faq-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape">▮ FAQ</span>
         </div>
-        <h2>FREQUENTLY <span class="accent">CHECKED.</span></h2>
+        <h2 id="faq-heading">FREQUENTLY <span class="accent">CHECKED.</span></h2>
         <div class="faq">
           ${[{q:`WHAT IS A 'SAVE'?`,a:`Whatever your game writes to your hard drive. Checkpoint64 treats the files in a folder as one save and backs them up together. You point it at the folder and pick which files count. We’ve already set this up for 40+ popular games.`},{q:`DO YOU UPLOAD WHILE THE GAME IS RUNNING?`,a:`Yes, carefully. Checkpoint64 never locks your save files. If the game is in the middle of saving when we check, we wait a moment and try again — no broken files, no crashes. Most games finish saving in a split second anyway.`},{q:`WHAT HAPPENS IF MY CO-OP PARTNER OVERWRITES MY UPLOAD?`,a:`They can’t, on purpose. Only the person holding the lock can upload. If they want to push their version, they have to grab the lock first — and that warns you before it happens. Your last version stays safe in the history; you can always roll back to it.`},{q:`DO I STILL NEED A DEDICATED SERVER?`,a:`For most groups, no. The whole point of a dedicated server is keeping your world online when the host’s PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves $120–240 a year compared to renting a 24/7 server that sits idle 18 hours a day.`},{q:`DOES THIS WORK FOR CONSOLE SAVES?`,a:`Only if you can get your console saves onto a PC — like emulators, Xbox or PS+ cloud save exports, and Steam Cloud through your PC. Checkpoint64 itself only runs on Windows, Mac, and Linux.`},{q:`WHAT WILL IT COST?`,a:`A one-time payment — no monthly fee, no charge per person. We’re still picking the exact number. Sign up to the launch list and we’ll tell you before everyone else, plus lock you in at the early-bird price.`},{q:`WHEN DOES IT SHIP?`,a:`Soon — we’re testing in private now and aiming for a public launch later this year. Get on the list and we’ll send one email the day the Windows / Mac / Linux versions are ready.`}].map(t=>`
             <details>
@@ -331,19 +333,19 @@ WHEN.`,body:`Every upload, restore, and lock-grab gets written down in your grou
       </div>
     </section>
   `}function m(){return`
-    <footer class="bot">
+    <footer class="bot" role="contentinfo">
       <div class="wrap">
         <div class="inner">
           <div class="col1">
             <div class="brand">CHECKPOINT64</div>
-            <div class="blurb">
+            <p class="blurb">
               A safe place for your big runs. Built by people who lost a
               200-hour Factorio base and never got over it.
-            </div>
-            <div class="sign">made for me. ✦</div>
+            </p>
+            <p class="sign">made for me. <span aria-hidden="true">✦</span></p>
           </div>
-          <div>
-            <h5>PRODUCT</h5>
+          <nav aria-label="Product">
+            <h2 class="footer-h">PRODUCT</h2>
             <ul>
               <li><a href="#how">How it works</a></li>
               <li><a href="#features">Features</a></li>
@@ -351,25 +353,25 @@ WHEN.`,body:`Every upload, restore, and lock-grab gets written down in your grou
               <li><a href="#download">Join the list</a></li>
               <li><a href="#">Changelog</a></li>
             </ul>
-          </div>
-          <div>
-            <h5>RESOURCES</h5>
+          </nav>
+          <nav aria-label="Resources">
+            <h2 class="footer-h">RESOURCES</h2>
             <ul>
               <li><a href="#">Game database</a></li>
               <li><a href="#">Roadmap</a></li>
               <li><a href="#">Beta access</a></li>
               <li><a href="#">Press kit</a></li>
             </ul>
-          </div>
-          <div>
-            <h5>COMPANY</h5>
+          </nav>
+          <nav aria-label="Company">
+            <h2 class="footer-h">COMPANY</h2>
             <ul>
               <li><a href="#">About</a></li>
-              <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank">Discord</a></li>
+              <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="Join the Checkpoint64 Discord (opens in a new tab)">Discord</a></li>
               <li><a href="#">Privacy</a></li>
               <li><a href="#">Status</a></li>
             </ul>
-          </div>
+          </nav>
         </div>
         <div class="copyline">
           <span>© ${new Date().getFullYear()} CHECKPOINT64 · ALL RIGHTS RESERVED</span>
@@ -377,4 +379,4 @@ WHEN.`,body:`Every upload, restore, and lock-grab gets written down in your grou
         </div>
       </div>
     </footer>
-  `}document.querySelector(`#app`).innerHTML=[r(),i(),a(),o(),s(),c(),l(),d(),f(),p(),m()].join(``);var h=document.querySelector(`[data-step-auto]`);if(h){let e=[`WATCHING…`,`CHANGES DETECTED`,`UPLOADING…`,`SYNCED`],t=[`#3df0ff`,`#ffe0a8`,`#a07cff`,`#c8efb8`],n=h.querySelectorAll(`.bar`),r=h.querySelector(`[data-auto-label]`),i=0,a=()=>{n.forEach((e,t)=>e.classList.toggle(`on`,t<=i)),r.textContent=e[i],r.style.background=t[i]};a(),setInterval(()=>{i=(i+1)%e.length,a()},1100)}document.querySelectorAll(`[data-notify-form]`).forEach(e=>{e.addEventListener(`submit`,async t=>{t.preventDefault();let n=e.querySelector(`input[type="email"]`),r=e.querySelector(`button[type="submit"]`),i=n.value.trim();if(!i){alert(`Please enter your email address`);return}n.disabled=!0,r.disabled=!0;let a=r.innerHTML;r.innerHTML=`<span>SENDING...</span>`;try{let e=await fetch(`https://app.checkpoint64.com/public/api/waitingList`,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({email:i})});if(e.ok)r.innerHTML=`<span>✓ ADDED</span>`,n.value=``,setTimeout(()=>{r.innerHTML=a},3e3);else throw Error(`Server error: ${e.status}`)}catch(e){console.error(`Error submitting form:`,e),alert(`Failed to join the waiting list. Please try again later.`),r.innerHTML=a}finally{n.disabled=!1,r.disabled=!1}})});
+  `}document.querySelector(`#app`).innerHTML=[r(),`<main id="main" role="main">`,i(),a(),o(),s(),c(),l(),d(),f(),p(),`</main>`,m()].join(``),document.title=`Checkpoint64 — Automatic Cloud Backup & Versioning for PC Game Saves`;var h=document.querySelector(`[data-step-auto]`);if(h){let e=[`WATCHING…`,`CHANGES DETECTED`,`UPLOADING…`,`SYNCED`],t=[`#3df0ff`,`#ffe0a8`,`#a07cff`,`#c8efb8`],n=h.querySelectorAll(`.bar`),r=h.querySelector(`[data-auto-label]`),i=0,a=()=>{n.forEach((e,t)=>e.classList.toggle(`on`,t<=i)),r.textContent=e[i],r.style.background=t[i]};a(),setInterval(()=>{i=(i+1)%e.length,a()},1100)}document.querySelectorAll(`[data-notify-form]`).forEach(e=>{e.addEventListener(`submit`,async t=>{t.preventDefault();let n=e.querySelector(`input[type="email"]`),r=e.querySelector(`button[type="submit"]`),i=n.value.trim();if(!i){alert(`Please enter your email address`);return}n.disabled=!0,r.disabled=!0;let a=r.innerHTML;r.innerHTML=`<span>SENDING...</span>`;try{let e=await fetch(`https://app.checkpoint64.com/public/api/waitingList`,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({email:i})});if(e.ok)r.innerHTML=`<span>✓ ADDED</span>`,n.value=``,setTimeout(()=>{r.innerHTML=a},3e3);else throw Error(`Server error: ${e.status}`)}catch(e){console.error(`Error submitting form:`,e),alert(`Failed to join the waiting list. Please try again later.`),r.innerHTML=a}finally{n.disabled=!1,r.disabled=!1}})});
