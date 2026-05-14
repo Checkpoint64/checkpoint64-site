@@ -2,15 +2,221 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/retro_save_icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Checkpoint64 — back up every checkpoint</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Primary SEO -->
+    <title>Checkpoint64 — Automatic Cloud Backup &amp; Versioning for PC Game Saves</title>
+    <meta name="description" content="Checkpoint64 automatically backs up your PC game saves to the cloud, keeps full version history, and lets co-op friends share worlds safely with locks. One-time purchase. Windows, Mac, Linux." />
+    <meta name="keywords" content="game save backup, cloud save sync, co-op save sharing, factorio save backup, satisfactory save backup, valheim save backup, stardew valley save sync, dedicated server alternative, save file versioning, PC game save cloud, automatic save backup, save manager, game save vault" />
+    <meta name="author" content="Checkpoint64" />
+    <meta name="application-name" content="Checkpoint64" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#f5efe1" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1a1814" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href="https://checkpoint64.com/" />
+
+    <!-- Icons & manifest (relative so PR-preview subpaths resolve them) -->
+    <link rel="icon" type="image/svg+xml" href="./retro_save_icon.svg" />
+    <link rel="alternate icon" href="./favicon.svg" />
+    <link rel="mask-icon" href="./retro_save_icon.svg" color="#ff5f4e" />
+    <link rel="apple-touch-icon" href="./retro_save_icon.svg" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="Checkpoint64" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Checkpoint64" />
+    <meta property="og:title" content="Checkpoint64 — Automatic Cloud Backup &amp; Versioning for PC Game Saves" />
+    <meta property="og:description" content="Never lose a save again. Automatic cloud backup, full version history, and co-op locks so friends can share worlds without overwriting each other. One-time purchase." />
+    <meta property="og:url" content="https://checkpoint64.com/" />
+    <meta property="og:image" content="https://checkpoint64.com/og-image.svg" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Checkpoint64 — never lose a save again. A retro cartridge shelf of game saves." />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Checkpoint64 — Automatic Cloud Backup &amp; Versioning for PC Game Saves" />
+    <meta name="twitter:description" content="Never lose a save again. Automatic cloud backup, full version history, and co-op locks. One-time purchase. Windows, Mac, Linux." />
+    <meta name="twitter:image" content="https://checkpoint64.com/og-image.svg" />
+    <meta name="twitter:image:alt" content="Checkpoint64 — never lose a save again." />
+
+    <!-- Performance hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://app.checkpoint64.com" />
+    <link rel="preconnect" href="https://app.checkpoint64.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured data: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Checkpoint64",
+      "url": "https://checkpoint64.com/",
+      "logo": "https://checkpoint64.com/retro_save_icon.svg",
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn"
+      ]
+    }
+    </script>
+
+    <!-- Structured data: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Checkpoint64",
+      "url": "https://checkpoint64.com/",
+      "inLanguage": "en"
+    }
+    </script>
+
+    <!-- Structured data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Checkpoint64",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Backup Software",
+      "operatingSystem": "Windows, macOS, Linux",
+      "url": "https://checkpoint64.com/",
+      "description": "Automatic cloud backup, full version history, and co-op locks for PC game saves. Pay once, keep it forever.",
+      "image": "https://checkpoint64.com/og-image.svg",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/PreOrder",
+        "url": "https://checkpoint64.com/#pricing"
+      },
+      "featureList": [
+        "Automatic background backups every 2 minutes",
+        "Full version history for every save",
+        "Co-op locks so only one person can upload at a time",
+        "Delta uploads — only the changed bytes are sent",
+        "Per-game backup rules with 40+ presets",
+        "Shared activity logbook for co-op groups",
+        "One-time purchase, no subscription"
+      ]
+    }
+    </script>
+
+    <!-- Structured data: FAQPage (mirrors the in-page FAQ for rich results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a 'save'?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Whatever your game writes to your hard drive. Checkpoint64 treats the files in a folder as one save and backs them up together. You point it at the folder and pick which files count. We've already set this up for 40+ popular games."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you upload while the game is running?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, carefully. Checkpoint64 never locks your save files. If the game is in the middle of saving when we check, we wait a moment and try again — no broken files, no crashes. Most games finish saving in a split second anyway."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if my co-op partner overwrites my upload?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They can't, on purpose. Only the person holding the lock can upload. If they want to push their version, they have to grab the lock first — and that warns you before it happens. Your last version stays safe in the history; you can always roll back to it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I still need a dedicated server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For most groups, no. The whole point of a dedicated server is keeping your world online when the host's PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves $120–240 a year compared to renting a 24/7 server that sits idle 18 hours a day."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this work for console saves?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only if you can get your console saves onto a PC — like emulators, Xbox or PS+ cloud save exports, and Steam Cloud through your PC. Checkpoint64 itself only runs on Windows, Mac, and Linux."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What will it cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A one-time payment — no monthly fee, no charge per person. We're still picking the exact number. Sign up to the launch list and we'll tell you before everyone else, plus lock you in at the early-bird price."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When does it ship?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Soon — we're testing in private now and aiming for a public launch later this year. Get on the list and we'll send one email the day the Windows, Mac, and Linux versions are ready."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div id="app"></div>
+
+    <!-- Crawler-friendly fallback for non-JS user agents. Mirrors the key on-page copy. -->
+    <noscript>
+      <main id="main">
+        <h1>Checkpoint64 — never lose a game save again</h1>
+        <p>Checkpoint64 is a save-file backup tool for PC gamers. It automatically uploads your saves to the cloud, keeps every version, and lets co-op friends share worlds safely with built-in locks. Pay once. Works on Windows, macOS, and Linux.</p>
+
+        <h2>How it works</h2>
+        <ol>
+          <li><strong>Upload:</strong> Point Checkpoint64 at your save folder. Each upload becomes a labelled version.</li>
+          <li><strong>Auto-backup:</strong> Every couple of minutes it checks for changes and uploads only the bytes that moved.</li>
+          <li><strong>Restore:</strong> Pick any past version from the history and roll back with one click.</li>
+        </ol>
+
+        <h2>Features</h2>
+        <ul>
+          <li>Full version history for every save</li>
+          <li>Co-op locks for shared single-world games (Factorio, Satisfactory, Valheim, V Rising, and more)</li>
+          <li>Delta uploads — a 14 MB save where one file moved sends 8 KB</li>
+          <li>Per-game backup rules with 40+ presets</li>
+          <li>Lightweight background app that runs while you play</li>
+          <li>Shared activity logbook so you can see who did what</li>
+        </ul>
+
+        <h2>Pricing</h2>
+        <p>One-time purchase, no subscription, no per-seat fee. Final price to be announced at launch.</p>
+
+        <h2>Join the launch list</h2>
+        <p>Checkpoint64 is in private testing. Email us at <a href="https://checkpoint64.com/#download">checkpoint64.com</a> to get on the list and we'll send one email the day it ships.</p>
+
+        <p><em>This site requires JavaScript for the full interactive experience.</em></p>
+      </main>
+    </noscript>
+
     <script type="module" src="/src/main.js"></script>
+
+
   </body>
 </html>

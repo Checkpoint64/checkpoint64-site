@@ -66,9 +66,9 @@ function cartridge({
 
 function topNav() {
   return `
-    <nav class="top">
+    <nav class="top" aria-label="Primary">
       <div class="inner">
-        <div class="brand">CHECKPOINT64</div>
+        <a href="/" class="brand" aria-label="Checkpoint64 — home">CHECKPOINT64</a>
         <div class="links">
           <a href="#how">HOW IT WORKS</a>
           <a href="#shelf">THE SHELF</a>
@@ -76,7 +76,7 @@ function topNav() {
           <a href="#pricing">PRICING</a>
           <a href="#faq">FAQ</a>
         </div>
-        <a class="cta" href="#download">JOIN LIST ↗</a>
+        <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
       </div>
     </nav>
   `
@@ -91,31 +91,31 @@ function hero() {
   ]
 
   return `
-    <header class="hero">
+    <header class="hero" role="banner">
       <div class="wrap">
         <div class="grid">
           <div>
-            <div class="eyebrow">
-              <span class="dot"></span>
+            <p class="eyebrow">
+              <span class="dot" aria-hidden="true"></span>
               v1 · OUT SOON · WIN · MAC · LINUX
-            </div>
+            </p>
             <h1>NEVER LOSE<br/>A SAVE <span class="accent">AGAIN.</span></h1>
             <p class="sub">
-              Your saves, backed up forever. Pass worlds between friends like cartridges. 
-              No more "who has the latest?" Everyone stays in sync. Roll back bad runs. 
+              Your saves, backed up forever. Pass worlds between friends like cartridges.
+              No more "who has the latest?" Everyone stays in sync. Roll back bad runs.
               Host goes offline? Someone else picks up. Solo or co-op, always protected.
             </p>
             <div class="ctas">
-              <a href="#download" class="btn prim">JOIN THE LIST <span>↗</span></a>
-              <a href="#how" class="btn ghost">SEE IT WORK</a>
+              <a href="#download" class="btn prim" aria-label="Join the Checkpoint64 launch list">JOIN THE LIST <span aria-hidden="true">↗</span></a>
+              <a href="#how" class="btn ghost" aria-label="See how Checkpoint64 works">SEE IT WORK</a>
             </div>
-            <div class="small">
+            <p class="small">
               <span>one-time purchase</span>
               <span>no subscription</span>
               <span>yours, forever</span>
-            </div>
+            </p>
           </div>
-          <div class="hero-art">
+          <div class="hero-art" aria-hidden="true">
             <div class="hero-stack">
               ${heroCarts.map(c => `<div class="slot ${c.slot}">${cartridge(c.opts)}</div>`).join('')}
             </div>
@@ -134,23 +134,23 @@ function problemStrip() {
     { stamp: 'SAT',      text: "host is on holiday — nobody else has the latest valheim world",             tag: 'STUCK' },
   ]
   return `
-    <section style="padding:90px 0 100px">
+    <section style="padding:90px 0 100px" aria-labelledby="problems-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape">STUFF THAT REALLY HURTS</span>
         </div>
-        <h2>WHAT THIS FIXES,<br/><span class="accent">BASICALLY.</span></h2>
-        <div class="problem-grid">
+        <h2 id="problems-heading">WHAT THIS FIXES,<br/><span class="accent">BASICALLY.</span></h2>
+        <ul class="problem-grid">
           ${woes.map(w => `
-            <div class="problem-card">
+            <li class="problem-card">
               <div class="head">
-                <span>▸ ${esc(w.stamp)}</span>
+                <span><span aria-hidden="true">▸ </span>${esc(w.stamp)}</span>
                 <span class="tag">${esc(w.tag)}</span>
               </div>
-              <div class="text">${esc(w.text)}</div>
-            </div>
+              <p class="text">${esc(w.text)}</p>
+            </li>
           `).join('')}
-        </div>
+        </ul>
       </div>
     </section>
   `
@@ -158,12 +158,12 @@ function problemStrip() {
 
 function howItWorks() {
   return `
-    <section class="paper" id="how">
+    <section class="paper" id="how" aria-labelledby="how-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape" style="color:#a82828">▮ HOW CHECKPOINT64 WORKS</span>
         </div>
-        <h2>POINT IT AT A FOLDER.<br/><span class="accent">FORGET ABOUT IT.</span></h2>
+        <h2 id="how-heading">POINT IT AT A FOLDER.<br/><span class="accent">FORGET ABOUT IT.</span></h2>
         <p class="lede">
           The whole point is that you don't have to think about save files anymore.
           Three steps, once, and you're done forever.
@@ -250,13 +250,13 @@ function shelfMock() {
   ]
 
   return `
-    <section id="shelf">
+    <section id="shelf" aria-labelledby="shelf-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape">▮ A LOOK AT THE APP</span>
           <span class="hand" style="color:var(--accent);font-size:22px">not a screenshot — live</span>
         </div>
-        <h2>YOUR LIBRARY<br/>IS A <span class="accent">CARTRIDGE SHELF.</span></h2>
+        <h2 id="shelf-heading">YOUR LIBRARY<br/>IS A <span class="accent">CARTRIDGE SHELF.</span></h2>
         <p class="lede">
           Every save is a cartridge. Same game, different runs? Same shelf,
           different carts.
@@ -304,12 +304,12 @@ function features() {
       body: "Every upload, restore, and lock-grab gets written down in your group's logbook. Handy when your co-op partner blames you for the bad run." },
   ]
   return `
-    <section id="features">
+    <section id="features" aria-labelledby="features-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape">▮ FEATURES</span>
         </div>
-        <h2>WHAT'S IN <span class="accent">THE BOX.</span></h2>
+        <h2 id="features-heading">WHAT'S IN <span class="accent">THE BOX.</span></h2>
         <p class="lede">
           Built by people who reload saves a lot. No fluff, no monthly fees,
           no "powered by AI." Just a save vault that works.
@@ -338,13 +338,13 @@ function logbookPreview() {
     { t: 'yest', who: 'you',  tag: 'save',  body: 'created <b>STARDEW Y3 SPRING</b>',        id: '2b91f0c4' },
   ]
   return `
-    <section class="paper">
+    <section class="paper" aria-labelledby="logbook-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape" style="color:#a82828">▮ LOGBOOK · LIVE</span>
           <span class="hand" style="color:#a82828;font-size:22px">shared with your group</span>
         </div>
-        <h2>BLAME THE <span class="accent">RIGHT PERSON.</span></h2>
+        <h2 id="logbook-heading">BLAME THE <span class="accent">RIGHT PERSON.</span></h2>
         <p class="lede">
           Everything anyone in your group does gets written down. Handy for
           co-op friends, modded servers, speedrun teams, and the classic
@@ -392,12 +392,12 @@ function priceCard({ tag, price, unit, tagline, features: fs, cta, highlight }) 
 
 function pricing() {
   return `
-    <section id="pricing">
+    <section id="pricing" aria-labelledby="pricing-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape">▮ PRICING</span>
         </div>
-        <h2>PAY ONCE.<br/><span class="accent">KEEP IT FOREVER.</span></h2>
+        <h2 id="pricing-heading">PAY ONCE.<br/><span class="accent">KEEP IT FOREVER.</span></h2>
         <p class="lede">
           Pay once, keep it forever. No monthly bill, no charge per person, no
           surprise fees when you forget to cancel. The final price isn't set yet —
@@ -420,8 +420,9 @@ function pricing() {
             <span class="hand" style="color:var(--accent);font-size:20px;margin-right:10px">↘</span>
             Pricing isn't final yet. Drop your email and we'll tell you the day it ships.
           </div>
-          <form data-notify-form>
-            <input type="email" placeholder="you@somewhere.com" />
+          <form data-notify-form aria-label="Notify me about Checkpoint64 pricing">
+            <label for="notify-email-pricing" class="visually-hidden">Email address</label>
+            <input id="notify-email-pricing" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
             <button type="submit" class="btn prim">NOTIFY ME</button>
           </form>
         </div>
@@ -432,24 +433,25 @@ function pricing() {
 
 function downloadStrip() {
   return `
-    <section class="cta-strip" id="download">
+    <section class="cta-strip" id="download" aria-labelledby="download-heading">
       <div class="wrap">
         <div class="inner">
           <div>
-            <h2>SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span></h2>
+            <h2 id="download-heading">SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span></h2>
             <p>
               We're still testing in private. Drop your email, pick what you
               play on, and we'll let you know the moment it's ready.
             </p>
-            <div class="signoff">↘ no spam, one email at launch</div>
+            <p class="signoff"><span aria-hidden="true">↘ </span>no spam, one email at launch</p>
           </div>
           <div class="downloads">
-            <a class="dl" href="#"><span>WINDOWS</span><span class="arch">.msi · coming soon</span></a>
-            <a class="dl" href="#"><span>MACOS</span><span class="arch">.dmg · arm64 + x64 · soon</span></a>
-            <a class="dl" href="#"><span>LINUX</span><span class="arch">.appimage · coming soon</span></a>
-            <form data-notify-form>
-              <input type="email" placeholder="you@somewhere.com" />
-              <button type="submit" class="dl"><span>NOTIFY ↗</span></button>
+            <a class="dl" href="#" aria-label="Checkpoint64 for Windows — coming soon"><span>WINDOWS</span><span class="arch">.msi · coming soon</span></a>
+            <a class="dl" href="#" aria-label="Checkpoint64 for macOS — coming soon"><span>MACOS</span><span class="arch">.dmg · arm64 + x64 · soon</span></a>
+            <a class="dl" href="#" aria-label="Checkpoint64 for Linux — coming soon"><span>LINUX</span><span class="arch">.appimage · coming soon</span></a>
+            <form data-notify-form aria-label="Notify me when Checkpoint64 ships">
+              <label for="notify-email-download" class="visually-hidden">Email address</label>
+              <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
+              <button type="submit" class="dl"><span>NOTIFY <span aria-hidden="true">↗</span></span></button>
             </form>
           </div>
         </div>
@@ -476,12 +478,12 @@ function faq() {
       a: "Soon — we’re testing in private now and aiming for a public launch later this year. Get on the list and we’ll send one email the day the Windows / Mac / Linux versions are ready." },
   ]
   return `
-    <section id="faq">
+    <section id="faq" aria-labelledby="faq-heading">
       <div class="wrap">
         <div class="head">
           <span class="tape">▮ FAQ</span>
         </div>
-        <h2>FREQUENTLY <span class="accent">CHECKED.</span></h2>
+        <h2 id="faq-heading">FREQUENTLY <span class="accent">CHECKED.</span></h2>
         <div class="faq">
           ${items.map(it => `
             <details>
@@ -497,19 +499,19 @@ function faq() {
 
 function footer() {
   return `
-    <footer class="bot">
+    <footer class="bot" role="contentinfo">
       <div class="wrap">
         <div class="inner">
           <div class="col1">
             <div class="brand">CHECKPOINT64</div>
-            <div class="blurb">
+            <p class="blurb">
               A safe place for your big runs. Built by people who lost a
               200-hour Factorio base and never got over it.
-            </div>
-            <div class="sign">made for me. ✦</div>
+            </p>
+            <p class="sign">made for me. <span aria-hidden="true">✦</span></p>
           </div>
-          <div>
-            <h5>PRODUCT</h5>
+          <nav aria-label="Product">
+            <h2 class="footer-h">PRODUCT</h2>
             <ul>
               <li><a href="#how">How it works</a></li>
               <li><a href="#features">Features</a></li>
@@ -517,25 +519,25 @@ function footer() {
               <li><a href="#download">Join the list</a></li>
               <li><a href="#">Changelog</a></li>
             </ul>
-          </div>
-          <div>
-            <h5>RESOURCES</h5>
+          </nav>
+          <nav aria-label="Resources">
+            <h2 class="footer-h">RESOURCES</h2>
             <ul>
               <li><a href="#">Game database</a></li>
               <li><a href="#">Roadmap</a></li>
               <li><a href="#">Beta access</a></li>
               <li><a href="#">Press kit</a></li>
             </ul>
-          </div>
-          <div>
-            <h5>COMPANY</h5>
+          </nav>
+          <nav aria-label="Company">
+            <h2 class="footer-h">COMPANY</h2>
             <ul>
               <li><a href="#">About</a></li>
-              <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank">Discord</a></li>
+              <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="Join the Checkpoint64 Discord (opens in a new tab)">Discord</a></li>
               <li><a href="#">Privacy</a></li>
               <li><a href="#">Status</a></li>
             </ul>
-          </div>
+          </nav>
         </div>
         <div class="copyline">
           <span>© ${new Date().getFullYear()} CHECKPOINT64 · ALL RIGHTS RESERVED</span>
@@ -548,6 +550,7 @@ function footer() {
 
 document.querySelector('#app').innerHTML = [
   topNav(),
+  '<main id="main" role="main">',
   hero(),
   problemStrip(),
   howItWorks(),
@@ -557,8 +560,11 @@ document.querySelector('#app').innerHTML = [
   pricing(),
   downloadStrip(),
   faq(),
+  '</main>',
   footer(),
 ].join('')
+
+document.title = 'Checkpoint64 — Automatic Cloud Backup & Versioning for PC Game Saves'
 
 // Animated auto-backup ticker on the "How it works" step
 const autoEl = document.querySelector('[data-step-auto]')
