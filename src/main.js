@@ -4,6 +4,7 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[c]))
 
+
 const CART_SIZES = {
   sm: { w: 200, topH: 22, fontMul: 0.85 },
   md: { w: 250, topH: 28, fontMul: 1 },
