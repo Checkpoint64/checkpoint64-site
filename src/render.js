@@ -78,6 +78,7 @@ function topNav() {
           <a href="#features">FEATURES</a>
           <a href="#pricing">PRICING</a>
           <a href="#faq">FAQ</a>
+          <a href="./blog/">BLOG</a>
         </div>
         <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
       </div>
@@ -557,6 +558,7 @@ function footer(year) {
           <nav aria-label="Resources">
             <h2 class="footer-h">RESOURCES</h2>
             <ul>
+              <li><a href="./blog/">Blog</a></li>
               <li><a href="#">Game database</a></li>
               <li><a href="#">Roadmap</a></li>
               <li><a href="#">Beta access</a></li>

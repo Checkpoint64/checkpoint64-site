@@ -1,9 +1,12 @@
 import { defineConfig } from 'vite'
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'node:path'
+import { mkdirSync, writeFileSync } from 'node:fs'
 
 // Absolute file:// URL for the renderer, so dynamic imports work regardless of cwd.
 const RENDERER = pathToFileURL(resolve(import.meta.dirname, 'src/render.js')).href
+const BLOG_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/blog/load.js')).href
+const BLOG_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/blog/render.js')).href
 
 // Pre-render the page body into <div id="app"> at both dev and build time, so
 // crawlers (Google, GPTBot, ClaudeBot, etc.) get fully-formed HTML without
@@ -24,9 +27,65 @@ function prerenderAppShell() {
   }
 }
 
+// Static blog framework. Markdown sources live in /content/blog/.
+// - Dev: middleware renders posts on-the-fly so edits are instant.
+// - Build: emits dist/blog/index.html and dist/blog/<slug>/index.html.
+function blog() {
+  return {
+    name: 'blog',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const url = (req.url || '').split('?')[0]
+        try {
+          if (url === '/blog' || url === '/blog/') {
+            const { loadPosts } = await import(`${BLOG_LOAD}?t=${Date.now()}`)
+            const { renderIndex } = await import(`${BLOG_RENDER}?t=${Date.now()}`)
+            res.setHeader('Content-Type', 'text/html; charset=utf-8')
+            res.end(renderIndex(loadPosts()))
+            return
+          }
+          const m = url.match(/^\/blog\/([^/]+)\/?$/)
+          if (m) {
+            const { loadPost } = await import(`${BLOG_LOAD}?t=${Date.now()}`)
+            const { renderPost } = await import(`${BLOG_RENDER}?t=${Date.now()}`)
+            const post = loadPost(m[1])
+            if (post) {
+              res.setHeader('Content-Type', 'text/html; charset=utf-8')
+              res.end(await renderPost(post))
+              return
+            }
+          }
+        } catch (err) {
+          // Surface render errors in the browser instead of a silent 404.
+          res.statusCode = 500
+          res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+          res.end(`Blog render error:\n${err.stack || err.message}`)
+          return
+        }
+        next()
+      })
+    },
+    async closeBundle() {
+      // Only run on the client build (not e.g. SSR builds, if added later).
+      const { loadPosts } = await import(BLOG_LOAD)
+      const { renderIndex, renderPost } = await import(BLOG_RENDER)
+      const posts = loadPosts()
+      const outDir = resolve(import.meta.dirname, 'dist')
+      const blogDir = resolve(outDir, 'blog')
+      mkdirSync(blogDir, { recursive: true })
+      writeFileSync(resolve(blogDir, 'index.html'), renderIndex(posts))
+      for (const post of posts) {
+        const dir = resolve(blogDir, post.slug)
+        mkdirSync(dir, { recursive: true })
+        writeFileSync(resolve(dir, 'index.html'), await renderPost(post))
+      }
+    },
+  }
+}
+
 // Relative base so the same build works at the apex domain (checkpoint64.com/)
 // AND at PR-preview subpaths (checkpoint64.com/pr-preview/pr-N/).
 export default defineConfig({
   base: './',
-  plugins: [prerenderAppShell()],
+  plugins: [prerenderAppShell(), blog()],
 })
