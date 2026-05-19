@@ -7,6 +7,8 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 const RENDERER = pathToFileURL(resolve(import.meta.dirname, 'src/render.js')).href
 const BLOG_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/blog/load.js')).href
 const BLOG_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/blog/render.js')).href
+const LEGAL_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/legal/load.js')).href
+const LEGAL_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/legal/render.js')).href
 
 // Pre-render the page body into <div id="app"> at both dev and build time, so
 // crawlers (Google, GPTBot, ClaudeBot, etc.) get fully-formed HTML without
@@ -83,9 +85,48 @@ function blog() {
   }
 }
 
+// Static legal pages (Terms, Privacy). Markdown sources live in /content/legal/
+// and are rendered with the same layout as the blog so they pick up blog.css.
+function legal() {
+  return {
+    name: 'legal',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const url = (req.url || '').split('?')[0]
+        const m = url.match(/^\/(terms|privacy)\/?$/)
+        if (!m) return next()
+        try {
+          const { loadLegal } = await import(`${LEGAL_LOAD}?t=${Date.now()}`)
+          const { renderLegal } = await import(`${LEGAL_RENDER}?t=${Date.now()}`)
+          const doc = loadLegal(m[1])
+          if (!doc) return next()
+          res.setHeader('Content-Type', 'text/html; charset=utf-8')
+          res.end(await renderLegal(doc))
+        } catch (err) {
+          res.statusCode = 500
+          res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+          res.end(`Legal render error:\n${err.stack || err.message}`)
+        }
+      })
+    },
+    async closeBundle() {
+      const { legalSlugs, loadLegal } = await import(LEGAL_LOAD)
+      const { renderLegal } = await import(LEGAL_RENDER)
+      const outDir = resolve(import.meta.dirname, 'dist')
+      for (const slug of legalSlugs()) {
+        const doc = loadLegal(slug)
+        if (!doc) continue
+        const dir = resolve(outDir, slug)
+        mkdirSync(dir, { recursive: true })
+        writeFileSync(resolve(dir, 'index.html'), await renderLegal(doc))
+      }
+    },
+  }
+}
+
 // Relative base so the same build works at the apex domain (checkpoint64.com/)
 // AND at PR-preview subpaths (checkpoint64.com/pr-preview/pr-N/).
 export default defineConfig({
   base: './',
-  plugins: [prerenderAppShell(), blog()],
+  plugins: [prerenderAppShell(), blog(), legal()],
 })

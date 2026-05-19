@@ -570,7 +570,8 @@ function footer(year) {
             <ul>
               <li><a href="#">About</a></li>
               <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="Join the Checkpoint64 Discord (opens in a new tab)">Discord</a></li>
-              <li><a href="#">Privacy</a></li>
+              <li><a href="./terms/">Terms</a></li>
+              <li><a href="./privacy/">Privacy</a></li>
               <li><a href="#">Status</a></li>
             </ul>
           </nav>
