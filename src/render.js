@@ -314,8 +314,8 @@ function features() {
         </div>
         <h2 id="features-heading">WHAT'S IN <span class="accent">THE BOX.</span></h2>
         <p class="lede">
-          Built by people who reload saves a lot. No fluff, no monthly fees,
-          no "powered by AI." Just a save vault that works.
+          Built by people who reload saves a lot. No fluff, no charge per
+          person, no "powered by AI." Just a save vault that works.
         </p>
         <div class="features">
           ${feats.map(f => `
@@ -400,20 +400,51 @@ function pricing() {
         <div class="head">
           <span class="tape">▮ PRICING</span>
         </div>
-        <h2 id="pricing-heading">PAY ONCE.<br/><span class="accent">KEEP IT FOREVER.</span></h2>
+        <h2 id="pricing-heading">PICK YOUR<br/><span class="accent">CART.</span></h2>
         <p class="lede">
-          Pay once, keep it forever. No monthly bill, no charge per person, no
-          surprise fees when you forget to cancel. The final price isn't set yet —
-          drop your email and we'll tell you before launch.
+          Three ways to play it. Free to try, paid for life, or Pro for crews who
+          save together. No charge per person, no surprise fees, no rip-cords.
+          Final prices aren't set yet — drop your email and we'll tell you before launch.
         </p>
 
         <div class="price-grid">
 
           ${priceCard({
-            tag: 'CO-OP', price: '$TBC', unit: 'one-time',
-            tagline: 'for groups up to 8',
-            features: [ 'shared group saves', 'co-op locks', 'activity logbook'],
+            tag: 'FREE', price: '$0', unit: 'no card required',
+            tagline: 'kick the tires, see if your saves come back',
+            features: [
+              '1 personal space (no teams)',
+              '20 MiB cloud storage',
+              'automatic backup + full version history',
+              'join a friend’s team for co-op',
+            ],
+            cta: 'GET FREE',
+          })}
+
+          ${priceCard({
+            tag: 'LIFETIME', price: '$TBC', unit: 'one-time, yours forever',
+            tagline: 'pay once, your saves live forever',
+            features: [
+              'personal space + up to 2 teams',
+              '5 GiB storage per space',
+              'co-op locks + shared activity logbook',
+              'no subscription, ever',
+              'unlock via Steam or direct',
+            ],
             cta: 'NOTIFY ME', highlight: true,
+          })}
+
+          ${priceCard({
+            tag: 'PRO', price: '$TBC', unit: 'monthly, cancel anytime',
+            tagline: 'for crews, streamers, modding groups',
+            features: [
+              'personal space + up to 5 teams',
+              '50 GiB storage per space',
+              '25 seats per team (guaranteed minimum)',
+              '100 versions / 90 days kept (guaranteed minimum)',
+              'priority bandwidth (2× the API throughput)',
+            ],
+            cta: 'NOTIFY ME',
           })}
 
         </div>
@@ -476,7 +507,7 @@ function faq() {
     { q: 'DOES THIS WORK FOR CONSOLE SAVES?',
       a: 'Only if you can get your console saves onto a PC — like emulators, Xbox or PS+ cloud save exports, and Steam Cloud through your PC. Checkpoint64 itself only runs on Windows, Mac, and Linux.' },
     { q: 'WHAT WILL IT COST?',
-      a: "A one-time payment — no monthly fee, no charge per person. We’re still picking the exact number. Sign up to the launch list and we’ll tell you before everyone else, plus lock you in at the early-bird price." },
+      a: "Three tiers: Free (20 MiB, personal only), Lifetime (one-time payment, 5 GiB per space + 2 teams), and Pro (monthly, 50 GiB per space + 5 teams, for bigger crews). No charge per person on any tier. Final numbers aren’t set — sign up to the launch list and we’ll tell you before everyone else, plus lock you in at the early-bird price." },
     { q: 'WHEN DOES IT SHIP?',
       a: "Soon — we’re testing in private now and aiming for a public launch later this year. Get on the list and we’ll send one email the day the Windows / Mac / Linux versions are ready." },
   ]
