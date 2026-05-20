@@ -642,6 +642,41 @@ section .head .tape::before {
   }
 }
 
+/* ---------- DITCH THE DEDI ---------- */
+.dedi-receipt {
+  margin-top: 40px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  box-shadow: 8px 8px 0 var(--ink);
+  padding: 22px 24px 18px;
+  max-width: 760px;
+}
+.dedi-receipt .rh {
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--f-pixel); font-size: 11px; color: var(--accent);
+  border-bottom: 1.5px dashed rgba(26,24,20,0.4);
+  padding-bottom: 12px; margin-bottom: 8px;
+}
+.dedi-receipt .rrow {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 14px; padding: 8px 0;
+  font-family: var(--f-mono); font-size: 14px; color: var(--ink);
+  border-bottom: 1px dotted rgba(26,24,20,0.25);
+}
+.dedi-receipt .rrow b { font-family: var(--f-pixel); font-size: 12px; }
+.dedi-receipt .rrow.total {
+  border-bottom: none;
+  border-top: 2px solid var(--ink);
+  margin-top: 6px; padding-top: 14px;
+}
+.dedi-receipt .rrow.total b.accent { color: var(--accent); font-size: 14px; }
+.dedi-receipt .rfoot {
+  margin-top: 14px;
+  font-family: var(--f-hand); font-size: 19px; color: var(--ink);
+  line-height: 1.45;
+}
+.dedi-receipt .rfoot a { color: var(--accent); text-decoration: underline; }
+
 /* ---------- PRICING ---------- */
 .price-grid {
   display: grid;

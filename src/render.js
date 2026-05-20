@@ -76,6 +76,7 @@ function topNav() {
           <a href="#how">HOW IT WORKS</a>
           <a href="#shelf">THE SHELF</a>
           <a href="#features">FEATURES</a>
+          <a href="#savings">SAVINGS</a>
           <a href="#pricing">PRICING</a>
           <a href="#faq">FAQ</a>
           <a href="./blog/">BLOG</a>
@@ -378,6 +379,83 @@ function logbookPreview() {
   `
 }
 
+function dediStrip() {
+  const cards = [
+    {
+      n: '$15/MO',
+      tag: 'WHAT A DEDI COSTS',
+      title: 'YOU PAY 24/7.',
+      body: 'A rented co-op server is around $15 a month for the popular games — $180 a year, $900 over five. Billed whether anyone logged in this week or not.',
+    },
+    {
+      n: '~3.6%',
+      tag: 'WHAT YOU ACTUALLY USE',
+      title: 'IT SITS IDLE.',
+      body: 'Four friends, two evenings a week, three hours each. That\'s about six hours of play out of 168 in the week. Your dedi is empty for the other 96%.',
+    },
+    {
+      n: '$0/MO',
+      tag: 'WHAT CHECKPOINT64 COSTS',
+      title: 'PAY ONCE. DONE.',
+      body: 'One Lifetime payment and the cloud holds the world. Whoever wants to play grabs the lock, plays, and pushes it back. No box to keep warm.',
+    },
+  ]
+
+  const lines = [
+    { k: 'Server rental, 12 months',     v: '$180' },
+    { k: 'Hours actually used (4 ppl)',  v: '~312' },
+    { k: 'Hours nobody touched it',      v: '~8,448' },
+    { k: 'Spent on idle uptime',         v: '~$173' },
+  ]
+
+  return `
+    <section class="paper" id="savings" aria-labelledby="savings-heading">
+      <div class="wrap">
+        <div class="head">
+          <span class="tape" style="color:#a82828">▮ DITCH THE DEDI</span>
+          <span class="hand" style="color:#a82828;font-size:22px">do the math</span>
+        </div>
+        <h2 id="savings-heading">NO MORE 24/7 BOX<br/><span class="accent">YOU BARELY USE.</span></h2>
+        <p class="lede">
+          A dedicated server makes sense if twenty people are on it every night.
+          For the average co-op group — four friends, a couple of evenings a
+          week — you're renting empty hours. Checkpoint64 covers the part you
+          actually need (the world file, lock-passing, version history) for a
+          one-time payment instead of a forever bill.
+        </p>
+
+        <div class="steps">
+          ${cards.map(c => `
+            <div class="step">
+              <div class="n">${esc(c.n)} · ${esc(c.tag)}</div>
+              <h3>${esc(c.title)}</h3>
+              <p>${esc(c.body)}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="dedi-receipt" aria-label="Cost breakdown of a typical $15/month dedicated server">
+          <div class="rh">
+            <span>▮ RECEIPT · TYPICAL $15/MO DEDI</span>
+            <span class="hand" style="font-size:18px">year one</span>
+          </div>
+          ${lines.map(l => `
+            <div class="rrow"><span>${esc(l.k)}</span><b>${esc(l.v)}</b></div>
+          `).join('')}
+          <div class="rrow total">
+            <span>What you'd save with Checkpoint64 Lifetime, year two onward</span>
+            <b class="accent">$180 / yr</b>
+          </div>
+          <div class="rfoot">
+            Over five years that's roughly <b>$900</b> you keep. Or a new GPU,
+            whichever you prefer. <a href="./blog/ditch-the-dedicated-server/">Read the full breakdown →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  `
+}
+
 function priceCard({ tag, price, unit, tagline, features: fs, cta, highlight }) {
   return `
     <div class="price-card${highlight ? ' hl' : ''}">
@@ -595,6 +673,7 @@ export function renderApp({ year = new Date().getFullYear() } = {}) {
     shelfMock(),
     features(),
     logbookPreview(),
+    dediStrip(),
     pricing(),
     downloadStrip(),
     faq(),
