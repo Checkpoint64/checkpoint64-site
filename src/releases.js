@@ -24,10 +24,21 @@ export const PLATFORMS = [
     placeholderHint: '.msi',
   },
   {
-    key: 'macos',
-    label: 'MACOS',
-    prefer: [/\.dmg$/i, /\.pkg$/i],
-    placeholderHint: '.dmg · arm64 + x64',
+    key: 'macos-arm',
+    label: 'MACOS · APPLE SILICON',
+    // Match arch tokens explicitly so we never serve an Intel build to an
+    // Apple Silicon visitor (or vice versa). Deliberately no untagged-.dmg
+    // fallback — that would let one binary match both tiles.
+    // Note: `\b` would NOT fire between `_` and `aarch64` because underscore
+    // is a word character; use lookarounds for the typical delimiters.
+    prefer: [/(?:^|[-_.])(aarch64|arm64|apple[-_]silicon)(?=[-_.]).*\.(dmg|pkg)$/i],
+    placeholderHint: '.dmg · arm64',
+  },
+  {
+    key: 'macos-intel',
+    label: 'MACOS · INTEL',
+    prefer: [/(?:^|[-_.])(x86_64|x64|amd64|intel)(?=[-_.]).*\.(dmg|pkg)$/i],
+    placeholderHint: '.dmg · x64',
   },
   {
     key: 'linux',
