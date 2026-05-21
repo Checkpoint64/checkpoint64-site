@@ -666,27 +666,27 @@ function footer(year) {
               <li><a href="#features">Features</a></li>
               <li><a href="#pricing">Pricing</a></li>
               <li><a href="#download">Join the list</a></li>
-              <li><a href="#">Changelog</a></li>
+              <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank">Changelog</a></li>
             </ul>
           </nav>
           <nav aria-label="Resources">
             <h2 class="footer-h">RESOURCES</h2>
             <ul>
               <li><a href="./blog/">Blog</a></li>
-              <li><a href="#">Game database</a></li>
-              <li><a href="#">Roadmap</a></li>
-              <li><a href="#">Beta access</a></li>
-              <li><a href="#">Press kit</a></li>
+              <li><a class="visually-hidden" href="#">Game database</a></li>
+              <li><a class="visually-hidden" href="#">Roadmap</a></li>
+              <li><a class="visually-hidden" href="#">Beta access</a></li>
+              <li><a class="visually-hidden" href="#">Press kit</a></li>
             </ul>
           </nav>
           <nav aria-label="Company">
             <h2 class="footer-h">COMPANY</h2>
             <ul>
-              <li><a href="#">About</a></li>
+              <li><a class="visually-hidden" href="#">About</a></li>
               <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="Join the Checkpoint64 Discord (opens in a new tab)">Discord</a></li>
               <li><a href="./terms/">Terms</a></li>
               <li><a href="./privacy/">Privacy</a></li>
-              <li><a href="#">Status</a></li>
+              <li><a class="visually-hidden" "href="#">Status</a></li>
             </ul>
           </nav>
         </div>
