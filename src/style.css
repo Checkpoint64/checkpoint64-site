@@ -1,15 +1,25 @@
 :root {
+  /* Design palette — stable across themes. Cartridges, paper sections, etc.
+     reference these directly so they keep their physical look in light mode. */
   --ink: #1a1814;
   --paper: #f4ecd8;
   --paper-deep: #ede4cf;
   --night: #0c0b09;
   --night-2: #15130f;
-  --night-line: rgba(244, 236, 216, 0.08);
   --accent: #ff5f4e;
   --accent-ink: #1a1814;
   --ok: #1a8a55;
   --warn: #a36b1f;
   --err: #a82828;
+
+  /* Theme tokens — swapped by [data-theme="light"]. Anything that follows the
+     page theme (body bg, primary text, generic borders) references these. */
+  --bg: var(--night);
+  --bg-2: var(--night-2);
+  --fg: var(--paper);
+  --fg-rgb: 244, 236, 216;
+  --bg-nav: rgba(12, 11, 9, 0.78);
+  --night-line: rgba(var(--fg-rgb), 0.08);
 
   --f-pixel: "Press Start 2P", monospace;
   --f-vt: "VT323", monospace;
@@ -17,12 +27,20 @@
   --f-hand: "Patrick Hand", cursive;
 }
 
+[data-theme="light"] {
+  --bg: var(--paper);
+  --bg-2: var(--paper-deep);
+  --fg: var(--ink);
+  --fg-rgb: 26, 24, 20;
+  --bg-nav: rgba(244, 236, 216, 0.82);
+}
+
 * { box-sizing: border-box; }
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--night);
-  color: var(--paper);
+  background: var(--bg);
+  color: var(--fg);
   font-family: var(--f-mono);
   font-size: 15px;
   line-height: 1.55;
@@ -53,8 +71,8 @@ html, body {
 
 body {
   background-image:
-    repeating-linear-gradient(0deg, transparent 0 39px, rgba(244, 236, 216, 0.04) 39px 40px),
-    repeating-linear-gradient(90deg, transparent 0 39px, rgba(244, 236, 216, 0.04) 39px 40px);
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(var(--fg-rgb), 0.04) 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 39px, rgba(var(--fg-rgb), 0.04) 39px 40px);
 }
 
 a { color: inherit; }
@@ -77,7 +95,7 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 nav.top {
   position: sticky; top: 0; z-index: 50;
   backdrop-filter: blur(10px);
-  background: rgba(12, 11, 9, 0.78);
+  background: var(--bg-nav);
   border-bottom: 1px solid var(--night-line);
 }
 nav.top .inner {
@@ -96,24 +114,58 @@ nav.top .brand::before {
 }
 nav.top .links { display: flex; gap: 28px; }
 nav.top .links a {
-  font-family: var(--f-pixel); font-size: 10px; color: var(--paper);
+  font-family: var(--f-pixel); font-size: 10px; color: var(--fg);
   text-decoration: none; opacity: 0.78;
 }
 nav.top .links a:hover { opacity: 1; color: var(--accent); }
+nav.top .nav-actions {
+  display: flex; align-items: center; gap: 12px;
+}
 nav.top .cta {
   font-family: var(--f-pixel); font-size: 11px;
   background: var(--accent); color: var(--accent-ink);
   padding: 10px 14px;
-  box-shadow: 3px 3px 0 var(--paper);
+  box-shadow: 3px 3px 0 var(--fg);
   transition: transform 80ms ease, box-shadow 80ms ease;
   cursor: pointer; border: none;
   text-decoration: none;
   display: inline-block;
 }
-nav.top .cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--paper); }
+nav.top .cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--fg); }
+
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--fg);
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  opacity: 0.78;
+  transition: opacity 120ms ease, transform 80ms ease, background 120ms ease, color 120ms ease;
+  padding: 0;
+}
+.theme-toggle:hover {
+  opacity: 1;
+  transform: translate(-1px, -1px);
+  background: var(--fg);
+  color: var(--bg);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  opacity: 1;
+}
+.theme-toggle-icon {
+  font-size: 16px;
+  line-height: 1;
+}
 
 @media (max-width: 880px) {
   nav.top .links { display: none !important; }
+}
+@media (max-width: 480px) {
+  .theme-toggle { width: 32px; height: 32px; }
+  .theme-toggle-icon { font-size: 14px; }
 }
 
 /* ---------- BUTTONS ---------- */
@@ -129,11 +181,11 @@ nav.top .cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var
 .btn.prim {
   background: var(--accent); color: var(--accent-ink);
   border-color: var(--accent);
-  box-shadow: 4px 4px 0 var(--paper);
+  box-shadow: 4px 4px 0 var(--fg);
 }
-.btn.prim:hover { box-shadow: 6px 6px 0 var(--paper); }
-.btn.ghost { color: var(--paper); }
-.btn.ghost:hover { background: var(--paper); color: var(--ink); }
+.btn.prim:hover { box-shadow: 6px 6px 0 var(--fg); }
+.btn.ghost { color: var(--fg); }
+.btn.ghost:hover { background: var(--fg); color: var(--bg); }
 
 .paper .btn.prim { box-shadow: 4px 4px 0 var(--ink); }
 .paper .btn.prim:hover { box-shadow: 6px 6px 0 var(--ink); }
@@ -164,21 +216,21 @@ nav.top .cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var
 .hero h1 .accent { color: var(--accent); }
 .hero h1 .pen {
   font-family: var(--f-hand); font-size: 0.7em;
-  color: var(--paper); letter-spacing: 0;
+  color: var(--fg); letter-spacing: 0;
   display: inline-block; transform: rotate(-3deg);
   opacity: 0.85;
 }
 .hero .sub {
   font-family: var(--f-mono); font-size: 17px;
   max-width: 580px;
-  color: rgba(244, 236, 216, 0.78);
+  color: rgba(var(--fg-rgb), 0.78);
   margin: 0 0 36px;
   line-height: 1.6;
 }
 .hero .ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
 .hero .small {
   font-family: var(--f-mono); font-size: 12px;
-  color: rgba(244, 236, 216, 0.55);
+  color: rgba(var(--fg-rgb), 0.55);
   margin-top: 22px;
   display: flex; gap: 16px; flex-wrap: wrap;
 }
@@ -278,7 +330,7 @@ section h2 .accent { color: var(--accent); }
 section .lede {
   font-family: var(--f-mono); font-size: 16px;
   max-width: 640px;
-  color: rgba(244, 236, 216, 0.72);
+  color: rgba(var(--fg-rgb), 0.72);
   margin: 0 0 52px;
 }
 section .head {
@@ -394,22 +446,22 @@ section .head .tape::before {
 
 /* ---------- SHELF MOCK ---------- */
 .shelf-frame {
-  background: var(--night-2);
-  border: 2px solid var(--paper);
-  color: var(--paper);
+  background: var(--bg-2);
+  border: 2px solid var(--fg);
+  color: var(--fg);
   box-shadow: 6px 6px 0 var(--accent);
 }
 .shelf-frame .bar {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 14px 20px; border-bottom: 2px solid var(--paper);
+  padding: 14px 20px; border-bottom: 2px solid var(--fg);
   font-family: var(--f-pixel); font-size: 11px;
-  background: var(--night);
+  background: var(--bg);
 }
 .shelf-frame .bar .accent { color: var(--accent); }
 .shelf-frame .body { padding: 28px 26px 36px; }
 .shelf-frame .sechead {
   display: flex; align-items: baseline; gap: 14px;
-  border-bottom: 1.5px dashed rgba(244, 236, 216, 0.45);
+  border-bottom: 1.5px dashed rgba(var(--fg-rgb), 0.45);
   padding: 8px 0 12px; margin-bottom: 22px;
 }
 .shelf-frame .sechead h4 {
@@ -417,7 +469,7 @@ section .head .tape::before {
 }
 .shelf-frame .sechead .pa {
   font-family: var(--f-mono); font-size: 12px;
-  color: rgba(244, 236, 216, 0.55);
+  color: rgba(var(--fg-rgb), 0.55);
   word-break: break-word;
   overflow-wrap: break-word;
   flex: 1;
@@ -442,8 +494,8 @@ section .head .tape::before {
 .shelf-grid .empty {
   flex: 0 0 250px;
   background: transparent;
-  border: 2px dashed rgba(244, 236, 216, 0.45);
-  color: rgba(244, 236, 216, 0.5);
+  border: 2px dashed rgba(var(--fg-rgb), 0.45);
+  color: rgba(var(--fg-rgb), 0.5);
   font-family: var(--f-hand); font-size: 22px;
   display: flex; align-items: center; justify-content: center;
   min-height: 220px;
@@ -484,9 +536,9 @@ section .head .tape::before {
   padding: 0;
 }
 .problem-card {
-  border: 2px solid var(--paper);
+  border: 2px solid var(--fg);
   padding: 20px 20px 22px;
-  background: rgba(244,236,216,0.02);
+  background: rgba(var(--fg-rgb), 0.02);
   position: relative;
 }
 .problem-card .head {
@@ -502,7 +554,7 @@ section .head .tape::before {
   font-family: var(--f-mono);
   font-size: 14px;
   line-height: 1.55;
-  color: rgba(244,236,216,0.85);
+  color: rgba(var(--fg-rgb), 0.85);
   margin: 0;
 }
 
@@ -512,12 +564,12 @@ section .head .tape::before {
 }
 @media (max-width: 880px) { .features { grid-template-columns: 1fr; } }
 .feat {
-  border: 2px solid var(--paper);
+  border: 2px solid var(--fg);
   padding: 26px 22px;
-  background: rgba(244, 236, 216, 0.02);
+  background: rgba(var(--fg-rgb), 0.02);
   transition: background 120ms, transform 80ms;
 }
-.feat:hover { background: rgba(244, 236, 216, 0.06); transform: translate(-1px, -1px); }
+.feat:hover { background: rgba(var(--fg-rgb), 0.06); transform: translate(-1px, -1px); }
 .feat .ico {
   font-family: var(--f-pixel); font-size: 11px;
   color: var(--accent); margin-bottom: 14px;
@@ -530,7 +582,7 @@ section .head .tape::before {
 }
 .feat p {
   font-family: var(--f-mono); font-size: 13.5px; line-height: 1.6;
-  color: rgba(244, 236, 216, 0.72); margin: 0;
+  color: rgba(var(--fg-rgb), 0.72); margin: 0;
 }
 
 /* ---------- LOGBOOK ---------- */
@@ -684,15 +736,15 @@ section .head .tape::before {
   gap: 22px;
 }
 .price-card {
-  border: 2px solid var(--paper);
+  border: 2px solid var(--fg);
   padding: 28px 26px 30px;
   position: relative;
-  background: rgba(244,236,216,0.02);
+  background: rgba(var(--fg-rgb), 0.02);
 }
 .price-card.hl {
   background: var(--accent);
   color: var(--ink);
-  box-shadow: 6px 6px 0 var(--paper);
+  box-shadow: 6px 6px 0 var(--fg);
 }
 .price-card .badge {
   position: absolute; top: -14px; right: 20px;
@@ -722,8 +774,8 @@ section .head .tape::before {
 .price-card .cta-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   font-family: var(--f-pixel); font-size: 12px;
-  padding: 14px 18px; border: 2px solid var(--paper);
-  background: transparent; color: var(--paper);
+  padding: 14px 18px; border: 2px solid var(--fg);
+  background: transparent; color: var(--fg);
   width: 100%;
   text-decoration: none;
   transition: transform 80ms ease;
@@ -738,10 +790,10 @@ section .head .tape::before {
   margin-top: 36px;
   padding: 18px 22px;
   padding-right: 26px; /* Account for button box-shadow */
-  border: 2px dashed var(--paper);
+  border: 2px dashed var(--fg);
   font-family: var(--f-mono);
   font-size: 13.5px;
-  color: rgba(244,236,216,0.78);
+  color: rgba(var(--fg-rgb), 0.78);
   display: flex;
   gap: 16px;
   align-items: center;
@@ -753,8 +805,8 @@ section .head .tape::before {
   font-family: var(--f-mono); font-size: 13px;
   padding: 11px 12px;
   background: transparent;
-  border: 2px solid var(--paper);
-  color: var(--paper);
+  border: 2px solid var(--fg);
+  color: var(--fg);
   min-width: 240px;
 }
 .notify-strip .btn { padding: 11px 14px; }
@@ -837,7 +889,7 @@ section .head .tape::before {
 /* ---------- FAQ ---------- */
 .faq { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
 .faq details {
-  border: 2px solid var(--paper);
+  border: 2px solid var(--fg);
   padding: 0;
 }
 .faq summary {
@@ -851,19 +903,19 @@ section .head .tape::before {
   content: "+"; font-family: var(--f-pixel); font-size: 16px; color: var(--accent);
 }
 .faq details[open] summary::after { content: "−"; }
-.faq details[open] { background: rgba(244, 236, 216, 0.04); }
+.faq details[open] { background: rgba(var(--fg-rgb), 0.04); }
 .faq .body {
   padding: 0 22px 22px;
   font-family: var(--f-mono); font-size: 14px; line-height: 1.65;
-  color: rgba(244, 236, 216, 0.78);
+  color: rgba(var(--fg-rgb), 0.78);
 }
 
 /* ---------- FOOTER ---------- */
 footer.bot {
-  border-top: 2px dashed rgba(244, 236, 216, 0.25);
+  border-top: 2px dashed rgba(var(--fg-rgb), 0.25);
   padding: 44px 0 60px;
   font-family: var(--f-mono); font-size: 12px;
-  color: rgba(244, 236, 216, 0.55);
+  color: rgba(var(--fg-rgb), 0.55);
 }
 footer.bot .inner {
   display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap;
@@ -877,13 +929,13 @@ footer.bot ul a { text-decoration: none; opacity: 0.75; }
 footer.bot ul a:hover { color: var(--accent); opacity: 1; }
 footer.bot h5,
 footer.bot .footer-h {
-  font-family: var(--f-pixel); font-size: 10px; color: var(--paper);
+  font-family: var(--f-pixel); font-size: 10px; color: var(--fg);
   margin: 0 0 12px;
   font-weight: normal;
 }
 footer.bot .copyline {
   margin-top: 36px; padding-top: 22px;
-  border-top: 1px dashed rgba(244,236,216,0.18);
+  border-top: 1px dashed rgba(var(--fg-rgb), 0.18);
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px;
   font-family: var(--f-pixel); font-size: 9px;
 }

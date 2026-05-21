@@ -4,6 +4,8 @@
 // Node (vite.config.js) at build time, so it must stay free of any DOM /
 // browser-only APIs. Everything in here is just string templates.
 
+import { PLATFORMS, RELEASES_PAGE_URL, formatSize, extensionOf } from './releases.js'
+
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[c]))
@@ -81,7 +83,12 @@ function topNav() {
           <a href="#faq">FAQ</a>
           <a href="./blog/">BLOG</a>
         </div>
-        <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
+        <div class="nav-actions">
+          <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch to light mode" title="Toggle theme">
+            <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
+          </button>
+          <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
+        </div>
       </div>
     </nav>
   `
@@ -544,23 +551,57 @@ function pricing() {
   `
 }
 
-function downloadStrip() {
+function downloadTile(platform, releases) {
+  const asset = releases?.platforms?.[platform.key]
+  const fallbackHref = releases?.url || RELEASES_PAGE_URL
+
+  if (asset) {
+    const ext = extensionOf(asset.name)
+    const size = formatSize(asset.size)
+    const sub = [ext && `.${ext}`, releases.tag, size].filter(Boolean).join(' · ')
+    return `
+      <a class="dl" data-platform="${esc(platform.key)}" href="${esc(asset.url)}"
+         aria-label="Download Checkpoint64 for ${esc(platform.label)} (${esc(releases.tag)})">
+        <span>${esc(platform.label)}</span>
+        <span class="arch">${esc(sub)}</span>
+      </a>
+    `
+  }
+
+  return `
+    <a class="dl" data-platform="${esc(platform.key)}" href="${esc(fallbackHref)}"
+       aria-label="Checkpoint64 for ${esc(platform.label)} — see releases on GitHub">
+      <span>${esc(platform.label)}</span>
+      <span class="arch">${esc(platform.placeholderHint)} · coming soon</span>
+    </a>
+  `
+}
+
+function downloadStrip({ releases } = {}) {
+  const tiles = PLATFORMS.map((p) => downloadTile(p, releases)).join('')
+  const headline = releases?.tag
+    ? `LATEST BUILD.<br/>GRAB YOUR<br/><span class="invert">COPY.</span>`
+    : `SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span>`
+  const blurb = releases?.tag
+    ? `Pick your platform. Builds are auto-published from GitHub — the
+       link goes straight to the latest installer.`
+    : `We're still testing in private. Drop your email, pick what you
+       play on, and we'll let you know the moment it's ready.`
+  const signoff = releases?.tag
+    ? `<span aria-hidden="true">↘ </span>release notes & older builds: <a href="${esc(releases.url)}">on GitHub</a>`
+    : `<span aria-hidden="true">↘ </span>no spam, one email at launch`
+
   return `
     <section class="cta-strip" id="download" aria-labelledby="download-heading">
       <div class="wrap">
         <div class="inner">
           <div>
-            <h2 id="download-heading">SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span></h2>
-            <p>
-              We're still testing in private. Drop your email, pick what you
-              play on, and we'll let you know the moment it's ready.
-            </p>
-            <p class="signoff"><span aria-hidden="true">↘ </span>no spam, one email at launch</p>
+            <h2 id="download-heading">${headline}</h2>
+            <p>${blurb}</p>
+            <p class="signoff">${signoff}</p>
           </div>
           <div class="downloads">
-            <a class="dl" href="#" aria-label="Checkpoint64 for Windows — coming soon"><span>WINDOWS</span><span class="arch">.msi · coming soon</span></a>
-            <a class="dl" href="#" aria-label="Checkpoint64 for macOS — coming soon"><span>MACOS</span><span class="arch">.dmg · arm64 + x64 · soon</span></a>
-            <a class="dl" href="#" aria-label="Checkpoint64 for Linux — coming soon"><span>LINUX</span><span class="arch">.appimage · coming soon</span></a>
+            ${tiles}
             <form data-notify-form aria-label="Notify me when Checkpoint64 ships">
               <label for="notify-email-download" class="visually-hidden">Email address</label>
               <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
@@ -630,27 +671,27 @@ function footer(year) {
               <li><a href="#features">Features</a></li>
               <li><a href="#pricing">Pricing</a></li>
               <li><a href="#download">Join the list</a></li>
-              <li><a href="#">Changelog</a></li>
+              <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank">Changelog</a></li>
             </ul>
           </nav>
           <nav aria-label="Resources">
             <h2 class="footer-h">RESOURCES</h2>
             <ul>
               <li><a href="./blog/">Blog</a></li>
-              <li><a href="#">Game database</a></li>
-              <li><a href="#">Roadmap</a></li>
-              <li><a href="#">Beta access</a></li>
-              <li><a href="#">Press kit</a></li>
+              <li><a class="visually-hidden" href="#">Game database</a></li>
+              <li><a class="visually-hidden" href="#">Roadmap</a></li>
+              <li><a class="visually-hidden" href="#">Beta access</a></li>
+              <li><a class="visually-hidden" href="#">Press kit</a></li>
             </ul>
           </nav>
           <nav aria-label="Company">
             <h2 class="footer-h">COMPANY</h2>
             <ul>
-              <li><a href="#">About</a></li>
+              <li><a class="visually-hidden" href="#">About</a></li>
               <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="Join the Checkpoint64 Discord (opens in a new tab)">Discord</a></li>
               <li><a href="./terms/">Terms</a></li>
               <li><a href="./privacy/">Privacy</a></li>
-              <li><a href="#">Status</a></li>
+              <li><a class="visually-hidden" "href="#">Status</a></li>
             </ul>
           </nav>
         </div>
@@ -663,7 +704,7 @@ function footer(year) {
   `
 }
 
-export function renderApp({ year = new Date().getFullYear() } = {}) {
+export function renderApp({ year = new Date().getFullYear(), releases = null } = {}) {
   return [
     topNav(),
     '<main id="main" role="main">',
@@ -675,7 +716,7 @@ export function renderApp({ year = new Date().getFullYear() } = {}) {
     logbookPreview(),
     dediStrip(),
     pricing(),
-    downloadStrip(),
+    downloadStrip({ releases }),
     faq(),
     '</main>',
     footer(year),
