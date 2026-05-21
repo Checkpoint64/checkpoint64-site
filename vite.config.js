@@ -124,6 +124,19 @@ function legal() {
   }
 }
 
+// Strip the analytics block (GA + Clarity) from index.html during `vite dev`
+// so local browsing doesn't pollute production analytics. The block is wrapped
+// in `<!-- analytics:start -->` / `<!-- analytics:end -->` markers in index.html.
+function stripAnalyticsInDev() {
+  return {
+    name: 'strip-analytics-in-dev',
+    apply: (_config, env) => env.command === 'serve',
+    transformIndexHtml(html) {
+      return html.replace(/<!-- analytics:start[\s\S]*?<!-- analytics:end -->/, '')
+    },
+  }
+}
+
 // Emits dist/sitemap.xml listing every route the build produces: the
 // homepage, /blog/, each post, and each legal page. Runs after blog() and
 // legal() in closeBundle order, but order doesn't matter — it re-reads the
@@ -171,5 +184,5 @@ function sitemap({ origin = 'https://checkpoint64.com' } = {}) {
 // AND at PR-preview subpaths (checkpoint64.com/pr-preview/pr-N/).
 export default defineConfig({
   base: './',
-  plugins: [prerenderAppShell(), blog(), legal(), sitemap()],
+  plugins: [stripAnalyticsInDev(), prerenderAppShell(), blog(), legal(), sitemap()],
 })
