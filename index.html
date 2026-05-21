@@ -41,6 +41,17 @@
     <meta name="color-scheme" content="light dark" />
     <link rel="canonical" href="https://checkpoint64.com/" />
 
+    <!-- Theme bootstrap: must run pre-paint to avoid flash-of-wrong-theme. -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('cp64-theme');
+          var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        } catch (e) { /* localStorage blocked — fall through to default dark theme */ }
+      })();
+    </script>
+
     <!-- Icons & manifest (relative so PR-preview subpaths resolve them) -->
     <link rel="icon" type="image/svg+xml" href="./retro_save_icon.svg" />
     <link rel="alternate icon" href="./retro_save_icon.svg" />

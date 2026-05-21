@@ -83,7 +83,12 @@ function topNav() {
           <a href="#faq">FAQ</a>
           <a href="./blog/">BLOG</a>
         </div>
-        <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
+        <div class="nav-actions">
+          <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch to light mode" title="Toggle theme">
+            <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
+          </button>
+          <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
+        </div>
       </div>
     </nav>
   `
