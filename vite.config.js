@@ -124,9 +124,52 @@ function legal() {
   }
 }
 
+// Emits dist/sitemap.xml listing every route the build produces: the
+// homepage, /blog/, each post, and each legal page. Runs after blog() and
+// legal() in closeBundle order, but order doesn't matter — it re-reads the
+// content directories itself.
+function sitemap({ origin = 'https://checkpoint64.com' } = {}) {
+  const today = () => new Date().toISOString().slice(0, 10)
+  return {
+    name: 'sitemap',
+    async closeBundle() {
+      const { loadPosts } = await import(BLOG_LOAD)
+      const { legalSlugs, loadLegal } = await import(LEGAL_LOAD)
+      const posts = loadPosts()
+      const urls = [
+        { loc: '/', lastmod: today(), changefreq: 'weekly', priority: '1.0' },
+        { loc: '/blog/', lastmod: posts[0]?.date || today(), changefreq: 'weekly', priority: '0.8' },
+        ...posts.map((p) => ({
+          loc: `/blog/${p.slug}/`,
+          lastmod: p.date || today(),
+          changefreq: 'monthly',
+          priority: '0.7',
+        })),
+        ...legalSlugs()
+          .map((slug) => loadLegal(slug))
+          .filter(Boolean)
+          .map((doc) => ({
+            loc: `/${doc.slug}/`,
+            lastmod: doc.updated || today(),
+            changefreq: 'yearly',
+            priority: '0.3',
+          })),
+      ]
+      const body = urls
+        .map(
+          (u) =>
+            `  <url>\n    <loc>${origin}${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`,
+        )
+        .join('\n')
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`
+      writeFileSync(resolve(import.meta.dirname, 'dist/sitemap.xml'), xml)
+    },
+  }
+}
+
 // Relative base so the same build works at the apex domain (checkpoint64.com/)
 // AND at PR-preview subpaths (checkpoint64.com/pr-preview/pr-N/).
 export default defineConfig({
   base: './',
-  plugins: [prerenderAppShell(), blog(), legal()],
+  plugins: [prerenderAppShell(), blog(), legal(), sitemap()],
 })
