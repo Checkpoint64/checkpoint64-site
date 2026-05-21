@@ -4,6 +4,8 @@
 // Node (vite.config.js) at build time, so it must stay free of any DOM /
 // browser-only APIs. Everything in here is just string templates.
 
+import { PLATFORMS, RELEASES_PAGE_URL, formatSize, extensionOf } from './releases.js'
+
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[c]))
@@ -544,23 +546,57 @@ function pricing() {
   `
 }
 
-function downloadStrip() {
+function downloadTile(platform, releases) {
+  const asset = releases?.platforms?.[platform.key]
+  const fallbackHref = releases?.url || RELEASES_PAGE_URL
+
+  if (asset) {
+    const ext = extensionOf(asset.name)
+    const size = formatSize(asset.size)
+    const sub = [ext && `.${ext}`, releases.tag, size].filter(Boolean).join(' · ')
+    return `
+      <a class="dl" data-platform="${esc(platform.key)}" href="${esc(asset.url)}"
+         aria-label="Download Checkpoint64 for ${esc(platform.label)} (${esc(releases.tag)})">
+        <span>${esc(platform.label)}</span>
+        <span class="arch">${esc(sub)}</span>
+      </a>
+    `
+  }
+
+  return `
+    <a class="dl" data-platform="${esc(platform.key)}" href="${esc(fallbackHref)}"
+       aria-label="Checkpoint64 for ${esc(platform.label)} — see releases on GitHub">
+      <span>${esc(platform.label)}</span>
+      <span class="arch">${esc(platform.placeholderHint)} · coming soon</span>
+    </a>
+  `
+}
+
+function downloadStrip({ releases } = {}) {
+  const tiles = PLATFORMS.map((p) => downloadTile(p, releases)).join('')
+  const headline = releases?.tag
+    ? `LATEST BUILD.<br/>GRAB YOUR<br/><span class="invert">COPY.</span>`
+    : `SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span>`
+  const blurb = releases?.tag
+    ? `Pick your platform. Builds are auto-published from GitHub — the
+       link goes straight to the latest installer.`
+    : `We're still testing in private. Drop your email, pick what you
+       play on, and we'll let you know the moment it's ready.`
+  const signoff = releases?.tag
+    ? `<span aria-hidden="true">↘ </span>release notes & older builds: <a href="${esc(releases.url)}">on GitHub</a>`
+    : `<span aria-hidden="true">↘ </span>no spam, one email at launch`
+
   return `
     <section class="cta-strip" id="download" aria-labelledby="download-heading">
       <div class="wrap">
         <div class="inner">
           <div>
-            <h2 id="download-heading">SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span></h2>
-            <p>
-              We're still testing in private. Drop your email, pick what you
-              play on, and we'll let you know the moment it's ready.
-            </p>
-            <p class="signoff"><span aria-hidden="true">↘ </span>no spam, one email at launch</p>
+            <h2 id="download-heading">${headline}</h2>
+            <p>${blurb}</p>
+            <p class="signoff">${signoff}</p>
           </div>
           <div class="downloads">
-            <a class="dl" href="#" aria-label="Checkpoint64 for Windows — coming soon"><span>WINDOWS</span><span class="arch">.msi · coming soon</span></a>
-            <a class="dl" href="#" aria-label="Checkpoint64 for macOS — coming soon"><span>MACOS</span><span class="arch">.dmg · arm64 + x64 · soon</span></a>
-            <a class="dl" href="#" aria-label="Checkpoint64 for Linux — coming soon"><span>LINUX</span><span class="arch">.appimage · coming soon</span></a>
+            ${tiles}
             <form data-notify-form aria-label="Notify me when Checkpoint64 ships">
               <label for="notify-email-download" class="visually-hidden">Email address</label>
               <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
@@ -663,7 +699,7 @@ function footer(year) {
   `
 }
 
-export function renderApp({ year = new Date().getFullYear() } = {}) {
+export function renderApp({ year = new Date().getFullYear(), releases = null } = {}) {
   return [
     topNav(),
     '<main id="main" role="main">',
@@ -675,7 +711,7 @@ export function renderApp({ year = new Date().getFullYear() } = {}) {
     logbookPreview(),
     dediStrip(),
     pricing(),
-    downloadStrip(),
+    downloadStrip({ releases }),
     faq(),
     '</main>',
     footer(year),

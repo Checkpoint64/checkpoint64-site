@@ -5,6 +5,7 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 
 // Absolute file:// URL for the renderer, so dynamic imports work regardless of cwd.
 const RENDERER = pathToFileURL(resolve(import.meta.dirname, 'src/render.js')).href
+const RELEASES = pathToFileURL(resolve(import.meta.dirname, 'src/releases.js')).href
 const BLOG_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/blog/load.js')).href
 const BLOG_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/blog/render.js')).href
 const LEGAL_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/legal/load.js')).href
@@ -15,15 +16,24 @@ const LEGAL_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/legal/rende
 // having to execute JavaScript. The client bundle then hydrates interactivity
 // in place.
 function prerenderAppShell() {
+  // Cache the GitHub Releases API response across dev-server requests so we
+  // don't burn through the 60/hr unauthenticated rate limit on every reload.
+  // A fresh build / server restart picks up new releases.
+  let releasesPromise = null
   return {
     name: 'prerender-app-shell',
     async transformIndexHtml(html) {
       // Cache-bust in dev so edits to src/render.js are picked up without a restart.
       // In build mode the module is loaded once per build, so this is harmless overhead.
       const { renderApp } = await import(`${RENDERER}?t=${Date.now()}`)
+      if (!releasesPromise) {
+        const { fetchLatestRelease } = await import(RELEASES)
+        releasesPromise = fetchLatestRelease()
+      }
+      const releases = await releasesPromise
       return html.replace(
         '<div id="app"></div>',
-        `<div id="app">${renderApp()}</div>`,
+        `<div id="app">${renderApp({ releases })}</div>`,
       )
     },
   }

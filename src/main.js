@@ -3,6 +3,32 @@
 // module only owns CSS + interactivity. Do NOT overwrite #app.innerHTML here.
 
 import './style.css'
+import { fetchLatestRelease, formatSize, extensionOf } from './releases.js'
+
+// Refresh the download tiles from the live GitHub Releases API so a newly
+// published release shows up without needing to rebuild the site. The tiles
+// already have baked-at-build URLs, so this is a best-effort upgrade — if the
+// fetch fails (offline, rate-limited, etc.) the static links stay in place.
+;(async () => {
+  const tiles = document.querySelectorAll('a.dl[data-platform]')
+  if (!tiles.length) return
+  const releases = await fetchLatestRelease()
+  if (!releases) return
+  tiles.forEach((a) => {
+    const asset = releases.platforms[a.dataset.platform]
+    const arch = a.querySelector('.arch')
+    if (asset) {
+      a.href = asset.url
+      a.setAttribute('aria-label', `Download Checkpoint64 for ${a.dataset.platform} (${releases.tag})`)
+      if (arch) {
+        const ext = extensionOf(asset.name)
+        arch.textContent = [ext && `.${ext}`, releases.tag, formatSize(asset.size)].filter(Boolean).join(' · ')
+      }
+    } else if (releases.url) {
+      a.href = releases.url
+    }
+  })
+})()
 
 // Animated auto-backup ticker on the "How it works" step
 const autoEl = document.querySelector('[data-step-auto]')
