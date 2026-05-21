@@ -41,6 +41,17 @@
     <meta name="color-scheme" content="light dark" />
     <link rel="canonical" href="https://checkpoint64.com/" />
 
+    <!-- Theme bootstrap: must run pre-paint to avoid flash-of-wrong-theme. -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('cp64-theme');
+          var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        } catch (e) { /* localStorage blocked — fall through to default dark theme */ }
+      })();
+    </script>
+
     <!-- Icons & manifest (relative so PR-preview subpaths resolve them) -->
     <link rel="icon" type="image/svg+xml" href="./retro_save_icon.svg" />
     <link rel="alternate icon" href="./retro_save_icon.svg" />
@@ -250,8 +261,8 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="./assets/index-CABj367D.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CZy0nMaV.css">
+    <script type="module" crossorigin src="./assets/index-BhteK2SZ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BP8sJi_m.css">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -268,7 +279,12 @@
           <a href="#faq">FAQ</a>
           <a href="./blog/">BLOG</a>
         </div>
-        <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
+        <div class="nav-actions">
+          <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch to light mode" title="Toggle theme">
+            <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
+          </button>
+          <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
+        </div>
       </div>
     </nav>
   <main id="main" role="main">
@@ -1119,27 +1135,27 @@ WHEN.</h3>
               <li><a href="#features">Features</a></li>
               <li><a href="#pricing">Pricing</a></li>
               <li><a href="#download">Join the list</a></li>
-              <li><a href="#">Changelog</a></li>
+              <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank">Changelog</a></li>
             </ul>
           </nav>
           <nav aria-label="Resources">
             <h2 class="footer-h">RESOURCES</h2>
             <ul>
               <li><a href="./blog/">Blog</a></li>
-              <li><a href="#">Game database</a></li>
-              <li><a href="#">Roadmap</a></li>
-              <li><a href="#">Beta access</a></li>
-              <li><a href="#">Press kit</a></li>
+              <li><a class="visually-hidden" href="#">Game database</a></li>
+              <li><a class="visually-hidden" href="#">Roadmap</a></li>
+              <li><a class="visually-hidden" href="#">Beta access</a></li>
+              <li><a class="visually-hidden" href="#">Press kit</a></li>
             </ul>
           </nav>
           <nav aria-label="Company">
             <h2 class="footer-h">COMPANY</h2>
             <ul>
-              <li><a href="#">About</a></li>
+              <li><a class="visually-hidden" href="#">About</a></li>
               <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="Join the Checkpoint64 Discord (opens in a new tab)">Discord</a></li>
               <li><a href="./terms/">Terms</a></li>
               <li><a href="./privacy/">Privacy</a></li>
-              <li><a href="#">Status</a></li>
+              <li><a class="visually-hidden" "href="#">Status</a></li>
             </ul>
           </nav>
         </div>
