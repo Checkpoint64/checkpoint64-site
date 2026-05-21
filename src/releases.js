@@ -9,29 +9,32 @@
 
 export const REPO = 'checkpoint64/checkpoint64'
 export const RELEASES_PAGE_URL = `https://github.com/${REPO}/releases`
-export const API_LATEST_URL = `https://api.github.com/repos/${REPO}/releases/latest`
+// Use /releases (not /releases/latest), because /latest excludes pre-releases —
+// while v1 is in pre-release that endpoint 404s and we'd lose every installer link.
+export const API_LATEST_URL = `https://api.github.com/repos/${REPO}/releases?per_page=1`
 
-// Order matters: this is the order the tiles render in.
+// Order matters: tiles render in this order, and within each platform the
+// `prefer` list is tried in order — first match wins. Pick the most broadly
+// compatible installer first (.msi over NSIS .exe, .AppImage over .deb/.rpm).
 export const PLATFORMS = [
   {
     key: 'windows',
     label: 'WINDOWS',
-    // .msi / .exe, or anything tagged win / windows / win32 / win64
-    match: /\.(msi|exe)$|win(dows|32|64)?[-_.]/i,
+    prefer: [/\.msi$/i, /\.exe$/i],
     placeholderHint: '.msi',
   },
   {
     key: 'macos',
     label: 'MACOS',
-    // .dmg / .pkg, or anything tagged mac / macos / darwin
-    match: /\.(dmg|pkg)$|mac(os)?[-_.]|darwin/i,
+    prefer: [/\.dmg$/i, /\.pkg$/i],
     placeholderHint: '.dmg · arm64 + x64',
   },
   {
     key: 'linux',
+    // .tar.gz is deliberately excluded — `Checkpoint64.app.tar.gz` is a
+    // macOS app bundle and would otherwise be mistaken for Linux.
     label: 'LINUX',
-    // .AppImage / .deb / .rpm / .tar.gz, or anything tagged linux
-    match: /\.(AppImage|deb|rpm)$|\.tar\.gz$|linux/i,
+    prefer: [/\.AppImage$/i, /\.deb$/i, /\.rpm$/i],
     placeholderHint: '.appimage',
   },
 ]
@@ -40,7 +43,11 @@ export function parseRelease(release) {
   if (!release || !Array.isArray(release.assets)) return null
   const platforms = {}
   for (const p of PLATFORMS) {
-    const asset = release.assets.find((a) => p.match.test(a.name))
+    let asset = null
+    for (const pattern of p.prefer) {
+      asset = release.assets.find((a) => pattern.test(a.name))
+      if (asset) break
+    }
     if (asset) {
       platforms[p.key] = {
         url: asset.browser_download_url,
@@ -66,7 +73,9 @@ export async function fetchLatestRelease(fetcher = globalThis.fetch) {
     })
     if (!r.ok) return null
     const json = await r.json()
-    return parseRelease(json)
+    // /releases returns an array; /releases/latest returns a single object.
+    const release = Array.isArray(json) ? json[0] : json
+    return parseRelease(release)
   } catch {
     return null
   }
