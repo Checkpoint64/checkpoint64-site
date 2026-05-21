@@ -41,6 +41,17 @@
     <meta name="color-scheme" content="light dark" />
     <link rel="canonical" href="https://checkpoint64.com/" />
 
+    <!-- Theme bootstrap: must run pre-paint to avoid flash-of-wrong-theme. -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('cp64-theme');
+          var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        } catch (e) { /* localStorage blocked — fall through to default dark theme */ }
+      })();
+    </script>
+
     <!-- Icons & manifest (relative so PR-preview subpaths resolve them) -->
     <link rel="icon" type="image/svg+xml" href="./retro_save_icon.svg" />
     <link rel="alternate icon" href="./retro_save_icon.svg" />
@@ -250,8 +261,8 @@
       ]
     }
     </script>
-    <script type="module" crossorigin src="./assets/index-D3BUCGEd.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CZy0nMaV.css">
+    <script type="module" crossorigin src="./assets/index-BhteK2SZ.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BP8sJi_m.css">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -268,7 +279,12 @@
           <a href="#faq">FAQ</a>
           <a href="./blog/">BLOG</a>
         </div>
-        <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
+        <div class="nav-actions">
+          <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch to light mode" title="Toggle theme">
+            <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
+          </button>
+          <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
+        </div>
       </div>
     </nav>
   <main id="main" role="main">
@@ -1013,17 +1029,37 @@ WHEN.</h3>
       <div class="wrap">
         <div class="inner">
           <div>
-            <h2 id="download-heading">SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span></h2>
-            <p>
-              We're still testing in private. Drop your email, pick what you
-              play on, and we'll let you know the moment it's ready.
-            </p>
-            <p class="signoff"><span aria-hidden="true">↘ </span>no spam, one email at launch</p>
+            <h2 id="download-heading">LATEST BUILD.<br/>GRAB YOUR<br/><span class="invert">COPY.</span></h2>
+            <p>Pick your platform. Builds are auto-published from GitHub — the
+       link goes straight to the latest installer.</p>
+            <p class="signoff"><span aria-hidden="true">↘ </span>release notes & older builds: <a href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.2.8">on GitHub</a></p>
           </div>
           <div class="downloads">
-            <a class="dl" href="#" aria-label="Checkpoint64 for Windows — coming soon"><span>WINDOWS</span><span class="arch">.msi · coming soon</span></a>
-            <a class="dl" href="#" aria-label="Checkpoint64 for macOS — coming soon"><span>MACOS</span><span class="arch">.dmg · arm64 + x64 · soon</span></a>
-            <a class="dl" href="#" aria-label="Checkpoint64 for Linux — coming soon"><span>LINUX</span><span class="arch">.appimage · coming soon</span></a>
+            
+      <a class="dl" data-platform="windows" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.2.8/Checkpoint64_0.1.0_x64_en-US.msi"
+         aria-label="Download Checkpoint64 for WINDOWS (v0.2.8)">
+        <span>WINDOWS</span>
+        <span class="arch">.msi · v0.2.8 · 8.0 MB</span>
+      </a>
+    
+      <a class="dl" data-platform="macos-arm" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.2.8/Checkpoint64_0.1.0_aarch64.dmg"
+         aria-label="Download Checkpoint64 for MACOS · APPLE SILICON (v0.2.8)">
+        <span>MACOS · APPLE SILICON</span>
+        <span class="arch">.dmg · v0.2.8 · 11.5 MB</span>
+      </a>
+    
+    <a class="dl" data-platform="macos-intel" href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.2.8"
+       aria-label="Checkpoint64 for MACOS · INTEL — see releases on GitHub">
+      <span>MACOS · INTEL</span>
+      <span class="arch">.dmg · x64 · coming soon</span>
+    </a>
+  
+      <a class="dl" data-platform="linux" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.2.8/Checkpoint64_0.1.0_amd64.AppImage"
+         aria-label="Download Checkpoint64 for LINUX (v0.2.8)">
+        <span>LINUX</span>
+        <span class="arch">.appimage · v0.2.8 · 85.3 MB</span>
+      </a>
+    
             <form data-notify-form aria-label="Notify me when Checkpoint64 ships">
               <label for="notify-email-download" class="visually-hidden">Email address</label>
               <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
@@ -1099,27 +1135,27 @@ WHEN.</h3>
               <li><a href="#features">Features</a></li>
               <li><a href="#pricing">Pricing</a></li>
               <li><a href="#download">Join the list</a></li>
-              <li><a href="#">Changelog</a></li>
+              <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank">Changelog</a></li>
             </ul>
           </nav>
           <nav aria-label="Resources">
             <h2 class="footer-h">RESOURCES</h2>
             <ul>
               <li><a href="./blog/">Blog</a></li>
-              <li><a href="#">Game database</a></li>
-              <li><a href="#">Roadmap</a></li>
-              <li><a href="#">Beta access</a></li>
-              <li><a href="#">Press kit</a></li>
+              <li><a class="visually-hidden" href="#">Game database</a></li>
+              <li><a class="visually-hidden" href="#">Roadmap</a></li>
+              <li><a class="visually-hidden" href="#">Beta access</a></li>
+              <li><a class="visually-hidden" href="#">Press kit</a></li>
             </ul>
           </nav>
           <nav aria-label="Company">
             <h2 class="footer-h">COMPANY</h2>
             <ul>
-              <li><a href="#">About</a></li>
+              <li><a class="visually-hidden" href="#">About</a></li>
               <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="Join the Checkpoint64 Discord (opens in a new tab)">Discord</a></li>
               <li><a href="./terms/">Terms</a></li>
               <li><a href="./privacy/">Privacy</a></li>
-              <li><a href="#">Status</a></li>
+              <li><a class="visually-hidden" "href="#">Status</a></li>
             </ul>
           </nav>
         </div>
