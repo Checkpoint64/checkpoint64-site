@@ -96,7 +96,7 @@ function topNav() {
           <a href="#savings">SAVINGS</a>
           <a href="#pricing">PRICING</a>
           <a href="#faq">FAQ</a>
-          <a href="./blog/">BLOG</a>
+          <a href="./blog/" class="blog">BLOG</a>
         </div>
         <div class="nav-actions">
           <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch to light mode" title="Toggle theme">

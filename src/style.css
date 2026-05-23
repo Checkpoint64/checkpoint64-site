@@ -161,7 +161,22 @@ nav.top .cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var
 }
 
 @media (max-width: 880px) {
-  nav.top .links { display: none !important; }
+  /* Collapse the nav links on mobile, but keep BLOG visible — it's the only
+     destination that isn't an anchor on this page, so users would otherwise
+     have no way to reach it without scrolling to the footer. */
+  nav.top .links { gap: 0; }
+  nav.top .links a { display: none; }
+  nav.top .links a.blog {
+    display: inline-flex;
+    align-items: center;
+    border: 1.5px solid var(--fg);
+    padding: 7px 10px;
+    opacity: 1;
+  }
+  nav.top .links a.blog:hover {
+    background: var(--fg);
+    color: var(--bg);
+  }
 }
 @media (max-width: 480px) {
   .theme-toggle { width: 32px; height: 32px; }
@@ -1014,10 +1029,10 @@ footer.bot .copyline {
 @media (max-width: 720px) {
   html, body { font-size: 14.5px; }
   .wrap { padding: 0 18px; }
-  nav.top .inner { padding: 12px 18px; }
+  nav.top .inner { padding: 12px 18px; gap: 12px; }
   nav.top .brand { font-size: 12px; }
   nav.top .cta { padding: 9px 12px; font-size: 10px; box-shadow: 2px 2px 0 var(--fg); }
-  nav.top .nav-actions { gap: 8px; }
+  nav.top .nav-actions { gap: 12px; }
 
   section { padding: 70px 0; }
   section .lede { margin-bottom: 36px; font-size: 15px; }
@@ -1071,10 +1086,11 @@ footer.bot .copyline {
 
 @media (max-width: 420px) {
   .wrap { padding: 0 14px; }
-  nav.top .inner { padding: 10px 14px; }
+  nav.top .inner { padding: 10px 14px; gap: 10px; }
   nav.top .brand { font-size: 11px; gap: 8px; }
   nav.top .brand::before { width: 12px; height: 16px; }
   nav.top .cta { padding: 8px 10px; }
+  nav.top .nav-actions { gap: 10px; }
 
   section { padding: 56px 0; }
   .hero { padding: 36px 0 52px; }
