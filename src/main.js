@@ -4,6 +4,7 @@
 
 import './style.css'
 import { fetchLatestRelease, formatSize, extensionOf } from './releases.js'
+import { detectCurrency, formatMoney } from './currency.js'
 
 // Theme toggle. The initial theme is already set by an inline script in
 // index.html <head> (to avoid flash-of-wrong-theme); this only handles clicks
@@ -49,6 +50,29 @@ import { fetchLatestRelease, formatSize, extensionOf } from './releases.js'
     } else if (releases.url) {
       a.href = releases.url
     }
+  })
+})()
+
+// Reformat baked-in USD amounts in the visitor's currency. Spans are emitted
+// by money() in src/render.js with the raw USD amount on data-money. The SSR
+// fallback already shows EUR (the default), so this only swaps to USD or GBP
+// when the visitor's region calls for it. detectCurrency prefers IANA time
+// zone because navigator.language is often en-US on machines outside the US.
+;(() => {
+  const nodes = document.querySelectorAll('[data-money]')
+  if (!nodes.length) return
+  const locales = (typeof navigator !== 'undefined' && (navigator.languages?.length ? navigator.languages : navigator.language ? [navigator.language] : [])) || []
+  const currency = detectCurrency({ locales })
+  const displayLocale = locales[0] || undefined
+  nodes.forEach((el) => {
+    const amount = Number(el.dataset.money)
+    if (!Number.isFinite(amount)) return
+    const suffix = el.dataset.moneySuffix || ''
+    const toRaw = el.dataset.moneyTo
+    const head = formatMoney(amount, currency, displayLocale)
+    el.textContent = toRaw != null && toRaw !== ''
+      ? `${head}–${formatMoney(Number(toRaw), currency, displayLocale)}${suffix}`
+      : `${head}${suffix}`
   })
 })()
 

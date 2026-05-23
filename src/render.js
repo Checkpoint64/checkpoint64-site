@@ -5,10 +5,25 @@
 // browser-only APIs. Everything in here is just string templates.
 
 import { PLATFORMS, RELEASES_PAGE_URL, formatSize, extensionOf } from './releases.js'
+import { DEFAULT_CURRENCY, formatMoney } from './currency.js'
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[c]))
+
+// Money amounts are stored as raw USD numbers and emitted as <span data-money>
+// formatted in DEFAULT_CURRENCY (EUR) at build time. src/main.js detects the
+// visitor's region and rewrites each span into USD / GBP / EUR via the rate
+// table in src/currency.js, falling back to EUR for unknown regions.
+function money(amount, { suffix = '', to = null } = {}) {
+  const head = formatMoney(amount, DEFAULT_CURRENCY)
+  const text = to != null
+    ? `${head}–${formatMoney(to, DEFAULT_CURRENCY)}${suffix}`
+    : `${head}${suffix}`
+  const attrTo = to != null ? ` data-money-to="${to}"` : ''
+  const attrSuffix = suffix ? ` data-money-suffix="${esc(suffix)}"` : ''
+  return `<span class="money" data-money="${amount}"${attrTo}${attrSuffix}>${text}</span>`
+}
 
 const CART_SIZES = {
   sm: { w: 200, topH: 22, fontMul: 0.85 },
@@ -98,7 +113,7 @@ function hero() {
   const heroCarts = [
     { slot: 'slot-a', opts: { color: '#3df0ff', name: 'FACTORIO',          meta: '6h · 14.2 MB',  files: '48 files', status: 'SYNCED',  statusKind: 'on',   tilt: -7, size: 'md' } },
     { slot: 'slot-b', opts: { color: '#ffd23f', name: 'STARDEW Y3 SPRING', meta: 'just now · 4.1 MB', files: '3 files', status: 'AUTO ON', statusKind: 'on',   lock: { txt: 'LOCK U', kind: 'on' }, tilt: 5, size: 'md' } },
-    { slot: 'slot-c', opts: { color: '#ff5f4e', name: 'SATISFACTORY', meta: '2d · 308 KB',   files: '2 files',  status: 'AUTO ON', statusKind: 'on',   tilt: 2,  size: 'lg', scribble: 'latest run!' } },
+    { slot: 'slot-c', opts: { color: '#ff5f4e', name: 'SATISFACTORY', meta: '2d · 308 KB',   files: '2 files',  status: 'AUTO ON', statusKind: 'on',   tilt: 2,  size: 'lg' } },
     { slot: 'slot-d', opts: { color: '#a07cff', name: 'ELDEN RING NG+3',   meta: '11h · 92 KB',   files: '1 file',   status: 'DIRTY',   statusKind: 'warn', tilt: -3, size: 'sm' } },
   ]
 
@@ -109,7 +124,7 @@ function hero() {
           <div>
             <p class="eyebrow">
               <span class="dot" aria-hidden="true"></span>
-              v1 · OUT SOON · WIN · MAC · LINUX
+              v1 · ALPHA · WIN · MAC · LINUX
             </p>
             <h1>NEVER LOSE<br/>A SAVE <span class="accent">AGAIN.</span></h1>
             <p class="sub">
@@ -142,7 +157,7 @@ function problemStrip() {
   const woes = [
     { stamp: '01:14 AM', text: "the host's factorio crashed mid-save — 80 hours of shared world, gone",     tag: 'RIP'   },
     { stamp: 'WED 6PM',  text: 'your co-op friend played alone and saved over your run',                    tag: 'OW'    },
-    { stamp: '$15/MO',   text: 'paying for a 24/7 server when your group only plays six hours a week',      tag: 'BILL'  },
+    { stamp: money(15, { suffix: '/MO' }), text: 'paying for a 24/7 server when your group only plays six hours a week', tag: 'BILL'  },
     { stamp: 'SAT',      text: "host is on holiday — nobody else has the latest valheim world",             tag: 'STUCK' },
   ]
   return `
@@ -156,7 +171,7 @@ function problemStrip() {
           ${woes.map(w => `
             <li class="problem-card">
               <div class="head">
-                <span><span aria-hidden="true">▸ </span>${esc(w.stamp)}</span>
+                <span><span aria-hidden="true">▸ </span>${w.stamp}</span>
                 <span class="tag">${esc(w.tag)}</span>
               </div>
               <p class="text">${esc(w.text)}</p>
@@ -389,10 +404,10 @@ function logbookPreview() {
 function dediStrip() {
   const cards = [
     {
-      n: '$15/MO',
+      n: money(15, { suffix: '/MO' }),
       tag: 'WHAT A DEDI COSTS',
       title: 'YOU PAY 24/7.',
-      body: 'A rented co-op server is around $15 a month for the popular games — $180 a year, $900 over five. Billed whether anyone logged in this week or not.',
+      body: `A rented co-op server is around ${money(15, { suffix: ' a month' })} for the popular games — ${money(180, { suffix: ' a year' })}, ${money(900, { suffix: ' over five' })}. Billed whether anyone logged in this week or not.`,
     },
     {
       n: '~3.6%',
@@ -401,7 +416,7 @@ function dediStrip() {
       body: 'Four friends, two evenings a week, three hours each. That\'s about six hours of play out of 168 in the week. Your dedi is empty for the other 96%.',
     },
     {
-      n: '$0/MO',
+      n: money(0, { suffix: '/MO' }),
       tag: 'WHAT CHECKPOINT64 COSTS',
       title: 'PAY ONCE. DONE.',
       body: 'One Lifetime payment and the cloud holds the world. Whoever wants to play grabs the lock, plays, and pushes it back. No box to keep warm.',
@@ -409,10 +424,10 @@ function dediStrip() {
   ]
 
   const lines = [
-    { k: 'Server rental, 12 months',     v: '$180' },
+    { k: 'Server rental, 12 months',     v: money(180) },
     { k: 'Hours actually used (4 ppl)',  v: '~312' },
     { k: 'Hours nobody touched it',      v: '~8,448' },
-    { k: 'Spent on idle uptime',         v: '~$173' },
+    { k: 'Spent on idle uptime',         v: `~${money(173)}` },
   ]
 
   return `
@@ -434,27 +449,27 @@ function dediStrip() {
         <div class="steps">
           ${cards.map(c => `
             <div class="step">
-              <div class="n">${esc(c.n)} · ${esc(c.tag)}</div>
+              <div class="n">${c.n} · ${esc(c.tag)}</div>
               <h3>${esc(c.title)}</h3>
-              <p>${esc(c.body)}</p>
+              <p>${c.body}</p>
             </div>
           `).join('')}
         </div>
 
-        <div class="dedi-receipt" aria-label="Cost breakdown of a typical $15/month dedicated server">
+        <div class="dedi-receipt" aria-label="Cost breakdown of a typical dedicated server billed monthly">
           <div class="rh">
-            <span>▮ RECEIPT · TYPICAL $15/MO DEDI</span>
+            <span>▮ RECEIPT · TYPICAL ${money(15, { suffix: '/MO' })} DEDI</span>
             <span class="hand" style="font-size:18px">year one</span>
           </div>
           ${lines.map(l => `
-            <div class="rrow"><span>${esc(l.k)}</span><b>${esc(l.v)}</b></div>
+            <div class="rrow"><span>${esc(l.k)}</span><b>${l.v}</b></div>
           `).join('')}
           <div class="rrow total">
             <span>What you'd save with Checkpoint64 Lifetime, year two onward</span>
-            <b class="accent">$180 / yr</b>
+            <b class="accent">${money(180, { suffix: ' / yr' })}</b>
           </div>
           <div class="rfoot">
-            Over five years that's roughly <b>$900</b> you keep. Or a new GPU,
+            Over five years that's roughly <b>${money(900)}</b> you keep. Or a new GPU,
             whichever you prefer. <a href="./blog/ditch-the-dedicated-server/">Read the full breakdown →</a>
           </div>
         </div>
@@ -469,7 +484,7 @@ function priceCard({ tag, price, unit, tagline, features: fs, cta, highlight }) 
       ${highlight ? '<div class="badge">★ MOST CARTS</div>' : ''}
       <div class="tag">▮ ${esc(tag)}</div>
       <div class="priceline">
-        <span class="price">${esc(price)}</span>
+        <span class="price">${price}</span>
         <span class="unit">${esc(unit)}</span>
       </div>
       <div class="tagline">${esc(tagline)}</div>
@@ -496,7 +511,7 @@ function pricing() {
         <div class="price-grid">
 
           ${priceCard({
-            tag: 'FREE', price: '$0', unit: 'no card required',
+            tag: 'FREE', price: money(0), unit: 'no card required',
             tagline: 'kick the tires, see if your saves come back',
             features: [
               '1 personal space (no teams)',
@@ -508,7 +523,7 @@ function pricing() {
           })}
 
           ${priceCard({
-            tag: 'LIFETIME', price: '$TBC', unit: 'one-time, yours forever',
+            tag: 'LIFETIME', price: esc('TBC'), unit: 'one-time, yours forever',
             tagline: 'pay once, your saves live forever',
             features: [
               'personal space + up to 2 teams',
@@ -521,7 +536,7 @@ function pricing() {
           })}
 
           ${priceCard({
-            tag: 'PRO', price: '$TBC', unit: 'monthly, cancel anytime',
+            tag: 'PRO', price: esc('TBC'), unit: 'monthly, cancel anytime',
             tagline: 'for crews, streamers, modding groups',
             features: [
               'personal space + up to 5 teams',
@@ -623,7 +638,7 @@ function faq() {
     { q: 'WHAT HAPPENS IF MY CO-OP PARTNER OVERWRITES MY UPLOAD?',
       a: "They can’t, on purpose. Only the person holding the lock can upload. If they want to push their version, they have to grab the lock first — and that warns you before it happens. Your last version stays safe in the history; you can always roll back to it." },
     { q: 'DO I STILL NEED A DEDICATED SERVER?',
-      a: "For most groups, no. The whole point of a dedicated server is keeping your world online when the host’s PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves $120–240 a year compared to renting a 24/7 server that sits idle 18 hours a day." },
+      a: `For most groups, no. The whole point of a dedicated server is keeping your world online when the host’s PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves ${money(120, { to: 240, suffix: ' a year' })} compared to renting a 24/7 server that sits idle 18 hours a day.` },
     { q: 'DOES THIS WORK FOR CONSOLE SAVES?',
       a: 'Only if you can get your console saves onto a PC — like emulators, Xbox or PS+ cloud save exports, and Steam Cloud through your PC. Checkpoint64 itself only runs on Windows, Mac, and Linux.' },
     { q: 'WHAT WILL IT COST?',
@@ -642,7 +657,7 @@ function faq() {
           ${items.map(it => `
             <details>
               <summary>${esc(it.q)}</summary>
-              <div class="body">${esc(it.a)}</div>
+              <div class="body">${it.a}</div>
             </details>
           `).join('')}
         </div>
