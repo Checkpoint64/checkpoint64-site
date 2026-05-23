@@ -1005,3 +1005,85 @@ footer.bot .copyline {
 .tilt-n3 { transform: rotate(-3deg); }
 .tilt-p2 { transform: rotate(2deg); }
 .tilt-p5 { transform: rotate(5deg); }
+
+/* ---------- MOBILE TIGHTENING ----------
+   The desktop layout uses generous vertical rhythm and hard-offset
+   box-shadows that look great on a 1440px monitor but waste a screen
+   of phone real estate and can push past the viewport on narrow widths.
+   These rules pull padding in and soften the shadows on small screens. */
+@media (max-width: 720px) {
+  html, body { font-size: 14.5px; }
+  .wrap { padding: 0 18px; }
+  nav.top .inner { padding: 12px 18px; }
+  nav.top .brand { font-size: 12px; }
+  nav.top .cta { padding: 9px 12px; font-size: 10px; box-shadow: 2px 2px 0 var(--fg); }
+  nav.top .nav-actions { gap: 8px; }
+
+  section { padding: 70px 0; }
+  section .lede { margin-bottom: 36px; font-size: 15px; }
+  section .head { margin-bottom: 14px; }
+  section h2 { margin-bottom: 14px; }
+
+  .hero { padding: 44px 0 64px; }
+  .hero h1 { font-size: clamp(34px, 9vw, 72px); letter-spacing: -1.5px; margin-bottom: 22px; }
+  .hero .eyebrow { margin-bottom: 20px; }
+  .hero .sub { font-size: 15.5px; margin-bottom: 28px; }
+  .hero .small { gap: 10px 14px; margin-top: 18px; }
+  .hero .ctas .btn { padding: 12px 14px; font-size: 11px; }
+
+  .steps { gap: 18px; }
+  .step { padding: 22px 20px 24px; box-shadow: 4px 4px 0 var(--ink); }
+  .features { gap: 18px; }
+  .feat { padding: 22px 20px; }
+
+  .problem-grid { gap: 14px; margin-top: 28px; }
+  .problem-card { padding: 18px 16px 20px; }
+
+  .shelf-frame { box-shadow: 4px 4px 0 var(--accent); }
+  .shelf-frame .bar { padding: 12px 16px; font-size: 10px; }
+  .shelf-frame .body { padding: 22px 18px 28px; }
+  .shelf-frame .sechead h4 { font-size: 14px; }
+  .shelf-game { margin-bottom: 32px; }
+
+  .dedi-receipt {
+    margin-top: 28px;
+    padding: 18px 18px 16px;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .dedi-receipt .rh { font-size: 10px; flex-wrap: wrap; gap: 6px; }
+  .dedi-receipt .rrow { font-size: 13px; gap: 10px; }
+  .dedi-receipt .rfoot { font-size: 17px; }
+
+  .price-card { padding: 24px 22px 26px; }
+  .price-card .price { font-size: 32px; }
+  .price-grid { gap: 16px; }
+
+  .cta-strip .inner { padding: 48px 0; gap: 28px; }
+  .cta-strip .dl { padding: 14px 16px; font-size: 11px; }
+
+  .faq summary { padding: 16px 18px; font-size: 12px; }
+  .faq .body { padding: 0 18px 20px; font-size: 13.5px; }
+
+  footer.bot { padding: 36px 0 44px; }
+  footer.bot .inner { gap: 28px 20px; }
+  footer.bot .col1 { flex: 1 1 100%; max-width: none; }
+}
+
+@media (max-width: 420px) {
+  .wrap { padding: 0 14px; }
+  nav.top .inner { padding: 10px 14px; }
+  nav.top .brand { font-size: 11px; gap: 8px; }
+  nav.top .brand::before { width: 12px; height: 16px; }
+  nav.top .cta { padding: 8px 10px; }
+
+  section { padding: 56px 0; }
+  .hero { padding: 36px 0 52px; }
+  .hero h1 { font-size: clamp(30px, 10vw, 56px); }
+
+  .cta-strip .inner { padding: 40px 0; }
+  .cta-strip h2 { font-size: clamp(24px, 8vw, 40px); }
+
+  /* Stack hero CTAs so each gets a full tap-target row */
+  .hero .ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero .ctas .btn { justify-content: center; }
+}
