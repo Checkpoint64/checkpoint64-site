@@ -43,6 +43,36 @@
     <meta name="color-scheme" content="light dark"/>
     <link rel="canonical" href="https://checkpoint64.com/"/>
 
+    <!-- Alternate languages (hreflang). Identical on every page; the localized
+         /de/, /fr/, /es/ copies inherit this block unchanged. -->
+    <link rel="alternate" hreflang="en" href="https://checkpoint64.com/"/>
+    <link rel="alternate" hreflang="de" href="https://checkpoint64.com/de/"/>
+    <link rel="alternate" hreflang="fr" href="https://checkpoint64.com/fr/"/>
+    <link rel="alternate" hreflang="es" href="https://checkpoint64.com/es/"/>
+    <link rel="alternate" hreflang="x-default" href="https://checkpoint64.com/"/>
+
+    <!-- Language auto-detect: on the apex root only, send first-time visitors
+         whose browser prefers de/fr/es to that localized copy. Stays put for
+         English, for bots (so each canonical URL gets crawled), and once the
+         visitor has picked a language via the switcher (cp64-lang). -->
+    <script>
+        (function () {
+            try {
+                if (location.pathname !== '/') return;
+                if (localStorage.getItem('cp64-lang')) return;
+                if (/bot|crawl|spider|slurp|bingpreview/i.test(navigator.userAgent || '')) return;
+                var supported = ['de', 'fr', 'es'];
+                var langs = (navigator.languages && navigator.languages.length)
+                    ? navigator.languages : [navigator.language || ''];
+                for (var i = 0; i < langs.length; i++) {
+                    var code = String(langs[i]).slice(0, 2).toLowerCase();
+                    if (code === 'en') return;
+                    if (supported.indexOf(code) !== -1) { location.replace('./' + code + '/'); return; }
+                }
+            } catch (e) { /* leave on the English page */ }
+        })();
+    </script>
+
     <!-- Theme bootstrap: must run pre-paint to avoid flash-of-wrong-theme. -->
     <script>
         (function () {
@@ -96,6 +126,7 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500;700&display=swap"
           rel="stylesheet"/>
 
+    <!-- i18n:jsonld:start (localized copies regenerate this block in their language) -->
     <!-- Structured data: Organization -->
     <script type="application/ld+json">
         {
@@ -277,21 +308,22 @@
             ]
         }
     </script>
+    <!-- i18n:jsonld:end -->
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div id="app"></div>
+<!-- app:start --><div id="app"></div><!-- app:end -->
 
 <!-- The page above is fully pre-rendered into #app at build time, so no
      noscript content-fallback is needed. This block only notes the
      degraded behaviour without JavaScript. -->
-<noscript>
+<!-- i18n:noscript:start --><noscript>
     <p style="max-width:60ch;margin:1.5rem auto;padding:1rem;border:2px dashed #a82828;font-family:ui-monospace,monospace;text-align:center">
         Heads-up — JavaScript is disabled, so the launch-list signup form and
         the animated demo on this page won't work. The rest of the content is
         fully visible above.
     </p>
-</noscript>
+</noscript><!-- i18n:noscript:end -->
 
 <script type="module" src="/src/main.js"></script>
 

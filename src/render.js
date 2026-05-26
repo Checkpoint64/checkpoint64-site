@@ -3,22 +3,30 @@
 // This module is imported BOTH from the browser entry (src/main.js) and from
 // Node (vite.config.js) at build time, so it must stay free of any DOM /
 // browser-only APIs. Everything in here is just string templates.
+//
+// All user-visible copy comes from the locale `t` object (src/i18n/locales/*).
+// Pass `locale` to renderApp to render the page in that language; English is
+// the default. Links are always emitted relative to the site root ("./blog/",
+// "./de/"); localizeHtml() in src/i18n/localize.js rewrites them to "../" for
+// the depth-1 localized pages.
 
 import { PLATFORMS, RELEASES_PAGE_URL, formatSize, extensionOf } from './releases.js'
 import { DEFAULT_CURRENCY, formatMoney } from './currency.js'
+import { LOCALES, DEFAULT_LOCALE, getLocale, fmt } from './i18n/config.js'
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[c]))
 
 // Money amounts are stored as raw USD numbers and emitted as <span data-money>
-// formatted in DEFAULT_CURRENCY (EUR) at build time. src/main.js detects the
-// visitor's region and rewrites each span into USD / GBP / EUR via the rate
-// table in src/currency.js, falling back to EUR for unknown regions.
-function money(amount, { suffix = '', to = null } = {}) {
-  const head = formatMoney(amount, DEFAULT_CURRENCY)
+// formatted in DEFAULT_CURRENCY (EUR), in the current page's locale, at build
+// time. src/main.js then detects the visitor's region and rewrites each span
+// into USD / GBP / EUR via the rate table in src/currency.js, falling back to
+// EUR for unknown regions.
+function money(amount, { suffix = '', to = null, intl } = {}) {
+  const head = formatMoney(amount, DEFAULT_CURRENCY, intl)
   const text = to != null
-    ? `${head}–${formatMoney(to, DEFAULT_CURRENCY)}${suffix}`
+    ? `${head}–${formatMoney(to, DEFAULT_CURRENCY, intl)}${suffix}`
     : `${head}${suffix}`
   const attrTo = to != null ? ` data-money-to="${to}"` : ''
   const attrSuffix = suffix ? ` data-money-suffix="${esc(suffix)}"` : ''
@@ -84,32 +92,56 @@ function cartridge({
   `
 }
 
-function topNav() {
+// Compact language picker: a <details> disclosure showing the current locale's
+// label, expanding to a menu of real <a> links (kept as anchors so crawlers
+// still see every localized URL). Collapses to a single control so the nav
+// stays tidy on tablet widths.
+function langSwitch(t, locale) {
+  const current = LOCALES.find((l) => l.code === locale) || LOCALES[0]
+  const options = LOCALES.map((l) => {
+    const href = l.code === DEFAULT_LOCALE ? './' : `./${l.code}/`
+    const cur = l.code === locale
+    return `<a class="lang-opt${cur ? ' cur' : ''}" href="${href}" hreflang="${l.code}" data-lang="${l.code}"${cur ? ' aria-current="true"' : ''}>${esc(l.name)}</a>`
+  }).join('')
+  return `
+          <details class="lang-menu">
+            <summary aria-label="${esc(t.nav.switcherAria)}" title="${esc(t.nav.switcherAria)}">
+              <span class="lang-cur">${esc(current.label)}</span>
+              <span class="lang-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="lang-pop">${options}</div>
+          </details>`
+}
+
+function topNav(t, locale) {
+  const n = t.nav
   return `
     <nav class="top" aria-label="Primary">
       <div class="inner">
-        <a href="/" class="brand" aria-label="Checkpoint64 — home">CHECKPOINT64</a>
+        <a href="/" class="brand" aria-label="${esc(n.brandAria)}">CHECKPOINT64</a>
         <div class="links">
-          <a href="#how">HOW IT WORKS</a>
-          <a href="#shelf">THE SHELF</a>
-          <a href="#features">FEATURES</a>
-          <a href="#savings">SAVINGS</a>
-          <a href="#pricing">PRICING</a>
-          <a href="#faq">FAQ</a>
-          <a href="./blog/" class="blog">BLOG</a>
+          <a href="#how">${esc(n.links.how)}</a>
+          <a href="#shelf">${esc(n.links.shelf)}</a>
+          <a href="#features">${esc(n.links.features)}</a>
+          <a href="#savings">${esc(n.links.savings)}</a>
+          <a href="#pricing">${esc(n.links.pricing)}</a>
+          <a href="#faq">${esc(n.links.faq)}</a>
+          <a href="./blog/" class="blog">${esc(n.links.blog)}</a>
         </div>
         <div class="nav-actions">
+          ${langSwitch(t, locale)}
           <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch to light mode" title="Toggle theme">
             <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
           </button>
-          <a class="cta" href="#download" aria-label="Join the launch list">JOIN LIST ↗</a>
+          <a class="cta" href="#download" aria-label="${esc(n.ctaAria)}">${esc(n.cta)} ↗</a>
         </div>
       </div>
     </nav>
   `
 }
 
-function hero() {
+function hero(t) {
+  const h = t.hero
   const heroCarts = [
     { slot: 'slot-a', opts: { color: '#3df0ff', name: 'FACTORIO',          meta: '6h · 14.2 MB',  files: '48 files', status: 'SYNCED',  statusKind: 'on',   tilt: -7, size: 'md' } },
     { slot: 'slot-b', opts: { color: '#ffd23f', name: 'STARDEW Y3 SPRING', meta: 'just now · 4.1 MB', files: '3 files', status: 'AUTO ON', statusKind: 'on',   lock: { txt: 'LOCK U', kind: 'on' }, tilt: 5, size: 'md' } },
@@ -126,20 +158,14 @@ function hero() {
               <span class="dot" aria-hidden="true"></span>
               v1 · ALPHA · WIN · MAC · LINUX
             </p>
-            <h1>NEVER LOSE<br/>A SAVE <span class="accent">AGAIN.</span></h1>
-            <p class="sub">
-              Your saves, backed up forever. Pass worlds between friends like cartridges.
-              No more "who has the latest?" Everyone stays in sync. Roll back bad runs.
-              Host goes offline? Someone else picks up. Solo or co-op, always protected.
-            </p>
+            <h1>${h.h1Html}</h1>
+            <p class="sub">${esc(h.sub)}</p>
             <div class="ctas">
-              <a href="#download" class="btn prim" aria-label="Join the Checkpoint64 launch list">JOIN THE LIST <span aria-hidden="true">↗</span></a>
-              <a href="#how" class="btn ghost" aria-label="See how Checkpoint64 works">SEE IT WORK</a>
+              <a href="#download" class="btn prim" aria-label="${esc(h.ctaPrimaryAria)}">${esc(h.ctaPrimary)} <span aria-hidden="true">↗</span></a>
+              <a href="#how" class="btn ghost" aria-label="${esc(h.ctaSecondaryAria)}">${esc(h.ctaSecondary)}</a>
             </div>
             <p class="small">
-              <span>one-time purchase</span>
-              <span>no subscription</span>
-              <span>yours, forever</span>
+              ${h.small.map((s) => `<span>${esc(s)}</span>`).join('\n              ')}
             </p>
           </div>
           <div class="hero-art" aria-hidden="true">
@@ -153,20 +179,20 @@ function hero() {
   `
 }
 
-function problemStrip() {
-  const woes = [
-    { stamp: '01:14 AM', text: "the host's factorio crashed mid-save — 80 hours of shared world, gone",     tag: 'RIP'   },
-    { stamp: 'WED 6PM',  text: 'your co-op friend played alone and saved over your run',                    tag: 'OW'    },
-    { stamp: money(15, { suffix: '/MO' }), text: 'paying for a 24/7 server when your group only plays six hours a week', tag: 'BILL'  },
-    { stamp: 'SAT',      text: "host is on holiday — nobody else has the latest valheim world",             tag: 'STUCK' },
-  ]
+function problemStrip(t, intl) {
+  const p = t.problems
+  const woes = p.woes.map((w, i) => ({
+    ...w,
+    // index 2 carries the dynamic price stamp; the rest are plain text.
+    stamp: i === 2 ? money(15, { suffix: t.money.perMonthShort, intl }) : esc(w.stamp),
+  }))
   return `
     <section style="padding:90px 0 100px" aria-labelledby="problems-heading">
       <div class="wrap">
         <div class="head">
-          <span class="tape">STUFF THAT REALLY HURTS</span>
+          <span class="tape">${esc(p.tape)}</span>
         </div>
-        <h2 id="problems-heading">WHAT THIS FIXES,<br/><span class="accent">BASICALLY.</span></h2>
+        <h2 id="problems-heading">${p.h2Html}</h2>
         <ul class="problem-grid">
           ${woes.map(w => `
             <li class="problem-card">
@@ -183,25 +209,22 @@ function problemStrip() {
   `
 }
 
-function howItWorks() {
+function howItWorks(t) {
+  const h = t.how
   return `
     <section class="paper" id="how" aria-labelledby="how-heading">
       <div class="wrap">
         <div class="head">
-          <span class="tape" style="color:#a82828">▮ HOW CHECKPOINT64 WORKS</span>
+          <span class="tape" style="color:#a82828">▮ ${esc(h.tape)}</span>
         </div>
-        <h2 id="how-heading">POINT IT AT A FOLDER.<br/><span class="accent">FORGET ABOUT IT.</span></h2>
-        <p class="lede">
-          The whole point is that you don't have to think about save files anymore.
-          Three steps, once, and you're done forever.
-        </p>
+        <h2 id="how-heading">${h.h2Html}</h2>
+        <p class="lede">${esc(h.lede)}</p>
 
         <div class="steps">
           <div class="step">
-            <div class="n">01 · UPLOAD</div>
-            <h3>HIT UPLOAD ↑</h3>
-            <p>Grab a snapshot of your save folder and send a copy to the cloud.
-            Each upload becomes its own labelled <em>version</em>.</p>
+            <div class="n">${esc(h.steps[0].label)}</div>
+            <h3>${h.steps[0].h3Html}</h3>
+            <p>${h.steps[0].bodyHtml}</p>
             <div class="visual step-upload">
               <div class="src-label">SOURCE</div>
               <div class="src-path">C:\\Users\\you\\AppData\\Local\\FactoryGame\\Saved\\…</div>
@@ -211,11 +234,9 @@ function howItWorks() {
           </div>
 
           <div class="step">
-            <div class="n">02 · AUTO-BACKUP</div>
-            <h3>FLIP AUTO ON</h3>
-            <p>Checkpoint64 checks your save folder every couple of minutes. If
-            anything changed, it uploads a fresh version on its own. Only the
-            changed files get sent — the rest is skipped.</p>
+            <div class="n">${esc(h.steps[1].label)}</div>
+            <h3>${h.steps[1].h3Html}</h3>
+            <p>${h.steps[1].bodyHtml}</p>
             <div class="visual step-auto" data-step-auto>
               <div class="bars">
                 <div class="bar on"></div>
@@ -224,16 +245,14 @@ function howItWorks() {
                 <div class="bar"></div>
               </div>
               <div class="label" data-auto-label>WATCHING…</div>
-              <div class="meta">every 2 minutes · only what changed</div>
+              <div class="meta">${esc(h.autoMeta)}</div>
             </div>
           </div>
 
           <div class="step">
-            <div class="n">03 · RESTORE</div>
-            <h3>ROLL IT BACK</h3>
-            <p>Click <b>Versions →</b> on any save to see every backup. Pick one
-            and hit <b>Restore</b> — Checkpoint64 puts the files back and marks
-            that version as the current one.</p>
+            <div class="n">${esc(h.steps[2].label)}</div>
+            <h3>${h.steps[2].h3Html}</h3>
+            <p>${h.steps[2].bodyHtml}</p>
             <div class="visual step-restore">
               <div class="v-row"><span>v#012</span><span class="when">12m ago</span><span class="restore">RESTORE</span></div>
               <div class="v-row cur"><span>v#011</span><span class="when">2h ago</span><span class="here">← HERE</span></div>
@@ -246,7 +265,8 @@ function howItWorks() {
   `
 }
 
-function shelfMock() {
+function shelfMock(t) {
+  const sh = t.shelf
   const games = [
     {
       name: 'Satisfactory',
@@ -280,14 +300,11 @@ function shelfMock() {
     <section id="shelf" aria-labelledby="shelf-heading">
       <div class="wrap">
         <div class="head">
-          <span class="tape">▮ A LOOK AT THE APP</span>
-          <span class="hand" style="color:var(--accent);font-size:22px">not a screenshot — live</span>
+          <span class="tape">▮ ${esc(sh.tape)}</span>
+          <span class="hand" style="color:var(--accent);font-size:22px">${esc(sh.hand)}</span>
         </div>
-        <h2 id="shelf-heading">YOUR LIBRARY<br/>IS A <span class="accent">CARTRIDGE SHELF.</span></h2>
-        <p class="lede">
-          Every save is a cartridge. Same game, different runs? Same shelf,
-          different carts.
-        </p>
+        <h2 id="shelf-heading">${sh.h2Html}</h2>
+        <p class="lede">${esc(sh.lede)}</p>
 
         <div class="shelf-frame">
           <div class="bar">
@@ -315,38 +332,22 @@ function shelfMock() {
   `
 }
 
-function features() {
-  const feats = [
-    { tag: 'VERSION HISTORY', title: 'EVERY UPLOAD\nIS A VERSION.',
-      body: 'Scroll through every backup with file count, size, and what changed since last time. Hit Restore and it puts the save back AND marks it as current — no confusion.' },
-    { tag: 'CO-OP LOCKS', title: 'ONE PERSON\nHOLDS THE WORLD.',
-      body: 'Games like Factorio, Satisfactory, Valheim, and V Rising only have one live world file at a time. Whoever holds the lock can upload it; everyone else just downloads. Nobody using it? Grab the lock yourself — no more "who has the latest save?"' },
-    { tag: 'ONLY WHAT CHANGED', title: 'TINY\nUPLOADS.',
-      body: 'We only send the bits that actually changed. A 14 MB save where one file moved? Uploads 8 KB. Easy on your internet, easy on your storage.' },
-    { tag: 'PER-GAME RULES', title: 'PICK WHAT\nGETS BACKED UP.',
-      body: 'Choose which files to back up and which to ignore. Skip the crash logs and screenshots, keep the save. Already set up for the 40+ games Checkpoint64 knows about.' },
-    { tag: 'BACKGROUND APP', title: 'RUNS IN THE\nBACKGROUND.',
-      body: "A small, light app that barely uses any memory. Checks every 2 minutes and rests when nothing's changed. Won't get in the way while you're playing." },
-    { tag: 'LOGBOOK', title: 'WHO DID WHAT,\nWHEN.',
-      body: "Every upload, restore, and lock-grab gets written down in your group's logbook. Handy when your co-op partner blames you for the bad run." },
-  ]
+function features(t) {
+  const f = t.features
   return `
     <section id="features" aria-labelledby="features-heading">
       <div class="wrap">
         <div class="head">
-          <span class="tape">▮ FEATURES</span>
+          <span class="tape">▮ ${esc(f.tape)}</span>
         </div>
-        <h2 id="features-heading">WHAT'S IN <span class="accent">THE BOX.</span></h2>
-        <p class="lede">
-          Built by people who reload saves a lot. No fluff, no charge per
-          person, no "powered by AI." Just a save vault that works.
-        </p>
+        <h2 id="features-heading">${f.h2Html}</h2>
+        <p class="lede">${esc(f.lede)}</p>
         <div class="features">
-          ${feats.map(f => `
+          ${f.items.map(it => `
             <div class="feat">
-              <div class="ico">▮ ${esc(f.tag)}</div>
-              <h3>${esc(f.title)}</h3>
-              <p>${esc(f.body)}</p>
+              <div class="ico">▮ ${esc(it.tag)}</div>
+              <h3>${esc(it.title)}</h3>
+              <p>${esc(it.body)}</p>
             </div>
           `).join('')}
         </div>
@@ -355,7 +356,8 @@ function features() {
   `
 }
 
-function logbookPreview() {
+function logbookPreview(t) {
+  const lb = t.logbook
   const entries = [
     { t: '12m',  who: 'you',  tag: 'v#012', body: 'uploaded a new version',                  id: '8af23901' },
     { t: '1h',   who: 'jess', tag: 'lock',  body: 'claimed the lock',                        id: '8af23901' },
@@ -368,20 +370,16 @@ function logbookPreview() {
     <section class="paper" aria-labelledby="logbook-heading">
       <div class="wrap">
         <div class="head">
-          <span class="tape" style="color:#a82828">▮ LOGBOOK · LIVE</span>
-          <span class="hand" style="color:#a82828;font-size:22px">shared with your group</span>
+          <span class="tape" style="color:#a82828">▮ ${esc(lb.tape)}</span>
+          <span class="hand" style="color:#a82828;font-size:22px">${esc(lb.hand)}</span>
         </div>
-        <h2 id="logbook-heading">BLAME THE <span class="accent">RIGHT PERSON.</span></h2>
-        <p class="lede">
-          Everything anyone in your group does gets written down. Handy for
-          co-op friends, modded servers, speedrun teams, and the classic
-          "wait, who deleted that?"
-        </p>
+        <h2 id="logbook-heading">${lb.h2Html}</h2>
+        <p class="lede">${esc(lb.lede)}</p>
 
         <div class="logbook">
           <div class="lh">
             <span class="t">▮ LOGBOOK</span>
-            <span class="c">${entries.length} events</span>
+            <span class="c">${entries.length} ${esc(lb.eventsLabel)}</span>
           </div>
           ${entries.map(e => `
             <div class="logentry">
@@ -394,83 +392,71 @@ function logbookPreview() {
               <span class="go">→ ${esc(e.id.slice(0, 8))}</span>
             </div>
           `).join('')}
-          <div class="live">live · refresh on visit</div>
+          <div class="live">${esc(lb.liveCaption)}</div>
         </div>
       </div>
     </section>
   `
 }
 
-function dediStrip() {
-  const cards = [
-    {
-      n: money(15, { suffix: '/MO' }),
-      tag: 'WHAT A DEDI COSTS',
-      title: 'YOU PAY 24/7.',
-      body: `A rented co-op server is around ${money(15, { suffix: ' a month' })} for the popular games — ${money(180, { suffix: ' a year' })}, ${money(900, { suffix: ' over five' })}. Billed whether anyone logged in this week or not.`,
-    },
-    {
-      n: '~3.6%',
-      tag: 'WHAT YOU ACTUALLY USE',
-      title: 'IT SITS IDLE.',
-      body: 'Four friends, two evenings a week, three hours each. That\'s about six hours of play out of 168 in the week. Your dedi is empty for the other 96%.',
-    },
-    {
-      n: money(0, { suffix: '/MO' }),
-      tag: 'WHAT CHECKPOINT64 COSTS',
-      title: 'PAY ONCE. DONE.',
-      body: 'One Lifetime payment and the cloud holds the world. Whoever wants to play grabs the lock, plays, and pushes it back. No box to keep warm.',
-    },
+function dediStrip(t, intl) {
+  const sv = t.savings
+  const m = t.money
+  const cardN = [
+    money(15, { suffix: m.perMonthShort, intl }),
+    '~3.6%',
+    money(0, { suffix: m.perMonthShort, intl }),
+  ]
+  const cardBody = [
+    fmt(sv.cards[0].bodyTpl,
+      money(15, { suffix: m.aMonth, intl }),
+      money(180, { suffix: m.aYear, intl }),
+      money(900, { suffix: m.overFive, intl })),
+    fmt(sv.cards[1].bodyTpl),
+    fmt(sv.cards[2].bodyTpl),
   ]
 
-  const lines = [
-    { k: 'Server rental, 12 months',     v: money(180) },
-    { k: 'Hours actually used (4 ppl)',  v: '~312' },
-    { k: 'Hours nobody touched it',      v: '~8,448' },
-    { k: 'Spent on idle uptime',         v: `~${money(173)}` },
+  const lineVals = [
+    money(180, { intl }),
+    '~312',
+    '~8,448',
+    `~${money(173, { intl })}`,
   ]
 
   return `
     <section class="paper" id="savings" aria-labelledby="savings-heading">
       <div class="wrap">
         <div class="head">
-          <span class="tape" style="color:#a82828">▮ DITCH THE DEDI</span>
-          <span class="hand" style="color:#a82828;font-size:22px">do the math</span>
+          <span class="tape" style="color:#a82828">▮ ${esc(sv.tape)}</span>
+          <span class="hand" style="color:#a82828;font-size:22px">${esc(sv.hand)}</span>
         </div>
-        <h2 id="savings-heading">NO MORE 24/7 BOX<br/><span class="accent">YOU BARELY USE.</span></h2>
-        <p class="lede">
-          A dedicated server makes sense if twenty people are on it every night.
-          For the average co-op group — four friends, a couple of evenings a
-          week — you're renting empty hours. Checkpoint64 covers the part you
-          actually need (the world file, lock-passing, version history) for a
-          one-time payment instead of a forever bill.
-        </p>
+        <h2 id="savings-heading">${sv.h2Html}</h2>
+        <p class="lede">${esc(sv.lede)}</p>
 
         <div class="steps">
-          ${cards.map(c => `
+          ${sv.cards.map((c, i) => `
             <div class="step">
-              <div class="n">${c.n} · ${esc(c.tag)}</div>
+              <div class="n">${cardN[i]} · ${esc(c.tag)}</div>
               <h3>${esc(c.title)}</h3>
-              <p>${c.body}</p>
+              <p>${cardBody[i]}</p>
             </div>
           `).join('')}
         </div>
 
-        <div class="dedi-receipt" aria-label="Cost breakdown of a typical dedicated server billed monthly">
+        <div class="dedi-receipt" aria-label="${esc(sv.receiptAria)}">
           <div class="rh">
-            <span>▮ RECEIPT · TYPICAL ${money(15, { suffix: '/MO' })} DEDI</span>
-            <span class="hand" style="font-size:18px">year one</span>
+            <span>${fmt(sv.receiptLabelTpl, money(15, { suffix: m.perMonthShort, intl }))}</span>
+            <span class="hand" style="font-size:18px">${esc(sv.receiptYear)}</span>
           </div>
-          ${lines.map(l => `
-            <div class="rrow"><span>${esc(l.k)}</span><b>${l.v}</b></div>
+          ${sv.lineKeys.map((k, i) => `
+            <div class="rrow"><span>${esc(k)}</span><b>${lineVals[i]}</b></div>
           `).join('')}
           <div class="rrow total">
-            <span>What you'd save with Checkpoint64 Lifetime, year two onward</span>
-            <b class="accent">${money(180, { suffix: ' / yr' })}</b>
+            <span>${esc(sv.totalLabel)}</span>
+            <b class="accent">${money(180, { suffix: m.perYear, intl })}</b>
           </div>
           <div class="rfoot">
-            Over five years that's roughly <b>${money(900)}</b> you keep. Or a new GPU,
-            whichever you prefer. <a href="./blog/ditch-the-dedicated-server/">Read the full breakdown →</a>
+            ${fmt(sv.footTpl, money(900, { intl }))}
           </div>
         </div>
       </div>
@@ -478,10 +464,10 @@ function dediStrip() {
   `
 }
 
-function priceCard({ tag, price, unit, tagline, features: fs, cta, highlight }) {
+function priceCard({ tag, price, unit, tagline, features: fs, cta, highlight, badge }) {
   return `
     <div class="price-card${highlight ? ' hl' : ''}">
-      ${highlight ? '<div class="badge">★ MOST CARTS</div>' : ''}
+      ${highlight ? `<div class="badge">${esc(badge)}</div>` : ''}
       <div class="tag">▮ ${esc(tag)}</div>
       <div class="priceline">
         <span class="price">${price}</span>
@@ -494,71 +480,40 @@ function priceCard({ tag, price, unit, tagline, features: fs, cta, highlight }) 
   `
 }
 
-function pricing() {
+function pricing(t, intl) {
+  const pr = t.pricing
+  const prices = [money(0, { intl }), esc(pr.tbc), esc(pr.tbc)]
   return `
     <section id="pricing" aria-labelledby="pricing-heading">
       <div class="wrap">
         <div class="head">
-          <span class="tape">▮ PRICING</span>
+          <span class="tape">▮ ${esc(pr.tape)}</span>
         </div>
-        <h2 id="pricing-heading">PICK YOUR<br/><span class="accent">CART.</span></h2>
-        <p class="lede">
-          Three ways to play it. Free to try, paid for life, or Pro for crews who
-          save together. No charge per person, no surprise fees, no rip-cords.
-          Final prices aren't set yet — drop your email and we'll tell you before launch.
-        </p>
+        <h2 id="pricing-heading">${pr.h2Html}</h2>
+        <p class="lede">${esc(pr.lede)}</p>
 
         <div class="price-grid">
-
-          ${priceCard({
-            tag: 'FREE', price: money(0), unit: 'no card required',
-            tagline: 'kick the tires, see if your saves come back',
-            features: [
-              '1 personal space (no teams)',
-              '20 MiB cloud storage',
-              'automatic backup + full version history',
-              'join a friend’s team for co-op',
-            ],
-            cta: 'GET FREE',
-          })}
-
-          ${priceCard({
-            tag: 'LIFETIME', price: esc('TBC'), unit: 'one-time, yours forever',
-            tagline: 'pay once, your saves live forever',
-            features: [
-              'personal space + up to 2 teams',
-              '5 GiB storage per space',
-              'co-op locks + shared activity logbook',
-              'no subscription, ever',
-              'unlock via Steam or direct',
-            ],
-            cta: 'NOTIFY ME', highlight: true,
-          })}
-
-          ${priceCard({
-            tag: 'PRO', price: esc('TBC'), unit: 'monthly, cancel anytime',
-            tagline: 'for crews, streamers, modding groups',
-            features: [
-              'personal space + up to 5 teams',
-              '50 GiB storage per space',
-              '25 seats per team (guaranteed minimum)',
-              '100 versions / 90 days kept (guaranteed minimum)',
-              'priority bandwidth (2× the API throughput)',
-            ],
-            cta: 'NOTIFY ME',
-          })}
-
+          ${pr.cards.map((c, i) => priceCard({
+            tag: c.tag,
+            price: prices[i],
+            unit: c.unit,
+            tagline: c.tagline,
+            features: c.features,
+            cta: c.cta,
+            highlight: i === 1,
+            badge: pr.badge,
+          })).join('\n          ')}
         </div>
 
         <div class="notify-strip">
           <div>
             <span class="hand" style="color:var(--accent);font-size:20px;margin-right:10px">↘</span>
-            Pricing isn't final yet. Drop your email and we'll tell you the day it ships.
+            ${esc(pr.notify.text)}
           </div>
-          <form data-notify-form aria-label="Notify me about Checkpoint64 pricing">
-            <label for="notify-email-pricing" class="visually-hidden">Email address</label>
-            <input id="notify-email-pricing" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
-            <button type="submit" class="btn prim">NOTIFY ME</button>
+          <form data-notify-form aria-label="${esc(pr.formAria)}">
+            <label for="notify-email-pricing" class="visually-hidden">${esc(pr.emailLabel)}</label>
+            <input id="notify-email-pricing" name="email" type="email" autocomplete="email" required placeholder="${esc(pr.emailPlaceholder)}" />
+            <button type="submit" class="btn prim">${esc(pr.notify.button)}</button>
             <p class="form-status" data-form-status role="status" aria-live="polite"></p>
           </form>
         </div>
@@ -567,7 +522,8 @@ function pricing() {
   `
 }
 
-function downloadTile(platform, releases) {
+function downloadTile(platform, releases, t) {
+  const d = t.download
   const asset = releases?.platforms?.[platform.key]
   const fallbackHref = releases?.url || RELEASES_PAGE_URL
 
@@ -577,7 +533,7 @@ function downloadTile(platform, releases) {
     const sub = [ext && `.${ext}`, releases.tag, size].filter(Boolean).join(' · ')
     return `
       <a class="dl" data-platform="${esc(platform.key)}" href="${esc(asset.url)}"
-         aria-label="Download Checkpoint64 for ${esc(platform.label)} (${esc(releases.tag)})">
+         aria-label="${esc(fmt(d.tileAriaLiveTpl, platform.label, releases.tag))}">
         <span>${esc(platform.label)}</span>
         <span class="arch">${esc(sub)}</span>
       </a>
@@ -586,26 +542,21 @@ function downloadTile(platform, releases) {
 
   return `
     <a class="dl" data-platform="${esc(platform.key)}" href="${esc(fallbackHref)}"
-       aria-label="Checkpoint64 for ${esc(platform.label)} — see releases on GitHub">
+       aria-label="${esc(fmt(d.tileAriaSoonTpl, platform.label))}">
       <span>${esc(platform.label)}</span>
-      <span class="arch">${esc(platform.placeholderHint)} · coming soon</span>
+      <span class="arch">${esc(platform.placeholderHint)} · ${esc(d.comingSoon)}</span>
     </a>
   `
 }
 
-function downloadStrip({ releases } = {}) {
-  const tiles = PLATFORMS.map((p) => downloadTile(p, releases)).join('')
-  const headline = releases?.tag
-    ? `LATEST BUILD.<br/>GRAB YOUR<br/><span class="invert">COPY.</span>`
-    : `SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span>`
-  const blurb = releases?.tag
-    ? `Pick your platform. Builds are auto-published from GitHub — the
-       link goes straight to the latest installer.`
-    : `We're still testing in private. Drop your email, pick what you
-       play on, and we'll let you know the moment it's ready.`
+function downloadStrip(t, { releases } = {}) {
+  const d = t.download
+  const tiles = PLATFORMS.map((p) => downloadTile(p, releases, t)).join('')
+  const headline = releases?.tag ? d.headlineLiveHtml : d.headlineSoonHtml
+  const blurb = releases?.tag ? d.blurbLive : d.blurbSoon
   const signoff = releases?.tag
-    ? `<span aria-hidden="true">↘ </span>release notes & older builds: <a href="${esc(releases.url)}">on GitHub</a>`
-    : `<span aria-hidden="true">↘ </span>no spam, one email at launch`
+    ? `<span aria-hidden="true">↘ </span>${fmt(d.signoffLiveTpl, esc(releases.url))}`
+    : `<span aria-hidden="true">↘ </span>${esc(d.signoffSoon)}`
 
   return `
     <section class="cta-strip" id="download" aria-labelledby="download-heading">
@@ -613,15 +564,15 @@ function downloadStrip({ releases } = {}) {
         <div class="inner">
           <div>
             <h2 id="download-heading">${headline}</h2>
-            <p>${blurb}</p>
+            <p>${esc(blurb)}</p>
             <p class="signoff">${signoff}</p>
           </div>
           <div class="downloads">
             ${tiles}
-            <form data-notify-form aria-label="Notify me when Checkpoint64 ships">
-              <label for="notify-email-download" class="visually-hidden">Email address</label>
-              <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
-              <button type="submit" class="dl"><span>NOTIFY <span aria-hidden="true">↗</span></span></button>
+            <form data-notify-form aria-label="${esc(d.formAria)}">
+              <label for="notify-email-download" class="visually-hidden">${esc(d.emailLabel)}</label>
+              <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="${esc(d.emailPlaceholder)}" />
+              <button type="submit" class="dl"><span>${esc(d.notifyButton)} <span aria-hidden="true">↗</span></span></button>
               <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             </form>
           </div>
@@ -631,35 +582,22 @@ function downloadStrip({ releases } = {}) {
   `
 }
 
-function faq() {
-  const items = [
-    { q: "WHAT IS A 'SAVE'?",
-      a: 'Whatever your game writes to your hard drive. Checkpoint64 treats the files in a folder as one save and backs them up together. You point it at the folder and pick which files count. We’ve already set this up for 40+ popular games.' },
-    { q: 'DO YOU UPLOAD WHILE THE GAME IS RUNNING?',
-      a: 'Yes, carefully. Checkpoint64 never locks your save files. If the game is in the middle of saving when we check, we wait a moment and try again — no broken files, no crashes. Most games finish saving in a split second anyway.' },
-    { q: 'WHAT HAPPENS IF MY CO-OP PARTNER OVERWRITES MY UPLOAD?',
-      a: "They can’t, on purpose. Only the person holding the lock can upload. If they want to push their version, they have to grab the lock first — and that warns you before it happens. Your last version stays safe in the history; you can always roll back to it." },
-    { q: 'DO I STILL NEED A DEDICATED SERVER?',
-      a: `For most groups, no. The whole point of a dedicated server is keeping your world online when the host’s PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves ${money(120, { to: 240, suffix: ' a year' })} compared to renting a 24/7 server that sits idle 18 hours a day.` },
-    { q: 'DOES THIS WORK FOR CONSOLE SAVES?',
-      a: 'Only if you can get your console saves onto a PC — like emulators, Xbox or PS+ cloud save exports, and Steam Cloud through your PC. Checkpoint64 itself only runs on Windows, Mac, and Linux.' },
-    { q: 'WHAT WILL IT COST?',
-      a: "Three tiers: Free (20 MiB, personal only), Lifetime (one-time payment, 5 GiB per space + 2 teams), and Pro (monthly, 50 GiB per space + 5 teams, for bigger crews). No charge per person on any tier. Final numbers aren’t set — sign up to the launch list and we’ll tell you before everyone else, plus lock you in at the early-bird price." },
-    { q: 'WHEN DOES IT SHIP?',
-      a: "Soon — we’re testing in private now and aiming for a public launch later this year. Get on the list and we’ll send one email the day the Windows / Mac / Linux versions are ready." },
-  ]
+function faq(t, intl) {
+  const f = t.faq
+  // Item index 3 (dedicated-server answer) carries the dynamic savings figure.
+  const dedi = money(120, { to: 240, suffix: t.money.aYear, intl })
   return `
     <section id="faq" aria-labelledby="faq-heading">
       <div class="wrap">
         <div class="head">
-          <span class="tape">▮ FAQ</span>
+          <span class="tape">▮ ${esc(f.tape)}</span>
         </div>
-        <h2 id="faq-heading">FREQUENTLY <span class="accent">CHECKED.</span></h2>
+        <h2 id="faq-heading">${f.h2Html}</h2>
         <div class="faq">
-          ${items.map(it => `
+          ${f.items.map(it => `
             <details>
               <summary>${esc(it.q)}</summary>
-              <div class="body">${it.a}</div>
+              <div class="body">${fmt(it.a, dedi)}</div>
             </details>
           `).join('')}
         </div>
@@ -668,68 +606,70 @@ function faq() {
   `
 }
 
-function footer(year) {
+function footer(t, year) {
+  const f = t.footer
   return `
     <footer class="bot" role="contentinfo">
       <div class="wrap">
         <div class="inner">
           <div class="col1">
             <div class="brand">CHECKPOINT64</div>
-            <p class="blurb">
-              A safe place for your big runs. Built by people who lost a
-              200-hour Factorio base and never got over it.
-            </p>
-            <p class="sign">made for me. <span aria-hidden="true">✦</span></p>
+            <p class="blurb">${esc(f.blurb)}</p>
+            <p class="sign">${esc(f.sign)} <span aria-hidden="true">✦</span></p>
           </div>
-          <nav aria-label="Product">
-            <h2 class="footer-h">PRODUCT</h2>
+          <nav aria-label="${esc(f.ariaProduct)}">
+            <h2 class="footer-h">${esc(f.product)}</h2>
             <ul>
-              <li><a href="#how">How it works</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#download">Join the list</a></li>
-              <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank" rel="noopener noreferrer" aria-label="Changelog on GitHub (opens in a new tab)">Changelog</a></li>
+              <li><a href="#how">${esc(f.links.how)}</a></li>
+              <li><a href="#features">${esc(f.links.features)}</a></li>
+              <li><a href="#pricing">${esc(f.links.pricing)}</a></li>
+              <li><a href="#download">${esc(f.links.joinList)}</a></li>
+              <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank" rel="noopener noreferrer" aria-label="${esc(f.changelogAria)}">${esc(f.links.changelog)}</a></li>
             </ul>
           </nav>
-          <nav aria-label="Resources">
-            <h2 class="footer-h">RESOURCES</h2>
+          <nav aria-label="${esc(f.ariaResources)}">
+            <h2 class="footer-h">${esc(f.resources)}</h2>
             <ul>
-              <li><a href="./blog/">Blog</a></li>
+              <li><a href="./blog/">${esc(f.links.blog)}</a></li>
             </ul>
           </nav>
-          <nav aria-label="Company">
-            <h2 class="footer-h">COMPANY</h2>
+          <nav aria-label="${esc(f.ariaCompany)}">
+            <h2 class="footer-h">${esc(f.company)}</h2>
             <ul>
-              <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="Join the Checkpoint64 Discord (opens in a new tab)">Discord</a></li>
-              <li><a href="./terms/">Terms</a></li>
-              <li><a href="./privacy/">Privacy</a></li>
+              <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="${esc(f.discordAria)}">${esc(f.links.discord)}</a></li>
+              <li><a href="./terms/">${esc(f.links.terms)}</a></li>
+              <li><a href="./privacy/">${esc(f.links.privacy)}</a></li>
             </ul>
           </nav>
         </div>
         <div class="copyline">
-          <span>© ${year} CHECKPOINT64 · ALL RIGHTS RESERVED</span>
-          <span style="opacity:.6">NOT AFFILIATED WITH ANY GAME LISTED ABOVE</span>
+          <span>${esc(fmt(f.copyTpl, year))}</span>
+          <span style="opacity:.6">${esc(f.notAffiliated)}</span>
         </div>
       </div>
     </footer>
   `
 }
 
-export function renderApp({ year = new Date().getFullYear(), releases = null } = {}) {
+export function renderApp({ year = new Date().getFullYear(), releases = null, locale = DEFAULT_LOCALE } = {}) {
+  const L = getLocale(locale)
+  const t = L.t
+  const intl = L.intl
+  const code = L.code
   return [
-    topNav(),
+    topNav(t, code),
     '<main id="main" role="main">',
-    hero(),
-    problemStrip(),
-    howItWorks(),
-    shelfMock(),
-    features(),
-    logbookPreview(),
-    dediStrip(),
-    pricing(),
-    downloadStrip({ releases }),
-    faq(),
+    hero(t),
+    problemStrip(t, intl),
+    howItWorks(t),
+    shelfMock(t),
+    features(t),
+    logbookPreview(t),
+    dediStrip(t, intl),
+    pricing(t, intl),
+    downloadStrip(t, { releases }),
+    faq(t, intl),
     '</main>',
-    footer(year),
+    footer(t, year),
   ].join('')
 }

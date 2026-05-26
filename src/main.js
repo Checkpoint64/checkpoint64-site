@@ -3,8 +3,32 @@
 // module only owns CSS + interactivity. Do NOT overwrite #app.innerHTML here.
 
 import './style.css'
-import { fetchLatestRelease, formatSize, extensionOf } from './releases.js'
+import { fetchLatestRelease, formatSize, extensionOf, PLATFORMS } from './releases.js'
 import { detectCurrency, formatMoney } from './currency.js'
+import { getLocale, fmt } from './i18n/config.js'
+
+// Copy for this page's language (set on <html lang>). Used for the few strings
+// produced at runtime — currently just the launch-list form's status messages.
+const t = getLocale(document.documentElement.lang || 'en').t
+
+// Language dropdown: remember the visitor's explicit choice (so the auto-detect
+// redirect in index.html leaves them alone next time) and close the menu on
+// outside-click / Escape — the rest is native <details> behaviour.
+;(() => {
+  const menu = document.querySelector('.lang-menu')
+  if (!menu) return
+  menu.querySelectorAll('[data-lang]').forEach((a) => {
+    a.addEventListener('click', () => {
+      try { localStorage.setItem('cp64-lang', a.dataset.lang) } catch (e) { /* storage blocked — link still navigates */ }
+    })
+  })
+  document.addEventListener('click', (e) => {
+    if (menu.open && !menu.contains(e.target)) menu.open = false
+  })
+  menu.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { menu.open = false; menu.querySelector('summary')?.focus() }
+  })
+})()
 
 // Theme toggle. The initial theme is already set by an inline script in
 // index.html <head> (to avoid flash-of-wrong-theme); this only handles clicks
@@ -42,7 +66,8 @@ import { detectCurrency, formatMoney } from './currency.js'
     const arch = a.querySelector('.arch')
     if (asset) {
       a.href = asset.url
-      a.setAttribute('aria-label', `Download Checkpoint64 for ${a.dataset.platform} (${releases.tag})`)
+      const label = (PLATFORMS.find((p) => p.key === a.dataset.platform) || {}).label || a.dataset.platform
+      a.setAttribute('aria-label', fmt(t.download.tileAriaLiveTpl, label, releases.tag))
       if (arch) {
         const ext = extensionOf(asset.name)
         arch.textContent = [ext && `.${ext}`, releases.tag, formatSize(asset.size)].filter(Boolean).join(' · ')
@@ -117,7 +142,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
     const email = emailInput.value.trim()
 
     if (!email) {
-      setStatus('Please enter your email address.')
+      setStatus(t.forms.enterEmail)
       emailInput.focus()
       return
     }
@@ -127,7 +152,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
     submitBtn.disabled = true
     const originalText = submitBtn.innerHTML
     submitBtn.innerHTML = '<span>SENDING...</span>'
-    setStatus('Sending…')
+    setStatus(t.forms.sending)
 
     try {
       const response = await fetch('https://app.checkpoint64.com/public/api/waitingList', {
@@ -142,7 +167,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
         // Success
         submitBtn.innerHTML = '<span>✓ ADDED</span>'
         emailInput.value = ''
-        setStatus("You're on the list — we'll email you the day it ships.")
+        setStatus(t.forms.success)
         setTimeout(() => {
           submitBtn.innerHTML = originalText
         }, 3000)
@@ -153,7 +178,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
     } catch (error) {
       // Network or other error
       console.error('Error submitting form:', error)
-      setStatus('Something went wrong — please try again in a moment.')
+      setStatus(t.forms.error)
       submitBtn.innerHTML = originalText
     } finally {
       // Re-enable form

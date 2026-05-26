@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'node:path'
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, writeFileSync, readFileSync } from 'node:fs'
 
 // Absolute file:// URL for the renderer, so dynamic imports work regardless of cwd.
 const RENDERER = pathToFileURL(resolve(import.meta.dirname, 'src/render.js')).href
@@ -10,6 +10,9 @@ const BLOG_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/blog/load.js')
 const BLOG_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/blog/render.js')).href
 const LEGAL_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/legal/load.js')).href
 const LEGAL_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/legal/render.js')).href
+const I18N_CONFIG = pathToFileURL(resolve(import.meta.dirname, 'src/i18n/config.js')).href
+const I18N_LOCALIZE = pathToFileURL(resolve(import.meta.dirname, 'src/i18n/localize.js')).href
+const INDEX_HTML = resolve(import.meta.dirname, 'index.html')
 
 // Pre-render the page body into <div id="app"> at both dev and build time, so
 // crawlers (Google, GPTBot, ClaudeBot, etc.) get fully-formed HTML without
@@ -147,6 +150,60 @@ function legal() {
   }
 }
 
+// Localized pages. English lives at "/"; every other locale in src/i18n/config
+// is emitted at "/<code>/index.html". Both dev and build start from the SAME
+// English HTML (so the localized copies inherit every <head> tweak and the
+// hashed asset tags) and run it through localizeHtml(), which swaps the body,
+// metadata, structured data, and root-relative links into the target language.
+function i18n() {
+  return {
+    name: 'i18n',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const url = (req.url || '').split('?')[0]
+        const m = url.match(/^\/([a-z]{2})\/?$/)
+        if (!m) return next()
+        try {
+          const { LOCALES, DEFAULT_LOCALE } = await import(`${I18N_CONFIG}?t=${Date.now()}`)
+          const L = LOCALES.find((l) => l.code === m[1] && l.code !== DEFAULT_LOCALE)
+          if (!L) return next()
+          const { localizeHtml } = await import(`${I18N_LOCALIZE}?t=${Date.now()}`)
+          const { fetchLatestRelease } = await import(RELEASES)
+          const releases = await fetchLatestRelease()
+          // Run the English index.html through the full transform pipeline
+          // (prerenderAppShell fills #app, stripAnalyticsInDev runs, the dev
+          // client is injected) before localizing it.
+          const raw = readFileSync(INDEX_HTML, 'utf8')
+          const html = await server.transformIndexHtml(url, raw, req.originalUrl)
+          res.setHeader('Content-Type', 'text/html; charset=utf-8')
+          res.end(localizeHtml(html, { code: L.code, t: L.t, intl: L.intl, ogLocale: L.ogLocale, releases }))
+        } catch (err) {
+          res.statusCode = 500
+          res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+          res.end(`i18n render error:\n${err.stack || err.message}`)
+        }
+      })
+    },
+    async closeBundle() {
+      const { LOCALES, DEFAULT_LOCALE } = await import(I18N_CONFIG)
+      const { localizeHtml } = await import(I18N_LOCALIZE)
+      const { fetchLatestRelease } = await import(RELEASES)
+      const releases = await fetchLatestRelease()
+      const outDir = resolve(import.meta.dirname, 'dist')
+      // The English build output is the source of truth (hashed asset tags +
+      // every head edit already in place).
+      const builtIndex = readFileSync(resolve(outDir, 'index.html'), 'utf8')
+      for (const L of LOCALES) {
+        if (L.code === DEFAULT_LOCALE) continue
+        const html = localizeHtml(builtIndex, { code: L.code, t: L.t, intl: L.intl, ogLocale: L.ogLocale, releases })
+        const dir = resolve(outDir, L.code)
+        mkdirSync(dir, { recursive: true })
+        writeFileSync(resolve(dir, 'index.html'), html)
+      }
+    },
+  }
+}
+
 // Strip the analytics block (GA + Clarity) from index.html during `vite dev`
 // so local browsing doesn't pollute production analytics. The block is wrapped
 // in `<!-- analytics:start -->` / `<!-- analytics:end -->` markers in index.html.
@@ -171,9 +228,25 @@ function sitemap({ origin = 'https://checkpoint64.com' } = {}) {
     async closeBundle() {
       const { loadPosts } = await import(BLOG_LOAD)
       const { legalSlugs, loadLegal } = await import(LEGAL_LOAD)
+      const { LOCALES, pathForLocale } = await import(I18N_CONFIG)
       const posts = loadPosts()
+
+      // The homepage exists in every language; emit one <url> per locale, each
+      // listing the full alternate set (Google's preferred multilingual form).
+      const homeAlternates = [
+        ...LOCALES.map((l) => `      <xhtml:link rel="alternate" hreflang="${l.code}" href="${origin}${pathForLocale(l.code)}"/>`),
+        `      <xhtml:link rel="alternate" hreflang="x-default" href="${origin}/"/>`,
+      ].join('\n')
+      const homeUrls = LOCALES.map((l) => ({
+        loc: pathForLocale(l.code),
+        lastmod: today(),
+        changefreq: 'weekly',
+        priority: l.code === 'en' ? '1.0' : '0.9',
+        alternates: homeAlternates,
+      }))
+
       const urls = [
-        { loc: '/', lastmod: today(), changefreq: 'weekly', priority: '1.0' },
+        ...homeUrls,
         { loc: '/blog/', lastmod: posts[0]?.date || today(), changefreq: 'weekly', priority: '0.8' },
         ...posts.map((p) => ({
           loc: `/blog/${p.slug}/`,
@@ -194,10 +267,10 @@ function sitemap({ origin = 'https://checkpoint64.com' } = {}) {
       const body = urls
         .map(
           (u) =>
-            `  <url>\n    <loc>${origin}${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`,
+            `  <url>\n    <loc>${origin}${u.loc}</loc>\n    <lastmod>${u.lastmod}</lastmod>\n    <changefreq>${u.changefreq}</changefreq>\n    <priority>${u.priority}</priority>${u.alternates ? `\n${u.alternates}` : ''}\n  </url>`,
         )
         .join('\n')
-      const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${body}\n</urlset>\n`
       writeFileSync(resolve(import.meta.dirname, 'dist/sitemap.xml'), xml)
     },
   }
@@ -207,5 +280,5 @@ function sitemap({ origin = 'https://checkpoint64.com' } = {}) {
 // AND at PR-preview subpaths (checkpoint64.com/pr-preview/pr-N/).
 export default defineConfig({
   base: './',
-  plugins: [stripAnalyticsInDev(), prerenderAppShell(), blog(), legal(), sitemap()],
+  plugins: [stripAnalyticsInDev(), prerenderAppShell(), blog(), legal(), i18n(), sitemap()],
 })
