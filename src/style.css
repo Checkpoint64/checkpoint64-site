@@ -69,6 +69,51 @@ html, body {
 }
 .skip-link:focus { left: 12px; top: 12px; outline: 2px solid var(--ink); }
 
+/* Visible keyboard focus for every interactive element. Mouse clicks stay
+   ring-free thanks to :focus-visible. The accent ring reads well on the page
+   and paper backgrounds; on accent-colored backgrounds (the CTA strip and the
+   highlighted pricing card) it would vanish, so those switch to an ink ring. */
+:where(a, button, summary, input, [tabindex]):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+.cta-strip :focus-visible,
+.price-card.hl :focus-visible {
+  outline-color: var(--ink);
+}
+
+/* Respect users who ask the OS to minimise motion: kill the blink, hover
+   nudges, and other transitions. The JS auto-backup ticker is gated
+   separately in main.js. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Inline form feedback, announced to screen readers via role="status".
+   Wording carries the meaning (success vs. failure), so colour isn't the
+   only signal. */
+.form-status {
+  flex-basis: 100%;
+  width: 100%;
+  margin: 8px 0 0;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  line-height: 1.45;
+}
+.form-status:empty { display: none; }
+/* Win over .cta-strip p (font-size/opacity/max-width) so the download form's
+   status reads the same as the pricing form's. */
+.cta-strip .form-status {
+  font-size: 12px;
+  max-width: none;
+  opacity: 1;
+}
+
 body {
   background-image:
     repeating-linear-gradient(0deg, transparent 0 39px, rgba(var(--fg-rgb), 0.04) 39px 40px),
@@ -479,7 +524,7 @@ section .head .tape::before {
   border-bottom: 1.5px dashed rgba(var(--fg-rgb), 0.45);
   padding: 8px 0 12px; margin-bottom: 22px;
 }
-.shelf-frame .sechead h4 {
+.shelf-frame .sechead h3 {
   font-family: var(--f-pixel); font-size: 16px; margin: 0; letter-spacing: -1px;
 }
 .shelf-frame .sechead .pa {
@@ -815,7 +860,7 @@ section .head .tape::before {
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.notify-strip form { display: flex; gap: 8px; }
+.notify-strip form { display: flex; flex-wrap: wrap; gap: 8px; }
 .notify-strip input {
   font-family: var(--f-mono); font-size: 13px;
   padding: 11px 12px;
@@ -892,7 +937,7 @@ section .head .tape::before {
 }
 .cta-strip .dl:hover { transform: translate(-1px, -1px); }
 .cta-strip .dl .arch { font-family: var(--f-mono); font-size: 11px; opacity: 0.7; }
-.cta-strip form { display: flex; gap: 8px; margin-top: 4px; }
+.cta-strip form { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
 .cta-strip form input {
   font-family: var(--f-mono); font-size: 13px;
   padding: 14px 14px;
@@ -1057,7 +1102,7 @@ footer.bot .copyline {
   .shelf-frame { box-shadow: 4px 4px 0 var(--accent); }
   .shelf-frame .bar { padding: 12px 16px; font-size: 10px; }
   .shelf-frame .body { padding: 22px 18px 28px; }
-  .shelf-frame .sechead h4 { font-size: 14px; }
+  .shelf-frame .sechead h3 { font-size: 14px; }
   .shelf-game { margin-bottom: 32px; }
 
   .dedi-receipt {

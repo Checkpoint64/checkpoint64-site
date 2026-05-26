@@ -298,13 +298,13 @@ function shelfMock() {
             ${games.map(g => `
               <section class="shelf-game">
                 <div class="sechead">
-                  <h4>${esc(g.name)}</h4>
+                  <h3>${esc(g.name)}</h3>
                   <span class="pa">${esc(g.path)}</span>
-                  <a class="add" href="#">+ <b>another</b></a>
+                  <span class="add" aria-hidden="true">+ <b>another</b></span>
                 </div>
                 <div class="shelf-grid">
                   ${g.carts.map(c => cartridge({ ...c, size: 'md' })).join('')}
-                  ${g.noEmpty ? '' : '<a href="#" class="empty">+ slot</a>'}
+                  ${g.noEmpty ? '' : '<span class="empty" aria-hidden="true">+ slot</span>'}
                 </div>
               </section>
             `).join('')}
@@ -559,6 +559,7 @@ function pricing() {
             <label for="notify-email-pricing" class="visually-hidden">Email address</label>
             <input id="notify-email-pricing" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
             <button type="submit" class="btn prim">NOTIFY ME</button>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
@@ -621,6 +622,7 @@ function downloadStrip({ releases } = {}) {
               <label for="notify-email-download" class="visually-hidden">Email address</label>
               <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
               <button type="submit" class="dl"><span>NOTIFY <span aria-hidden="true">↗</span></span></button>
+              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             </form>
           </div>
         </div>
@@ -686,27 +688,21 @@ function footer(year) {
               <li><a href="#features">Features</a></li>
               <li><a href="#pricing">Pricing</a></li>
               <li><a href="#download">Join the list</a></li>
-              <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank">Changelog</a></li>
+              <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank" rel="noopener noreferrer" aria-label="Changelog on GitHub (opens in a new tab)">Changelog</a></li>
             </ul>
           </nav>
           <nav aria-label="Resources">
             <h2 class="footer-h">RESOURCES</h2>
             <ul>
               <li><a href="./blog/">Blog</a></li>
-              <li><a class="visually-hidden" href="#">Game database</a></li>
-              <li><a class="visually-hidden" href="#">Roadmap</a></li>
-              <li><a class="visually-hidden" href="#">Beta access</a></li>
-              <li><a class="visually-hidden" href="#">Press kit</a></li>
             </ul>
           </nav>
           <nav aria-label="Company">
             <h2 class="footer-h">COMPANY</h2>
             <ul>
-              <li><a class="visually-hidden" href="#">About</a></li>
               <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="Join the Checkpoint64 Discord (opens in a new tab)">Discord</a></li>
               <li><a href="./terms/">Terms</a></li>
               <li><a href="./privacy/">Privacy</a></li>
-              <li><a class="visually-hidden" "href="#">Status</a></li>
             </ul>
           </nav>
         </div>

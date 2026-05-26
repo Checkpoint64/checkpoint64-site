@@ -76,25 +76,39 @@ import { detectCurrency, formatMoney } from './currency.js'
   })
 })()
 
-// Animated auto-backup ticker on the "How it works" step
+// Animated auto-backup ticker on the "How it works" step. Honour
+// prefers-reduced-motion: when set, skip the loop and show the final
+// "SYNCED" frame statically instead of cycling labels/bars.
 const autoEl = document.querySelector('[data-step-auto]')
 if (autoEl) {
   const labels = ['WATCHING…', 'CHANGES DETECTED', 'UPLOADING…', 'SYNCED']
   const colors = ['#3df0ff', '#ffe0a8', '#a07cff', '#c8efb8']
   const bars = autoEl.querySelectorAll('.bar')
   const labelEl = autoEl.querySelector('[data-auto-label]')
+  const reduceMotion = typeof window.matchMedia === 'function'
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches
   let tick = 0
   const apply = () => {
     bars.forEach((b, i) => b.classList.toggle('on', i <= tick))
     labelEl.textContent = labels[tick]
     labelEl.style.background = colors[tick]
   }
-  apply()
-  setInterval(() => { tick = (tick + 1) % labels.length; apply() }, 1100)
+  if (reduceMotion) {
+    tick = labels.length - 1
+    apply()
+  } else {
+    apply()
+    setInterval(() => { tick = (tick + 1) % labels.length; apply() }, 1100)
+  }
 }
 
-// Handle form submissions to backend API
+// Handle form submissions to backend API. Feedback is written to a
+// role="status" live region (see [data-form-status]) so screen-reader users
+// hear the result; the button-text swap is just the matching visual cue.
 document.querySelectorAll('[data-notify-form]').forEach((form) => {
+  const statusEl = form.querySelector('[data-form-status]')
+  const setStatus = (msg) => { if (statusEl) statusEl.textContent = msg }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
@@ -103,7 +117,8 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
     const email = emailInput.value.trim()
 
     if (!email) {
-      alert('Please enter your email address')
+      setStatus('Please enter your email address.')
+      emailInput.focus()
       return
     }
 
@@ -112,6 +127,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
     submitBtn.disabled = true
     const originalText = submitBtn.innerHTML
     submitBtn.innerHTML = '<span>SENDING...</span>'
+    setStatus('Sending…')
 
     try {
       const response = await fetch('https://app.checkpoint64.com/public/api/waitingList', {
@@ -126,6 +142,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
         // Success
         submitBtn.innerHTML = '<span>✓ ADDED</span>'
         emailInput.value = ''
+        setStatus("You're on the list — we'll email you the day it ships.")
         setTimeout(() => {
           submitBtn.innerHTML = originalText
         }, 3000)
@@ -136,7 +153,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
     } catch (error) {
       // Network or other error
       console.error('Error submitting form:', error)
-      alert('Failed to join the waiting list. Please try again later.')
+      setStatus('Something went wrong — please try again in a moment.')
       submitBtn.innerHTML = originalText
     } finally {
       // Re-enable form
