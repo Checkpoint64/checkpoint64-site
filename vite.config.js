@@ -36,6 +36,19 @@ function prerenderAppShell() {
         `<div id="app">${renderApp({ releases })}</div>`,
       )
     },
+    handleHotUpdate({ file, server }) {
+      // The prerendered #app markup is produced by render.js (plus the locale
+      // tables and money/release helpers it pulls in) inside transformIndexHtml,
+      // and none of those modules sit in the client graph — so editing them
+      // yields no HMR at all. Force a full page reload so transformIndexHtml
+      // re-runs and regenerates the baked markup. Returning [] tells Vite we've
+      // handled the update and to skip its default module HMR.
+      const norm = file.replace(/\\/g, '/')
+      if (/\/src\/(render\.js|i18n\/|currency\.js|releases\.js)/.test(norm)) {
+        server.ws.send({ type: 'full-reload' })
+        return []
+      }
+    },
   }
 }
 
