@@ -25,7 +25,7 @@
     <!-- analytics:end -->
 
     <!-- Primary SEO -->
-    <title>Checkpoint64 — Automatic Cloud Backup &amp; Versioning for PC Game Saves</title>
+    <title>Checkpoint64 — Never Lose a Save Again, Solo or Co-op</title>
     <meta name="description"
           content="Checkpoint64 automatically backs up your PC game saves to the cloud, keeps full version history, and lets co-op friends share worlds safely with locks. Works with Factorio, Satisfactory, Valheim, Stardew Valley, Elden Ring and 40+ more. One-time purchase. Windows, macOS, Linux."/>
     <meta name="keywords"
@@ -42,6 +42,36 @@
     <meta name="theme-color" content="#1a1814" media="(prefers-color-scheme: dark)"/>
     <meta name="color-scheme" content="light dark"/>
     <link rel="canonical" href="https://checkpoint64.com/"/>
+
+    <!-- Alternate languages (hreflang). Identical on every page; the localized
+         /de/, /fr/, /es/ copies inherit this block unchanged. -->
+    <link rel="alternate" hreflang="en" href="https://checkpoint64.com/"/>
+    <link rel="alternate" hreflang="de" href="https://checkpoint64.com/de/"/>
+    <link rel="alternate" hreflang="fr" href="https://checkpoint64.com/fr/"/>
+    <link rel="alternate" hreflang="es" href="https://checkpoint64.com/es/"/>
+    <link rel="alternate" hreflang="x-default" href="https://checkpoint64.com/"/>
+
+    <!-- Language auto-detect: on the apex root only, send first-time visitors
+         whose browser prefers de/fr/es to that localized copy. Stays put for
+         English, for bots (so each canonical URL gets crawled), and once the
+         visitor has picked a language via the switcher (cp64-lang). -->
+    <script>
+        (function () {
+            try {
+                if (location.pathname !== '/') return;
+                if (localStorage.getItem('cp64-lang')) return;
+                if (/bot|crawl|spider|slurp|bingpreview/i.test(navigator.userAgent || '')) return;
+                var supported = ['de', 'fr', 'es'];
+                var langs = (navigator.languages && navigator.languages.length)
+                    ? navigator.languages : [navigator.language || ''];
+                for (var i = 0; i < langs.length; i++) {
+                    var code = String(langs[i]).slice(0, 2).toLowerCase();
+                    if (code === 'en') return;
+                    if (supported.indexOf(code) !== -1) { location.replace('./' + code + '/'); return; }
+                }
+            } catch (e) { /* leave on the English page */ }
+        })();
+    </script>
 
     <!-- Theme bootstrap: must run pre-paint to avoid flash-of-wrong-theme. -->
     <script>
@@ -68,7 +98,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content="Checkpoint64"/>
-    <meta property="og:title" content="Checkpoint64 — Automatic Cloud Backup &amp; Versioning for PC Game Saves"/>
+    <meta content="Checkpoint64 — Never Lose a Save Again, Solo or Co-op" property="og:title"/>
     <meta property="og:description"
           content="Never lose a save again. Automatic cloud backup, full version history, and co-op locks so friends can share worlds without overwriting each other. One-time purchase."/>
     <meta property="og:url" content="https://checkpoint64.com/"/>
@@ -82,7 +112,7 @@
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content="Checkpoint64 — Automatic Cloud Backup &amp; Versioning for PC Game Saves"/>
+    <meta content="Checkpoint64 — Never Lose a Save Again, Solo or Co-op" name="twitter:title"/>
     <meta name="twitter:description"
           content="Never lose a save again. Automatic cloud backup, full version history, and co-op locks. One-time purchase. Windows, Mac, Linux."/>
     <meta name="twitter:image" content="https://checkpoint64.com/og-image.svg"/>
@@ -96,6 +126,7 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500;700&display=swap"
           rel="stylesheet"/>
 
+    <!-- i18n:jsonld:start (localized copies regenerate this block in their language) -->
     <!-- Structured data: Organization -->
     <script type="application/ld+json">
         {
@@ -277,12 +308,13 @@
             ]
         }
     </script>
-  <script type="module" crossorigin src="./assets/index-C7BMtRQE.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BRzGrsn9.css">
+    <!-- i18n:jsonld:end -->
+  <script type="module" crossorigin src="./assets/index-jnYgbmZe.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-GkvaXcb_.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-<div id="app">
+<!-- app:start --><div id="app">
     <nav class="top" aria-label="Primary">
       <div class="inner">
         <a href="/" class="brand" aria-label="Checkpoint64 — home">CHECKPOINT64</a>
@@ -296,6 +328,14 @@
           <a href="./blog/" class="blog">BLOG</a>
         </div>
         <div class="nav-actions">
+          
+          <details class="lang-menu">
+            <summary aria-label="Choose language" title="Choose language">
+              <span class="lang-cur">EN</span>
+              <span class="lang-caret" aria-hidden="true">▾</span>
+            </summary>
+            <div class="lang-pop"><a class="lang-opt cur" href="./" hreflang="en" data-lang="en" aria-current="true">English</a><a class="lang-opt" href="./de/" hreflang="de" data-lang="de">Deutsch</a><a class="lang-opt" href="./fr/" hreflang="fr" data-lang="fr">Français</a><a class="lang-opt" href="./es/" hreflang="es" data-lang="es">Español</a></div>
+          </details>
           <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch to light mode" title="Toggle theme">
             <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
           </button>
@@ -313,11 +353,7 @@
               v1 · ALPHA · WIN · MAC · LINUX
             </p>
             <h1>NEVER LOSE<br/>A SAVE <span class="accent">AGAIN.</span></h1>
-            <p class="sub">
-              Your saves, backed up forever. Pass worlds between friends like cartridges.
-              No more "who has the latest?" Everyone stays in sync. Roll back bad runs.
-              Host goes offline? Someone else picks up. Solo or co-op, always protected.
-            </p>
+            <p class="sub">Your saves, backed up forever. Pass worlds between friends like cartridges. No more &quot;who has the latest?&quot; Everyone stays in sync. Roll back bad runs. Host goes offline? Someone else picks up. Solo or co-op, always protected.</p>
             <div class="ctas">
               <a href="#download" class="btn prim" aria-label="Join the Checkpoint64 launch list">JOIN THE LIST <span aria-hidden="true">↗</span></a>
               <a href="#how" class="btn ghost" aria-label="See how Checkpoint64 works">SEE IT WORK</a>
@@ -483,17 +519,13 @@
           <span class="tape" style="color:#a82828">▮ HOW CHECKPOINT64 WORKS</span>
         </div>
         <h2 id="how-heading">POINT IT AT A FOLDER.<br/><span class="accent">FORGET ABOUT IT.</span></h2>
-        <p class="lede">
-          The whole point is that you don't have to think about save files anymore.
-          Three steps, once, and you're done forever.
-        </p>
+        <p class="lede">The whole point is that you don&#39;t have to think about save files anymore. Three steps, once, and you&#39;re done forever.</p>
 
         <div class="steps">
           <div class="step">
             <div class="n">01 · UPLOAD</div>
             <h3>HIT UPLOAD ↑</h3>
-            <p>Grab a snapshot of your save folder and send a copy to the cloud.
-            Each upload becomes its own labelled <em>version</em>.</p>
+            <p>Grab a snapshot of your save folder and send a copy to the cloud. Each upload becomes its own labelled <em>version</em>.</p>
             <div class="visual step-upload">
               <div class="src-label">SOURCE</div>
               <div class="src-path">C:\Users\you\AppData\Local\FactoryGame\Saved\…</div>
@@ -505,9 +537,7 @@
           <div class="step">
             <div class="n">02 · AUTO-BACKUP</div>
             <h3>FLIP AUTO ON</h3>
-            <p>Checkpoint64 checks your save folder every couple of minutes. If
-            anything changed, it uploads a fresh version on its own. Only the
-            changed files get sent — the rest is skipped.</p>
+            <p>Checkpoint64 checks your save folder every couple of minutes. If anything changed, it uploads a fresh version on its own. Only the changed files get sent — the rest is skipped.</p>
             <div class="visual step-auto" data-step-auto>
               <div class="bars">
                 <div class="bar on"></div>
@@ -523,9 +553,7 @@
           <div class="step">
             <div class="n">03 · RESTORE</div>
             <h3>ROLL IT BACK</h3>
-            <p>Click <b>Versions →</b> on any save to see every backup. Pick one
-            and hit <b>Restore</b> — Checkpoint64 puts the files back and marks
-            that version as the current one.</p>
+            <p>Click <b>Versions →</b> on any save to see every backup. Pick one and hit <b>Restore</b> — Checkpoint64 puts the files back and marks that version as the current one.</p>
             <div class="visual step-restore">
               <div class="v-row"><span>v#012</span><span class="when">12m ago</span><span class="restore">RESTORE</span></div>
               <div class="v-row cur"><span>v#011</span><span class="when">2h ago</span><span class="here">← HERE</span></div>
@@ -543,10 +571,7 @@
           <span class="hand" style="color:var(--accent);font-size:22px">not a screenshot — live</span>
         </div>
         <h2 id="shelf-heading">YOUR LIBRARY<br/>IS A <span class="accent">CARTRIDGE SHELF.</span></h2>
-        <p class="lede">
-          Every save is a cartridge. Same game, different runs? Same shelf,
-          different carts.
-        </p>
+        <p class="lede">Every save is a cartridge. Same game, different runs? Same shelf, different carts.</p>
 
         <div class="shelf-frame">
           <div class="bar">
@@ -557,9 +582,9 @@
             
               <section class="shelf-game">
                 <div class="sechead">
-                  <h4>Satisfactory</h4>
+                  <h3>Satisfactory</h3>
                   <span class="pa">C:\Users\you\AppData\Local\FactoryGame\Saved\…</span>
-                  <a class="add" href="#">+ <b>another</b></a>
+                  <span class="add" aria-hidden="true">+ <b>another</b></span>
                 </div>
                 <div class="shelf-grid">
                   
@@ -635,15 +660,15 @@
       
     </div>
   
-                  <a href="#" class="empty">+ slot</a>
+                  <span class="empty" aria-hidden="true">+ slot</span>
                 </div>
               </section>
             
               <section class="shelf-game">
                 <div class="sechead">
-                  <h4>Stardew Valley</h4>
+                  <h3>Stardew Valley</h3>
                   <span class="pa">%AppData%\StardewValley\Saves\</span>
-                  <a class="add" href="#">+ <b>another</b></a>
+                  <span class="add" aria-hidden="true">+ <b>another</b></span>
                 </div>
                 <div class="shelf-grid">
                   
@@ -695,15 +720,15 @@
       
     </div>
   
-                  <a href="#" class="empty">+ slot</a>
+                  <span class="empty" aria-hidden="true">+ slot</span>
                 </div>
               </section>
             
               <section class="shelf-game">
                 <div class="sechead">
-                  <h4>Elden Ring</h4>
+                  <h3>Elden Ring</h3>
                   <span class="pa">%AppData%\EldenRing\…</span>
-                  <a class="add" href="#">+ <b>another</b></a>
+                  <span class="add" aria-hidden="true">+ <b>another</b></span>
                 </div>
                 <div class="shelf-grid">
                   
@@ -770,10 +795,7 @@
           <span class="tape">▮ FEATURES</span>
         </div>
         <h2 id="features-heading">WHAT'S IN <span class="accent">THE BOX.</span></h2>
-        <p class="lede">
-          Built by people who reload saves a lot. No fluff, no charge per
-          person, no "powered by AI." Just a save vault that works.
-        </p>
+        <p class="lede">Built by people who reload saves a lot. No fluff, no charge per person, no &quot;powered by AI.&quot; Just a save vault that works.</p>
         <div class="features">
           
             <div class="feat">
@@ -829,11 +851,7 @@ WHEN.</h3>
           <span class="hand" style="color:#a82828;font-size:22px">shared with your group</span>
         </div>
         <h2 id="logbook-heading">BLAME THE <span class="accent">RIGHT PERSON.</span></h2>
-        <p class="lede">
-          Everything anyone in your group does gets written down. Handy for
-          co-op friends, modded servers, speedrun teams, and the classic
-          "wait, who deleted that?"
-        </p>
+        <p class="lede">Everything anyone in your group does gets written down. Handy for co-op friends, modded servers, speedrun teams, and the classic &quot;wait, who deleted that?&quot;</p>
 
         <div class="logbook">
           <div class="lh">
@@ -913,13 +931,7 @@ WHEN.</h3>
           <span class="hand" style="color:#a82828;font-size:22px">do the math</span>
         </div>
         <h2 id="savings-heading">NO MORE 24/7 BOX<br/><span class="accent">YOU BARELY USE.</span></h2>
-        <p class="lede">
-          A dedicated server makes sense if twenty people are on it every night.
-          For the average co-op group — four friends, a couple of evenings a
-          week — you're renting empty hours. Checkpoint64 covers the part you
-          actually need (the world file, lock-passing, version history) for a
-          one-time payment instead of a forever bill.
-        </p>
+        <p class="lede">A dedicated server makes sense if twenty people are on it every night. For the average co-op group — four friends, a couple of evenings a week — you&#39;re renting empty hours. Checkpoint64 covers the part you actually need (the world file, lock-passing, version history) for a one-time payment instead of a forever bill.</p>
 
         <div class="steps">
           
@@ -958,12 +970,11 @@ WHEN.</h3>
             <div class="rrow"><span>Spent on idle uptime</span><b>~<span class="money" data-money="173">€173</span></b></div>
           
           <div class="rrow total">
-            <span>What you'd save with Checkpoint64 Lifetime, year two onward</span>
+            <span>What you&#39;d save with Checkpoint64 Lifetime, year two onward</span>
             <b class="accent"><span class="money" data-money="180" data-money-suffix=" / yr">€180 / yr</span></b>
           </div>
           <div class="rfoot">
-            Over five years that's roughly <b><span class="money" data-money="900">€900</span></b> you keep. Or a new GPU,
-            whichever you prefer. <a href="./blog/ditch-the-dedicated-server/">Read the full breakdown →</a>
+            Over five years that's roughly <b><span class="money" data-money="900">€900</span></b> you keep. Or a new GPU, whichever you prefer. <a href="./blog/ditch-the-dedicated-server/">Read the full breakdown →</a>
           </div>
         </div>
       </div>
@@ -975,14 +986,9 @@ WHEN.</h3>
           <span class="tape">▮ PRICING</span>
         </div>
         <h2 id="pricing-heading">PICK YOUR<br/><span class="accent">CART.</span></h2>
-        <p class="lede">
-          Three ways to play it. Free to try, paid for life, or Pro for crews who
-          save together. No charge per person, no surprise fees, no rip-cords.
-          Final prices aren't set yet — drop your email and we'll tell you before launch.
-        </p>
+        <p class="lede">Three ways to play it. Free to try, paid for life, or Pro for crews who save together. No charge per person, no surprise fees, no rip-cords. Final prices aren&#39;t set yet — drop your email and we&#39;ll tell you before launch.</p>
 
         <div class="price-grid">
-
           
     <div class="price-card">
       
@@ -996,7 +1002,6 @@ WHEN.</h3>
       <a href="#download" class="cta-btn">GET FREE</a>
     </div>
   
-
           
     <div class="price-card hl">
       <div class="badge">★ MOST CARTS</div>
@@ -1010,7 +1015,6 @@ WHEN.</h3>
       <a href="#download" class="cta-btn">NOTIFY ME</a>
     </div>
   
-
           
     <div class="price-card">
       
@@ -1024,18 +1028,18 @@ WHEN.</h3>
       <a href="#download" class="cta-btn">NOTIFY ME</a>
     </div>
   
-
         </div>
 
         <div class="notify-strip">
           <div>
             <span class="hand" style="color:var(--accent);font-size:20px;margin-right:10px">↘</span>
-            Pricing isn't final yet. Drop your email and we'll tell you the day it ships.
+            Pricing isn&#39;t final yet. Drop your email and we&#39;ll tell you the day it ships.
           </div>
           <form data-notify-form aria-label="Notify me about Checkpoint64 pricing">
             <label for="notify-email-pricing" class="visually-hidden">Email address</label>
             <input id="notify-email-pricing" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
             <button type="submit" class="btn prim">NOTIFY ME</button>
+            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
           </form>
         </div>
       </div>
@@ -1046,40 +1050,40 @@ WHEN.</h3>
         <div class="inner">
           <div>
             <h2 id="download-heading">LATEST BUILD.<br/>GRAB YOUR<br/><span class="invert">COPY.</span></h2>
-            <p>Pick your platform. Builds are auto-published from GitHub — the
-       link goes straight to the latest installer.</p>
-            <p class="signoff"><span aria-hidden="true">↘ </span>release notes & older builds: <a href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.2.17">on GitHub</a></p>
+            <p>Pick your platform. Builds are auto-published from GitHub — the link goes straight to the latest installer.</p>
+            <p class="signoff"><span aria-hidden="true">↘ </span>release notes & older builds: <a href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.2.19">on GitHub</a></p>
           </div>
           <div class="downloads">
             
-      <a class="dl" data-platform="windows" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.2.17/Checkpoint64_0.2.17_x64_en-US.msi"
-         aria-label="Download Checkpoint64 for WINDOWS (v0.2.17)">
+      <a class="dl" data-platform="windows" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.2.19/Checkpoint64_0.2.19_x64_en-US.msi"
+         aria-label="Download Checkpoint64 for WINDOWS (v0.2.19)">
         <span>WINDOWS</span>
-        <span class="arch">.msi · v0.2.17 · 8.0 MB</span>
+        <span class="arch">.msi · v0.2.19 · 8.0 MB</span>
       </a>
     
-      <a class="dl" data-platform="macos-arm" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.2.17/Checkpoint64_0.2.17_aarch64.dmg"
-         aria-label="Download Checkpoint64 for MACOS · APPLE SILICON (v0.2.17)">
+      <a class="dl" data-platform="macos-arm" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.2.19/Checkpoint64_0.2.19_aarch64.dmg"
+         aria-label="Download Checkpoint64 for MACOS · APPLE SILICON (v0.2.19)">
         <span>MACOS · APPLE SILICON</span>
-        <span class="arch">.dmg · v0.2.17 · 11.8 MB</span>
+        <span class="arch">.dmg · v0.2.19 · 11.8 MB</span>
       </a>
     
-    <a class="dl" data-platform="macos-intel" href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.2.17"
+    <a class="dl" data-platform="macos-intel" href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.2.19"
        aria-label="Checkpoint64 for MACOS · INTEL — see releases on GitHub">
       <span>MACOS · INTEL</span>
       <span class="arch">.dmg · x64 · coming soon</span>
     </a>
   
-      <a class="dl" data-platform="linux" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.2.17/Checkpoint64_0.2.17_amd64.deb"
-         aria-label="Download Checkpoint64 for LINUX (v0.2.17)">
+      <a class="dl" data-platform="linux" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.2.19/Checkpoint64_0.2.19_amd64.deb"
+         aria-label="Download Checkpoint64 for LINUX (v0.2.19)">
         <span>LINUX</span>
-        <span class="arch">.deb · v0.2.17 · 10.7 MB</span>
+        <span class="arch">.deb · v0.2.19 · 10.8 MB</span>
       </a>
     
             <form data-notify-form aria-label="Notify me when Checkpoint64 ships">
               <label for="notify-email-download" class="visually-hidden">Email address</label>
               <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="you@somewhere.com" />
               <button type="submit" class="dl"><span>NOTIFY <span aria-hidden="true">↗</span></span></button>
+              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             </form>
           </div>
         </div>
@@ -1138,10 +1142,7 @@ WHEN.</h3>
         <div class="inner">
           <div class="col1">
             <div class="brand">CHECKPOINT64</div>
-            <p class="blurb">
-              A safe place for your big runs. Built by people who lost a
-              200-hour Factorio base and never got over it.
-            </p>
+            <p class="blurb">A safe place for your big runs. Built by people who lost a 200-hour Factorio base and never got over it.</p>
             <p class="sign">made for me. <span aria-hidden="true">✦</span></p>
           </div>
           <nav aria-label="Product">
@@ -1151,27 +1152,21 @@ WHEN.</h3>
               <li><a href="#features">Features</a></li>
               <li><a href="#pricing">Pricing</a></li>
               <li><a href="#download">Join the list</a></li>
-              <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank">Changelog</a></li>
+              <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank" rel="noopener noreferrer" aria-label="Changelog on GitHub (opens in a new tab)">Changelog</a></li>
             </ul>
           </nav>
           <nav aria-label="Resources">
             <h2 class="footer-h">RESOURCES</h2>
             <ul>
               <li><a href="./blog/">Blog</a></li>
-              <li><a class="visually-hidden" href="#">Game database</a></li>
-              <li><a class="visually-hidden" href="#">Roadmap</a></li>
-              <li><a class="visually-hidden" href="#">Beta access</a></li>
-              <li><a class="visually-hidden" href="#">Press kit</a></li>
             </ul>
           </nav>
           <nav aria-label="Company">
             <h2 class="footer-h">COMPANY</h2>
             <ul>
-              <li><a class="visually-hidden" href="#">About</a></li>
               <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label="Join the Checkpoint64 Discord (opens in a new tab)">Discord</a></li>
               <li><a href="./terms/">Terms</a></li>
               <li><a href="./privacy/">Privacy</a></li>
-              <li><a class="visually-hidden" "href="#">Status</a></li>
             </ul>
           </nav>
         </div>
@@ -1181,18 +1176,18 @@ WHEN.</h3>
         </div>
       </div>
     </footer>
-  </div>
+  </div><!-- app:end -->
 
 <!-- The page above is fully pre-rendered into #app at build time, so no
      noscript content-fallback is needed. This block only notes the
      degraded behaviour without JavaScript. -->
-<noscript>
+<!-- i18n:noscript:start --><noscript>
     <p style="max-width:60ch;margin:1.5rem auto;padding:1rem;border:2px dashed #a82828;font-family:ui-monospace,monospace;text-align:center">
         Heads-up — JavaScript is disabled, so the launch-list signup form and
         the animated demo on this page won't work. The rest of the content is
         fully visible above.
     </p>
-</noscript>
+</noscript><!-- i18n:noscript:end -->
 
 
 
