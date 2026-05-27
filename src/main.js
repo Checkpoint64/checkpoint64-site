@@ -3,8 +3,32 @@
 // module only owns CSS + interactivity. Do NOT overwrite #app.innerHTML here.
 
 import './style.css'
-import { fetchLatestRelease, formatSize, extensionOf } from './releases.js'
+import { fetchLatestRelease, formatSize, extensionOf, PLATFORMS } from './releases.js'
 import { detectCurrency, formatMoney } from './currency.js'
+import { getLocale, fmt } from './i18n/config.js'
+
+// Copy for this page's language (set on <html lang>). Used for the few strings
+// produced at runtime — currently just the launch-list form's status messages.
+const t = getLocale(document.documentElement.lang || 'en').t
+
+// Language dropdown: remember the visitor's explicit choice (so the auto-detect
+// redirect in index.html leaves them alone next time) and close the menu on
+// outside-click / Escape — the rest is native <details> behaviour.
+;(() => {
+  const menu = document.querySelector('.lang-menu')
+  if (!menu) return
+  menu.querySelectorAll('[data-lang]').forEach((a) => {
+    a.addEventListener('click', () => {
+      try { localStorage.setItem('cp64-lang', a.dataset.lang) } catch (e) { /* storage blocked — link still navigates */ }
+    })
+  })
+  document.addEventListener('click', (e) => {
+    if (menu.open && !menu.contains(e.target)) menu.open = false
+  })
+  menu.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { menu.open = false; menu.querySelector('summary')?.focus() }
+  })
+})()
 
 // Theme toggle. The initial theme is already set by an inline script in
 // index.html <head> (to avoid flash-of-wrong-theme); this only handles clicks
@@ -42,7 +66,8 @@ import { detectCurrency, formatMoney } from './currency.js'
     const arch = a.querySelector('.arch')
     if (asset) {
       a.href = asset.url
-      a.setAttribute('aria-label', `Download Checkpoint64 for ${a.dataset.platform} (${releases.tag})`)
+      const label = (PLATFORMS.find((p) => p.key === a.dataset.platform) || {}).label || a.dataset.platform
+      a.setAttribute('aria-label', fmt(t.download.tileAriaLiveTpl, label, releases.tag))
       if (arch) {
         const ext = extensionOf(asset.name)
         arch.textContent = [ext && `.${ext}`, releases.tag, formatSize(asset.size)].filter(Boolean).join(' · ')
@@ -76,25 +101,39 @@ import { detectCurrency, formatMoney } from './currency.js'
   })
 })()
 
-// Animated auto-backup ticker on the "How it works" step
+// Animated auto-backup ticker on the "How it works" step. Honour
+// prefers-reduced-motion: when set, skip the loop and show the final
+// "SYNCED" frame statically instead of cycling labels/bars.
 const autoEl = document.querySelector('[data-step-auto]')
 if (autoEl) {
   const labels = ['WATCHING…', 'CHANGES DETECTED', 'UPLOADING…', 'SYNCED']
   const colors = ['#3df0ff', '#ffe0a8', '#a07cff', '#c8efb8']
   const bars = autoEl.querySelectorAll('.bar')
   const labelEl = autoEl.querySelector('[data-auto-label]')
+  const reduceMotion = typeof window.matchMedia === 'function'
+    && window.matchMedia('(prefers-reduced-motion: reduce)').matches
   let tick = 0
   const apply = () => {
     bars.forEach((b, i) => b.classList.toggle('on', i <= tick))
     labelEl.textContent = labels[tick]
     labelEl.style.background = colors[tick]
   }
-  apply()
-  setInterval(() => { tick = (tick + 1) % labels.length; apply() }, 1100)
+  if (reduceMotion) {
+    tick = labels.length - 1
+    apply()
+  } else {
+    apply()
+    setInterval(() => { tick = (tick + 1) % labels.length; apply() }, 1100)
+  }
 }
 
-// Handle form submissions to backend API
+// Handle form submissions to backend API. Feedback is written to a
+// role="status" live region (see [data-form-status]) so screen-reader users
+// hear the result; the button-text swap is just the matching visual cue.
 document.querySelectorAll('[data-notify-form]').forEach((form) => {
+  const statusEl = form.querySelector('[data-form-status]')
+  const setStatus = (msg) => { if (statusEl) statusEl.textContent = msg }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
 
@@ -103,7 +142,8 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
     const email = emailInput.value.trim()
 
     if (!email) {
-      alert('Please enter your email address')
+      setStatus(t.forms.enterEmail)
+      emailInput.focus()
       return
     }
 
@@ -112,6 +152,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
     submitBtn.disabled = true
     const originalText = submitBtn.innerHTML
     submitBtn.innerHTML = '<span>SENDING...</span>'
+    setStatus(t.forms.sending)
 
     try {
       const response = await fetch('https://app.checkpoint64.com/public/api/waitingList', {
@@ -126,6 +167,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
         // Success
         submitBtn.innerHTML = '<span>✓ ADDED</span>'
         emailInput.value = ''
+        setStatus(t.forms.success)
         setTimeout(() => {
           submitBtn.innerHTML = originalText
         }, 3000)
@@ -136,7 +178,7 @@ document.querySelectorAll('[data-notify-form]').forEach((form) => {
     } catch (error) {
       // Network or other error
       console.error('Error submitting form:', error)
-      alert('Failed to join the waiting list. Please try again later.')
+      setStatus(t.forms.error)
       submitBtn.innerHTML = originalText
     } finally {
       // Re-enable form
