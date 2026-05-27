@@ -80,7 +80,7 @@ export default {
     items: [
       { tag: 'HISTORIQUE DES VERSIONS', title: 'CHAQUE ENVOI\nEST UNE VERSION.', body: "Parcourez chaque backup avec son nombre de fichiers, sa taille et ce qui a changé depuis la dernière fois. Cliquez sur Restaurer : la sauvegarde revient ET devient la version actuelle — aucune confusion." },
       { tag: 'VERROUS CO-OP', title: 'UNE PERSONNE\nTIENT LE MONDE.', body: "Des jeux comme Factorio, Satisfactory, Valheim et V Rising n'ont qu'un seul fichier de monde actif à la fois. Celui qui tient le verrou peut l'envoyer ; les autres ne font que télécharger. Personne ne l'utilise ? Prenez le verrou vous-même — fini le « qui a la dernière sauvegarde ? »" },
-      { tag: 'SEULEMENT CE QUI CHANGE', title: 'ENVOIS\nMINUSCULES.', body: "On n'envoie que les bits qui ont vraiment changé. Une sauvegarde de 14 Mo où un fichier a bougé ? Envoie 8 Ko. Doux pour votre connexion, doux pour votre stockage." },
+      { tag: 'SEULEMENT CE QUI CHANGE', title: 'ENVOIS\nMINUSCULES.', body: "On n'envoie que les fichiers qui ont changé, et on ignore les autres — même les fichiers renommés ne coûtent rien de plus. Doux pour votre connexion, doux pour votre stockage." },
       { tag: 'RÈGLES PAR JEU', title: 'CHOISISSEZ CE QUI\nEST SAUVEGARDÉ.', body: "Choisissez les fichiers à sauvegarder et ceux à ignorer. Sautez les journaux de plantage et les captures, gardez la sauvegarde. Déjà configuré pour les 40+ jeux que Checkpoint64 connaît." },
       { tag: 'EN ARRIÈRE-PLAN', title: "TOURNE EN\nARRIÈRE-PLAN.", body: "Une petite appli légère qui consomme à peine de mémoire. Vérifie toutes les 2 minutes et se repose quand rien n'a changé. Ne vous gêne pas pendant que vous jouez." },
       { tag: 'JOURNAL DE BORD', title: 'QUI A FAIT QUOI,\nET QUAND.', body: "Chaque envoi, restauration et prise de verrou est noté dans le journal de votre groupe. Pratique quand votre partenaire de co-op vous accuse de la mauvaise partie." },
@@ -262,7 +262,7 @@ export default {
       'Backups automatiques en arrière-plan toutes les 2 minutes',
       'Historique complet des versions pour chaque sauvegarde',
       "Verrous co-op pour qu'une seule personne puisse envoyer à la fois",
-      'Envois delta — seuls les octets modifiés sont transmis',
+      'Envois efficaces — seuls les fichiers modifiés sont transmis',
       'Règles par jeu avec 40+ préréglages',
       "Journal d'activité partagé pour les groupes co-op",
       'Achat unique, sans abonnement',
@@ -276,7 +276,7 @@ export default {
     howToTool: 'Application de bureau Checkpoint64',
     howToSteps: [
       { name: 'Envoyez votre sauvegarde', text: 'Pointez Checkpoint64 vers le dossier dans lequel votre jeu sauvegarde. Cliquez sur Envoyer pour transmettre un instantané au cloud — ce sera la version un.' },
-      { name: "Activez l'auto-backup", text: "Activez l'auto-backup. Checkpoint64 surveille le dossier et envoie une nouvelle version toutes les quelques minutes à chaque changement. Seuls les octets modifiés sont transmis." },
+      { name: "Activez l'auto-backup", text: "Activez l'auto-backup. Checkpoint64 surveille le dossier et envoie une nouvelle version toutes les quelques minutes à chaque changement. Seuls les fichiers modifiés sont transmis." },
       { name: 'Restaurez une version antérieure', text: "Ouvrez Versions sur n'importe quelle sauvegarde pour voir tout l'historique. Choisissez-en une et cliquez sur Restaurer pour revenir en arrière instantanément — les fichiers reviennent sur le disque et cette version devient l'actuelle." },
     ],
     faq: [

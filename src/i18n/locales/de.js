@@ -80,7 +80,7 @@ export default {
     items: [
       { tag: 'VERSIONSVERLAUF', title: 'JEDER UPLOAD\nIST EINE VERSION.', body: 'Scroll durch jedes Backup mit Dateianzahl, Größe und was sich seit dem letzten Mal geändert hat. Drück Wiederherstellen, und es legt den Spielstand zurück UND markiert ihn als aktuell — keine Verwirrung.' },
       { tag: 'CO-OP-SPERREN', title: 'EINER HÄLT\nDIE WELT.', body: 'Spiele wie Factorio, Satisfactory, Valheim und V Rising haben immer nur eine aktive Weltdatei. Wer die Sperre hält, kann sie hochladen; alle anderen laden nur herunter. Niemand nutzt sie? Schnapp dir selbst die Sperre — kein „wer hat den neuesten Spielstand?" mehr.' },
-      { tag: 'NUR ÄNDERUNGEN', title: 'WINZIGE\nUPLOADS.', body: 'Wir senden nur die Bits, die sich wirklich geändert haben. Ein 14-MB-Spielstand, bei dem eine Datei verrutscht ist? Lädt 8 KB hoch. Schont dein Internet, schont deinen Speicher.' },
+      { tag: 'NUR ÄNDERUNGEN', title: 'WINZIGE\nUPLOADS.', body: 'Wir laden nur die Dateien hoch, die sich geändert haben, und überspringen die anderen — selbst umbenannte Dateien kosten nichts extra. Schont dein Internet, schont deinen Speicher.' },
       { tag: 'REGELN PRO SPIEL', title: 'WÄHLE, WAS\nGESICHERT WIRD.', body: 'Wähl, welche Dateien gesichert und welche ignoriert werden. Überspring die Crash-Logs und Screenshots, behalt den Spielstand. Schon für die 40+ Spiele eingerichtet, die Checkpoint64 kennt.' },
       { tag: 'IM HINTERGRUND', title: 'LÄUFT IM\nHINTERGRUND.', body: 'Eine kleine, leichte App, die kaum Speicher braucht. Prüft alle 2 Minuten und ruht, wenn sich nichts geändert hat. Stört nicht beim Spielen.' },
       { tag: 'LOGBUCH', title: 'WER, WAS\nUND WANN.', body: 'Jeder Upload, jede Wiederherstellung und jedes Sperren-Schnappen landet im Logbuch deiner Gruppe. Praktisch, wenn dein co-op-Partner dir den schlechten Run anhängt.' },
@@ -262,7 +262,7 @@ export default {
       'Automatische Hintergrund-Backups alle 2 Minuten',
       'Voller Versionsverlauf für jeden Spielstand',
       'Co-op-Sperren, sodass immer nur einer hochladen kann',
-      'Delta-Uploads — nur die geänderten Bytes werden gesendet',
+      'Effiziente Uploads — nur die geänderten Dateien werden gesendet',
       'Regeln pro Spiel mit 40+ Vorlagen',
       'Geteiltes Aktivitäts-Logbuch für co-op-Gruppen',
       'Einmalkauf, kein Abo',
@@ -276,7 +276,7 @@ export default {
     howToTool: 'Checkpoint64 Desktop-App',
     howToSteps: [
       { name: 'Lade deinen Spielstand hoch', text: 'Zeig Checkpoint64 auf den Ordner, in den dein Spiel speichert. Drück Hochladen, um einen Schnappschuss in die Cloud zu senden — das wird Version eins.' },
-      { name: 'Schalte Auto-Backup ein', text: 'Schalte Auto-Backup ein. Checkpoint64 beobachtet den Ordner und lädt bei jeder Änderung alle paar Minuten eine neue Version hoch. Nur die geänderten Bytes werden gesendet.' },
+      { name: 'Schalte Auto-Backup ein', text: 'Schalte Auto-Backup ein. Checkpoint64 beobachtet den Ordner und lädt bei jeder Änderung alle paar Minuten eine neue Version hoch. Nur die geänderten Dateien werden gesendet.' },
       { name: 'Stelle jede frühere Version wieder her', text: 'Öffne bei jedem Spielstand „Versionen", um den ganzen Verlauf zu sehen. Wähl eine und klick Wiederherstellen, um sofort zurückzurollen — die Dateien landen wieder auf der Platte, und diese Version wird aktuell.' },
     ],
     faq: [

@@ -81,7 +81,7 @@ export default {
     items: [
       { tag: 'VERSION HISTORY', title: 'EVERY UPLOAD\nIS A VERSION.', body: 'Scroll through every backup with file count, size, and what changed since last time. Hit Restore and it puts the save back AND marks it as current — no confusion.' },
       { tag: 'CO-OP LOCKS', title: 'ONE PERSON\nHOLDS THE WORLD.', body: 'Games like Factorio, Satisfactory, Valheim, and V Rising only have one live world file at a time. Whoever holds the lock can upload it; everyone else just downloads. Nobody using it? Grab the lock yourself — no more "who has the latest save?"' },
-      { tag: 'ONLY WHAT CHANGED', title: 'TINY\nUPLOADS.', body: 'We only send the bits that actually changed. A 14 MB save where one file moved? Uploads 8 KB. Easy on your internet, easy on your storage.' },
+      { tag: 'ONLY WHAT CHANGED', title: 'TINY\nUPLOADS.', body: "We only upload the files that changed, and skip the ones that didn't — even renamed files cost nothing extra. Easy on your internet, easy on your storage." },
       { tag: 'PER-GAME RULES', title: 'PICK WHAT\nGETS BACKED UP.', body: 'Choose which files to back up and which to ignore. Skip the crash logs and screenshots, keep the save. Already set up for the 40+ games Checkpoint64 knows about.' },
       { tag: 'BACKGROUND APP', title: 'RUNS IN THE\nBACKGROUND.', body: "A small, light app that barely uses any memory. Checks every 2 minutes and rests when nothing's changed. Won't get in the way while you're playing." },
       { tag: 'LOGBOOK', title: 'WHO DID WHAT,\nWHEN.', body: "Every upload, restore, and lock-grab gets written down in your group's logbook. Handy when your co-op partner blames you for the bad run." },
@@ -266,7 +266,7 @@ export default {
       'Automatic background backups every 2 minutes',
       'Full version history for every save',
       'Co-op locks so only one person can upload at a time',
-      'Delta uploads — only the changed bytes are sent',
+      'Efficient uploads — only the files that changed are sent',
       'Per-game backup rules with 40+ presets',
       'Shared activity logbook for co-op groups',
       'One-time purchase, no subscription',
@@ -280,7 +280,7 @@ export default {
     howToTool: 'Checkpoint64 desktop app',
     howToSteps: [
       { name: 'Upload your save', text: 'Point Checkpoint64 at the folder your game writes saves to. Hit Upload to send a snapshot to the cloud — that becomes version one.' },
-      { name: 'Turn on auto-backup', text: 'Flip auto-backup on. Checkpoint64 watches the folder and uploads a fresh version every couple of minutes whenever it changes. Only the changed bytes are sent.' },
+      { name: 'Turn on auto-backup', text: 'Flip auto-backup on. Checkpoint64 watches the folder and uploads a fresh version every couple of minutes whenever it changes. Only the files that changed are sent.' },
       { name: 'Restore any past version', text: 'Open Versions on any save to see the full history. Pick one and click Restore to roll back instantly — the files go back on disk and that version becomes current.' },
     ],
     // Plain-text FAQ for the FAQPage block. Mirrors the visible FAQ; index 3
