@@ -80,7 +80,7 @@ export default {
     items: [
       { tag: 'HISTORIAL DE VERSIONES', title: 'CADA SUBIDA\nES UNA VERSIÓN.', body: 'Recorre cada copia con su número de archivos, tamaño y qué cambió desde la última vez. Pulsa Restaurar y devuelve la partida Y la marca como actual — sin líos.' },
       { tag: 'BLOQUEOS CO-OP', title: 'UNO SOSTIENE\nEL MUNDO.', body: 'Juegos como Factorio, Satisfactory, Valheim y V Rising solo tienen un archivo de mundo activo a la vez. Quien tiene el bloqueo puede subirlo; los demás solo descargan. ¿Nadie lo usa? Toma tú el bloqueo — se acabó el «¿quién tiene la última partida?».' },
-      { tag: 'SOLO LO QUE CAMBIA', title: 'SUBIDAS\nMINÚSCULAS.', body: 'Solo enviamos los bits que de verdad cambiaron. ¿Una partida de 14 MB donde se movió un archivo? Sube 8 KB. Suave para tu internet, suave para tu almacenamiento.' },
+      { tag: 'SOLO LO QUE CAMBIA', title: 'SUBIDAS\nMINÚSCULAS.', body: 'Solo subimos los archivos que cambiaron y omitimos los demás — incluso los archivos renombrados no cuestan nada extra. Suave para tu internet, suave para tu almacenamiento.' },
       { tag: 'REGLAS POR JUEGO', title: 'ELIGE QUÉ\nSE RESPALDA.', body: 'Elige qué archivos respaldar y cuáles ignorar. Salta los registros de fallos y las capturas, conserva la partida. Ya configurado para los 40+ juegos que Checkpoint64 conoce.' },
       { tag: 'EN SEGUNDO PLANO', title: 'CORRE EN\nSEGUNDO PLANO.', body: 'Una app pequeña y ligera que apenas usa memoria. Revisa cada 2 minutos y descansa cuando nada cambió. No te estorba mientras juegas.' },
       { tag: 'BITÁCORA', title: 'QUIÉN HIZO QUÉ,\nY CUÁNDO.', body: 'Cada subida, restauración y toma de bloqueo queda anotada en la bitácora de tu grupo. Útil cuando tu compañero de co-op te echa la culpa de la mala partida.' },
@@ -262,7 +262,7 @@ export default {
       'Backups automáticos en segundo plano cada 2 minutos',
       'Historial completo de versiones para cada partida',
       'Bloqueos co-op para que solo una persona suba a la vez',
-      'Subidas delta — solo se envían los bytes que cambiaron',
+      'Subidas eficientes — solo se envían los archivos que cambiaron',
       'Reglas por juego con 40+ preajustes',
       'Bitácora de actividad compartida para grupos de co-op',
       'Pago único, sin suscripción',
@@ -276,7 +276,7 @@ export default {
     howToTool: 'App de escritorio Checkpoint64',
     howToSteps: [
       { name: 'Sube tu partida', text: 'Apunta Checkpoint64 a la carpeta donde tu juego guarda. Pulsa Subir para enviar una instantánea a la nube — esa será la versión uno.' },
-      { name: 'Activa el auto-backup', text: 'Activa el auto-backup. Checkpoint64 vigila la carpeta y sube una versión nueva cada pocos minutos cada vez que cambia. Solo se envían los bytes que cambiaron.' },
+      { name: 'Activa el auto-backup', text: 'Activa el auto-backup. Checkpoint64 vigila la carpeta y sube una versión nueva cada pocos minutos cada vez que cambia. Solo se envían los archivos que cambiaron.' },
       { name: 'Restaura cualquier versión anterior', text: 'Abre Versiones en cualquier partida para ver el historial completo. Elige una y pulsa Restaurar para volver atrás al instante — los archivos vuelven al disco y esa versión pasa a ser la actual.' },
     ],
     faq: [
