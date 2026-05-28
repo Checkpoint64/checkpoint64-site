@@ -11,8 +11,8 @@ The official site is https://checkpoint64.com.
 ## What it does
 
 - **Automatic cloud backups.** Point Checkpoint64 at a save folder. Every couple of minutes
-  it checks for changes and uploads a fresh version. Only the bytes that actually changed
-  are sent (delta uploads) — a 14 MB save where one file moved uploads in ~8 KB.
+  it checks for changes and uploads a fresh version. Only the files that changed are sent —
+  unchanged files (even renamed ones) cost nothing extra.
 - **Full version history.** Every upload is a labelled version. Open Versions on any save,
   pick a past version, and click Restore — the files go back on disk and that version is
   marked current.
