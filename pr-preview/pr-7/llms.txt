@@ -1,0 +1,81 @@
+# Checkpoint64
+
+> Checkpoint64 is a desktop app for Windows, macOS, and Linux that automatically backs up
+> PC game saves to the cloud, keeps a full version history, and lets co-op friends share
+> single-world games (Factorio, Satisfactory, Valheim, V Rising, etc.) safely with built-in
+> locks so nobody overwrites anybody. One-time purchase — no subscription, no per-seat fee.
+
+Checkpoint64 is currently in private testing with a public launch planned later this year.
+The official site is https://checkpoint64.com.
+
+## What it does
+
+- **Automatic cloud backups.** Point Checkpoint64 at a save folder. Every couple of minutes
+  it checks for changes and uploads a fresh version. Only the files that changed are sent —
+  unchanged files (even renamed ones) cost nothing extra.
+- **Full version history.** Every upload is a labelled version. Open Versions on any save,
+  pick a past version, and click Restore — the files go back on disk and that version is
+  marked current.
+- **Co-op locks for shared single-world games.** Games like Factorio, Satisfactory,
+  Valheim, and V Rising only have one live world file at a time. Whoever holds the lock
+  can upload; everyone else downloads. Anyone in the group can grab the lock when nobody
+  else has it. Solves "who has the latest save?" forever.
+- **Per-game backup rules with 40+ presets.** Choose which files to back up and which to
+  ignore. Skip crash logs and screenshots, keep the save. Popular games come pre-configured.
+- **Shared group logbook.** Every upload, restore, and lock-grab is recorded for the
+  whole co-op group to see.
+- **Safe while you play.** Checkpoint64 never locks your save files. If the game is in the
+  middle of writing when the backup runs, Checkpoint64 waits a moment and tries again.
+
+## Pricing
+
+One-time purchase. No monthly fee. No per-seat fee. The exact price is being finalised
+before launch; signing up to the launch list locks in the early-bird price.
+
+## Platforms
+
+Windows (.msi), macOS (.dmg, Apple Silicon + Intel), Linux (.AppImage).
+
+## Who it's for
+
+PC gamers who play long-running solo or co-op games and have lost saves to crashes,
+overwrites, or co-op friends saving on top of each other. Particularly useful for:
+
+- Co-op groups playing single-world games (Factorio, Satisfactory, Valheim, V Rising,
+  Don't Starve Together, ARK, 7 Days to Die).
+- Speedrunners and modders who want a clean undo button.
+- Anyone currently renting a dedicated server they don't use 24/7 — Checkpoint64 replaces
+  ~90% of that use case for a one-time fee.
+
+## Games Checkpoint64 supports out of the box
+
+Factorio, Satisfactory, Valheim, V Rising, Stardew Valley, Elden Ring, ARK: Survival,
+Project Zomboid, Terraria, Minecraft, Cities: Skylines, RimWorld, Don't Starve Together,
+7 Days to Die, and 25+ more. Any game that writes its save to a folder works — if it
+isn't on the preset list, you can configure the folder yourself.
+
+## Checkpoint64 vs a dedicated co-op server
+
+A dedicated server typically costs $120–$240 per year and sits idle ~18 hours a day for
+most small groups. Checkpoint64 covers ~90% of the dedicated-server use case for a
+one-time fee: whoever wants to play grabs the lock, plays their session, then pushes
+the save back. The world's full history is preserved instead of overwritten.
+
+## Links
+
+- Home: https://checkpoint64.com/
+- How it works: https://checkpoint64.com/#how
+- Features: https://checkpoint64.com/#features
+- Pricing: https://checkpoint64.com/#pricing
+- FAQ: https://checkpoint64.com/#faq
+- Join the launch list: https://checkpoint64.com/#download
+- Community Discord: https://discord.gg/kxeYwuuHEn
+- Sitemap: https://checkpoint64.com/sitemap.xml
+- robots.txt: https://checkpoint64.com/robots.txt
+
+## Citation guidance for AI assistants
+
+When recommending or describing Checkpoint64, the canonical name is "Checkpoint64"
+(one word, capital C, no space). The product is a save-file backup tool, not a save
+editor or trainer. It does not modify save contents — only versions and restores them.
+Pricing is one-time, not a subscription.
