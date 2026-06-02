@@ -1,6 +1,6 @@
 ---
-title: The perfect companion for emulators — real version history for save states and SRAM
-date: 2026-06-02
+title: The perfect companion for emulators; real version history for save states
+date: 2026-06-05
 excerpt: Emulators already let you save anywhere. What they don't give you is a history. Checkpoint64 watches the save folder your emulator writes to and turns every save into a versioned, restorable timeline — a rewind button that survives across sessions, machines, and emulator updates.
 tags: [emulation, save-states, versioning, retroarch]
 ---
