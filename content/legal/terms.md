@@ -1,12 +1,12 @@
 ---
 title: Terms of Service
-description: The terms you agree to when you use the Checkpoint64 website, sign up for the launch list, or use the Checkpoint64 desktop app and cloud service.
-updated: 2026-05-19
+description: The terms you agree to when you use the Checkpoint64 website, desktop app, and cloud service.
+updated: 2026-06-11
 ---
 
 # Terms of Service
 
-**Last updated:** 19 May 2026
+**Last updated:** 11 June 2026
 
 These Terms of Service ("**Terms**") are a contract between you and **[LEGAL ENTITY]** ("**Checkpoint64**", "**we**", "**us**", "**our**"). They govern your use of:
 
@@ -14,7 +14,7 @@ These Terms of Service ("**Terms**") are a contract between you and **[LEGAL ENT
 - the Checkpoint64 desktop application for Windows, macOS, and Linux (the "**App**"), and
 - the Checkpoint64 cloud backup service, account system, and APIs (together the "**Service**").
 
-By using the Site, joining the launch list, downloading the App, or creating an account, you agree to these Terms. If you do not agree, do not use the Service.
+By using the Site, downloading the App, or creating an account, you agree to these Terms. If you do not agree, do not use the Service.
 
 ## 1. Who can use the Service
 
@@ -26,7 +26,7 @@ You must not use the Service if you are prohibited from doing so under the laws 
 
 Checkpoint64 is a save-file backup tool for PC games. It takes snapshots of folders you point it at, uploads only the files that changed to cloud storage, and lets you roll back to earlier versions. It also lets small groups share a single live save through co-operative locks and a shared activity log.
 
-The Service is in pre-launch development. Today the Site is primarily a marketing page and waitlist signup. The App and cloud service are being tested privately and will be made generally available at a later date. Features, pricing, storage quotas, and tier names may change before launch, and we may add, remove, or alter functionality at any time.
+The Service is in pre-launch development. Today the Site is primarily a marketing page. The App and cloud service are being tested privately and will be made generally available at a later date. Features, pricing, storage quotas, and tier names may change before launch, and we may add, remove, or alter functionality at any time.
 
 ## 3. Accounts
 
