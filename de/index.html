@@ -27,9 +27,9 @@
     <!-- Primary SEO -->
     <title>Checkpoint64 — Nie wieder einen Spielstand verlieren, solo oder co-op</title>
     <meta name="description"
-          content="Checkpoint64 sichert deine PC-Spielstände automatisch in der Cloud, behält den vollen Versionsverlauf und lässt co-op-Freunde Welten sicher per Sperre teilen. Funktioniert mit Factorio, Satisfactory, Valheim, Stardew Valley, Elden Ring und 40+ weiteren. Einmalkauf. Windows, macOS, Linux."/>
+          content="Automatisches Cloud-Backup und voller Versionsverlauf für PC-Spielstände. Roll kaputte Spielstände zurück und teil co-op-Welten per Sperre. Funktioniert mit Minecraft, Stardew Valley, Elden Ring und 60+ Spielen. Gratis-Download für Windows, Mac, Linux."/>
     <meta name="keywords"
-          content="game save backup, cloud save sync, co-op save sharing, factorio save backup, satisfactory save backup, valheim save backup, stardew valley save sync, dedicated server alternative, save file versioning, PC game save cloud, automatic save backup, save manager, game save vault, v rising save sync, elden ring save backup, ark save backup, project zomboid save backup, save game manager, rollback save game"/>
+          content="game save backup, cloud save sync, save file versioning, rollback save game, minecraft world backup, modded minecraft save backup, stardew valley save sync, skyrim save backup, palworld save backup, valheim world backup, factorio save backup, satisfactory save backup, elden ring save backup, project zomboid save backup, enshrouded save backup, co-op save sharing, dedicated server alternative, emulator save sync, retroarch save backup, save state history, PC game save cloud, automatic save backup, game save manager"/>
     <meta name="author" content="Checkpoint64"/>
     <meta name="publisher" content="Checkpoint64"/>
     <meta name="application-name" content="Checkpoint64"/>
@@ -90,7 +90,6 @@
     <link rel="alternate icon" href="../retro_save_icon.svg"/>
     <link rel="mask-icon" href="../retro_save_icon.svg" color="#ff5f4e"/>
     <link rel="apple-touch-icon" href="../retro_save_icon.svg"/>
-    <link rel="manifest" href="../site.webmanifest"/>
     <meta name="apple-mobile-web-app-title" content="Checkpoint64"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
@@ -100,7 +99,7 @@
     <meta property="og:site_name" content="Checkpoint64"/>
     <meta content="Checkpoint64 — Nie wieder einen Spielstand verlieren, solo oder co-op" property="og:title"/>
     <meta property="og:description"
-          content="Nie wieder einen Spielstand verlieren. Automatisches Cloud-Backup, voller Versionsverlauf und co-op-Sperren, damit Freunde Welten teilen, ohne sich gegenseitig zu überschreiben. Einmalkauf."/>
+          content="Nie wieder einen Spielstand verlieren. Automatische Backups, voller Versionsverlauf und co-op-Sperren, damit Freunde Welten teilen, ohne sich gegenseitig zu überschreiben. 60+ Spiele bereit. Gratis-Download — einmal zahlen für mehr Platz."/>
     <meta property="og:url" content="https://checkpoint64.com/de/"/>
     <meta property="og:image" content="https://checkpoint64.com/og-image.svg"/>
     <meta property="og:image:type" content="image/svg+xml"/>
@@ -114,7 +113,7 @@
     <meta name="twitter:card" content="summary_large_image"/>
     <meta content="Checkpoint64 — Nie wieder einen Spielstand verlieren, solo oder co-op" name="twitter:title"/>
     <meta name="twitter:description"
-          content="Nie wieder einen Spielstand verlieren. Automatisches Cloud-Backup, voller Versionsverlauf und co-op-Sperren. Einmalkauf. Windows, Mac, Linux."/>
+          content="Nie wieder einen Spielstand verlieren. Automatische Cloud-Backups, voller Versionsverlauf, co-op-Sperren. 60+ Spiele bereit. Gratis-Download für Windows, Mac, Linux."/>
     <meta name="twitter:image" content="https://checkpoint64.com/og-image.svg"/>
     <meta name="twitter:image:alt" content="Checkpoint64 — nie wieder einen Spielstand verlieren."/>
 
@@ -160,7 +159,7 @@
             "applicationSubCategory": "Backup Software",
             "operatingSystem": "Windows, macOS, Linux",
             "url": "https://checkpoint64.com/",
-            "description": "Automatisches Cloud-Backup, voller Versionsverlauf und co-op-Sperren für PC-Spielstände. Einmal zahlen, für immer behalten. Funktioniert von Haus aus mit Factorio, Satisfactory, Valheim, V Rising, Stardew Valley, Elden Ring und 40+ weiteren Spielen.",
+            "description": "Automatisches Cloud-Backup, voller Versionsverlauf und co-op-Sperren für PC-Spielstände. Gratis-Plan inklusive; einmal zahlen für mehr Platz. Funktioniert von Haus aus mit Minecraft, Stardew Valley, Skyrim, Palworld, Elden Ring, Factorio, Valheim sowie 60+ weiteren Spielen und 7 Emulatoren.",
             "image": "https://checkpoint64.com/og-image.svg",
             "softwareVersion": "1.0",
             "downloadUrl": "https://checkpoint64.com/#download",
@@ -177,13 +176,14 @@
                     "url": "https://checkpoint64.com/#pricing"
             },
             "featureList": [
-                    "Automatische Hintergrund-Backups alle 2 Minuten",
-                    "Voller Versionsverlauf für jeden Spielstand",
-                    "Co-op-Sperren, sodass immer nur einer hochladen kann",
-                    "Effiziente Uploads — nur die geänderten Dateien werden gesendet",
-                    "Regeln pro Spiel mit 40+ Vorlagen",
-                    "Geteiltes Aktivitäts-Logbuch für co-op-Gruppen",
-                    "Einmalkauf, kein Abo"
+                    "Automatische Hintergrund-Backups alle 30 Sekunden",
+                    "Voller Versionsverlauf mit Ein-Klick-Wiederherstellung",
+                    "Serverseitig erzwungene co-op-Sperren — immer nur ein Welt-Halter",
+                    "Deduplizierte Uploads — nur die geänderten Dateien werden gesendet",
+                    "Vorlagen für 60+ Spiele und 7 Emulatoren",
+                    "Geteiltes Aktivitäts-Logbuch für Teams",
+                    "Nur-Lese-Teilen-Codes für Community-Welten",
+                    "Lifetime-Plan mit Einmalzahlung — kein Abo nötig"
             ]
     }
     </script>
@@ -222,7 +222,7 @@
                             "@type": "HowToStep",
                             "position": 2,
                             "name": "Schalte Auto-Backup ein",
-                            "text": "Schalte Auto-Backup ein. Checkpoint64 beobachtet den Ordner und lädt bei jeder Änderung alle paar Minuten eine neue Version hoch. Nur die geänderten Dateien werden gesendet.",
+                            "text": "Schalte Auto-Backup ein. Checkpoint64 prüft den Ordner alle 30 Sekunden und lädt eine neue Version hoch, sobald sich etwas geändert hat. Nur die geänderten Dateien werden gesendet.",
                             "url": "https://checkpoint64.com/#how"
                     },
                     {
@@ -242,10 +242,10 @@
             "mainEntity": [
                     {
                             "@type": "Question",
-                            "name": "Was ist ein „Spielstand\"?",
+                            "name": "Was zählt als „Spielstand\"?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Alles, was dein Spiel auf die Festplatte schreibt. Checkpoint64 behandelt die Dateien in einem Ordner als einen Spielstand und sichert sie gemeinsam. Du zeigst auf den Ordner und wählst, welche Dateien zählen. Für 40+ beliebte Spiele haben wir das schon eingerichtet."
+                                    "text": "Alles, was dein Spiel auf die Festplatte schreibt. Checkpoint64 behandelt die Dateien in einem Ordner als einen Spielstand und sichert sie gemeinsam. Vorlagen für 60+ Spiele (und sieben Emulatoren) richten das für dich ein; für alles andere zeigst du auf den Ordner und wählst die Dateien selbst."
                             }
                     },
                     {
@@ -253,7 +253,7 @@
                             "name": "Ladet ihr hoch, während das Spiel läuft?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Ja, behutsam. Checkpoint64 sperrt deine Spielstand-Dateien nie. Ist das Spiel gerade beim Speichern, wenn wir nachsehen, warten wir einen Moment und versuchen es erneut — keine kaputten Dateien, keine Abstürze. Die meisten Spiele speichern ohnehin in Sekundenbruchteilen."
+                                    "text": "Ja, behutsam. Checkpoint64 sperrt deine Spielstand-Dateien nie. Es prüft den Ordner alle 30 Sekunden; speichert das Spiel gerade, wartet es, bis Ruhe ist, und versucht es erneut — keine kaputten Dateien, kein Ruckeln. Zwischen den Prüfungen döst die App, du merkst sie beim Spielen nicht."
                             }
                     },
                     {
@@ -261,7 +261,7 @@
                             "name": "Was, wenn mein co-op-Partner meinen Upload überschreibt?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Das geht nicht, mit Absicht. Nur wer die Sperre hält, kann hochladen. Will jemand seine Version pushen, muss er erst die Sperre holen — und das warnt dich vorher. Deine letzte Version bleibt sicher im Verlauf; du kannst jederzeit dorthin zurück."
+                                    "text": "Das geht nicht, mit Absicht. Nur wer die Sperre hält, kann hochladen. Wer seine Version pushen will, muss erst die Sperre übernehmen — das warnt dich und landet für alle sichtbar im Logbuch. Schlimmster Fall: Deine Version ist im Verlauf nur ein Wiederherstellen entfernt."
                             }
                     },
                     {
@@ -274,33 +274,41 @@
                     },
                     {
                             "@type": "Question",
-                            "name": "Funktioniert das für Konsolen-Spielstände?",
+                            "name": "Funktioniert das mit Emulatoren oder Konsolen-Spielständen?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Nur, wenn du deine Konsolen-Spielstände auf einen PC bekommst — etwa über Emulatoren, Xbox- oder PS+-Cloud-Save-Exporte und Steam Cloud über deinen PC. Checkpoint64 selbst läuft nur auf Windows, Mac und Linux."
+                                    "text": "Emulatoren, absolut — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 und Cemu haben alle Vorlagen, deine Save-States bekommen also endlich echten Versionsverlauf. Konsolen-Spielstände funktionieren nur, wenn du sie erst auf einen PC bekommst. Die App selbst läuft auf Windows, macOS (Apple Silicon) und Linux."
                             }
                     },
                     {
                             "@type": "Question",
-                            "name": "Was wird es kosten?",
+                            "name": "Was kostet es?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Drei Stufen: Gratis (20 MiB, nur persönlich), Lifetime (Einmalzahlung, 5 GiB pro Bereich plus 2 Teams) und Pro (monatlich, 50 GiB pro Bereich plus 5 Teams, für größere Crews). Auf keiner Stufe Gebühr pro Person. Endgültige Zahlen stehen noch nicht — trag dich in die Startliste ein, und wir sagen es dir vor allen anderen, plus Early-Bird-Preis garantiert."
+                                    "text": "Der Gratis-Plan ist echt und bleibt gratis: 20 MiB, dein eigener Bereich plus ein Team. Lifetime ist eine Einmalzahlung — 5 GiB pro Bereich, bis zu 3 Teams, direkt oder über Steam gekauft. Pro ist für große Crews: 50 GiB pro Bereich, 5 Teams, je 25 Plätze, Nur-Lese-Teilen-Codes. Auf keiner Stufe Gebühr pro Person. Die endgültigen Zahlen kommen mit v1 — komm auf die Liste und sichere dir den Early-Bird-Preis."
                             }
                     },
                     {
                             "@type": "Question",
-                            "name": "Wann erscheint es?",
+                            "name": "Kann ich es heute schon nutzen?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Bald — wir testen gerade privat und peilen einen öffentlichen Start später dieses Jahr an. Komm auf die Liste, und wir schicken eine E-Mail am Tag, an dem die Versionen für Windows, Mac und Linux fertig sind."
+                                    "text": "Ja — der frühe Build ist ab sofort gratis für Windows, macOS (Apple Silicon) und Linux verfügbar. v1 und der Steam-Release kommen später dieses Jahr; die Liste bekommt genau eine E-Mail am Tag, an dem sie da sind."
+                            }
+                    },
+                    {
+                            "@type": "Question",
+                            "name": "Wer kann meine Spielstände sehen?",
+                            "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Deine Teamkollegen — und nur die, die du einlädst. Sie sehen deinen Anzeigenamen, nie deine E-Mail. Und deine Daten gehören dir: Exportiere jederzeit alles als Zip, und Konto löschen heißt wirklich löschen (nach 7 Tagen Bedenkzeit)."
                             }
                     }
             ]
     }
     </script>
     <!-- i18n:jsonld:end -->
-  <script type="module" crossorigin src="../assets/index-DN4evRTy.js"></script>
+  <script type="module" crossorigin src="../assets/index-D3vnpMN5.js"></script>
   <link rel="stylesheet" crossorigin href="../assets/index-GkvaXcb_.css">
 </head>
 <body>
@@ -330,7 +338,7 @@
           <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch to light mode" title="Toggle theme">
             <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
           </button>
-          <a class="cta" href="#download" aria-label="Der Startliste beitreten">ZUR LISTE ↗</a>
+          <a class="cta" href="#download" aria-label="Checkpoint64 herunterladen">DOWNLOAD ↗</a>
         </div>
       </div>
     </nav>
@@ -341,18 +349,18 @@
           <div>
             <p class="eyebrow">
               <span class="dot" aria-hidden="true"></span>
-              v1 · ALPHA · WIN · MAC · LINUX
+              EARLY BUILD · FREE · WIN · MAC · LINUX
             </p>
             <h1>NIE WIEDER EINEN<br/>SPIELSTAND <span class="accent">VERLIEREN.</span></h1>
-            <p class="sub">Deine Spielstände, für immer gesichert. Reicht Welten unter Freunden weiter wie Module. Kein „wer hat den neuesten?&quot; mehr. Alle bleiben synchron. Mach schlechte Runs rückgängig. Host offline? Jemand anderes übernimmt. Solo oder co-op, immer geschützt.</p>
+            <p class="sub">Deine Spielstände, automatisch gesichert — und jede Version bleibt erhalten. Roll eine kaputte Datei, einen schlechten Abend oder einen Fehlgriff einfach zurück. Co-op-Crews reichen eine Welt weiter wie ein Modul, mit Sperre, damit niemand jemanden überschreibt. Host im Urlaub? Schnapp dir die Sperre und spiel weiter.</p>
             <div class="ctas">
-              <a href="#download" class="btn prim" aria-label="Der Checkpoint64-Startliste beitreten">ZUR LISTE <span aria-hidden="true">↗</span></a>
-              <a href="#how" class="btn ghost" aria-label="Sehen, wie Checkpoint64 funktioniert">SO GEHT&#39;S</a>
+              <a href="#download" class="btn prim" aria-label="Checkpoint64 kostenlos herunterladen">GRATIS LADEN <span aria-hidden="true">↗</span></a>
+              <a href="#how" class="btn ghost" aria-label="Sehen, wie Checkpoint64 funktioniert">IN AKTION SEHEN</a>
             </div>
             <p class="small">
-              <span>einmalig kaufen</span>
-              <span>kein Abo</span>
-              <span>für immer deins</span>
+              <span>Gratis-Plan, wirklich gratis</span>
+              <span>einmal zahlen für mehr Platz</span>
+              <span>niemals ein Abo</span>
             </p>
           </div>
           <div class="hero-art" aria-hidden="true">
@@ -473,7 +481,7 @@
                 <span><span aria-hidden="true">▸ </span>01:14 UHR</span>
                 <span class="tag">RIP</span>
               </div>
-              <p class="text">der host ist mitten im speichern abgestürzt — 80 stunden gemeinsame welt, weg</p>
+              <p class="text">das modpack hat sich aktualisiert und deine 200-stunden-minecraft-welt lädt nicht mehr</p>
             </li>
           
             <li class="problem-card">
@@ -481,7 +489,7 @@
                 <span><span aria-hidden="true">▸ </span>MI 18 UHR</span>
                 <span class="tag">AUTSCH</span>
               </div>
-              <p class="text">dein co-op-kumpel hat allein gespielt und deinen run überschrieben</p>
+              <p class="text">dein co-op-kumpel hat „nur eine kurze runde&quot; allein gespielt und den gemeinsamen run überschrieben</p>
             </li>
           
             <li class="problem-card">
@@ -510,13 +518,13 @@
           <span class="tape" style="color:#a82828">▮ SO ARBEITET CHECKPOINT64</span>
         </div>
         <h2 id="how-heading">ZEIG AUF EINEN ORDNER.<br/><span class="accent">VERGISS IHN.</span></h2>
-        <p class="lede">Der ganze Sinn: Du musst nie wieder an Spielstände denken. Drei Schritte, einmal — und du bist für immer fertig.</p>
+        <p class="lede">Drei Schritte, einmal. Danach denkst du nie wieder an Spielstand-Dateien — und genau darum geht es.</p>
 
         <div class="steps">
           <div class="step">
             <div class="n">01 · HOCHLADEN</div>
             <h3>AUF HOCHLADEN ↑</h3>
-            <p>Mach einen Schnappschuss deines Spielstand-Ordners und schick eine Kopie in die Cloud. Jeder Upload wird zu seiner eigenen, benannten <em>Version</em>.</p>
+            <p>Mach einen Schnappschuss deines Spielstand-Ordners und schick eine Kopie in die Cloud. Jeder Upload wird zu seiner eigenen, benannten <em>Version</em> — Version eins von vielen.</p>
             <div class="visual step-upload">
               <div class="src-label">SOURCE</div>
               <div class="src-path">C:\Users\you\AppData\Local\FactoryGame\Saved\…</div>
@@ -528,7 +536,7 @@
           <div class="step">
             <div class="n">02 · AUTO-BACKUP</div>
             <h3>AUTO EINSCHALTEN</h3>
-            <p>Checkpoint64 prüft deinen Ordner alle paar Minuten. Hat sich etwas geändert, lädt es von selbst eine neue Version hoch. Nur die geänderten Dateien werden gesendet — der Rest wird übersprungen.</p>
+            <p>Checkpoint64 prüft deinen Ordner alle 30 Sekunden. Hat sich etwas geändert, wartet es, bis das Spiel fertig geschrieben hat, und lädt dann von selbst eine neue Version hoch. Nur die geänderten Dateien werden gesendet — der Rest wird übersprungen.</p>
             <div class="visual step-auto" data-step-auto>
               <div class="bars">
                 <div class="bar on"></div>
@@ -537,14 +545,14 @@
                 <div class="bar"></div>
               </div>
               <div class="label" data-auto-label>WATCHING…</div>
-              <div class="meta">alle 2 minuten · nur was sich geändert hat</div>
+              <div class="meta">prüft alle 30 s · lädt nur Änderungen hoch</div>
             </div>
           </div>
 
           <div class="step">
             <div class="n">03 · WIEDERHERSTELLEN</div>
             <h3>ROLL ZURÜCK</h3>
-            <p>Klick bei jedem Spielstand auf <b>Versionen →</b> und sieh jedes Backup. Wähl eines und drück <b>Wiederherstellen</b> — Checkpoint64 legt die Dateien zurück und markiert diese Version als die aktuelle.</p>
+            <p>Klick bei jedem Spielstand auf <b>Versionen →</b> und sieh jedes Backup. Wähl eines und drück <b>Wiederherstellen</b> — Checkpoint64 legt die Dateien zurück und markiert diese Version als die aktuelle. Dein 2-Uhr-nachts-Fehler wird zur 30-Sekunden-Reparatur.</p>
             <div class="visual step-restore">
               <div class="v-row"><span>v#012</span><span class="when">12m ago</span><span class="restore">RESTORE</span></div>
               <div class="v-row cur"><span>v#011</span><span class="when">2h ago</span><span class="here">← HERE</span></div>
@@ -793,35 +801,35 @@
               <div class="ico">▮ VERSIONSVERLAUF</div>
               <h3>JEDER UPLOAD
 IST EINE VERSION.</h3>
-              <p>Scroll durch jedes Backup mit Dateianzahl, Größe und was sich seit dem letzten Mal geändert hat. Drück Wiederherstellen, und es legt den Spielstand zurück UND markiert ihn als aktuell — keine Verwirrung.</p>
+              <p>Scroll durch jedes Backup mit Dateianzahl, Größe und allem, was sich seit dem letzten Mal geändert hat. Drück Wiederherstellen, und die Dateien landen wieder auf der Platte, als aktuell markiert — kein Raten, keine „final_v2_ECHT&quot;-Ordner.</p>
             </div>
           
             <div class="feat">
               <div class="ico">▮ CO-OP-SPERREN</div>
               <h3>EINER HÄLT
 DIE WELT.</h3>
-              <p>Spiele wie Factorio, Satisfactory, Valheim und V Rising haben immer nur eine aktive Weltdatei. Wer die Sperre hält, kann sie hochladen; alle anderen laden nur herunter. Niemand nutzt sie? Schnapp dir selbst die Sperre — kein „wer hat den neuesten Spielstand?&quot; mehr.</p>
+              <p>Spiele wie Factorio, Valheim und Satisfactory haben immer nur eine aktive Welt. Wer die Sperre hält, lädt hoch; alle anderen laden herunter. Halter abgetaucht? Sperren laufen von selbst ab, und du kannst übernehmen — mit Vorwarnung und Logbuch-Eintrag, damit es alle wissen.</p>
             </div>
           
             <div class="feat">
               <div class="ico">▮ NUR ÄNDERUNGEN</div>
               <h3>WINZIGE
 UPLOADS.</h3>
-              <p>Wir laden nur die Dateien hoch, die sich geändert haben, und überspringen die anderen — selbst umbenannte Dateien kosten nichts extra. Schont dein Internet, schont deinen Speicher.</p>
+              <p>Nur die geänderten Dateien werden hochgeladen — umbenannte Dateien kosten nichts extra. Eine 500-MB-Minecraft-Welt lädt nach einer normalen Session ein paar MB neu hoch, nicht das Ganze. Schont dein Internet, schont deinen Speicher.</p>
             </div>
           
             <div class="feat">
-              <div class="ico">▮ REGELN PRO SPIEL</div>
-              <h3>WÄHLE, WAS
-GESICHERT WIRD.</h3>
-              <p>Wähl, welche Dateien gesichert und welche ignoriert werden. Überspring die Crash-Logs und Screenshots, behalt den Spielstand. Schon für die 40+ Spiele eingerichtet, die Checkpoint64 kennt.</p>
+              <div class="ico">▮ 60+ SPIELE BEREIT</div>
+              <h3>IN SEKUNDEN
+EINGERICHTET.</h3>
+              <p>Vorlagen für 60+ Spiele — vier Spielarten von modded Minecraft, Stardew, Skyrim, Palworld, Elden Ring — plus sieben Emulatoren. Wähl, welche Dateien zählen, und überspring die Screenshots. Wenn es in einen Ordner speichert, funktioniert es.</p>
             </div>
           
             <div class="feat">
-              <div class="ico">▮ IM HINTERGRUND</div>
-              <h3>LÄUFT IM
-HINTERGRUND.</h3>
-              <p>Eine kleine, leichte App, die kaum Speicher braucht. Prüft alle 2 Minuten und ruht, wenn sich nichts geändert hat. Stört nicht beim Spielen.</p>
+              <div class="ico">▮ TEILEN-CODES</div>
+              <h3>EINE WELT,
+GANZE CROWD.</h3>
+              <p>Du betreibst eine Community-Welt? Erstell einen Beitritts-Code, und jeder damit kann deine Welt herunterladen — aber nie überschreiben. Codes sind begrenzt und widerrufbar, und Nur-Lese-Gäste belegen keine Plätze. (Pro)</p>
             </div>
           
             <div class="feat">
@@ -977,7 +985,7 @@ UND WANN.</h3>
           <span class="tape">▮ PREISE</span>
         </div>
         <h2 id="pricing-heading">WÄHLE DEIN<br/><span class="accent">MODUL.</span></h2>
-        <p class="lede">Drei Arten zu spielen. Gratis zum Ausprobieren, einmalig für immer, oder Pro für Crews, die zusammen sichern. Keine Gebühr pro Person, keine Überraschungskosten, kein Reißverschluss. Endgültige Preise stehen noch nicht — lass deine E-Mail da, und wir sagen es dir vor dem Start.</p>
+        <p class="lede">Drei Arten zu spielen. Gratis ist wirklich gratis — kein Sieben-Tage-Test. Lifetime ist einmal zahlen. Pro ist für Crews, die zusammen sichern. Keine Gebühr pro Person, keine Überraschungskosten. Die endgültigen Preise werden noch festgezurrt — lass deine E-Mail da, und du erfährst es zuerst.</p>
 
         <div class="price-grid">
           
@@ -988,8 +996,8 @@ UND WANN.</h3>
         <span class="price"><span class="money" data-money="0">0 €</span></span>
         <span class="unit">keine Karte nötig</span>
       </div>
-      <div class="tagline">kostenlos testen, ob deine Spielstände zurückkommen</div>
-      <ul><li>1 persönlicher Bereich (keine Teams)</li><li>20 MiB Cloud-Speicher</li><li>automatisches Backup + voller Versionsverlauf</li><li>tritt dem Team eines Freundes für co-op bei</li></ul>
+      <div class="tagline">groß genug für Stardew, Hollow Knight oder eine ganze Retro-Bibliothek</div>
+      <ul><li>persönlicher Bereich + 1 Team</li><li>20 MiB Cloud-Speicher pro Bereich</li><li>Auto-Backup + voller Versionsverlauf</li><li>co-op-Sperren + Logbuch inklusive</li><li>tritt beliebig vielen Teams von Freunden bei</li></ul>
       <a href="#download" class="cta-btn">GRATIS HOLEN</a>
     </div>
   
@@ -1001,8 +1009,8 @@ UND WANN.</h3>
         <span class="price">OFFEN</span>
         <span class="unit">einmalig, für immer deins</span>
       </div>
-      <div class="tagline">einmal zahlen, deine Spielstände leben ewig</div>
-      <ul><li>persönlicher Bereich + bis zu 2 Teams</li><li>5 GiB Speicher pro Bereich</li><li>co-op-Sperren + geteiltes Aktivitäts-Logbuch</li><li>niemals ein Abo</li><li>freischalten über Steam oder direkt</li></ul>
+      <div class="tagline">einmal zahlen — deine Spielstände überleben deine GPU</div>
+      <ul><li>persönlicher Bereich + bis zu 3 Teams</li><li>5 GiB Speicher pro Bereich</li><li>direkt oder über Steam kaufen</li><li>niemals ein Abo</li><li>alles aus Gratis, mit Luft nach oben</li></ul>
       <a href="#download" class="cta-btn">BENACHRICHTIGE MICH</a>
     </div>
   
@@ -1015,7 +1023,7 @@ UND WANN.</h3>
         <span class="unit">monatlich, jederzeit kündbar</span>
       </div>
       <div class="tagline">für Crews, Streamer, Modding-Gruppen</div>
-      <ul><li>persönlicher Bereich + bis zu 5 Teams</li><li>50 GiB Speicher pro Bereich</li><li>25 Plätze pro Team (garantiertes Minimum)</li><li>100 Versionen / 90 Tage aufbewahrt (garantiertes Minimum)</li><li>priorisierte Bandbreite (2× API-Durchsatz)</li></ul>
+      <ul><li>persönlicher Bereich + bis zu 5 Teams</li><li>50 GiB Speicher pro Bereich</li><li>25 Plätze pro Team (garantiertes Minimum)</li><li>100 Versionen / 90 Tage aufbewahrt (garantiertes Minimum)</li><li>Nur-Lese-Teilen-Codes für deine Community</li><li>priorisierte Bandbreite (2× API-Durchsatz)</li></ul>
       <a href="#download" class="cta-btn">BENACHRICHTIGE MICH</a>
     </div>
   
@@ -1024,7 +1032,7 @@ UND WANN.</h3>
         <div class="notify-strip">
           <div>
             <span class="hand" style="color:var(--accent);font-size:20px;margin-right:10px">↘</span>
-            Die Preise stehen noch nicht fest. Lass deine E-Mail da, und wir melden uns am Tag des Starts.
+            Die endgültigen Preise kommen mit v1. Lass deine E-Mail da, und wir melden uns am selben Tag — Frühentschlossene bekommen den besten Deal.
           </div>
           <form data-notify-form aria-label="Mich über die Checkpoint64-Preise benachrichtigen">
             <label for="notify-email-pricing" class="visually-hidden">E-Mail-Adresse</label>
@@ -1040,37 +1048,31 @@ UND WANN.</h3>
       <div class="wrap">
         <div class="inner">
           <div>
-            <h2 id="download-heading">NEUESTER BUILD.<br/>HOL DIR<br/><span class="invert">DEINE KOPIE.</span></h2>
-            <p>Wähl deine Plattform. Builds werden automatisch über GitHub veröffentlicht — der Link führt direkt zum neuesten Installer.</p>
-            <p class="signoff"><span aria-hidden="true">↘ </span>release-notes & ältere builds: <a href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.4.0">auf GitHub</a></p>
+            <h2 id="download-heading">BALD DA.<br/>KOMM AUF DIE<br/><span class="invert">LISTE.</span></h2>
+            <p>Wir polieren noch. Lass deine E-Mail da, wähl, worauf du spielst, und wir sagen Bescheid, sobald es so weit ist.</p>
+            <p class="signoff"><span aria-hidden="true">↘ </span>kein spam, eine e-mail zum start</p>
           </div>
           <div class="downloads">
             
-      <a class="dl" data-platform="windows" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.4.0/Checkpoint64_0.4.0_x64_en-US.msi"
-         aria-label="Checkpoint64 für WINDOWS herunterladen (v0.4.0)">
-        <span>WINDOWS</span>
-        <span class="arch">.msi · v0.4.0 · 8.8 MB</span>
-      </a>
-    
-      <a class="dl" data-platform="macos-arm" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.4.0/Checkpoint64_0.4.0_aarch64.dmg"
-         aria-label="Checkpoint64 für MACOS · APPLE SILICON herunterladen (v0.4.0)">
-        <span>MACOS · APPLE SILICON</span>
-        <span class="arch">.dmg · v0.4.0 · 12.4 MB</span>
-      </a>
-    
-    <a class="dl" data-platform="macos-intel" href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.4.0"
-       aria-label="Checkpoint64 für MACOS · INTEL — Releases auf GitHub ansehen">
-      <span>MACOS · INTEL</span>
-      <span class="arch">.dmg · x64 · bald</span>
+    <a class="dl" data-platform="windows" href="https://github.com/checkpoint64/checkpoint64/releases"
+       aria-label="Checkpoint64 für WINDOWS — Releases auf GitHub ansehen">
+      <span>WINDOWS</span>
+      <span class="arch">.msi · bald</span>
     </a>
   
-      <a class="dl" data-platform="linux" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.4.0/Checkpoint64_0.4.0_amd64.deb"
-         aria-label="Checkpoint64 für LINUX herunterladen (v0.4.0)">
-        <span>LINUX</span>
-        <span class="arch">.deb · v0.4.0 · 11.4 MB</span>
-      </a>
-    
-            <form data-notify-form aria-label="Mich benachrichtigen, wenn Checkpoint64 erscheint">
+    <a class="dl" data-platform="macos-arm" href="https://github.com/checkpoint64/checkpoint64/releases"
+       aria-label="Checkpoint64 für MACOS · APPLE SILICON — Releases auf GitHub ansehen">
+      <span>MACOS · APPLE SILICON</span>
+      <span class="arch">.dmg · arm64 · bald</span>
+    </a>
+  
+    <a class="dl" data-platform="linux" href="https://github.com/checkpoint64/checkpoint64/releases"
+       aria-label="Checkpoint64 für LINUX — Releases auf GitHub ansehen">
+      <span>LINUX</span>
+      <span class="arch">.deb / .rpm · bald</span>
+    </a>
+  
+            <form data-notify-form aria-label="Mich benachrichtigen, wenn Checkpoint64 v1 erscheint">
               <label for="notify-email-download" class="visually-hidden">E-Mail-Adresse</label>
               <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="du@beispiel.com" />
               <button type="submit" class="dl"><span>MELDEN <span aria-hidden="true">↗</span></span></button>
@@ -1090,18 +1092,18 @@ UND WANN.</h3>
         <div class="faq">
           
             <details>
-              <summary>WAS IST EIN „SPIELSTAND&quot;?</summary>
-              <div class="body">Alles, was dein Spiel auf die Festplatte schreibt. Checkpoint64 behandelt die Dateien in einem Ordner als einen Spielstand und sichert sie gemeinsam. Du zeigst auf den Ordner und wählst, welche Dateien zählen. Für 40+ beliebte Spiele haben wir das schon eingerichtet.</div>
+              <summary>WAS ZÄHLT ALS „SPIELSTAND&quot;?</summary>
+              <div class="body">Alles, was dein Spiel auf die Festplatte schreibt. Checkpoint64 behandelt die Dateien in einem Ordner als einen Spielstand und sichert sie gemeinsam. Vorlagen für 60+ Spiele (und sieben Emulatoren) richten das für dich ein; für alles andere zeigst du auf den Ordner und wählst die Dateien selbst.</div>
             </details>
           
             <details>
               <summary>LADET IHR HOCH, WÄHREND DAS SPIEL LÄUFT?</summary>
-              <div class="body">Ja, behutsam. Checkpoint64 sperrt deine Spielstand-Dateien nie. Ist das Spiel gerade beim Speichern, wenn wir nachsehen, warten wir einen Moment und versuchen es erneut — keine kaputten Dateien, keine Abstürze. Die meisten Spiele speichern ohnehin in Sekundenbruchteilen.</div>
+              <div class="body">Ja, behutsam. Checkpoint64 sperrt deine Spielstand-Dateien nie. Es prüft den Ordner alle 30 Sekunden; speichert das Spiel gerade, wartet es, bis Ruhe ist, und versucht es erneut — keine kaputten Dateien, kein Ruckeln. Zwischen den Prüfungen döst die App, du merkst sie beim Spielen nicht.</div>
             </details>
           
             <details>
               <summary>WAS, WENN MEIN CO-OP-PARTNER MEINEN UPLOAD ÜBERSCHREIBT?</summary>
-              <div class="body">Das geht nicht, mit Absicht. Nur wer die Sperre hält, kann hochladen. Will jemand seine Version pushen, muss er erst die Sperre holen — und das warnt dich vorher. Deine letzte Version bleibt sicher im Verlauf; du kannst jederzeit dorthin zurück.</div>
+              <div class="body">Das geht nicht, mit Absicht. Nur wer die Sperre hält, kann hochladen. Wer seine Version pushen will, muss erst die Sperre übernehmen — das warnt dich und landet für alle sichtbar im Logbuch. Schlimmster Fall: Deine Version ist im Verlauf nur ein Wiederherstellen entfernt.</div>
             </details>
           
             <details>
@@ -1110,18 +1112,23 @@ UND WANN.</h3>
             </details>
           
             <details>
-              <summary>FUNKTIONIERT DAS FÜR KONSOLEN-SPIELSTÄNDE?</summary>
-              <div class="body">Nur, wenn du deine Konsolen-Spielstände auf einen PC bekommst — etwa über Emulatoren, Xbox- oder PS+-Cloud-Save-Exporte und Steam Cloud über deinen PC. Checkpoint64 selbst läuft nur auf Windows, Mac und Linux.</div>
+              <summary>FUNKTIONIERT DAS MIT EMULATOREN ODER KONSOLEN-SPIELSTÄNDEN?</summary>
+              <div class="body">Emulatoren, absolut — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 und Cemu haben alle Vorlagen, deine Save-States bekommen also endlich echten Versionsverlauf. Konsolen-Spielstände funktionieren nur, wenn du sie erst auf einen PC bekommst. Die App selbst läuft auf Windows, macOS (Apple Silicon) und Linux.</div>
             </details>
           
             <details>
-              <summary>WAS WIRD ES KOSTEN?</summary>
-              <div class="body">Drei Stufen: Gratis (20 MiB, nur persönlich), Lifetime (Einmalzahlung, 5 GiB pro Bereich + 2 Teams) und Pro (monatlich, 50 GiB pro Bereich + 5 Teams, für größere Crews). Auf keiner Stufe Gebühr pro Person. Endgültige Zahlen stehen noch nicht — trag dich in die Startliste ein, und wir sagen es dir vor allen anderen, plus Early-Bird-Preis garantiert.</div>
+              <summary>WAS KOSTET ES?</summary>
+              <div class="body">Der Gratis-Plan ist echt und bleibt gratis: 20 MiB, dein eigener Bereich plus ein Team. Lifetime ist eine Einmalzahlung — 5 GiB pro Bereich, bis zu 3 Teams, direkt oder über Steam gekauft. Pro ist für große Crews: 50 GiB pro Bereich, 5 Teams, je 25 Plätze, Nur-Lese-Teilen-Codes. Auf keiner Stufe Gebühr pro Person. Die endgültigen Zahlen kommen mit v1 — komm auf die Liste und sichere dir den Early-Bird-Preis.</div>
             </details>
           
             <details>
-              <summary>WANN ERSCHEINT ES?</summary>
-              <div class="body">Bald — wir testen gerade privat und peilen einen öffentlichen Start später dieses Jahr an. Komm auf die Liste, und wir schicken eine E-Mail am Tag, an dem die Versionen für Windows / Mac / Linux fertig sind.</div>
+              <summary>KANN ICH ES HEUTE SCHON NUTZEN?</summary>
+              <div class="body">Ja — der frühe Build ist ab sofort gratis für Windows, macOS (Apple Silicon) und Linux verfügbar. v1 und der Steam-Release kommen später dieses Jahr; die Liste bekommt genau eine E-Mail am Tag, an dem sie da sind.</div>
+            </details>
+          
+            <details>
+              <summary>WER KANN MEINE SPIELSTÄNDE SEHEN?</summary>
+              <div class="body">Deine Teamkollegen — und nur die, die du einlädst. Sie sehen deinen Anzeigenamen, nie deine E-Mail. Und deine Daten gehören dir: Exportiere jederzeit alles als Zip, und Konto löschen heißt wirklich löschen (nach 7 Tagen Bedenkzeit, falls dich nachts um zwei die Reue packt).</div>
             </details>
           
         </div>
@@ -1142,7 +1149,7 @@ UND WANN.</h3>
               <li><a href="#how">So geht&#39;s</a></li>
               <li><a href="#features">Funktionen</a></li>
               <li><a href="#pricing">Preise</a></li>
-              <li><a href="#download">Auf die Liste</a></li>
+              <li><a href="#download">Download</a></li>
               <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank" rel="noopener noreferrer" aria-label="Changelog auf GitHub (öffnet in neuem Tab)">Changelog</a></li>
             </ul>
           </nav>
@@ -1174,7 +1181,7 @@ UND WANN.</h3>
      degraded behaviour without JavaScript. -->
 <!-- i18n:noscript:start --><noscript>
     <p style="max-width:60ch;margin:1.5rem auto;padding:1rem;border:2px dashed #a82828;font-family:ui-monospace,monospace;text-align:center">
-        Hinweis — JavaScript ist deaktiviert, daher funktionieren das Anmeldeformular für die Startliste und die animierte Demo auf dieser Seite nicht. Der restliche Inhalt ist oben vollständig sichtbar.
+        Hinweis — JavaScript ist deaktiviert, daher funktionieren das Anmeldeformular und die animierte Demo auf dieser Seite nicht. Der restliche Inhalt ist oben vollständig sichtbar.
     </p>
 </noscript><!-- i18n:noscript:end -->
 

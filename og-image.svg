@@ -19,7 +19,7 @@
 
   <!-- Subhead -->
   <text x="60" y="360" font-family="'Patrick Hand', cursive, system-ui" font-size="28" fill="#3a342a">Automatic cloud backup · version history · co-op locks</text>
-  <text x="60" y="400" font-family="'Patrick Hand', cursive, system-ui" font-size="28" fill="#3a342a">Windows · macOS · Linux · one-time purchase</text>
+  <text x="60" y="400" font-family="'Patrick Hand', cursive, system-ui" font-size="28" fill="#3a342a">Windows · macOS · Linux · free download · pay once for more</text>
 
   <!-- Decorative cartridges -->
   <g transform="translate(760 130) rotate(-6)">
