@@ -1,5 +1,5 @@
 ---
-title: Anatomy of a save corruption — what actually happens on disk
+title: Anatomy of a save corruption; what actually happens on disk
 date: 2026-06-11
 excerpt: Corruption sounds like bad luck, but it's usually one of a handful of very specific things going wrong at the byte level — almost always during the write. Here's what a save file really is, the three ways it gets mangled, and why a single save slot is a single point of failure.
 tags: [post-mortem, corruption, backups, versioning]
