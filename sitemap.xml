@@ -46,9 +46,15 @@
   </url>
   <url>
     <loc>https://checkpoint64.com/blog/</loc>
-    <lastmod>2026-06-11</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://checkpoint64.com/blog/ditch-the-dedicated-server/</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://checkpoint64.com/blog/anatomy-of-a-save-corruption/</loc>
@@ -71,12 +77,6 @@
   <url>
     <loc>https://checkpoint64.com/blog/read-only-community-servers/</loc>
     <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://checkpoint64.com/blog/ditch-the-dedicated-server/</loc>
-    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
