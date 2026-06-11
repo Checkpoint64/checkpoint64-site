@@ -1,9 +1,8 @@
 ---
-title: Cloud saves aren't backups — sync will happily overwrite your good save
+title: Cloud saves aren't backups; sync will happily overwrite your good save
 date: 2026-06-09
 excerpt: Steam Cloud, GOG Galaxy, and console cloud saves keep one copy in sync across your machines. That's not the same as a backup. The moment a save corrupts or a bad autosave fires, sync does its job perfectly and pushes the broken file everywhere. Here's the difference, and why versioning is the thing you actually wanted.
 tags: [cloud-saves, backups, versioning, steam-cloud]
-pinned: true
 ---
 
 There's a sentence that shows up in every "I lost my save" thread eventually:
