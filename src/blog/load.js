@@ -25,12 +25,17 @@ export function loadPosts() {
       excerpt: data.excerpt || '',
       tags: Array.isArray(data.tags) ? data.tags : [],
       draft: !!data.draft,
+      pinned: !!data.pinned,
       content,
     }
   })
   return posts
     .filter((p) => !p.draft)
-    .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+    // Pinned posts float to the top; within each group, newest first.
+    .sort((a, b) => {
+      if (a.pinned !== b.pinned) return a.pinned ? -1 : 1
+      return (b.date || '').localeCompare(a.date || '')
+    })
 }
 
 export function loadPost(slug) {
