@@ -22,9 +22,7 @@ The `cartridge(...)` helper renders the recurring "game save cartridge" visual a
 
 All user-visible strings interpolated into templates must go through `esc(...)` (defined at the top of `main.js`) to prevent HTML injection — the existing code follows this rigorously.
 
-After the innerHTML write, two small bits of imperative JS attach:
-1. An interval on `[data-step-auto]` cycles the "auto-backup" animation labels/bars.
-2. `[data-notify-form]` submit handlers send email addresses to the backend API at `http://localhost:8080/public/api/waitingList` via POST request with the email as a JSON string.
+After the innerHTML write, a small bit of imperative JS attaches: an interval on `[data-step-auto]` cycles the "auto-backup" animation labels/bars (alongside the language menu, theme toggle, live-release refresh, and currency-formatting helpers). There is no email/waitlist signup form — the site's CTAs link to the `#download` section.
 
 Styling lives entirely in **`src/style.css`**, organized by section with header comments (`---------- NAV ----------`, etc.). The look is a paper/cartridge aesthetic driven by CSS custom properties on `:root` (`--ink`, `--paper`, `--accent`, plus four font-family vars loaded from Google Fonts in `index.html`).
 

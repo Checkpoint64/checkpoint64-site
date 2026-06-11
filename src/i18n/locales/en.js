@@ -16,16 +16,16 @@ export default {
       faq: 'FAQ',
       blog: 'BLOG',
     },
-    cta: 'JOIN LIST',
-    ctaAria: 'Join the launch list',
+    cta: 'GET IT',
+    ctaAria: 'Get Checkpoint64',
     switcherAria: 'Choose language',
   },
 
   hero: {
     h1Html: 'NEVER LOSE<br/>A SAVE <span class="accent">AGAIN.</span>',
     sub: 'Your saves, backed up forever. Pass worlds between friends like cartridges. No more "who has the latest?" Everyone stays in sync. Roll back bad runs. Host goes offline? Someone else picks up. Solo or co-op, always protected.',
-    ctaPrimary: 'JOIN THE LIST',
-    ctaPrimaryAria: 'Join the Checkpoint64 launch list',
+    ctaPrimary: 'GET CHECKPOINT64',
+    ctaPrimaryAria: 'Get Checkpoint64',
     ctaSecondary: 'SEE IT WORK',
     ctaSecondaryAria: 'See how Checkpoint64 works',
     small: ['one-time purchase', 'no subscription', 'yours, forever'],
@@ -131,7 +131,7 @@ export default {
   pricing: {
     tape: 'PRICING',
     h2Html: 'PICK YOUR<br/><span class="accent">CART.</span>',
-    lede: "Three ways to play it. Free to try, paid for life, or Pro for crews who save together. No charge per person, no surprise fees, no rip-cords. Final prices aren't set yet — drop your email and we'll tell you before launch.",
+    lede: "Three ways to play it. Free to try, paid for life, or Pro for crews who save together. No charge per person, no surprise fees, no rip-cords. Final prices aren't set yet — they'll be posted here before launch.",
     badge: '★ MOST CARTS',
     cards: [
       {
@@ -155,7 +155,7 @@ export default {
           'no subscription, ever',
           'unlock via Steam or direct',
         ],
-        cta: 'NOTIFY ME',
+        cta: 'GET LIFETIME',
       },
       {
         tag: 'PRO', unit: 'monthly, cancel anytime',
@@ -167,31 +167,20 @@ export default {
           '100 versions / 90 days kept (guaranteed minimum)',
           'priority bandwidth (2× the API throughput)',
         ],
-        cta: 'NOTIFY ME',
+        cta: 'GET PRO',
       },
     ],
     tbc: 'TBC',
-    notify: {
-      text: "Pricing isn't final yet. Drop your email and we'll tell you the day it ships.",
-      button: 'NOTIFY ME',
-    },
-    emailPlaceholder: 'you@somewhere.com',
-    emailLabel: 'Email address',
-    formAria: 'Notify me about Checkpoint64 pricing',
   },
 
   download: {
-    headlineSoonHtml: 'SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span>',
+    headlineSoonHtml: 'SHIPPING SOON.<br/>BUILDS LAND<br/><span class="invert">HERE.</span>',
     headlineLiveHtml: 'LATEST BUILD.<br/>GRAB YOUR<br/><span class="invert">COPY.</span>',
-    blurbSoon: "We're still testing in private. Drop your email, pick what you play on, and we'll let you know the moment it's ready.",
+    blurbSoon: "We're still testing in private. Builds for Windows, Mac, and Linux land right here the moment they're ready.",
     blurbLive: 'Pick your platform. Builds are auto-published from GitHub — the link goes straight to the latest installer.',
-    signoffSoon: 'no spam, one email at launch',
+    signoffSoon: 'free to try the day it ships',
     signoffLiveTpl: 'release notes & older builds: <a href="{0}">on GitHub</a>',
     comingSoon: 'coming soon',
-    notifyButton: 'NOTIFY',
-    emailLabel: 'Email address',
-    emailPlaceholder: 'you@somewhere.com',
-    formAria: 'Notify me when Checkpoint64 ships',
     tileAriaLiveTpl: 'Download Checkpoint64 for {0} ({1})',
     tileAriaSoonTpl: 'Checkpoint64 for {0} — see releases on GitHub',
   },
@@ -206,8 +195,8 @@ export default {
       { q: 'WHAT HAPPENS IF MY CO-OP PARTNER OVERWRITES MY UPLOAD?', a: "They can’t, on purpose. Only the person holding the lock can upload. If they want to push their version, they have to grab the lock first — and that warns you before it happens. Your last version stays safe in the history; you can always roll back to it." },
       { q: 'DO I STILL NEED A DEDICATED SERVER?', a: 'For most groups, no. The whole point of a dedicated server is keeping your world online when the host’s PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves {0} compared to renting a 24/7 server that sits idle 18 hours a day.' },
       { q: 'DOES THIS WORK FOR CONSOLE SAVES?', a: 'Only if you can get your console saves onto a PC — like emulators, Xbox or PS+ cloud save exports, and Steam Cloud through your PC. Checkpoint64 itself only runs on Windows, Mac, and Linux.' },
-      { q: 'WHAT WILL IT COST?', a: "Three tiers: Free (20 MiB, personal only), Lifetime (one-time payment, 5 GiB per space + 2 teams), and Pro (monthly, 50 GiB per space + 5 teams, for bigger crews). No charge per person on any tier. Final numbers aren’t set — sign up to the launch list and we’ll tell you before everyone else, plus lock you in at the early-bird price." },
-      { q: 'WHEN DOES IT SHIP?', a: "Soon — we’re testing in private now and aiming for a public launch later this year. Get on the list and we’ll send one email the day the Windows / Mac / Linux versions are ready." },
+      { q: 'WHAT WILL IT COST?', a: "Three tiers: Free (20 MiB, personal only), Lifetime (one-time payment, 5 GiB per space + 2 teams), and Pro (monthly, 50 GiB per space + 5 teams, for bigger crews). No charge per person on any tier. Final numbers aren’t set yet — they’ll be posted here before launch." },
+      { q: 'WHEN DOES IT SHIP?', a: "Soon — we’re testing in private now and aiming for a public launch later this year. The Windows / Mac / Linux builds will show up on this page the day they’re ready." },
     ],
   },
 
@@ -221,7 +210,7 @@ export default {
       how: 'How it works',
       features: 'Features',
       pricing: 'Pricing',
-      joinList: 'Join the list',
+      joinList: 'Get it',
       changelog: 'Changelog',
       blog: 'Blog',
       discord: 'Discord',
@@ -237,15 +226,6 @@ export default {
     notAffiliated: 'NOT AFFILIATED WITH ANY GAME LISTED ABOVE',
   },
 
-  // Live-region status messages for the launch-list form (used by src/main.js,
-  // which picks the set matching <html lang>).
-  forms: {
-    enterEmail: 'Please enter your email address.',
-    sending: 'Sending…',
-    success: "You're on the list — we'll email you the day it ships.",
-    error: 'Something went wrong — please try again in a moment.',
-  },
-
   meta: {
     skipLink: 'Skip to content',
     title: 'Checkpoint64 — Never Lose a Save Again, Solo or Co-op',
@@ -256,7 +236,7 @@ export default {
     twitterTitle: 'Checkpoint64 — Never Lose a Save Again, Solo or Co-op',
     twitterDescription: 'Never lose a save again. Automatic cloud backup, full version history, and co-op locks. One-time purchase. Windows, Mac, Linux.',
     twitterImageAlt: 'Checkpoint64 — never lose a save again.',
-    noscriptHtml: "Heads-up — JavaScript is disabled, so the launch-list signup form and the animated demo on this page won't work. The rest of the content is fully visible above.",
+    noscriptHtml: "Heads-up — JavaScript is disabled, so the animated demo on this page won't work. The rest of the content is fully visible above.",
   },
 
   jsonld: {
@@ -291,8 +271,8 @@ export default {
       { q: 'What happens if my co-op partner overwrites my upload?', a: 'They can\'t, on purpose. Only the person holding the lock can upload. If they want to push their version, they have to grab the lock first — and that warns you before it happens. Your last version stays safe in the history; you can always roll back to it.' },
       { q: 'Do I still need a dedicated server?', a: "For most groups, no. The whole point of a dedicated server is keeping your world online when the host's PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves {0} compared to renting a 24/7 server that sits idle 18 hours a day." },
       { q: 'Does this work for console saves?', a: 'Only if you can get your console saves onto a PC — like emulators, Xbox or PS+ cloud save exports, and Steam Cloud through your PC. Checkpoint64 itself only runs on Windows, Mac, and Linux.' },
-      { q: 'What will it cost?', a: 'Three tiers: Free (20 MiB, personal only), Lifetime (one-time payment, 5 GiB per space plus 2 teams), and Pro (monthly, 50 GiB per space plus 5 teams, for bigger crews). No charge per person on any tier. Final numbers aren\'t set — sign up to the launch list and we\'ll tell you before everyone else, plus lock you in at the early-bird price.' },
-      { q: 'When does it ship?', a: "Soon — we're testing in private now and aiming for a public launch later this year. Get on the list and we'll send one email the day the Windows, Mac, and Linux versions are ready." },
+      { q: 'What will it cost?', a: 'Three tiers: Free (20 MiB, personal only), Lifetime (one-time payment, 5 GiB per space plus 2 teams), and Pro (monthly, 50 GiB per space plus 5 teams, for bigger crews). No charge per person on any tier. Final numbers aren\'t set yet — they\'ll be posted here before launch.' },
+      { q: 'When does it ship?', a: "Soon — we're testing in private now and aiming for a public launch later this year. The Windows, Mac, and Linux builds will show up on this page the day they're ready." },
     ],
   },
 }

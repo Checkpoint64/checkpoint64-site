@@ -15,16 +15,16 @@ export default {
       faq: 'FAQ',
       blog: 'BLOG',
     },
-    cta: 'REJOINDRE',
-    ctaAria: 'Rejoindre la liste de lancement',
+    cta: 'OBTENIR',
+    ctaAria: 'Obtenir Checkpoint64',
     switcherAria: 'Choisir la langue',
   },
 
   hero: {
     h1Html: 'NE PERDEZ PLUS<br/>JAMAIS UNE <span class="accent">SAUVEGARDE.</span>',
     sub: "Vos sauvegardes, gardées pour toujours. Passez vos mondes entre amis comme des cartouches. Fini le « qui a la dernière version ? » Tout le monde reste synchro. Annulez les mauvaises parties. L'hôte se déconnecte ? Quelqu'un d'autre prend le relais. Solo ou co-op, toujours protégé.",
-    ctaPrimary: 'REJOINDRE LA LISTE',
-    ctaPrimaryAria: 'Rejoindre la liste de lancement de Checkpoint64',
+    ctaPrimary: 'OBTENIR CHECKPOINT64',
+    ctaPrimaryAria: 'Obtenir Checkpoint64',
     ctaSecondary: 'VOIR EN ACTION',
     ctaSecondaryAria: 'Voir comment fonctionne Checkpoint64',
     small: ['achat unique', 'sans abonnement', 'à vous, pour toujours'],
@@ -130,7 +130,7 @@ export default {
   pricing: {
     tape: 'TARIFS',
     h2Html: 'CHOISISSEZ VOTRE<br/><span class="accent">CARTOUCHE.</span>',
-    lede: "Trois façons de jouer. Gratuit pour essayer, payé à vie, ou Pro pour les groupes qui sauvegardent ensemble. Pas de frais par personne, pas de frais surprises, pas de mauvaise surprise. Les tarifs ne sont pas encore fixés — laissez votre e-mail et on vous préviendra avant le lancement.",
+    lede: "Trois façons de jouer. Gratuit pour essayer, payé à vie, ou Pro pour les groupes qui sauvegardent ensemble. Pas de frais par personne, pas de frais surprises, pas de mauvaise surprise. Les tarifs ne sont pas encore fixés — on les publiera ici avant le lancement.",
     badge: '★ LE PLUS CHOISI',
     cards: [
       {
@@ -154,7 +154,7 @@ export default {
           'jamais d\'abonnement',
           'déverrouillage via Steam ou en direct',
         ],
-        cta: 'PRÉVENEZ-MOI',
+        cta: 'OBTENIR LIFETIME',
       },
       {
         tag: 'PRO', unit: 'mensuel, résiliable à tout moment',
@@ -166,31 +166,20 @@ export default {
           '100 versions / 90 jours conservés (minimum garanti)',
           'bande passante prioritaire (2× le débit API)',
         ],
-        cta: 'PRÉVENEZ-MOI',
+        cta: 'OBTENIR PRO',
       },
     ],
     tbc: 'À DÉF.',
-    notify: {
-      text: "Les tarifs ne sont pas encore définitifs. Laissez votre e-mail et on vous préviendra le jour de la sortie.",
-      button: 'PRÉVENEZ-MOI',
-    },
-    emailPlaceholder: 'vous@exemple.com',
-    emailLabel: 'Adresse e-mail',
-    formAria: 'Me prévenir des tarifs de Checkpoint64',
   },
 
   download: {
-    headlineSoonHtml: 'BIENTÔT DISPO.<br/>INSCRIVEZ-VOUS<br/><span class="invert">À LA LISTE.</span>',
+    headlineSoonHtml: 'BIENTÔT DISPO.<br/>LES BUILDS<br/><span class="invert">ARRIVENT ICI.</span>',
     headlineLiveHtml: 'DERNIER BUILD.<br/>RÉCUPÉREZ<br/><span class="invert">VOTRE COPIE.</span>',
-    blurbSoon: "On teste encore en privé. Laissez votre e-mail, indiquez votre plateforme, et on vous prévient dès que c'est prêt.",
+    blurbSoon: "On teste encore en privé. Les builds pour Windows, Mac et Linux arrivent ici dès qu'ils sont prêts.",
     blurbLive: 'Choisissez votre plateforme. Les builds sont publiés automatiquement depuis GitHub — le lien mène directement au dernier installeur.',
-    signoffSoon: 'pas de spam, un seul e-mail au lancement',
+    signoffSoon: 'gratuit à essayer le jour de la sortie',
     signoffLiveTpl: 'notes de version & anciens builds : <a href="{0}">sur GitHub</a>',
     comingSoon: 'bientôt',
-    notifyButton: 'PRÉVENIR',
-    emailLabel: 'Adresse e-mail',
-    emailPlaceholder: 'vous@exemple.com',
-    formAria: 'Me prévenir quand Checkpoint64 sort',
     tileAriaLiveTpl: 'Télécharger Checkpoint64 pour {0} ({1})',
     tileAriaSoonTpl: 'Checkpoint64 pour {0} — voir les versions sur GitHub',
   },
@@ -204,8 +193,8 @@ export default {
       { q: 'QUE SE PASSE-T-IL SI MON PARTENAIRE CO-OP ÉCRASE MON ENVOI ?', a: "Il ne peut pas, c'est voulu. Seule la personne qui tient le verrou peut envoyer. Pour pousser sa version, il doit d'abord prendre le verrou — et ça vous prévient avant. Votre dernière version reste en sécurité dans l'historique ; vous pouvez toujours y revenir." },
       { q: "AI-JE ENCORE BESOIN D'UN SERVEUR DÉDIÉ ?", a: "Pour la plupart des groupes, non. Tout l'intérêt d'un serveur dédié est de garder votre monde en ligne quand le PC de l'hôte est éteint. Checkpoint64 couvre environ 90 % de ça pour un paiement unique : celui qui veut jouer prend le verrou, joue sa session, puis repousse la sauvegarde. Un groupe co-op typique économise {0} par rapport à un serveur 24/7 qui reste inactif 18 heures par jour." },
       { q: 'EST-CE QUE ÇA MARCHE POUR LES SAUVEGARDES CONSOLE ?', a: "Seulement si vous pouvez amener vos sauvegardes console sur un PC — via les émulateurs, les exports cloud Xbox ou PS+, et Steam Cloud sur votre PC. Checkpoint64 lui-même ne tourne que sur Windows, Mac et Linux." },
-      { q: 'COMBIEN ÇA COÛTERA ?', a: "Trois formules : Gratuit (20 Mio, personnel uniquement), Lifetime (paiement unique, 5 Gio par espace + 2 équipes) et Pro (mensuel, 50 Gio par espace + 5 équipes, pour les plus grands groupes). Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs ne sont pas fixés — inscrivez-vous à la liste de lancement et on vous le dira avant tout le monde, avec le tarif early-bird garanti." },
-      { q: 'QUAND EST-CE QUE ÇA SORT ?', a: "Bientôt — on teste en privé en ce moment et on vise un lancement public plus tard cette année. Inscrivez-vous et on enverra un seul e-mail le jour où les versions Windows / Mac / Linux seront prêtes." },
+      { q: 'COMBIEN ÇA COÛTERA ?', a: "Trois formules : Gratuit (20 Mio, personnel uniquement), Lifetime (paiement unique, 5 Gio par espace + 2 équipes) et Pro (mensuel, 50 Gio par espace + 5 équipes, pour les plus grands groupes). Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs ne sont pas fixés — on les publiera ici avant le lancement." },
+      { q: 'QUAND EST-CE QUE ÇA SORT ?', a: "Bientôt — on teste en privé en ce moment et on vise un lancement public plus tard cette année. Les builds Windows / Mac / Linux apparaîtront sur cette page dès qu'ils seront prêts." },
     ],
   },
 
@@ -219,7 +208,7 @@ export default {
       how: 'Comment ça marche',
       features: 'Fonctions',
       pricing: 'Tarifs',
-      joinList: 'Rejoindre la liste',
+      joinList: 'Obtenir',
       changelog: 'Notes de version',
       blog: 'Blog',
       discord: 'Discord',
@@ -235,13 +224,6 @@ export default {
     notAffiliated: 'NON AFFILIÉ AUX JEUX CITÉS CI-DESSUS',
   },
 
-  forms: {
-    enterEmail: 'Veuillez saisir votre adresse e-mail.',
-    sending: 'Envoi…',
-    success: 'Vous êtes sur la liste — on vous écrira le jour de la sortie.',
-    error: "Une erreur est survenue — veuillez réessayer dans un instant.",
-  },
-
   meta: {
     skipLink: 'Aller au contenu',
     title: 'Checkpoint64 — Ne perdez plus jamais une sauvegarde, solo ou co-op',
@@ -252,7 +234,7 @@ export default {
     twitterTitle: 'Checkpoint64 — Ne perdez plus jamais une sauvegarde, solo ou co-op',
     twitterDescription: 'Ne perdez plus jamais une sauvegarde. Backup cloud automatique, historique complet des versions et verrous co-op. Achat unique. Windows, Mac, Linux.',
     twitterImageAlt: 'Checkpoint64 — ne perdez plus jamais une sauvegarde.',
-    noscriptHtml: "À noter — JavaScript est désactivé, donc le formulaire d'inscription à la liste de lancement et la démo animée de cette page ne fonctionneront pas. Le reste du contenu est entièrement visible ci-dessus.",
+    noscriptHtml: "À noter — JavaScript est désactivé, donc la démo animée de cette page ne fonctionnera pas. Le reste du contenu est entièrement visible ci-dessus.",
   },
 
   jsonld: {
@@ -285,8 +267,8 @@ export default {
       { q: 'Que se passe-t-il si mon partenaire co-op écrase mon envoi ?', a: "Il ne peut pas, c'est voulu. Seule la personne qui tient le verrou peut envoyer. Pour pousser sa version, il doit d'abord prendre le verrou — et ça vous prévient avant. Votre dernière version reste en sécurité dans l'historique ; vous pouvez toujours y revenir." },
       { q: "Ai-je encore besoin d'un serveur dédié ?", a: "Pour la plupart des groupes, non. Tout l'intérêt d'un serveur dédié est de garder votre monde en ligne quand le PC de l'hôte est éteint. Checkpoint64 couvre environ 90 % de ça pour un paiement unique : celui qui veut jouer prend le verrou, joue sa session, puis repousse la sauvegarde. Un groupe co-op typique économise {0} par rapport à un serveur 24/7 qui reste inactif 18 heures par jour." },
       { q: 'Est-ce que ça marche pour les sauvegardes console ?', a: "Seulement si vous pouvez amener vos sauvegardes console sur un PC — via les émulateurs, les exports cloud Xbox ou PS+, et Steam Cloud sur votre PC. Checkpoint64 lui-même ne tourne que sur Windows, Mac et Linux." },
-      { q: 'Combien ça coûtera ?', a: "Trois formules : Gratuit (20 Mio, personnel uniquement), Lifetime (paiement unique, 5 Gio par espace plus 2 équipes) et Pro (mensuel, 50 Gio par espace plus 5 équipes, pour les plus grands groupes). Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs ne sont pas fixés — inscrivez-vous à la liste de lancement et on vous le dira avant tout le monde, avec le tarif early-bird garanti." },
-      { q: 'Quand est-ce que ça sort ?', a: "Bientôt — on teste en privé en ce moment et on vise un lancement public plus tard cette année. Inscrivez-vous et on enverra un seul e-mail le jour où les versions Windows, Mac et Linux seront prêtes." },
+      { q: 'Combien ça coûtera ?', a: "Trois formules : Gratuit (20 Mio, personnel uniquement), Lifetime (paiement unique, 5 Gio par espace plus 2 équipes) et Pro (mensuel, 50 Gio par espace plus 5 équipes, pour les plus grands groupes). Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs ne sont pas fixés — on les publiera ici avant le lancement." },
+      { q: 'Quand est-ce que ça sort ?', a: "Bientôt — on teste en privé en ce moment et on vise un lancement public plus tard cette année. Les builds Windows, Mac et Linux apparaîtront sur cette page dès qu'ils seront prêts." },
     ],
   },
 }

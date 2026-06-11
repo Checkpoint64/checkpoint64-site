@@ -15,16 +15,16 @@ export default {
       faq: 'FAQ',
       blog: 'BLOG',
     },
-    cta: 'ZUR LISTE',
-    ctaAria: 'Der Startliste beitreten',
+    cta: 'HOLEN',
+    ctaAria: 'Checkpoint64 holen',
     switcherAria: 'Sprache wählen',
   },
 
   hero: {
     h1Html: 'NIE WIEDER EINEN<br/>SPIELSTAND <span class="accent">VERLIEREN.</span>',
     sub: 'Deine Spielstände, für immer gesichert. Reicht Welten unter Freunden weiter wie Module. Kein „wer hat den neuesten?" mehr. Alle bleiben synchron. Mach schlechte Runs rückgängig. Host offline? Jemand anderes übernimmt. Solo oder co-op, immer geschützt.',
-    ctaPrimary: 'ZUR LISTE',
-    ctaPrimaryAria: 'Der Checkpoint64-Startliste beitreten',
+    ctaPrimary: 'CHECKPOINT64 HOLEN',
+    ctaPrimaryAria: 'Checkpoint64 holen',
     ctaSecondary: "SO GEHT'S",
     ctaSecondaryAria: 'Sehen, wie Checkpoint64 funktioniert',
     small: ['einmalig kaufen', 'kein Abo', 'für immer deins'],
@@ -130,7 +130,7 @@ export default {
   pricing: {
     tape: 'PREISE',
     h2Html: 'WÄHLE DEIN<br/><span class="accent">MODUL.</span>',
-    lede: 'Drei Arten zu spielen. Gratis zum Ausprobieren, einmalig für immer, oder Pro für Crews, die zusammen sichern. Keine Gebühr pro Person, keine Überraschungskosten, kein Reißverschluss. Endgültige Preise stehen noch nicht — lass deine E-Mail da, und wir sagen es dir vor dem Start.',
+    lede: 'Drei Arten zu spielen. Gratis zum Ausprobieren, einmalig für immer, oder Pro für Crews, die zusammen sichern. Keine Gebühr pro Person, keine Überraschungskosten, kein Reißverschluss. Endgültige Preise stehen noch nicht fest — wir veröffentlichen sie hier vor dem Start.',
     badge: '★ TOP-WAHL',
     cards: [
       {
@@ -154,7 +154,7 @@ export default {
           'niemals ein Abo',
           'freischalten über Steam oder direkt',
         ],
-        cta: 'BENACHRICHTIGE MICH',
+        cta: 'LIFETIME HOLEN',
       },
       {
         tag: 'PRO', unit: 'monatlich, jederzeit kündbar',
@@ -166,31 +166,20 @@ export default {
           '100 Versionen / 90 Tage aufbewahrt (garantiertes Minimum)',
           'priorisierte Bandbreite (2× API-Durchsatz)',
         ],
-        cta: 'BENACHRICHTIGE MICH',
+        cta: 'PRO HOLEN',
       },
     ],
     tbc: 'OFFEN',
-    notify: {
-      text: 'Die Preise stehen noch nicht fest. Lass deine E-Mail da, und wir melden uns am Tag des Starts.',
-      button: 'BENACHRICHTIGE MICH',
-    },
-    emailPlaceholder: 'du@beispiel.com',
-    emailLabel: 'E-Mail-Adresse',
-    formAria: 'Mich über die Checkpoint64-Preise benachrichtigen',
   },
 
   download: {
-    headlineSoonHtml: 'BALD DA.<br/>KOMM AUF DIE<br/><span class="invert">LISTE.</span>',
+    headlineSoonHtml: 'BALD DA.<br/>BUILDS LANDEN<br/><span class="invert">HIER.</span>',
     headlineLiveHtml: 'NEUESTER BUILD.<br/>HOL DIR<br/><span class="invert">DEINE KOPIE.</span>',
-    blurbSoon: 'Wir testen noch privat. Lass deine E-Mail da, wähl, worauf du spielst, und wir sagen Bescheid, sobald es so weit ist.',
+    blurbSoon: 'Wir testen noch privat. Builds für Windows, Mac und Linux landen genau hier, sobald sie fertig sind.',
     blurbLive: 'Wähl deine Plattform. Builds werden automatisch über GitHub veröffentlicht — der Link führt direkt zum neuesten Installer.',
-    signoffSoon: 'kein spam, eine e-mail zum start',
+    signoffSoon: 'kostenlos testen, sobald es erscheint',
     signoffLiveTpl: 'release-notes & ältere builds: <a href="{0}">auf GitHub</a>',
     comingSoon: 'bald',
-    notifyButton: 'MELDEN',
-    emailLabel: 'E-Mail-Adresse',
-    emailPlaceholder: 'du@beispiel.com',
-    formAria: 'Mich benachrichtigen, wenn Checkpoint64 erscheint',
     tileAriaLiveTpl: 'Checkpoint64 für {0} herunterladen ({1})',
     tileAriaSoonTpl: 'Checkpoint64 für {0} — Releases auf GitHub ansehen',
   },
@@ -204,8 +193,8 @@ export default {
       { q: 'WAS, WENN MEIN CO-OP-PARTNER MEINEN UPLOAD ÜBERSCHREIBT?', a: 'Das geht nicht, mit Absicht. Nur wer die Sperre hält, kann hochladen. Will jemand seine Version pushen, muss er erst die Sperre holen — und das warnt dich vorher. Deine letzte Version bleibt sicher im Verlauf; du kannst jederzeit dorthin zurück.' },
       { q: 'BRAUCHE ICH NOCH EINEN DEDIZIERTEN SERVER?', a: 'Für die meisten Gruppen nein. Der ganze Sinn eines dedizierten Servers ist, deine Welt online zu halten, wenn der PC des Hosts aus ist. Checkpoint64 deckt davon etwa 90 % für eine einmalige Gebühr ab: Wer spielen will, schnappt sich die Sperre, spielt seine Session und schiebt den Spielstand zurück. Eine typische co-op-Gruppe spart {0} gegenüber einem 24/7-Server, der 18 Stunden am Tag leer steht.' },
       { q: 'FUNKTIONIERT DAS FÜR KONSOLEN-SPIELSTÄNDE?', a: 'Nur, wenn du deine Konsolen-Spielstände auf einen PC bekommst — etwa über Emulatoren, Xbox- oder PS+-Cloud-Save-Exporte und Steam Cloud über deinen PC. Checkpoint64 selbst läuft nur auf Windows, Mac und Linux.' },
-      { q: 'WAS WIRD ES KOSTEN?', a: 'Drei Stufen: Gratis (20 MiB, nur persönlich), Lifetime (Einmalzahlung, 5 GiB pro Bereich + 2 Teams) und Pro (monatlich, 50 GiB pro Bereich + 5 Teams, für größere Crews). Auf keiner Stufe Gebühr pro Person. Endgültige Zahlen stehen noch nicht — trag dich in die Startliste ein, und wir sagen es dir vor allen anderen, plus Early-Bird-Preis garantiert.' },
-      { q: 'WANN ERSCHEINT ES?', a: 'Bald — wir testen gerade privat und peilen einen öffentlichen Start später dieses Jahr an. Komm auf die Liste, und wir schicken eine E-Mail am Tag, an dem die Versionen für Windows / Mac / Linux fertig sind.' },
+      { q: 'WAS WIRD ES KOSTEN?', a: 'Drei Stufen: Gratis (20 MiB, nur persönlich), Lifetime (Einmalzahlung, 5 GiB pro Bereich + 2 Teams) und Pro (monatlich, 50 GiB pro Bereich + 5 Teams, für größere Crews). Auf keiner Stufe Gebühr pro Person. Endgültige Zahlen stehen noch nicht fest — wir veröffentlichen sie hier vor dem Start.' },
+      { q: 'WANN ERSCHEINT ES?', a: 'Bald — wir testen gerade privat und peilen einen öffentlichen Start später dieses Jahr an. Die Builds für Windows / Mac / Linux erscheinen auf dieser Seite, sobald sie fertig sind.' },
     ],
   },
 
@@ -219,7 +208,7 @@ export default {
       how: "So geht's",
       features: 'Funktionen',
       pricing: 'Preise',
-      joinList: 'Auf die Liste',
+      joinList: 'Holen',
       changelog: 'Changelog',
       blog: 'Blog',
       discord: 'Discord',
@@ -235,13 +224,6 @@ export default {
     notAffiliated: 'NICHT MIT DEN OBEN GENANNTEN SPIELEN VERBUNDEN',
   },
 
-  forms: {
-    enterEmail: 'Bitte gib deine E-Mail-Adresse ein.',
-    sending: 'Wird gesendet…',
-    success: 'Du bist auf der Liste — wir mailen dir am Tag des Starts.',
-    error: 'Etwas ist schiefgelaufen — bitte versuch es gleich noch einmal.',
-  },
-
   meta: {
     skipLink: 'Zum Inhalt springen',
     title: 'Checkpoint64 — Nie wieder einen Spielstand verlieren, solo oder co-op',
@@ -252,7 +234,7 @@ export default {
     twitterTitle: 'Checkpoint64 — Nie wieder einen Spielstand verlieren, solo oder co-op',
     twitterDescription: 'Nie wieder einen Spielstand verlieren. Automatisches Cloud-Backup, voller Versionsverlauf und co-op-Sperren. Einmalkauf. Windows, Mac, Linux.',
     twitterImageAlt: 'Checkpoint64 — nie wieder einen Spielstand verlieren.',
-    noscriptHtml: 'Hinweis — JavaScript ist deaktiviert, daher funktionieren das Anmeldeformular für die Startliste und die animierte Demo auf dieser Seite nicht. Der restliche Inhalt ist oben vollständig sichtbar.',
+    noscriptHtml: 'Hinweis — JavaScript ist deaktiviert, daher funktioniert die animierte Demo auf dieser Seite nicht. Der restliche Inhalt ist oben vollständig sichtbar.',
   },
 
   jsonld: {
@@ -285,8 +267,8 @@ export default {
       { q: 'Was, wenn mein co-op-Partner meinen Upload überschreibt?', a: 'Das geht nicht, mit Absicht. Nur wer die Sperre hält, kann hochladen. Will jemand seine Version pushen, muss er erst die Sperre holen — und das warnt dich vorher. Deine letzte Version bleibt sicher im Verlauf; du kannst jederzeit dorthin zurück.' },
       { q: 'Brauche ich noch einen dedizierten Server?', a: 'Für die meisten Gruppen nein. Der ganze Sinn eines dedizierten Servers ist, deine Welt online zu halten, wenn der PC des Hosts aus ist. Checkpoint64 deckt davon etwa 90 % für eine einmalige Gebühr ab: Wer spielen will, schnappt sich die Sperre, spielt seine Session und schiebt den Spielstand zurück. Eine typische co-op-Gruppe spart {0} gegenüber einem 24/7-Server, der 18 Stunden am Tag leer steht.' },
       { q: 'Funktioniert das für Konsolen-Spielstände?', a: 'Nur, wenn du deine Konsolen-Spielstände auf einen PC bekommst — etwa über Emulatoren, Xbox- oder PS+-Cloud-Save-Exporte und Steam Cloud über deinen PC. Checkpoint64 selbst läuft nur auf Windows, Mac und Linux.' },
-      { q: 'Was wird es kosten?', a: 'Drei Stufen: Gratis (20 MiB, nur persönlich), Lifetime (Einmalzahlung, 5 GiB pro Bereich plus 2 Teams) und Pro (monatlich, 50 GiB pro Bereich plus 5 Teams, für größere Crews). Auf keiner Stufe Gebühr pro Person. Endgültige Zahlen stehen noch nicht — trag dich in die Startliste ein, und wir sagen es dir vor allen anderen, plus Early-Bird-Preis garantiert.' },
-      { q: 'Wann erscheint es?', a: 'Bald — wir testen gerade privat und peilen einen öffentlichen Start später dieses Jahr an. Komm auf die Liste, und wir schicken eine E-Mail am Tag, an dem die Versionen für Windows, Mac und Linux fertig sind.' },
+      { q: 'Was wird es kosten?', a: 'Drei Stufen: Gratis (20 MiB, nur persönlich), Lifetime (Einmalzahlung, 5 GiB pro Bereich plus 2 Teams) und Pro (monatlich, 50 GiB pro Bereich plus 5 Teams, für größere Crews). Auf keiner Stufe Gebühr pro Person. Endgültige Zahlen stehen noch nicht fest — wir veröffentlichen sie hier vor dem Start.' },
+      { q: 'Wann erscheint es?', a: 'Bald — wir testen gerade privat und peilen einen öffentlichen Start später dieses Jahr an. Die Builds für Windows, Mac und Linux erscheinen auf dieser Seite, sobald sie fertig sind.' },
     ],
   },
 }
