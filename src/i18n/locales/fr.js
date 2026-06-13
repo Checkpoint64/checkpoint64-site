@@ -150,7 +150,7 @@ export default {
         tagline: 'payez une fois — vos sauvegardes survivront à votre GPU',
         features: [
           "espace personnel + jusqu'à 3 équipes",
-          '5 Gio de stockage par espace',
+          '2.5 Gio de stockage par espace',
           'achat direct ou sur Steam',
           "jamais d'abonnement",
           'tout le plan Gratuit, avec de la marge',

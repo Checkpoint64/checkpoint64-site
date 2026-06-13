@@ -1,14 +1,14 @@
 ---
 title: Privacy Policy
 description: What personal data Checkpoint64 collects, why we collect it, who we share it with, and the rights you have over it under the UK GDPR and applicable data-protection laws.
-updated: 2026-05-19
+updated: 2026-06-13
 ---
 
 # Privacy Policy
 
-**Last updated:** 19 May 2026
+**Last updated:** 13 June 2026
 
-This Privacy Policy explains what personal data **[LEGAL ENTITY]** ("**Checkpoint64**", "**we**", "**us**", "**our**") collects when you use the website at [checkpoint64.com](https://checkpoint64.com/), join the launch list, install the Checkpoint64 desktop app, or use the Checkpoint64 cloud backup service (together, the "**Service**"), why we collect it, who we share it with, and the rights you have over it.
+This Privacy Policy explains what personal data **Checkpoint64 Ltd** ("**Checkpoint64**", "**we**", "**us**", "**our**") collects when you use the website at [checkpoint64.com](https://checkpoint64.com/), join the launch list, install the Checkpoint64 desktop app, or use the Checkpoint64 cloud backup service (together, the "**Service**"), why we collect it, who we share it with, and the rights you have over it.
 
 We are the **data controller** for the personal data described below. We are based in the United Kingdom and process personal data in line with the **UK GDPR** and the **Data Protection Act 2018**. If you are in the EEA, the **EU GDPR** applies on equivalent terms.
 
@@ -213,6 +213,5 @@ We may update this Privacy Policy from time to time. When we do, we will revise 
 Privacy questions, data-subject requests, or anything else covered by this policy:
 
 - **Email:** [privacy@checkpoint64.com](mailto:privacy@checkpoint64.com)
-- **Postal address:** [LEGAL ENTITY], [ADDRESS]
 
 You can also complain to the [Information Commissioner's Office](https://ico.org.uk/make-a-complaint/) at any time.

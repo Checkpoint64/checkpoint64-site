@@ -1,12 +1,12 @@
 ---
 title: Terms of Service
 description: The terms you agree to when you use the Checkpoint64 website, sign up for the launch list, or use the Checkpoint64 desktop app and cloud service.
-updated: 2026-05-19
+updated: 2026-06-13
 ---
 
 # Terms of Service
 
-**Last updated:** 19 May 2026
+**Last updated:** 13 June 2026
 
 These Terms of Service ("**Terms**") are a contract between you and **[LEGAL ENTITY]** ("**Checkpoint64**", "**we**", "**us**", "**our**"). They govern your use of:
 
@@ -109,7 +109,7 @@ The App may download and install updates automatically, including security and b
 
 ## 12. Service availability, "as-is", and warranty disclaimer
 
-We work hard to keep the Service running, but we do not guarantee uninterrupted, error-free, or perfectly secure operation, and we do not guarantee that any specific save will always be recoverable. **The Service is provided "as-is" and "as-available".**
+We work hard to keep the Service running, but we do not guarantee uninterrupted, error-free, or perfectly secure operation. **Specifically, we are not responsible for any data loss, service downtime, or if the Service goes offline permanently.** **The Service is provided "as-is" and "as-available".**
 
 To the maximum extent permitted by law, we disclaim all warranties, whether express, implied, statutory, or otherwise, including any warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, and any warranty arising from a course of dealing or trade usage.
 
