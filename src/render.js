@@ -11,6 +11,7 @@
 // the depth-1 localized pages.
 
 import { PLATFORMS, RELEASES_PAGE_URL, formatSize, extensionOf } from './releases.js'
+import { formatPlaytime } from './steam.js'
 import { DEFAULT_CURRENCY, formatMoney } from './currency.js'
 import { LOCALES, DEFAULT_LOCALE, getLocale, fmt } from './i18n/config.js'
 
@@ -399,6 +400,65 @@ function logbookPreview(t) {
   `
 }
 
+function reviewCard(r, s) {
+  const pt = formatPlaytime(r.playtimeMinutes)
+  const initial = (r.author || '?').trim().charAt(0).toUpperCase() || '?'
+  const helpful = r.votesUp > 0
+    ? fmt(s.helpfulTpl, r.votesUp.toLocaleString('en-US'))
+    : ''
+  return `
+    <figure class="steam-card">
+      <div class="steam-card-head">
+        <span class="steam-rec"><span aria-hidden="true">▲ </span>${esc(s.recommended)}</span>
+        ${pt ? `<span class="steam-hrs">${esc(fmt(s.hoursTpl, pt))}</span>` : ''}
+      </div>
+      <blockquote class="steam-text">${esc(r.text)}</blockquote>
+      <figcaption class="steam-meta">
+        <span class="steam-avatar" aria-hidden="true">${esc(initial)}</span>
+        <span class="steam-author">${esc(r.author || s.anonymous)}</span>
+        ${helpful ? `<span class="steam-helpful">${esc(helpful)}</span>` : ''}
+      </figcaption>
+    </figure>
+  `
+}
+
+// Social-proof strip backed by live Steam reviews (baked at build time by
+// src/steam.js). PLACEHOLDER while Checkpoint64 has no Steam page of its own:
+// it shows reviews for a stand-in title and says so plainly. Renders nothing
+// when the build-time fetch returned no data, so a Steam outage can't break
+// the page.
+function steamReviews(t, { steam } = {}) {
+  if (!steam || !Array.isArray(steam.reviews) || !steam.reviews.length) return ''
+  const s = t.steam
+  const count = steam.totalReviews
+    ? fmt(s.countTpl, steam.totalReviews.toLocaleString('en-US'))
+    : ''
+  return `
+    <section id="reviews" aria-labelledby="reviews-heading">
+      <div class="wrap">
+        <div class="head">
+          <span class="tape">${esc(s.tape)}</span>
+          <span class="hand" style="color:var(--accent);font-size:22px">${esc(s.hand)}</span>
+        </div>
+        <h2 id="reviews-heading">${s.h2Html}</h2>
+        <p class="lede">${esc(s.lede)}</p>
+
+        <div class="steam-summary">
+          ${steam.scoreDesc ? `<span class="steam-badge"><span aria-hidden="true">▲ </span>${esc(steam.scoreDesc)}</span>` : ''}
+          ${count ? `<span class="steam-count">${esc(count)}</span>` : ''}
+          <a class="steam-link" href="${esc(steam.storeUrl)}" target="_blank" rel="noopener noreferrer">${esc(s.viewOnSteam)} <span aria-hidden="true">↗</span></a>
+        </div>
+
+        <div class="steam-grid">
+          ${steam.reviews.map((r) => reviewCard(r, s)).join('')}
+        </div>
+
+        <p class="steam-note">${esc(fmt(s.placeholderTpl, steam.appName))}</p>
+      </div>
+    </section>
+  `
+}
+
 function dediStrip(t, intl) {
   const sv = t.savings
   const m = t.money
@@ -651,7 +711,7 @@ function footer(t, year) {
   `
 }
 
-export function renderApp({ year = new Date().getFullYear(), releases = null, locale = DEFAULT_LOCALE } = {}) {
+export function renderApp({ year = new Date().getFullYear(), releases = null, steam = null, locale = DEFAULT_LOCALE } = {}) {
   const L = getLocale(locale)
   const t = L.t
   const intl = L.intl
@@ -665,6 +725,7 @@ export function renderApp({ year = new Date().getFullYear(), releases = null, lo
     shelfMock(t),
     features(t),
     logbookPreview(t),
+    steamReviews(t, { steam }),
     dediStrip(t, intl),
     pricing(t, intl),
     downloadStrip(t, { releases }),

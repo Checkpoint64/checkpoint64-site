@@ -97,6 +97,25 @@ export default {
     liveCaption: 'live · refresh on visit',
   },
 
+  // Steam reviews social-proof strip. The score description (e.g.
+  // "Overwhelmingly Positive") and the game name come straight from Steam and
+  // stay English across locales, like the app-mockup chrome. While Checkpoint64
+  // has no Steam page of its own, this previews the section with another game's
+  // reviews — placeholderTpl says so plainly.
+  steam: {
+    tape: 'WHAT PLAYERS SAY',
+    hand: 'live from Steam',
+    h2Html: 'STRAIGHT FROM <span class="accent">STEAM.</span>',
+    lede: 'Checkpoint64’s Steam page is on the way. When it lands, real player reviews show up right here — pulled live from Steam. For now, here’s a preview using a game we love.',
+    countTpl: '{0} reviews',
+    viewOnSteam: 'View on Steam',
+    recommended: 'RECOMMENDED',
+    hoursTpl: '{0} on record',
+    helpfulTpl: '{0} found this helpful',
+    anonymous: 'Steam player',
+    placeholderTpl: 'Preview only — while Checkpoint64’s own Steam page is being finalised, these are live reviews for {0}, shown to demo this section. Checkpoint64 is not affiliated with it.',
+  },
+
   savings: {
     tape: 'DITCH THE DEDI',
     hand: 'do the math',

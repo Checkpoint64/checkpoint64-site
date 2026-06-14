@@ -131,8 +131,8 @@ export function hreflangLinks() {
   return links.join('\n')
 }
 
-export function localizeHtml(html, { code, t, intl, ogLocale, releases = null, year } = {}) {
-  const appHtml = renderApp({ releases, locale: code, year })
+export function localizeHtml(html, { code, t, intl, ogLocale, releases = null, steam = null, year } = {}) {
+  const appHtml = renderApp({ releases, steam, locale: code, year })
   let out = html
 
   // 1. <html lang>
