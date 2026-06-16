@@ -27,9 +27,9 @@
     <!-- Primary SEO -->
     <title>Checkpoint64 — Ne perdez plus jamais une sauvegarde, solo ou co-op</title>
     <meta name="description"
-          content="Checkpoint64 sauvegarde automatiquement vos parties PC dans le cloud, conserve l&#39;historique complet des versions et laisse vos amis en co-op partager des mondes en toute sécurité grâce aux verrous. Compatible avec Factorio, Satisfactory, Valheim, Stardew Valley, Elden Ring et 40+ autres. Achat unique. Windows, macOS, Linux."/>
+          content="Backup cloud automatique et historique complet des versions pour vos sauvegardes de jeux PC. Restaurez les sauvegardes corrompues et partagez vos mondes co-op avec des verrous. Compatible Minecraft, Stardew Valley, Elden Ring et 60+ jeux. Téléchargement gratuit pour Windows, Mac, Linux."/>
     <meta name="keywords"
-          content="game save backup, cloud save sync, co-op save sharing, factorio save backup, satisfactory save backup, valheim save backup, stardew valley save sync, dedicated server alternative, save file versioning, PC game save cloud, automatic save backup, save manager, game save vault, v rising save sync, elden ring save backup, ark save backup, project zomboid save backup, save game manager, rollback save game"/>
+          content="game save backup, cloud save sync, save file versioning, rollback save game, minecraft world backup, modded minecraft save backup, stardew valley save sync, skyrim save backup, palworld save backup, valheim world backup, factorio save backup, satisfactory save backup, elden ring save backup, project zomboid save backup, enshrouded save backup, co-op save sharing, dedicated server alternative, emulator save sync, retroarch save backup, save state history, PC game save cloud, automatic save backup, game save manager"/>
     <meta name="author" content="Checkpoint64"/>
     <meta name="publisher" content="Checkpoint64"/>
     <meta name="application-name" content="Checkpoint64"/>
@@ -90,7 +90,6 @@
     <link rel="alternate icon" href="../retro_save_icon.svg"/>
     <link rel="mask-icon" href="../retro_save_icon.svg" color="#ff5f4e"/>
     <link rel="apple-touch-icon" href="../retro_save_icon.svg"/>
-    <link rel="manifest" href="../site.webmanifest"/>
     <meta name="apple-mobile-web-app-title" content="Checkpoint64"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
@@ -100,7 +99,7 @@
     <meta property="og:site_name" content="Checkpoint64"/>
     <meta content="Checkpoint64 — Ne perdez plus jamais une sauvegarde, solo ou co-op" property="og:title"/>
     <meta property="og:description"
-          content="Ne perdez plus jamais une sauvegarde. Backup cloud automatique, historique complet des versions et verrous co-op pour que les amis partagent des mondes sans s&#39;écraser. Achat unique."/>
+          content="Ne perdez plus jamais une sauvegarde. Backups automatiques, historique complet des versions et verrous co-op pour que les amis partagent des mondes sans s&#39;écraser. 60+ jeux prêts. Téléchargement gratuit — payez une fois pour plus d&#39;espace."/>
     <meta property="og:url" content="https://checkpoint64.com/fr/"/>
     <meta property="og:image" content="https://checkpoint64.com/og-image.svg"/>
     <meta property="og:image:type" content="image/svg+xml"/>
@@ -114,7 +113,7 @@
     <meta name="twitter:card" content="summary_large_image"/>
     <meta content="Checkpoint64 — Ne perdez plus jamais une sauvegarde, solo ou co-op" name="twitter:title"/>
     <meta name="twitter:description"
-          content="Ne perdez plus jamais une sauvegarde. Backup cloud automatique, historique complet des versions et verrous co-op. Achat unique. Windows, Mac, Linux."/>
+          content="Ne perdez plus jamais une sauvegarde. Backups cloud automatiques, historique complet des versions, verrous co-op. 60+ jeux prêts. Téléchargement gratuit pour Windows, Mac, Linux."/>
     <meta name="twitter:image" content="https://checkpoint64.com/og-image.svg"/>
     <meta name="twitter:image:alt" content="Checkpoint64 — ne perdez plus jamais une sauvegarde."/>
 
@@ -158,7 +157,7 @@
             "applicationSubCategory": "Backup Software",
             "operatingSystem": "Windows, macOS, Linux",
             "url": "https://checkpoint64.com/",
-            "description": "Backup cloud automatique, historique complet des versions et verrous co-op pour les sauvegardes de jeux PC. Payez une fois, gardez à vie. Compatible d'emblée avec Factorio, Satisfactory, Valheim, V Rising, Stardew Valley, Elden Ring et 40+ autres jeux.",
+            "description": "Backup cloud automatique, historique complet des versions et verrous co-op pour les sauvegardes de jeux PC. Plan gratuit inclus ; payez une fois pour plus d'espace. Compatible d'emblée avec Minecraft, Stardew Valley, Skyrim, Palworld, Elden Ring, Factorio, Valheim, plus 60+ autres jeux et 7 émulateurs.",
             "image": "https://checkpoint64.com/og-image.svg",
             "softwareVersion": "1.0",
             "downloadUrl": "https://checkpoint64.com/#download",
@@ -175,13 +174,14 @@
                     "url": "https://checkpoint64.com/#pricing"
             },
             "featureList": [
-                    "Backups automatiques en arrière-plan toutes les 2 minutes",
-                    "Historique complet des versions pour chaque sauvegarde",
-                    "Verrous co-op pour qu'une seule personne puisse envoyer à la fois",
-                    "Envois efficaces — seuls les fichiers modifiés sont transmis",
-                    "Règles par jeu avec 40+ préréglages",
-                    "Journal d'activité partagé pour les groupes co-op",
-                    "Achat unique, sans abonnement"
+                    "Backups automatiques en arrière-plan toutes les 30 secondes",
+                    "Historique complet des versions avec restauration en un clic",
+                    "Verrous co-op appliqués côté serveur — un seul détenteur du monde à la fois",
+                    "Envois dédupliqués — seuls les fichiers modifiés sont transmis",
+                    "Préréglages pour 60+ jeux et 7 émulateurs",
+                    "Journal d'activité partagé pour les équipes",
+                    "Codes de partage en lecture seule pour les mondes communautaires",
+                    "Plan Lifetime à paiement unique — aucun abonnement requis"
             ]
     }
     </script>
@@ -220,7 +220,7 @@
                             "@type": "HowToStep",
                             "position": 2,
                             "name": "Activez l'auto-backup",
-                            "text": "Activez l'auto-backup. Checkpoint64 surveille le dossier et envoie une nouvelle version toutes les quelques minutes à chaque changement. Seuls les fichiers modifiés sont transmis.",
+                            "text": "Activez l'auto-backup. Checkpoint64 vérifie le dossier toutes les 30 secondes et envoie une nouvelle version dès que quelque chose a changé. Seuls les fichiers modifiés sont transmis.",
                             "url": "https://checkpoint64.com/#how"
                     },
                     {
@@ -240,10 +240,10 @@
             "mainEntity": [
                     {
                             "@type": "Question",
-                            "name": "Qu'est-ce qu'une « sauvegarde » ?",
+                            "name": "Qu'est-ce qui compte comme « sauvegarde » ?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Tout ce que votre jeu écrit sur votre disque dur. Checkpoint64 traite les fichiers d'un dossier comme une seule sauvegarde et les sauvegarde ensemble. Vous pointez le dossier et choisissez quels fichiers comptent. On a déjà tout configuré pour 40+ jeux populaires."
+                                    "text": "Tout ce que votre jeu écrit sur votre disque dur. Checkpoint64 traite les fichiers d'un dossier comme une seule sauvegarde et les protège ensemble. Des préréglages pour 60+ jeux (et sept émulateurs) font la configuration pour vous ; pour le reste, pointez le dossier et choisissez les fichiers vous-même."
                             }
                     },
                     {
@@ -251,15 +251,15 @@
                             "name": "Envoyez-vous pendant que le jeu tourne ?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Oui, avec précaution. Checkpoint64 ne verrouille jamais vos fichiers de sauvegarde. Si le jeu est en train de sauvegarder au moment où on regarde, on attend un instant et on réessaie — aucun fichier corrompu, aucun plantage. La plupart des jeux finissent de sauvegarder en une fraction de seconde de toute façon."
+                                    "text": "Oui, avec précaution. Checkpoint64 ne verrouille jamais vos fichiers. Il vérifie le dossier toutes les 30 secondes ; si le jeu est en train de sauvegarder, il attend que ça se calme et réessaie — aucun fichier corrompu, aucune saccade. L'appli somnole entre deux vérifications : vous ne la remarquerez pas en jouant."
                             }
                     },
                     {
                             "@type": "Question",
-                            "name": "Que se passe-t-il si mon partenaire co-op écrase mon envoi ?",
+                            "name": "Et si mon partenaire co-op écrase mon envoi ?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Il ne peut pas, c'est voulu. Seule la personne qui tient le verrou peut envoyer. Pour pousser sa version, il doit d'abord prendre le verrou — et ça vous prévient avant. Votre dernière version reste en sécurité dans l'historique ; vous pouvez toujours y revenir."
+                                    "text": "Il ne peut pas, c'est voulu. Seule la personne qui tient le verrou peut envoyer. Pour pousser sa version, il doit d'abord reprendre le verrou — ce qui vous prévient, et s'inscrit dans le journal au vu de tous. Au pire, votre version reste à un clic de Restaurer dans l'historique."
                             }
                     },
                     {
@@ -272,33 +272,41 @@
                     },
                     {
                             "@type": "Question",
-                            "name": "Est-ce que ça marche pour les sauvegardes console ?",
+                            "name": "Ça marche avec les émulateurs ou les sauvegardes console ?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Seulement si vous pouvez amener vos sauvegardes console sur un PC — via les émulateurs, les exports cloud Xbox ou PS+, et Steam Cloud sur votre PC. Checkpoint64 lui-même ne tourne que sur Windows, Mac et Linux."
+                                    "text": "Les émulateurs, carrément — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 et Cemu ont tous leur préréglage : vos save states ont enfin un vrai historique de versions. Les sauvegardes console ne marchent que si vous les amenez d'abord sur un PC. L'appli elle-même tourne sur Windows, macOS (Apple Silicon) et Linux."
                             }
                     },
                     {
                             "@type": "Question",
-                            "name": "Combien ça coûtera ?",
+                            "name": "Combien ça coûte ?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Trois formules : Gratuit (20 Mio, personnel uniquement), Lifetime (paiement unique, 5 Gio par espace plus 2 équipes) et Pro (mensuel, 50 Gio par espace plus 5 équipes, pour les plus grands groupes). Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs ne sont pas fixés — on les publiera ici avant le lancement."
+                                    "text": "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 5 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 50 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule. Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs arrivent avec la v1."
                             }
                     },
                     {
                             "@type": "Question",
-                            "name": "Quand est-ce que ça sort ?",
+                            "name": "Je peux l'utiliser dès aujourd'hui ?",
                             "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Bientôt — on teste en privé en ce moment et on vise un lancement public plus tard cette année. Les builds Windows, Mac et Linux apparaîtront sur cette page dès qu'ils seront prêts."
+                                    "text": "Oui — le premier build est téléchargeable gratuitement dès maintenant pour Windows, macOS (Apple Silicon) et Linux. La v1 et la sortie Steam arrivent plus tard cette année."
+                            }
+                    },
+                    {
+                            "@type": "Question",
+                            "name": "Qui peut voir mes sauvegardes ?",
+                            "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Vos coéquipiers — et seulement ceux que vous invitez. Ils voient votre pseudo, jamais votre e-mail. Et vos données restent les vôtres : exportez tout en zip quand vous voulez, et supprimer votre compte le supprime vraiment (après 7 jours de réflexion)."
                             }
                     }
             ]
     }
     </script>
     <!-- i18n:jsonld:end -->
-  <script type="module" crossorigin src="../assets/index-IHf27i-Q.js"></script>
+  <script type="module" crossorigin src="../assets/index-CMxJQhOX.js"></script>
   <link rel="stylesheet" crossorigin href="../assets/index-D56evp6w.css">
 </head>
 <body>
@@ -328,7 +336,7 @@
           <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch to light mode" title="Toggle theme">
             <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
           </button>
-          <a class="cta" href="#download" aria-label="Obtenir Checkpoint64">OBTENIR ↗</a>
+          <a class="cta" href="#download" aria-label="Télécharger Checkpoint64">TÉLÉCHARGER ↗</a>
         </div>
       </div>
     </nav>
@@ -339,18 +347,18 @@
           <div>
             <p class="eyebrow">
               <span class="dot" aria-hidden="true"></span>
-              v1 · ALPHA · WIN · MAC · LINUX
+              EARLY BUILD · FREE · WIN · MAC · LINUX
             </p>
             <h1>NE PERDEZ PLUS<br/>JAMAIS UNE <span class="accent">SAUVEGARDE.</span></h1>
-            <p class="sub">Vos sauvegardes, gardées pour toujours. Passez vos mondes entre amis comme des cartouches. Fini le « qui a la dernière version ? » Tout le monde reste synchro. Annulez les mauvaises parties. L&#39;hôte se déconnecte ? Quelqu&#39;un d&#39;autre prend le relais. Solo ou co-op, toujours protégé.</p>
+            <p class="sub">Vos sauvegardes, protégées automatiquement — et chaque version conservée. Revenez en arrière après un fichier corrompu, une mauvaise soirée ou un regret. En co-op, le monde passe de main en main comme une cartouche, avec un verrou pour que personne n&#39;écrase personne. L&#39;hôte est en vacances ? Prenez le verrou et continuez.</p>
             <div class="ctas">
-              <a href="#download" class="btn prim" aria-label="Obtenir Checkpoint64">OBTENIR CHECKPOINT64 <span aria-hidden="true">↗</span></a>
+              <a href="#download" class="btn prim" aria-label="Télécharger Checkpoint64 gratuitement">TÉLÉCHARGER GRATUIT <span aria-hidden="true">↗</span></a>
               <a href="#how" class="btn ghost" aria-label="Voir comment fonctionne Checkpoint64">VOIR EN ACTION</a>
             </div>
             <p class="small">
-              <span>achat unique</span>
-              <span>sans abonnement</span>
-              <span>à vous, pour toujours</span>
+              <span>plan gratuit, vraiment gratuit</span>
+              <span>payez une fois pour plus d&#39;espace</span>
+              <span>jamais d&#39;abonnement</span>
             </p>
           </div>
           <div class="hero-art" aria-hidden="true">
@@ -471,7 +479,7 @@
                 <span><span aria-hidden="true">▸ </span>01:14</span>
                 <span class="tag">RIP</span>
               </div>
-              <p class="text">factorio de l&#39;hôte a planté en pleine sauvegarde — 80 heures de monde partagé, envolées</p>
+              <p class="text">le modpack a été mis à jour et votre monde minecraft de 200 heures ne charge plus</p>
             </li>
           
             <li class="problem-card">
@@ -479,7 +487,7 @@
                 <span><span aria-hidden="true">▸ </span>MER 18 H</span>
                 <span class="tag">AÏE</span>
               </div>
-              <p class="text">votre pote en co-op a joué seul et a écrasé votre partie</p>
+              <p class="text">votre pote en co-op a joué « juste une petite session » en solo et a écrasé la partie commune</p>
             </li>
           
             <li class="problem-card">
@@ -508,13 +516,13 @@
           <span class="tape" style="color:#a82828">▮ COMMENT FONCTIONNE CHECKPOINT64</span>
         </div>
         <h2 id="how-heading">POINTEZ UN DOSSIER.<br/><span class="accent">OUBLIEZ-LE.</span></h2>
-        <p class="lede">Tout l&#39;intérêt : ne plus jamais penser aux fichiers de sauvegarde. Trois étapes, une fois, et c&#39;est réglé pour toujours.</p>
+        <p class="lede">Trois étapes, une fois. Ensuite vous ne pensez plus jamais aux fichiers de sauvegarde — et c&#39;est exactement le but.</p>
 
         <div class="steps">
           <div class="step">
             <div class="n">01 · ENVOYER</div>
             <h3>CLIQUEZ ENVOYER ↑</h3>
-            <p>Prenez un instantané de votre dossier de sauvegarde et envoyez-en une copie dans le cloud. Chaque envoi devient sa propre <em>version</em> nommée.</p>
+            <p>Prenez un instantané de votre dossier de sauvegarde et envoyez-en une copie dans le cloud. Chaque envoi devient sa propre <em>version</em> nommée — la version un parmi beaucoup d'autres.</p>
             <div class="visual step-upload">
               <div class="src-label">SOURCE</div>
               <div class="src-path">C:\Users\you\AppData\Local\FactoryGame\Saved\…</div>
@@ -526,7 +534,7 @@
           <div class="step">
             <div class="n">02 · AUTO-BACKUP</div>
             <h3>ACTIVEZ L'AUTO</h3>
-            <p>Checkpoint64 vérifie votre dossier toutes les deux minutes. Si quelque chose a changé, il envoie une nouvelle version tout seul. Seuls les fichiers modifiés sont transmis — le reste est ignoré.</p>
+            <p>Checkpoint64 vérifie votre dossier toutes les 30 secondes. Quelque chose a changé ? Il attend que le jeu finisse d'écrire, puis envoie une nouvelle version tout seul. Seuls les fichiers modifiés sont transmis — le reste est ignoré.</p>
             <div class="visual step-auto" data-step-auto>
               <div class="bars">
                 <div class="bar on"></div>
@@ -535,14 +543,14 @@
                 <div class="bar"></div>
               </div>
               <div class="label" data-auto-label>WATCHING…</div>
-              <div class="meta">toutes les 2 minutes · seulement ce qui a changé</div>
+              <div class="meta">vérifie toutes les 30 s · n’envoie que ce qui a changé</div>
             </div>
           </div>
 
           <div class="step">
             <div class="n">03 · RESTAURER</div>
             <h3>REVENEZ EN ARRIÈRE</h3>
-            <p>Cliquez sur <b>Versions →</b> sur n'importe quelle sauvegarde pour voir tous les backups. Choisissez-en un et cliquez sur <b>Restaurer</b> — Checkpoint64 remet les fichiers en place et marque cette version comme l'actuelle.</p>
+            <p>Cliquez sur <b>Versions →</b> sur n'importe quelle sauvegarde pour voir tous les backups. Choisissez-en un et cliquez sur <b>Restaurer</b> — Checkpoint64 remet les fichiers en place et marque cette version comme l'actuelle. Votre bêtise de 2 h du matin devient une réparation de 30 secondes.</p>
             <div class="visual step-restore">
               <div class="v-row"><span>v#012</span><span class="when">12m ago</span><span class="restore">RESTORE</span></div>
               <div class="v-row cur"><span>v#011</span><span class="when">2h ago</span><span class="here">← HERE</span></div>
@@ -791,35 +799,35 @@
               <div class="ico">▮ HISTORIQUE DES VERSIONS</div>
               <h3>CHAQUE ENVOI
 EST UNE VERSION.</h3>
-              <p>Parcourez chaque backup avec son nombre de fichiers, sa taille et ce qui a changé depuis la dernière fois. Cliquez sur Restaurer : la sauvegarde revient ET devient la version actuelle — aucune confusion.</p>
+              <p>Parcourez chaque backup avec son nombre de fichiers, sa taille et ce qui a changé depuis la dernière fois. Cliquez sur Restaurer : les fichiers reviennent sur le disque, marqués comme actuels — fini les dossiers « final_v2_VRAI ».</p>
             </div>
           
             <div class="feat">
               <div class="ico">▮ VERROUS CO-OP</div>
               <h3>UNE PERSONNE
 TIENT LE MONDE.</h3>
-              <p>Des jeux comme Factorio, Satisfactory, Valheim et V Rising n&#39;ont qu&#39;un seul fichier de monde actif à la fois. Celui qui tient le verrou peut l&#39;envoyer ; les autres ne font que télécharger. Personne ne l&#39;utilise ? Prenez le verrou vous-même — fini le « qui a la dernière sauvegarde ? »</p>
+              <p>Des jeux comme Factorio, Valheim et Satisfactory n&#39;ont qu&#39;un monde actif à la fois. Celui qui tient le verrou envoie ; les autres téléchargent. Le détenteur a disparu ? Les verrous expirent tout seuls, et vous pouvez prendre le relais — avec un avertissement, et une ligne dans le journal pour que tout le monde le sache.</p>
             </div>
           
             <div class="feat">
               <div class="ico">▮ SEULEMENT CE QUI CHANGE</div>
               <h3>ENVOIS
 MINUSCULES.</h3>
-              <p>On n&#39;envoie que les fichiers qui ont changé, et on ignore les autres — même les fichiers renommés ne coûtent rien de plus. Doux pour votre connexion, doux pour votre stockage.</p>
+              <p>Seuls les fichiers modifiés sont envoyés — les fichiers renommés ne coûtent rien de plus. Un monde Minecraft de 500 Mo se ré-envoie en quelques Mo après une session normale, pas en entier. Doux pour votre connexion, doux pour votre stockage.</p>
             </div>
           
             <div class="feat">
-              <div class="ico">▮ RÈGLES PAR JEU</div>
-              <h3>CHOISISSEZ CE QUI
-EST SAUVEGARDÉ.</h3>
-              <p>Choisissez les fichiers à sauvegarder et ceux à ignorer. Sautez les journaux de plantage et les captures, gardez la sauvegarde. Déjà configuré pour les 40+ jeux que Checkpoint64 connaît.</p>
+              <div class="ico">▮ 60+ JEUX PRÊTS</div>
+              <h3>CONFIGURÉ EN
+QUELQUES SECONDES.</h3>
+              <p>Des préréglages pour 60+ jeux — quatre variantes de Minecraft moddé, Stardew, Skyrim, Palworld, Elden Ring — plus sept émulateurs. Choisissez les fichiers qui comptent et sautez les captures d&#39;écran. Si ça sauvegarde dans un dossier, ça marche.</p>
             </div>
           
             <div class="feat">
-              <div class="ico">▮ EN ARRIÈRE-PLAN</div>
-              <h3>TOURNE EN
-ARRIÈRE-PLAN.</h3>
-              <p>Une petite appli légère qui consomme à peine de mémoire. Vérifie toutes les 2 minutes et se repose quand rien n&#39;a changé. Ne vous gêne pas pendant que vous jouez.</p>
+              <div class="ico">▮ CODES DE PARTAGE</div>
+              <h3>UN MONDE,
+TOUTE UNE FOULE.</h3>
+              <p>Vous animez un monde communautaire ? Générez un code d&#39;accès : quiconque l&#39;a peut télécharger votre monde — mais jamais écrire dessus. Les codes sont plafonnés et révocables, et les visiteurs en lecture seule n&#39;occupent pas de places. (Pro)</p>
             </div>
           
             <div class="feat">
@@ -975,7 +983,7 @@ ET QUAND.</h3>
           <span class="tape">▮ TARIFS</span>
         </div>
         <h2 id="pricing-heading">CHOISISSEZ VOTRE<br/><span class="accent">CARTOUCHE.</span></h2>
-        <p class="lede">Trois façons de jouer. Gratuit pour essayer, payé à vie, ou Pro pour les groupes qui sauvegardent ensemble. Pas de frais par personne, pas de frais surprises, pas de mauvaise surprise. Les tarifs ne sont pas encore fixés — on les publiera ici avant le lancement.</p>
+        <p class="lede">Trois façons de jouer. Le Gratuit est vraiment gratuit — pas un essai de sept jours. Le Lifetime se paie une fois. Le Pro est pour les groupes qui sauvegardent ensemble. Pas de frais par personne, pas de surprise. Les tarifs définitifs sont en cours de réglage — on les publiera ici avant le lancement.</p>
 
         <div class="price-grid">
           
@@ -986,8 +994,8 @@ ET QUAND.</h3>
         <span class="price"><span class="money" data-money="0">0 €</span></span>
         <span class="unit">sans carte bancaire</span>
       </div>
-      <div class="tagline">testez, voyez si vos sauvegardes reviennent</div>
-      <ul><li>1 espace personnel (pas d&#39;équipes)</li><li>20 Mio de stockage cloud</li><li>backup automatique + historique complet</li><li>rejoignez l&#39;équipe d&#39;un ami pour le co-op</li></ul>
+      <div class="tagline">assez grand pour Stardew, Hollow Knight ou toute une ludothèque rétro</div>
+      <ul><li>espace personnel + 1 équipe</li><li>20 Mio de stockage cloud par espace</li><li>auto-backup + historique complet des versions</li><li>verrous co-op + journal de bord inclus</li><li>rejoignez autant d&#39;équipes d&#39;amis que vous voulez</li></ul>
       <a href="#download" class="cta-btn">PRENDRE GRATUIT</a>
     </div>
   
@@ -999,8 +1007,8 @@ ET QUAND.</h3>
         <span class="price">À DÉF.</span>
         <span class="unit">unique, à vous pour toujours</span>
       </div>
-      <div class="tagline">payez une fois, vos sauvegardes vivent à jamais</div>
-      <ul><li>espace personnel + jusqu&#39;à 2 équipes</li><li>5 Gio de stockage par espace</li><li>verrous co-op + journal d&#39;activité partagé</li><li>jamais d&#39;abonnement</li><li>déverrouillage via Steam ou en direct</li></ul>
+      <div class="tagline">payez une fois — vos sauvegardes survivront à votre GPU</div>
+      <ul><li>espace personnel + jusqu&#39;à 3 équipes</li><li>2.5 Gio de stockage par espace</li><li>achat direct ou sur Steam</li><li>jamais d&#39;abonnement</li><li>tout le plan Gratuit, avec de la marge</li></ul>
       <a href="#download" class="cta-btn">OBTENIR LIFETIME</a>
     </div>
   
@@ -1013,7 +1021,7 @@ ET QUAND.</h3>
         <span class="unit">mensuel, résiliable à tout moment</span>
       </div>
       <div class="tagline">pour les groupes, streamers, équipes de mod</div>
-      <ul><li>espace personnel + jusqu&#39;à 5 équipes</li><li>50 Gio de stockage par espace</li><li>25 places par équipe (minimum garanti)</li><li>100 versions / 90 jours conservés (minimum garanti)</li><li>bande passante prioritaire (2× le débit API)</li></ul>
+      <ul><li>espace personnel + jusqu&#39;à 5 équipes</li><li>50 Gio de stockage par espace</li><li>25 places par équipe (minimum garanti)</li><li>100 versions / 90 jours conservés (minimum garanti)</li><li>codes de partage en lecture seule pour votre communauté</li><li>bande passante prioritaire (2× le débit API)</li></ul>
       <a href="#download" class="cta-btn">OBTENIR PRO</a>
     </div>
   
@@ -1025,34 +1033,28 @@ ET QUAND.</h3>
       <div class="wrap">
         <div class="inner">
           <div>
-            <h2 id="download-heading">DERNIER BUILD.<br/>RÉCUPÉREZ<br/><span class="invert">VOTRE COPIE.</span></h2>
-            <p>Choisissez votre plateforme. Les builds sont publiés automatiquement depuis GitHub — le lien mène directement au dernier installeur.</p>
-            <p class="signoff"><span aria-hidden="true">↘ </span>notes de version & anciens builds : <a href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.4.0">sur GitHub</a></p>
+            <h2 id="download-heading">LE PREMIER BUILD<br/>EST SORTI.<br/><span class="invert">PRENEZ-LE.</span></h2>
+            <p>Téléchargement gratuit, plan gratuit inclus. Les builds sont publiés directement depuis GitHub — ces boutons pointent toujours vers le dernier installeur.</p>
+            <p class="signoff"><span aria-hidden="true">↘ </span>notes de version & anciens builds : <a href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.4.2">sur GitHub</a></p>
           </div>
           <div class="downloads">
             
-      <a class="dl" data-platform="windows" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.4.0/Checkpoint64_0.4.0_x64_en-US.msi"
-         aria-label="Télécharger Checkpoint64 pour WINDOWS (v0.4.0)">
+      <a class="dl" data-platform="windows" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.4.2/Checkpoint64_0.4.2_x64_en-US.msi"
+         aria-label="Télécharger Checkpoint64 pour WINDOWS (v0.4.2)">
         <span>WINDOWS</span>
-        <span class="arch">.msi · v0.4.0 · 8.8 MB</span>
+        <span class="arch">.msi · v0.4.2 · 8.8 MB</span>
       </a>
     
-      <a class="dl" data-platform="macos-arm" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.4.0/Checkpoint64_0.4.0_aarch64.dmg"
-         aria-label="Télécharger Checkpoint64 pour MACOS · APPLE SILICON (v0.4.0)">
-        <span>MACOS · APPLE SILICON</span>
-        <span class="arch">.dmg · v0.4.0 · 12.4 MB</span>
-      </a>
-    
-    <a class="dl" data-platform="macos-intel" href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.4.0"
-       aria-label="Checkpoint64 pour MACOS · INTEL — voir les versions sur GitHub">
-      <span>MACOS · INTEL</span>
-      <span class="arch">.dmg · x64 · bientôt</span>
+    <a class="dl" data-platform="macos-arm" href="https://github.com/Checkpoint64/Checkpoint64/releases/tag/v0.4.2"
+       aria-label="Checkpoint64 pour MACOS · APPLE SILICON — voir les versions sur GitHub">
+      <span>MACOS · APPLE SILICON</span>
+      <span class="arch">.dmg · arm64 · bientôt</span>
     </a>
   
-      <a class="dl" data-platform="linux" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.4.0/Checkpoint64_0.4.0_amd64.deb"
-         aria-label="Télécharger Checkpoint64 pour LINUX (v0.4.0)">
+      <a class="dl" data-platform="linux" href="https://github.com/Checkpoint64/Checkpoint64/releases/download/v0.4.2/Checkpoint64_0.4.2_amd64.deb"
+         aria-label="Télécharger Checkpoint64 pour LINUX (v0.4.2)">
         <span>LINUX</span>
-        <span class="arch">.deb · v0.4.0 · 11.4 MB</span>
+        <span class="arch">.deb · v0.4.2 · 11.4 MB</span>
       </a>
     
           </div>
@@ -1069,18 +1071,18 @@ ET QUAND.</h3>
         <div class="faq">
           
             <details>
-              <summary>QU&#39;EST-CE QU&#39;UNE « SAUVEGARDE » ?</summary>
-              <div class="body">Tout ce que votre jeu écrit sur votre disque dur. Checkpoint64 traite les fichiers d'un dossier comme une seule sauvegarde et les sauvegarde ensemble. Vous pointez le dossier et choisissez quels fichiers comptent. On a déjà tout configuré pour 40+ jeux populaires.</div>
+              <summary>QU&#39;EST-CE QUI COMPTE COMME « SAUVEGARDE » ?</summary>
+              <div class="body">Tout ce que votre jeu écrit sur votre disque dur. Checkpoint64 traite les fichiers d'un dossier comme une seule sauvegarde et les protège ensemble. Des préréglages pour 60+ jeux (et sept émulateurs) font la configuration pour vous ; pour le reste, pointez le dossier et choisissez les fichiers vous-même.</div>
             </details>
           
             <details>
               <summary>ENVOYEZ-VOUS PENDANT QUE LE JEU TOURNE ?</summary>
-              <div class="body">Oui, avec précaution. Checkpoint64 ne verrouille jamais vos fichiers de sauvegarde. Si le jeu est en train de sauvegarder au moment où on regarde, on attend un instant et on réessaie — aucun fichier corrompu, aucun plantage. La plupart des jeux finissent de sauvegarder en une fraction de seconde de toute façon.</div>
+              <div class="body">Oui, avec précaution. Checkpoint64 ne verrouille jamais vos fichiers. Il vérifie le dossier toutes les 30 secondes ; si le jeu est en train de sauvegarder, il attend que ça se calme et réessaie — aucun fichier corrompu, aucune saccade. L'appli somnole entre deux vérifications : vous ne la remarquerez pas en jouant.</div>
             </details>
           
             <details>
-              <summary>QUE SE PASSE-T-IL SI MON PARTENAIRE CO-OP ÉCRASE MON ENVOI ?</summary>
-              <div class="body">Il ne peut pas, c'est voulu. Seule la personne qui tient le verrou peut envoyer. Pour pousser sa version, il doit d'abord prendre le verrou — et ça vous prévient avant. Votre dernière version reste en sécurité dans l'historique ; vous pouvez toujours y revenir.</div>
+              <summary>ET SI MON PARTENAIRE CO-OP ÉCRASE MON ENVOI ?</summary>
+              <div class="body">Il ne peut pas, c'est voulu. Seule la personne qui tient le verrou peut envoyer. Pour pousser sa version, il doit d'abord reprendre le verrou — ce qui vous prévient, et s'inscrit dans le journal au vu de tous. Au pire, votre version reste à un clic de Restaurer dans l'historique.</div>
             </details>
           
             <details>
@@ -1089,18 +1091,23 @@ ET QUAND.</h3>
             </details>
           
             <details>
-              <summary>EST-CE QUE ÇA MARCHE POUR LES SAUVEGARDES CONSOLE ?</summary>
-              <div class="body">Seulement si vous pouvez amener vos sauvegardes console sur un PC — via les émulateurs, les exports cloud Xbox ou PS+, et Steam Cloud sur votre PC. Checkpoint64 lui-même ne tourne que sur Windows, Mac et Linux.</div>
+              <summary>ÇA MARCHE AVEC LES ÉMULATEURS OU LES SAUVEGARDES CONSOLE ?</summary>
+              <div class="body">Les émulateurs, carrément — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 et Cemu ont tous leur préréglage : vos save states ont enfin un vrai historique de versions. Les sauvegardes console ne marchent que si vous les amenez d'abord sur un PC. L'appli elle-même tourne sur Windows, macOS (Apple Silicon) et Linux.</div>
             </details>
           
             <details>
-              <summary>COMBIEN ÇA COÛTERA ?</summary>
-              <div class="body">Trois formules : Gratuit (20 Mio, personnel uniquement), Lifetime (paiement unique, 5 Gio par espace + 2 équipes) et Pro (mensuel, 50 Gio par espace + 5 équipes, pour les plus grands groupes). Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs ne sont pas fixés — on les publiera ici avant le lancement.</div>
+              <summary>COMBIEN ÇA COÛTE ?</summary>
+              <div class="body">Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 5 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 50 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule. Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs arrivent avec la v1.</div>
             </details>
           
             <details>
-              <summary>QUAND EST-CE QUE ÇA SORT ?</summary>
-              <div class="body">Bientôt — on teste en privé en ce moment et on vise un lancement public plus tard cette année. Les builds Windows / Mac / Linux apparaîtront sur cette page dès qu'ils seront prêts.</div>
+              <summary>JE PEUX L&#39;UTILISER DÈS AUJOURD&#39;HUI ?</summary>
+              <div class="body">Oui — le premier build est téléchargeable gratuitement dès maintenant pour Windows, macOS (Apple Silicon) et Linux. La v1 et la sortie Steam arrivent plus tard cette année.</div>
+            </details>
+          
+            <details>
+              <summary>QUI PEUT VOIR MES SAUVEGARDES ?</summary>
+              <div class="body">Vos coéquipiers — et seulement ceux que vous invitez. Ils voient votre pseudo, jamais votre e-mail. Et vos données restent les vôtres : exportez tout en zip quand vous voulez, et supprimer votre compte le supprime vraiment (après 7 jours de réflexion, au cas où le regret de 2 h du matin frappe).</div>
             </details>
           
         </div>
@@ -1121,7 +1128,7 @@ ET QUAND.</h3>
               <li><a href="#how">Comment ça marche</a></li>
               <li><a href="#features">Fonctions</a></li>
               <li><a href="#pricing">Tarifs</a></li>
-              <li><a href="#download">Obtenir</a></li>
+              <li><a href="#download">Télécharger</a></li>
               <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank" rel="noopener noreferrer" aria-label="Notes de version sur GitHub (ouvre un nouvel onglet)">Notes de version</a></li>
             </ul>
           </nav>
