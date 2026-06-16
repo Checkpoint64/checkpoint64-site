@@ -135,8 +135,9 @@ ${html}
 export function renderIndex(posts, { depth = 1 } = {}) {
   const items = posts.length
     ? posts.map((p) => `
-      <li class="blog-card">
+      <li class="blog-card${p.pinned ? ' pinned' : ''}">
         <a href="/blog/${esc(p.slug)}/" class="blog-card-link">
+          ${p.pinned ? '<span class="blog-card-pin" aria-label="Pinned post">📌 Pinned</span>' : ''}
           <h2 class="blog-card-title">${esc(p.title)}</h2>
           ${p.date ? `<time class="blog-card-date" datetime="${p.date}">${p.date}</time>` : ''}
           ${p.excerpt ? `<p class="blog-card-excerpt">${esc(p.excerpt)}</p>` : ''}

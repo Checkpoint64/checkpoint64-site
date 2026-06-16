@@ -156,7 +156,7 @@ function hero(t) {
           <div>
             <p class="eyebrow">
               <span class="dot" aria-hidden="true"></span>
-              v1 · ALPHA · WIN · MAC · LINUX
+              EARLY BUILD · FREE · WIN · MAC · LINUX
             </p>
             <h1>${h.h1Html}</h1>
             <p class="sub">${esc(h.sub)}</p>
