@@ -131,7 +131,7 @@ export default {
   pricing: {
     tape: 'PRICING',
     h2Html: 'PICK YOUR<br/><span class="accent">CART.</span>',
-    lede: 'Three ways to play it. Free is actually free — not a seven-day trial. Lifetime is pay-once. Pro is for crews who save together. No charge per person, no surprise fees, no rip-cords. Final prices are still being dialled in — drop your email and you’ll hear first.',
+    lede: 'Three ways to play it. Free is actually free — not a seven-day trial. Lifetime is pay-once. Pro is for crews who save together. No charge per person, no surprise fees, no rip-cords. Final prices are still being dialled in — they’ll be posted here before launch.',
     badge: '★ MOST CARTS',
     cards: [
       {
@@ -156,7 +156,7 @@ export default {
           'no subscription, ever',
           'everything in Free, with room to breathe',
         ],
-        cta: 'NOTIFY ME',
+        cta: 'GET LIFETIME',
       },
       {
         tag: 'PRO', unit: 'monthly, cancel anytime',
@@ -169,31 +169,20 @@ export default {
           'read-only share codes for your community',
           'priority bandwidth (2× the API throughput)',
         ],
-        cta: 'NOTIFY ME',
+        cta: 'GET PRO',
       },
     ],
     tbc: 'TBC',
-    notify: {
-      text: 'Final pricing lands with v1. Drop your email and we’ll tell you the day it does — early birds get the best deal.',
-      button: 'NOTIFY ME',
-    },
-    emailPlaceholder: 'you@somewhere.com',
-    emailLabel: 'Email address',
-    formAria: 'Notify me about Checkpoint64 pricing',
   },
 
   download: {
-    headlineSoonHtml: 'SHIPPING SOON.<br/>GET ON THE<br/><span class="invert">LIST.</span>',
+    headlineSoonHtml: 'SHIPPING SOON.<br/>BUILDS LAND<br/><span class="invert">HERE.</span>',
     headlineLiveHtml: 'THE EARLY BUILD<br/>IS OUT.<br/><span class="invert">GRAB IT.</span>',
-    blurbSoon: 'We’re still polishing. Drop your email, pick what you play on, and we’ll let you know the moment it’s ready.',
+    blurbSoon: 'We’re still testing in private. Builds for Windows, Mac, and Linux land right here the moment they’re ready.',
     blurbLive: 'Free download, free plan included. Builds publish straight from GitHub — these buttons always point at the newest installer.',
-    signoffSoon: 'no spam, one email at launch',
+    signoffSoon: 'free to try the day it ships',
     signoffLiveTpl: 'release notes & older builds: <a href="{0}">on GitHub</a>',
     comingSoon: 'coming soon',
-    notifyButton: 'NOTIFY',
-    emailLabel: 'Email address',
-    emailPlaceholder: 'you@somewhere.com',
-    formAria: 'Notify me when Checkpoint64 v1 ships',
     tileAriaLiveTpl: 'Download Checkpoint64 for {0} ({1})',
     tileAriaSoonTpl: 'Checkpoint64 for {0} — see releases on GitHub',
   },
@@ -208,8 +197,8 @@ export default {
       { q: 'WHAT IF MY CO-OP PARTNER OVERWRITES MY UPLOAD?', a: 'They can’t, on purpose. Only the person holding the lock can upload. To push their version they have to take the lock first — which warns you, and goes in the logbook for all to see. Worst case, your version is one Restore away in the history.' },
       { q: 'DO I STILL NEED A DEDICATED SERVER?', a: 'For most groups, no. The whole point of a dedicated server is keeping your world online when the host’s PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves {0} compared to renting a 24/7 server that sits idle 18 hours a day.' },
       { q: 'DOES THIS WORK FOR EMULATORS OR CONSOLE SAVES?', a: 'Emulators, absolutely — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3, and Cemu all have presets, so your save states finally get real version history. Console saves only work if you can get them onto a PC first. The app itself runs on Windows, macOS (Apple Silicon), and Linux.' },
-      { q: 'WHAT DOES IT COST?', a: 'The free plan is real and stays free: 20 MiB, your own space plus one team. Lifetime is a one-time payment — 2.5 GiB per space, up to 3 teams, bought direct or through Steam. Pro is for big crews: 50 GiB per space, 5 teams, 25 seats each, read-only share codes. No charge per person on any tier. Final numbers land with v1 — join the list and lock in the early-bird price.' },
-      { q: 'CAN I USE IT TODAY?', a: 'Yes — the early build is free to download right now for Windows, macOS (Apple Silicon), and Linux. v1 and the Steam release are coming later this year; the list gets exactly one email the day they land.' },
+      { q: 'WHAT DOES IT COST?', a: 'The free plan is real and stays free: 20 MiB, your own space plus one team. Lifetime is a one-time payment — 2.5 GiB per space, up to 3 teams, bought direct or through Steam. Pro is for big crews: 50 GiB per space, 5 teams, 25 seats each, read-only share codes. No charge per person on any tier. Final numbers land with v1.' },
+      { q: 'CAN I USE IT TODAY?', a: 'Yes — the early build is free to download right now for Windows, macOS (Apple Silicon), and Linux. v1 and the Steam release are coming later this year.' },
       { q: 'WHO CAN SEE MY SAVES?', a: 'Your teammates — and only the ones you invite. They see your display name, never your email. And your data stays yours: export everything as a zip whenever you like, and deleting your account actually deletes it (after a 7-day cooling-off period, in case of 2am regret).' },
     ],
   },
@@ -240,15 +229,6 @@ export default {
     notAffiliated: 'NOT AFFILIATED WITH ANY GAME LISTED ABOVE',
   },
 
-  // Live-region status messages for the launch-list form (used by src/main.js,
-  // which picks the set matching <html lang>).
-  forms: {
-    enterEmail: 'Please enter your email address.',
-    sending: 'Sending…',
-    success: 'You’re on the list — we’ll email you the day it ships.',
-    error: 'Something went wrong — please try again in a moment.',
-  },
-
   meta: {
     skipLink: 'Skip to content',
     title: 'Checkpoint64 — Never Lose a Save Again, Solo or Co-op',
@@ -259,7 +239,7 @@ export default {
     twitterTitle: 'Checkpoint64 — Never Lose a Save Again, Solo or Co-op',
     twitterDescription: 'Never lose a save again. Automatic cloud backups, full version history, co-op locks. 60+ games ready. Free download for Windows, Mac, Linux.',
     twitterImageAlt: 'Checkpoint64 — never lose a save again.',
-    noscriptHtml: 'Heads-up — JavaScript is disabled, so the signup form and the animated demo on this page won’t work. The rest of the content is fully visible above.',
+    noscriptHtml: 'Heads-up — JavaScript is disabled, so the animated demo on this page won’t work. The rest of the content is fully visible above.',
   },
 
   jsonld: {
@@ -295,8 +275,8 @@ export default {
       { q: 'What if my co-op partner overwrites my upload?', a: "They can't, on purpose. Only the person holding the lock can upload. To push their version they have to take the lock first — which warns you, and goes in the logbook for all to see. Worst case, your version is one Restore away in the history." },
       { q: 'Do I still need a dedicated server?', a: "For most groups, no. The whole point of a dedicated server is keeping your world online when the host's PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves {0} compared to renting a 24/7 server that sits idle 18 hours a day." },
       { q: 'Does this work for emulators or console saves?', a: 'Emulators, absolutely — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3, and Cemu all have presets, so your save states finally get real version history. Console saves only work if you can get them onto a PC first. The app itself runs on Windows, macOS (Apple Silicon), and Linux.' },
-      { q: 'What does it cost?', a: 'The free plan is real and stays free: 20 MiB, your own space plus one team. Lifetime is a one-time payment — 2.5 GiB per space, up to 3 teams, bought direct or through Steam. Pro is for big crews: 50 GiB per space, 5 teams, 25 seats each, read-only share codes. No charge per person on any tier. Final numbers land with v1 — join the list and lock in the early-bird price.' },
-      { q: 'Can I use it today?', a: 'Yes — the early build is free to download right now for Windows, macOS (Apple Silicon), and Linux. v1 and the Steam release are coming later this year; the list gets exactly one email the day they land.' },
+      { q: 'What does it cost?', a: 'The free plan is real and stays free: 20 MiB, your own space plus one team. Lifetime is a one-time payment — 2.5 GiB per space, up to 3 teams, bought direct or through Steam. Pro is for big crews: 50 GiB per space, 5 teams, 25 seats each, read-only share codes. No charge per person on any tier. Final numbers land with v1.' },
+      { q: 'Can I use it today?', a: 'Yes — the early build is free to download right now for Windows, macOS (Apple Silicon), and Linux. v1 and the Steam release are coming later this year.' },
       { q: 'Who can see my saves?', a: 'Your teammates — and only the ones you invite. They see your display name, never your email. And your data stays yours: export everything as a zip whenever you like, and deleting your account actually deletes it (after a 7-day cooling-off period).' },
     ],
   },

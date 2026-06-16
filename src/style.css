@@ -94,25 +94,6 @@ html, body {
   }
 }
 
-/* Inline form feedback, announced to screen readers via role="status".
-   Wording carries the meaning (success vs. failure), so colour isn't the
-   only signal. */
-.form-status {
-  flex-basis: 100%;
-  width: 100%;
-  margin: 8px 0 0;
-  font-family: var(--f-mono);
-  font-size: 12px;
-  line-height: 1.45;
-}
-.form-status:empty { display: none; }
-/* Win over .cta-strip p (font-size/opacity/max-width) so the download form's
-   status reads the same as the pricing form's. */
-.cta-strip .form-status {
-  font-size: 12px;
-  max-width: none;
-  opacity: 1;
-}
 
 body {
   background-image:
@@ -885,57 +866,6 @@ section .head .tape::before {
 .price-card.hl .cta-btn {
   background: var(--ink); color: var(--paper);
   border-color: var(--ink);
-}
-
-.notify-strip {
-  margin-top: 36px;
-  padding: 18px 22px;
-  padding-right: 26px; /* Account for button box-shadow */
-  border: 2px dashed var(--fg);
-  font-family: var(--f-mono);
-  font-size: 13.5px;
-  color: rgba(var(--fg-rgb), 0.78);
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.notify-strip form { display: flex; flex-wrap: wrap; gap: 8px; }
-.notify-strip input {
-  font-family: var(--f-mono); font-size: 13px;
-  padding: 11px 12px;
-  background: transparent;
-  border: 2px solid var(--fg);
-  color: var(--fg);
-  min-width: 240px;
-}
-.notify-strip .btn { padding: 11px 14px; }
-
-@media (max-width: 640px) {
-  .notify-strip {
-    padding: 18px 16px 22px;
-    gap: 12px;
-  }
-  .notify-strip form {
-    flex-wrap: wrap;
-    width: 100%;
-  }
-  .notify-strip input {
-    min-width: 0;
-    flex: 1;
-  }
-  .notify-strip .btn {
-    flex: 0 0 auto;
-  }
-}
-@media (max-width: 480px) {
-  .notify-strip form input {
-    flex: 0 0 100%;
-  }
-  .notify-strip form .btn {
-    flex: 0 0 100%;
-  }
 }
 
 /* ---------- CTA STRIP ---------- */

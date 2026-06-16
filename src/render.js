@@ -504,19 +504,6 @@ function pricing(t, intl) {
             badge: pr.badge,
           })).join('\n          ')}
         </div>
-
-        <div class="notify-strip">
-          <div>
-            <span class="hand" style="color:var(--accent);font-size:20px;margin-right:10px">↘</span>
-            ${esc(pr.notify.text)}
-          </div>
-          <form data-notify-form aria-label="${esc(pr.formAria)}">
-            <label for="notify-email-pricing" class="visually-hidden">${esc(pr.emailLabel)}</label>
-            <input id="notify-email-pricing" name="email" type="email" autocomplete="email" required placeholder="${esc(pr.emailPlaceholder)}" />
-            <button type="submit" class="btn prim">${esc(pr.notify.button)}</button>
-            <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-          </form>
-        </div>
       </div>
     </section>
   `
@@ -569,12 +556,6 @@ function downloadStrip(t, { releases } = {}) {
           </div>
           <div class="downloads">
             ${tiles}
-            <form data-notify-form aria-label="${esc(d.formAria)}">
-              <label for="notify-email-download" class="visually-hidden">${esc(d.emailLabel)}</label>
-              <input id="notify-email-download" name="email" type="email" autocomplete="email" required placeholder="${esc(d.emailPlaceholder)}" />
-              <button type="submit" class="dl"><span>${esc(d.notifyButton)} <span aria-hidden="true">↗</span></span></button>
-              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-            </form>
           </div>
         </div>
       </div>

@@ -130,7 +130,7 @@ export default {
   pricing: {
     tape: 'TARIFS',
     h2Html: 'CHOISISSEZ VOTRE<br/><span class="accent">CARTOUCHE.</span>',
-    lede: "Trois façons de jouer. Le Gratuit est vraiment gratuit — pas un essai de sept jours. Le Lifetime se paie une fois. Le Pro est pour les groupes qui sauvegardent ensemble. Pas de frais par personne, pas de surprise. Les tarifs définitifs sont en cours de réglage — laissez votre e-mail et vous serez les premiers prévenus.",
+    lede: "Trois façons de jouer. Le Gratuit est vraiment gratuit — pas un essai de sept jours. Le Lifetime se paie une fois. Le Pro est pour les groupes qui sauvegardent ensemble. Pas de frais par personne, pas de surprise. Les tarifs définitifs sont en cours de réglage — on les publiera ici avant le lancement.",
     badge: '★ LE PLUS CHOISI',
     cards: [
       {
@@ -155,7 +155,7 @@ export default {
           "jamais d'abonnement",
           'tout le plan Gratuit, avec de la marge',
         ],
-        cta: 'PRÉVENEZ-MOI',
+        cta: 'OBTENIR LIFETIME',
       },
       {
         tag: 'PRO', unit: 'mensuel, résiliable à tout moment',
@@ -168,31 +168,20 @@ export default {
           'codes de partage en lecture seule pour votre communauté',
           'bande passante prioritaire (2× le débit API)',
         ],
-        cta: 'PRÉVENEZ-MOI',
+        cta: 'OBTENIR PRO',
       },
     ],
     tbc: 'À DÉF.',
-    notify: {
-      text: "Les tarifs définitifs arrivent avec la v1. Laissez votre e-mail et on vous prévient le jour même — les premiers inscrits ont le meilleur prix.",
-      button: 'PRÉVENEZ-MOI',
-    },
-    emailPlaceholder: 'vous@exemple.com',
-    emailLabel: 'Adresse e-mail',
-    formAria: 'Me prévenir des tarifs de Checkpoint64',
   },
 
   download: {
-    headlineSoonHtml: 'BIENTÔT DISPO.<br/>INSCRIVEZ-VOUS<br/><span class="invert">À LA LISTE.</span>',
+    headlineSoonHtml: 'BIENTÔT DISPO.<br/>LES BUILDS<br/><span class="invert">ARRIVENT ICI.</span>',
     headlineLiveHtml: 'LE PREMIER BUILD<br/>EST SORTI.<br/><span class="invert">PRENEZ-LE.</span>',
-    blurbSoon: "On peaufine encore. Laissez votre e-mail, indiquez votre plateforme, et on vous prévient dès que c'est prêt.",
+    blurbSoon: "On teste encore en privé. Les builds pour Windows, Mac et Linux arrivent ici dès qu'ils sont prêts.",
     blurbLive: 'Téléchargement gratuit, plan gratuit inclus. Les builds sont publiés directement depuis GitHub — ces boutons pointent toujours vers le dernier installeur.',
-    signoffSoon: 'pas de spam, un seul e-mail au lancement',
+    signoffSoon: 'gratuit à essayer le jour de la sortie',
     signoffLiveTpl: 'notes de version & anciens builds : <a href="{0}">sur GitHub</a>',
     comingSoon: 'bientôt',
-    notifyButton: 'PRÉVENIR',
-    emailLabel: 'Adresse e-mail',
-    emailPlaceholder: 'vous@exemple.com',
-    formAria: 'Me prévenir quand Checkpoint64 v1 sort',
     tileAriaLiveTpl: 'Télécharger Checkpoint64 pour {0} ({1})',
     tileAriaSoonTpl: 'Checkpoint64 pour {0} — voir les versions sur GitHub',
   },
@@ -206,8 +195,8 @@ export default {
       { q: 'ET SI MON PARTENAIRE CO-OP ÉCRASE MON ENVOI ?', a: "Il ne peut pas, c'est voulu. Seule la personne qui tient le verrou peut envoyer. Pour pousser sa version, il doit d'abord reprendre le verrou — ce qui vous prévient, et s'inscrit dans le journal au vu de tous. Au pire, votre version reste à un clic de Restaurer dans l'historique." },
       { q: "AI-JE ENCORE BESOIN D'UN SERVEUR DÉDIÉ ?", a: "Pour la plupart des groupes, non. Tout l'intérêt d'un serveur dédié est de garder votre monde en ligne quand le PC de l'hôte est éteint. Checkpoint64 couvre environ 90 % de ça pour un paiement unique : celui qui veut jouer prend le verrou, joue sa session, puis repousse la sauvegarde. Un groupe co-op typique économise {0} par rapport à un serveur 24/7 qui reste inactif 18 heures par jour." },
       { q: 'ÇA MARCHE AVEC LES ÉMULATEURS OU LES SAUVEGARDES CONSOLE ?', a: "Les émulateurs, carrément — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 et Cemu ont tous leur préréglage : vos save states ont enfin un vrai historique de versions. Les sauvegardes console ne marchent que si vous les amenez d'abord sur un PC. L'appli elle-même tourne sur Windows, macOS (Apple Silicon) et Linux." },
-      { q: 'COMBIEN ÇA COÛTE ?', a: "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 5 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 50 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule. Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs arrivent avec la v1 — inscrivez-vous et verrouillez le tarif early-bird." },
-      { q: "JE PEUX L'UTILISER DÈS AUJOURD'HUI ?", a: "Oui — le premier build est téléchargeable gratuitement dès maintenant pour Windows, macOS (Apple Silicon) et Linux. La v1 et la sortie Steam arrivent plus tard cette année ; la liste recevra exactement un e-mail le jour J." },
+      { q: 'COMBIEN ÇA COÛTE ?', a: "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 5 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 50 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule. Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs arrivent avec la v1." },
+      { q: "JE PEUX L'UTILISER DÈS AUJOURD'HUI ?", a: "Oui — le premier build est téléchargeable gratuitement dès maintenant pour Windows, macOS (Apple Silicon) et Linux. La v1 et la sortie Steam arrivent plus tard cette année." },
       { q: 'QUI PEUT VOIR MES SAUVEGARDES ?', a: "Vos coéquipiers — et seulement ceux que vous invitez. Ils voient votre pseudo, jamais votre e-mail. Et vos données restent les vôtres : exportez tout en zip quand vous voulez, et supprimer votre compte le supprime vraiment (après 7 jours de réflexion, au cas où le regret de 2 h du matin frappe)." },
     ],
   },
@@ -238,13 +227,6 @@ export default {
     notAffiliated: 'NON AFFILIÉ AUX JEUX CITÉS CI-DESSUS',
   },
 
-  forms: {
-    enterEmail: 'Veuillez saisir votre adresse e-mail.',
-    sending: 'Envoi…',
-    success: 'Vous êtes sur la liste — on vous écrira le jour de la sortie.',
-    error: "Une erreur est survenue — veuillez réessayer dans un instant.",
-  },
-
   meta: {
     skipLink: 'Aller au contenu',
     title: 'Checkpoint64 — Ne perdez plus jamais une sauvegarde, solo ou co-op',
@@ -255,7 +237,7 @@ export default {
     twitterTitle: 'Checkpoint64 — Ne perdez plus jamais une sauvegarde, solo ou co-op',
     twitterDescription: 'Ne perdez plus jamais une sauvegarde. Backups cloud automatiques, historique complet des versions, verrous co-op. 60+ jeux prêts. Téléchargement gratuit pour Windows, Mac, Linux.',
     twitterImageAlt: 'Checkpoint64 — ne perdez plus jamais une sauvegarde.',
-    noscriptHtml: "À noter — JavaScript est désactivé, donc le formulaire d'inscription et la démo animée de cette page ne fonctionneront pas. Le reste du contenu est entièrement visible ci-dessus.",
+    noscriptHtml: "À noter — JavaScript est désactivé, donc la démo animée de cette page ne fonctionnera pas. Le reste du contenu est entièrement visible ci-dessus.",
   },
 
   jsonld: {
@@ -289,8 +271,8 @@ export default {
       { q: 'Et si mon partenaire co-op écrase mon envoi ?', a: "Il ne peut pas, c'est voulu. Seule la personne qui tient le verrou peut envoyer. Pour pousser sa version, il doit d'abord reprendre le verrou — ce qui vous prévient, et s'inscrit dans le journal au vu de tous. Au pire, votre version reste à un clic de Restaurer dans l'historique." },
       { q: "Ai-je encore besoin d'un serveur dédié ?", a: "Pour la plupart des groupes, non. Tout l'intérêt d'un serveur dédié est de garder votre monde en ligne quand le PC de l'hôte est éteint. Checkpoint64 couvre environ 90 % de ça pour un paiement unique : celui qui veut jouer prend le verrou, joue sa session, puis repousse la sauvegarde. Un groupe co-op typique économise {0} par rapport à un serveur 24/7 qui reste inactif 18 heures par jour." },
       { q: 'Ça marche avec les émulateurs ou les sauvegardes console ?', a: "Les émulateurs, carrément — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 et Cemu ont tous leur préréglage : vos save states ont enfin un vrai historique de versions. Les sauvegardes console ne marchent que si vous les amenez d'abord sur un PC. L'appli elle-même tourne sur Windows, macOS (Apple Silicon) et Linux." },
-      { q: 'Combien ça coûte ?', a: "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 5 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 50 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule. Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs arrivent avec la v1 — inscrivez-vous et verrouillez le tarif early-bird." },
-      { q: "Je peux l'utiliser dès aujourd'hui ?", a: "Oui — le premier build est téléchargeable gratuitement dès maintenant pour Windows, macOS (Apple Silicon) et Linux. La v1 et la sortie Steam arrivent plus tard cette année ; la liste recevra exactement un e-mail le jour J." },
+      { q: 'Combien ça coûte ?', a: "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 5 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 50 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule. Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs arrivent avec la v1." },
+      { q: "Je peux l'utiliser dès aujourd'hui ?", a: "Oui — le premier build est téléchargeable gratuitement dès maintenant pour Windows, macOS (Apple Silicon) et Linux. La v1 et la sortie Steam arrivent plus tard cette année." },
       { q: 'Qui peut voir mes sauvegardes ?', a: "Vos coéquipiers — et seulement ceux que vous invitez. Ils voient votre pseudo, jamais votre e-mail. Et vos données restent les vôtres : exportez tout en zip quand vous voulez, et supprimer votre compte le supprime vraiment (après 7 jours de réflexion)." },
     ],
   },

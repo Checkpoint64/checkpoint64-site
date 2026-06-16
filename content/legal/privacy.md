@@ -8,7 +8,7 @@ updated: 2026-06-13
 
 **Last updated:** 13 June 2026
 
-This Privacy Policy explains what personal data **Checkpoint64 Ltd** ("**Checkpoint64**", "**we**", "**us**", "**our**") collects when you use the website at [checkpoint64.com](https://checkpoint64.com/), join the launch list, install the Checkpoint64 desktop app, or use the Checkpoint64 cloud backup service (together, the "**Service**"), why we collect it, who we share it with, and the rights you have over it.
+This Privacy Policy explains what personal data **Checkpoint64 Ltd** ("**Checkpoint64**", "**we**", "**us**", "**our**") collects when you use the website at [checkpoint64.com](https://checkpoint64.com/), install the Checkpoint64 desktop app, or use the Checkpoint64 cloud backup service (together, the "**Service**"), why we collect it, who we share it with, and the rights you have over it.
 
 We are the **data controller** for the personal data described below. We are based in the United Kingdom and process personal data in line with the **UK GDPR** and the **Data Protection Act 2018**. If you are in the EEA, the **EU GDPR** applies on equivalent terms.
 
@@ -23,15 +23,7 @@ The rest of this page is the long version.
 
 ## 2. The data we collect
 
-### 2.1 When you join the launch list (the marketing website)
-
-When you submit the launch-list form on the Site, we collect:
-
-- the **email address** you enter,
-- the **submission timestamp**, and
-- basic request metadata (e.g. **IP address**, **user-agent**) that our backend logs receive in the normal course of serving a request.
-
-### 2.2 When you create an account or use the Service
+### 2.1 When you create an account or use the Service
 
 If and when you register for an account, we collect:
 
@@ -43,7 +35,7 @@ If and when you register for an account, we collect:
 - if you pay through **Stripe**, your **Stripe customer ID** (we do not see or store your full card details — Stripe holds them), and
 - access and **refresh tokens** we issue to keep you signed in. Refresh tokens are stored in your operating system's secure credential store (Windows Credential Manager, macOS Keychain, or Secret Service on Linux) by the desktop app, not in the browser.
 
-### 2.3 The content you back up ("Your Content")
+### 2.2 The content you back up ("Your Content")
 
 When you use the Service to back up game saves, we receive and store:
 
@@ -54,7 +46,7 @@ When you use the Service to back up game saves, we receive and store:
 
 Your Content stays yours — see Section 4 of the [Terms](/terms/).
 
-### 2.4 Technical and security data
+### 2.3 Technical and security data
 
 To operate and protect the Service we also collect or generate:
 
@@ -64,17 +56,17 @@ To operate and protect the Service we also collect or generate:
 - **device and app diagnostics** such as App version, operating system, and architecture, used to deliver the right binary updates;
 - **usage counters** such as your storage consumption and the number of teams or saves on your account, used to enforce plan limits.
 
-### 2.5 Analytics on the marketing website
+### 2.4 Analytics on the marketing website
 
 The marketing website at checkpoint64.com uses **Google Analytics 4** and **Microsoft Clarity** to understand how visitors arrive at the Site and which sections they look at. These tools may set cookies and may receive your **IP address** (truncated for GA4), **user-agent**, **referrer**, **screen size**, **device type**, **interaction events** (clicks, scrolls), and, in the case of Clarity, **anonymised session replays** and **heatmaps** of pages on the Site. We do not enable Google Analytics features that allow Google to use your data for its own advertising purposes.
 
 The Site also loads **Google Fonts**, which means Google receives the IP address of your browser when your browser fetches a font. We use **Bing Webmaster verification** and **Google Search Console** for SEO; neither sets tracking cookies just by virtue of the verification meta tag.
 
-### 2.6 Analytics in the desktop app
+### 2.5 Analytics in the desktop app
 
 When the App is generally available, it may send a small amount of pseudonymous product-analytics data — for example, "the user opened the Versions panel" or "an auto-backup completed in N seconds" — to **Aptabase** to help us improve the App. This data is not tied to your account and does not include the contents of Your Content. You will be able to disable this from the App's settings.
 
-### 2.7 Information you give us when you contact us
+### 2.6 Information you give us when you contact us
 
 If you email us, fill in a support form, or reach out via Discord, we receive whatever you choose to send us, including your **contact details** and the **content of your message**.
 
@@ -82,7 +74,6 @@ If you email us, fill in a support form, or reach out via Discord, we receive wh
 
 | What we use it for | Lawful basis under the UK/EU GDPR |
 | --- | --- |
-| Sending you launch updates after you submit the waitlist form | **Consent** (Art. 6(1)(a)) — you can withdraw at any time using the unsubscribe link in any email we send, or by emailing us. |
 | Creating your account and operating the Service: authentication, backing up and restoring saves, enforcing per-namespace access, billing, team and lock features | **Contract** (Art. 6(1)(b)) — necessary to provide the Service you signed up for. |
 | Sending transactional emails: account verification, password reset, invoice receipts, security alerts, important Service notices | **Contract** (Art. 6(1)(b)) and **legal obligation** (Art. 6(1)(c)) for invoices/tax records. |
 | Keeping the Service secure: server logs, rate limiting, abuse detection, security review | **Legitimate interests** (Art. 6(1)(f)) — protecting the Service and our users; we have weighed this against your rights and consider the impact minimal. |
@@ -97,7 +88,7 @@ We do not use Your Content (the actual save files and manifests) for any purpose
 The Service uses cookies and similar technologies (such as local storage) for a few specific purposes:
 
 - **Strictly necessary** — keeping you signed in, remembering your CSRF protections, enforcing rate-limit cooldowns. These do not require consent.
-- **Analytics** — Google Analytics 4 and Microsoft Clarity, as described in Section 2.5. Where required by your local law (for example, under PECR in the UK or national implementations of the ePrivacy Directive in the EEA), we will ask for your consent before these load.
+- **Analytics** — Google Analytics 4 and Microsoft Clarity, as described in Section 2.4. Where required by your local law (for example, under PECR in the UK or national implementations of the ePrivacy Directive in the EEA), we will ask for your consent before these load.
 - **Third-party content** — Google Fonts is loaded directly from Google's servers; Google may set its own cookies for that domain.
 
 You can control cookies through your browser's settings, and you can opt out of Google Analytics across the web by installing Google's [opt-out browser add-on](https://tools.google.com/dlpage/gaoptout). Disabling analytics or strictly-necessary cookies may degrade your experience or prevent you from using parts of the Service.
@@ -149,7 +140,6 @@ This list may change as we add or replace providers. We will update this page wh
 
 We keep your data only for as long as we need it for the purposes set out in this policy:
 
-- **Waitlist emails** — until we launch and have sent you the launch announcement, or you ask us to remove you. We typically delete them within 12 months after launch unless you've created an account.
 - **Account data** — for as long as your account is active, and for up to **180 days after closure** so we can recover it if you change your mind. After that we delete or anonymise it, except where we need to retain it for legal reasons (e.g. tax records for up to 7 years).
 - **Your Content (save files and manifests)** — for as long as your account exists and you keep them. Deleted versions may persist in our content-addressed store and in backups for up to **30 days** before being permanently removed.
 - **Server logs and rate-limit data** — typically **30–90 days**, longer where we need a record for security investigation.

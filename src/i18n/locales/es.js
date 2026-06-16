@@ -130,7 +130,7 @@ export default {
   pricing: {
     tape: 'PRECIOS',
     h2Html: 'ELIGE TU<br/><span class="accent">CARTUCHO.</span>',
-    lede: 'Tres formas de jugarlo. El Gratis es gratis de verdad — no una prueba de siete días. El Lifetime se paga una vez. El Pro es para grupos que respaldan juntos. Sin cobro por persona, sin costes sorpresa. Los precios definitivos se están ajustando — deja tu correo y serás el primero en saberlo.',
+    lede: 'Tres formas de jugarlo. El Gratis es gratis de verdad — no una prueba de siete días. El Lifetime se paga una vez. El Pro es para grupos que respaldan juntos. Sin cobro por persona, sin costes sorpresa. Los precios definitivos se están ajustando — los publicaremos aquí antes del lanzamiento.',
     badge: '★ EL MÁS ELEGIDO',
     cards: [
       {
@@ -155,7 +155,7 @@ export default {
           'nunca una suscripción',
           'todo lo del plan Gratis, con espacio de sobra',
         ],
-        cta: 'AVÍSAME',
+        cta: 'CONSEGUIR LIFETIME',
       },
       {
         tag: 'PRO', unit: 'mensual, cancela cuando quieras',
@@ -168,31 +168,20 @@ export default {
           'códigos de acceso de solo lectura para tu comunidad',
           'ancho de banda prioritario (2× el caudal de la API)',
         ],
-        cta: 'AVÍSAME',
+        cta: 'CONSEGUIR PRO',
       },
     ],
     tbc: 'POR DEF.',
-    notify: {
-      text: 'Los precios definitivos llegan con la v1. Deja tu correo y te avisamos ese mismo día — los primeros se llevan el mejor precio.',
-      button: 'AVÍSAME',
-    },
-    emailPlaceholder: 'tu@ejemplo.com',
-    emailLabel: 'Correo electrónico',
-    formAria: 'Avisarme sobre los precios de Checkpoint64',
   },
 
   download: {
-    headlineSoonHtml: 'PRONTO DISPONIBLE.<br/>APÚNTATE A<br/><span class="invert">LA LISTA.</span>',
+    headlineSoonHtml: 'PRONTO DISPONIBLE.<br/>LOS BUILDS<br/><span class="invert">LLEGAN AQUÍ.</span>',
     headlineLiveHtml: 'EL PRIMER BUILD<br/>YA ESTÁ FUERA.<br/><span class="invert">LLÉVATELO.</span>',
-    blurbSoon: 'Aún estamos puliendo. Deja tu correo, indica en qué juegas y te avisamos en cuanto esté listo.',
+    blurbSoon: 'Aún probamos en privado. Los builds para Windows, Mac y Linux llegan aquí en cuanto estén listos.',
     blurbLive: 'Descarga gratis, plan gratis incluido. Los builds se publican directamente desde GitHub — estos botones siempre apuntan al último instalador.',
-    signoffSoon: 'sin spam, un solo correo en el lanzamiento',
+    signoffSoon: 'gratis para probar el día del lanzamiento',
     signoffLiveTpl: 'notas de versión y builds antiguos: <a href="{0}">en GitHub</a>',
     comingSoon: 'pronto',
-    notifyButton: 'AVISAR',
-    emailLabel: 'Correo electrónico',
-    emailPlaceholder: 'tu@ejemplo.com',
-    formAria: 'Avisarme cuando salga Checkpoint64 v1',
     tileAriaLiveTpl: 'Descargar Checkpoint64 para {0} ({1})',
     tileAriaSoonTpl: 'Checkpoint64 para {0} — ver las versiones en GitHub',
   },
@@ -206,8 +195,8 @@ export default {
       { q: '¿Y SI MI COMPAÑERO DE CO-OP SOBRESCRIBE MI SUBIDA?', a: 'No puede, a propósito. Solo quien tiene el bloqueo puede subir. Para empujar su versión tiene que tomar el bloqueo primero — lo que te avisa, y queda en la bitácora a la vista de todos. En el peor de los casos, tu versión está a un Restaurar de distancia en el historial.' },
       { q: '¿SIGO NECESITANDO UN SERVIDOR DEDICADO?', a: 'Para la mayoría de los grupos, no. Todo el sentido de un servidor dedicado es mantener tu mundo en línea cuando el PC del anfitrión está apagado. Checkpoint64 cubre alrededor del 90 % de eso por una tarifa única: quien quiera jugar toma el bloqueo, juega su sesión y devuelve la partida. Un grupo de co-op típico ahorra {0} frente a alquilar un servidor 24/7 que está parado 18 horas al día.' },
       { q: '¿FUNCIONA CON EMULADORES O PARTIDAS DE CONSOLA?', a: 'Con emuladores, totalmente — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 y Cemu tienen preajuste, así que tus save states por fin tienen historial de versiones de verdad. Las partidas de consola solo funcionan si primero las llevas a un PC. La app corre en Windows, macOS (Apple Silicon) y Linux.' },
-      { q: '¿CUÁNTO CUESTA?', a: 'El plan gratis es real y seguirá siendo gratis: 20 MiB, tu propio espacio más un equipo. El Lifetime es un pago único — 2.5 GiB por espacio, hasta 3 equipos, comprado directo o vía Steam. El Pro es para grupos grandes: 50 GiB por espacio, 5 equipos, 25 plazas cada uno, códigos de acceso de solo lectura. Sin cobro por persona en ningún plan. Las cifras definitivas llegan con la v1 — apúntate a la lista y asegúrate el precio early-bird.' },
-      { q: '¿PUEDO USARLO HOY?', a: 'Sí — el primer build se puede descargar gratis ahora mismo para Windows, macOS (Apple Silicon) y Linux. La v1 y el lanzamiento en Steam llegan más adelante este año; la lista recibirá exactamente un correo el día que aterricen.' },
+      { q: '¿CUÁNTO CUESTA?', a: 'El plan gratis es real y seguirá siendo gratis: 20 MiB, tu propio espacio más un equipo. El Lifetime es un pago único — 2.5 GiB por espacio, hasta 3 equipos, comprado directo o vía Steam. El Pro es para grupos grandes: 50 GiB por espacio, 5 equipos, 25 plazas cada uno, códigos de acceso de solo lectura. Sin cobro por persona en ningún plan. Las cifras definitivas llegan con la v1.' },
+      { q: '¿PUEDO USARLO HOY?', a: 'Sí — el primer build se puede descargar gratis ahora mismo para Windows, macOS (Apple Silicon) y Linux. La v1 y el lanzamiento en Steam llegan más adelante este año.' },
       { q: '¿QUIÉN PUEDE VER MIS PARTIDAS?', a: 'Tus compañeros de equipo — y solo los que tú invites. Ven tu nombre visible, nunca tu correo. Y tus datos son tuyos: exporta todo en un zip cuando quieras, y borrar tu cuenta la borra de verdad (tras 7 días de margen, por si el arrepentimiento de las 2 de la mañana ataca).' },
     ],
   },
@@ -238,13 +227,6 @@ export default {
     notAffiliated: 'SIN AFILIACIÓN CON LOS JUEGOS MENCIONADOS ARRIBA',
   },
 
-  forms: {
-    enterEmail: 'Introduce tu correo electrónico, por favor.',
-    sending: 'Enviando…',
-    success: 'Estás en la lista — te escribiremos el día del lanzamiento.',
-    error: 'Algo salió mal — inténtalo de nuevo en un momento.',
-  },
-
   meta: {
     skipLink: 'Saltar al contenido',
     title: 'Checkpoint64 — Nunca más pierdas una partida, en solitario o en co-op',
@@ -255,7 +237,7 @@ export default {
     twitterTitle: 'Checkpoint64 — Nunca más pierdas una partida, en solitario o en co-op',
     twitterDescription: 'Nunca más pierdas una partida. Backups automáticos en la nube, historial completo de versiones, bloqueos co-op. 60+ juegos listos. Descarga gratis para Windows, Mac, Linux.',
     twitterImageAlt: 'Checkpoint64 — nunca más pierdas una partida.',
-    noscriptHtml: 'Aviso — JavaScript está desactivado, así que el formulario de registro y la demo animada de esta página no funcionarán. El resto del contenido se ve por completo arriba.',
+    noscriptHtml: 'Aviso — JavaScript está desactivado, así que la demo animada de esta página no funcionará. El resto del contenido se ve por completo arriba.',
   },
 
   jsonld: {
@@ -289,8 +271,8 @@ export default {
       { q: '¿Y si mi compañero de co-op sobrescribe mi subida?', a: 'No puede, a propósito. Solo quien tiene el bloqueo puede subir. Para empujar su versión tiene que tomar el bloqueo primero — lo que te avisa, y queda en la bitácora a la vista de todos. En el peor de los casos, tu versión está a un Restaurar de distancia en el historial.' },
       { q: '¿Sigo necesitando un servidor dedicado?', a: 'Para la mayoría de los grupos, no. Todo el sentido de un servidor dedicado es mantener tu mundo en línea cuando el PC del anfitrión está apagado. Checkpoint64 cubre alrededor del 90 % de eso por una tarifa única: quien quiera jugar toma el bloqueo, juega su sesión y devuelve la partida. Un grupo de co-op típico ahorra {0} frente a alquilar un servidor 24/7 que está parado 18 horas al día.' },
       { q: '¿Funciona con emuladores o partidas de consola?', a: 'Con emuladores, totalmente — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 y Cemu tienen preajuste, así que tus save states por fin tienen historial de versiones de verdad. Las partidas de consola solo funcionan si primero las llevas a un PC. La app corre en Windows, macOS (Apple Silicon) y Linux.' },
-      { q: '¿Cuánto cuesta?', a: 'El plan gratis es real y seguirá siendo gratis: 20 MiB, tu propio espacio más un equipo. El Lifetime es un pago único — 2.5 GiB por espacio, hasta 3 equipos, comprado directo o vía Steam. El Pro es para grupos grandes: 50 GiB por espacio, 5 equipos, 25 plazas cada uno, códigos de acceso de solo lectura. Sin cobro por persona en ningún plan. Las cifras definitivas llegan con la v1 — apúntate a la lista y asegúrate el precio early-bird.' },
-      { q: '¿Puedo usarlo hoy?', a: 'Sí — el primer build se puede descargar gratis ahora mismo para Windows, macOS (Apple Silicon) y Linux. La v1 y el lanzamiento en Steam llegan más adelante este año; la lista recibirá exactamente un correo el día que aterricen.' },
+      { q: '¿Cuánto cuesta?', a: 'El plan gratis es real y seguirá siendo gratis: 20 MiB, tu propio espacio más un equipo. El Lifetime es un pago único — 2.5 GiB por espacio, hasta 3 equipos, comprado directo o vía Steam. El Pro es para grupos grandes: 50 GiB por espacio, 5 equipos, 25 plazas cada uno, códigos de acceso de solo lectura. Sin cobro por persona en ningún plan. Las cifras definitivas llegan con la v1.' },
+      { q: '¿Puedo usarlo hoy?', a: 'Sí — el primer build se puede descargar gratis ahora mismo para Windows, macOS (Apple Silicon) y Linux. La v1 y el lanzamiento en Steam llegan más adelante este año.' },
       { q: '¿Quién puede ver mis partidas?', a: 'Tus compañeros de equipo — y solo los que tú invites. Ven tu nombre visible, nunca tu correo. Y tus datos son tuyos: exporta todo en un zip cuando quieras, y borrar tu cuenta la borra de verdad (tras 7 días de margen).' },
     ],
   },

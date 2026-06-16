@@ -8,7 +8,7 @@ import { detectCurrency, formatMoney } from './currency.js'
 import { getLocale, fmt } from './i18n/config.js'
 
 // Copy for this page's language (set on <html lang>). Used for the few strings
-// produced at runtime — currently just the launch-list form's status messages.
+// produced at runtime — currently just the live download-tile aria labels.
 const t = getLocale(document.documentElement.lang || 'en').t
 
 // Language dropdown: remember the visitor's explicit choice (so the auto-detect
@@ -126,64 +126,3 @@ if (autoEl) {
     setInterval(() => { tick = (tick + 1) % labels.length; apply() }, 1100)
   }
 }
-
-// Handle form submissions to backend API. Feedback is written to a
-// role="status" live region (see [data-form-status]) so screen-reader users
-// hear the result; the button-text swap is just the matching visual cue.
-document.querySelectorAll('[data-notify-form]').forEach((form) => {
-  const statusEl = form.querySelector('[data-form-status]')
-  const setStatus = (msg) => { if (statusEl) statusEl.textContent = msg }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault()
-
-    const emailInput = form.querySelector('input[type="email"]')
-    const submitBtn = form.querySelector('button[type="submit"]')
-    const email = emailInput.value.trim()
-
-    if (!email) {
-      setStatus(t.forms.enterEmail)
-      emailInput.focus()
-      return
-    }
-
-    // Disable form while submitting
-    emailInput.disabled = true
-    submitBtn.disabled = true
-    const originalText = submitBtn.innerHTML
-    submitBtn.innerHTML = '<span>SENDING...</span>'
-    setStatus(t.forms.sending)
-
-    try {
-      const response = await fetch('https://app.checkpoint64.com/public/api/waitingList', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({email})
-      })
-
-      if (response.ok) {
-        // Success
-        submitBtn.innerHTML = '<span>✓ ADDED</span>'
-        emailInput.value = ''
-        setStatus(t.forms.success)
-        setTimeout(() => {
-          submitBtn.innerHTML = originalText
-        }, 3000)
-      } else {
-        // Server error
-        throw new Error(`Server error: ${response.status}`)
-      }
-    } catch (error) {
-      // Network or other error
-      console.error('Error submitting form:', error)
-      setStatus(t.forms.error)
-      submitBtn.innerHTML = originalText
-    } finally {
-      // Re-enable form
-      emailInput.disabled = false
-      submitBtn.disabled = false
-    }
-  })
-})
