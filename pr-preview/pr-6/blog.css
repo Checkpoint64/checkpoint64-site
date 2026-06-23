@@ -144,6 +144,21 @@ a:hover { text-decoration: underline; }
   color: var(--fg); text-decoration: none;
 }
 .blog-card-link:hover { text-decoration: none; }
+/* Pinned posts sit at the top of the list and read as highlighted: accent
+   border, a faint accent wash, and a pin badge above the title. */
+.blog-card.pinned {
+  border-color: var(--accent);
+  background:
+    linear-gradient(rgba(255, 95, 78, 0.06), rgba(255, 95, 78, 0.06));
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.blog-card.pinned:hover { box-shadow: 0 0 0 1px var(--accent); }
+.blog-card-pin {
+  display: inline-block; margin: 0 0 10px;
+  font-family: var(--f-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent);
+}
 .blog-card-title {
   font-family: var(--f-pixel); font-size: 16px; line-height: 1.3;
   color: var(--fg); margin: 0 0 8px;
