@@ -96,6 +96,23 @@ export default {
     liveCaption: 'live · aktualisiert beim besuch',
   },
 
+  // Steam-Bewertungen. Score-Beschreibung und Spielname kommen direkt von Steam
+  // und bleiben in allen Sprachen englisch, wie die App-Mockup-Texte. Noch hat
+  // Checkpoint64 keine eigene Steam-Seite — placeholderTpl sagt das deutlich.
+  steam: {
+    tape: 'WAS SPIELER SAGEN',
+    hand: 'live von Steam',
+    h2Html: 'DIREKT VON <span class="accent">STEAM.</span>',
+    lede: 'Die Steam-Seite von Checkpoint64 ist in Arbeit. Sobald sie da ist, erscheinen hier echte Spielerbewertungen — live von Steam geladen. Vorerst eine Vorschau mit einem Spiel, das wir lieben.',
+    countTpl: '{0} Bewertungen',
+    viewOnSteam: 'Auf Steam ansehen',
+    recommended: 'EMPFOHLEN',
+    hoursTpl: '{0} gespielt',
+    helpfulTpl: '{0} fanden das hilfreich',
+    anonymous: 'Steam-Spieler',
+    placeholderTpl: 'Nur eine Vorschau — solange die eigene Steam-Seite von Checkpoint64 noch finalisiert wird, sind dies echte Bewertungen für {0}, gezeigt als Demo dieses Abschnitts. Checkpoint64 steht in keiner Verbindung dazu.',
+  },
+
   savings: {
     tape: 'SPAR DIR DEN DEDI',
     hand: 'rechne nach',

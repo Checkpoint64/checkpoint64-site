@@ -776,6 +776,101 @@ section .head .tape::before {
   }
 }
 
+/* ---------- STEAM REVIEWS ---------- */
+.steam-summary {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 12px 16px;
+  margin: -28px 0 36px;
+}
+.steam-badge {
+  font-family: var(--f-pixel); font-size: 11px;
+  color: var(--accent-ink); background: var(--accent);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  padding: 9px 12px;
+}
+.steam-count {
+  font-family: var(--f-mono); font-size: 13px;
+  color: rgba(var(--fg-rgb), 0.72); letter-spacing: 0.04em;
+}
+.steam-link {
+  font-family: var(--f-pixel); font-size: 10px;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  padding: 8px 10px; margin-left: auto;
+}
+.steam-link:hover { background: var(--accent); color: var(--accent-ink); }
+
+.steam-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 900px) { .steam-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .steam-grid { grid-template-columns: 1fr; } }
+
+.steam-card {
+  display: flex; flex-direction: column;
+  margin: 0;
+  background: #fff; color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 20px 22px 18px;
+}
+.steam-card-head {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px dashed rgba(26, 24, 20, 0.4);
+}
+.steam-rec {
+  font-family: var(--f-pixel); font-size: 10px;
+  color: var(--accent-ink); background: #66c0f4; /* Steam blue */
+  border: 1.5px solid var(--ink);
+  padding: 5px 7px;
+}
+.steam-hrs {
+  font-family: var(--f-mono); font-size: 11px;
+  opacity: 0.6; white-space: nowrap;
+}
+.steam-text {
+  margin: 0 0 16px;
+  font-family: var(--f-mono); font-size: 14px; line-height: 1.6;
+  flex: 1;
+}
+.steam-text::before { content: "\201C"; color: var(--accent); }
+.steam-text::after { content: "\201D"; color: var(--accent); }
+.steam-meta {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 6px 10px;
+  padding-top: 14px;
+  border-top: 1.5px solid var(--ink);
+}
+.steam-avatar {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px;
+  font-family: var(--f-pixel); font-size: 10px;
+  color: var(--accent-ink); background: var(--accent);
+  border: 1.5px solid var(--ink);
+}
+.steam-author { font-family: var(--f-pixel); font-size: 11px; }
+.steam-helpful {
+  margin-left: auto;
+  font-family: var(--f-mono); font-size: 11px;
+  opacity: 0.55; white-space: nowrap;
+}
+.steam-note {
+  margin: 28px 0 0;
+  font-family: var(--f-mono); font-size: 12px;
+  color: rgba(var(--fg-rgb), 0.55);
+  line-height: 1.55; max-width: 720px;
+}
+
+@media (max-width: 600px) {
+  .steam-summary { margin-top: -12px; }
+  .steam-link { margin-left: 0; }
+  .steam-card { box-shadow: 4px 4px 0 var(--ink); }
+}
+
 /* ---------- DITCH THE DEDI ---------- */
 .dedi-receipt {
   margin-top: 40px;

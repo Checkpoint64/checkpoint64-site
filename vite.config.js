@@ -6,6 +6,7 @@ import { mkdirSync, writeFileSync, readFileSync } from 'node:fs'
 // Absolute file:// URL for the renderer, so dynamic imports work regardless of cwd.
 const RENDERER = pathToFileURL(resolve(import.meta.dirname, 'src/render.js')).href
 const RELEASES = pathToFileURL(resolve(import.meta.dirname, 'src/releases.js')).href
+const STEAM = pathToFileURL(resolve(import.meta.dirname, 'src/steam.js')).href
 const BLOG_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/blog/load.js')).href
 const BLOG_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/blog/render.js')).href
 const LEGAL_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/legal/load.js')).href
@@ -23,6 +24,9 @@ function prerenderAppShell() {
   // don't burn through the 60/hr unauthenticated rate limit on every reload.
   // A fresh build / server restart picks up new releases.
   let releasesPromise = null
+  // Steam reviews are baked the same way as releases: fetched once, cached for
+  // the life of the dev server, refreshed on a fresh build / restart.
+  let steamPromise = null
   return {
     name: 'prerender-app-shell',
     async transformIndexHtml(html) {
@@ -33,10 +37,14 @@ function prerenderAppShell() {
         const { fetchLatestRelease } = await import(RELEASES)
         releasesPromise = fetchLatestRelease()
       }
-      const releases = await releasesPromise
+      if (!steamPromise) {
+        const { fetchSteamReviews } = await import(STEAM)
+        steamPromise = fetchSteamReviews()
+      }
+      const [releases, steam] = await Promise.all([releasesPromise, steamPromise])
       return html.replace(
         '<div id="app"></div>',
-        `<div id="app">${renderApp({ releases })}</div>`,
+        `<div id="app">${renderApp({ releases, steam })}</div>`,
       )
     },
     handleHotUpdate({ file, server }) {
@@ -47,7 +55,7 @@ function prerenderAppShell() {
       // re-runs and regenerates the baked markup. Returning [] tells Vite we've
       // handled the update and to skip its default module HMR.
       const norm = file.replace(/\\/g, '/')
-      if (/\/src\/(render\.js|i18n\/|currency\.js|releases\.js)/.test(norm)) {
+      if (/\/src\/(render\.js|i18n\/|currency\.js|releases\.js|steam\.js)/.test(norm)) {
         server.ws.send({ type: 'full-reload' })
         return []
       }
@@ -169,14 +177,15 @@ function i18n() {
           if (!L) return next()
           const { localizeHtml } = await import(`${I18N_LOCALIZE}?t=${Date.now()}`)
           const { fetchLatestRelease } = await import(RELEASES)
-          const releases = await fetchLatestRelease()
+          const { fetchSteamReviews } = await import(STEAM)
+          const [releases, steam] = await Promise.all([fetchLatestRelease(), fetchSteamReviews()])
           // Run the English index.html through the full transform pipeline
           // (prerenderAppShell fills #app, stripAnalyticsInDev runs, the dev
           // client is injected) before localizing it.
           const raw = readFileSync(INDEX_HTML, 'utf8')
           const html = await server.transformIndexHtml(url, raw, req.originalUrl)
           res.setHeader('Content-Type', 'text/html; charset=utf-8')
-          res.end(localizeHtml(html, { code: L.code, t: L.t, intl: L.intl, ogLocale: L.ogLocale, releases }))
+          res.end(localizeHtml(html, { code: L.code, t: L.t, intl: L.intl, ogLocale: L.ogLocale, releases, steam }))
         } catch (err) {
           res.statusCode = 500
           res.setHeader('Content-Type', 'text/plain; charset=utf-8')
@@ -188,14 +197,15 @@ function i18n() {
       const { LOCALES, DEFAULT_LOCALE } = await import(I18N_CONFIG)
       const { localizeHtml } = await import(I18N_LOCALIZE)
       const { fetchLatestRelease } = await import(RELEASES)
-      const releases = await fetchLatestRelease()
+      const { fetchSteamReviews } = await import(STEAM)
+      const [releases, steam] = await Promise.all([fetchLatestRelease(), fetchSteamReviews()])
       const outDir = resolve(import.meta.dirname, 'dist')
       // The English build output is the source of truth (hashed asset tags +
       // every head edit already in place).
       const builtIndex = readFileSync(resolve(outDir, 'index.html'), 'utf8')
       for (const L of LOCALES) {
         if (L.code === DEFAULT_LOCALE) continue
-        const html = localizeHtml(builtIndex, { code: L.code, t: L.t, intl: L.intl, ogLocale: L.ogLocale, releases })
+        const html = localizeHtml(builtIndex, { code: L.code, t: L.t, intl: L.intl, ogLocale: L.ogLocale, releases, steam })
         const dir = resolve(outDir, L.code)
         mkdirSync(dir, { recursive: true })
         writeFileSync(resolve(dir, 'index.html'), html)

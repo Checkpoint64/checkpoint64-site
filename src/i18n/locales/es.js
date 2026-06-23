@@ -96,6 +96,24 @@ export default {
     liveCaption: 'en vivo · se actualiza al visitar',
   },
 
+  // Reseñas de Steam. La descripción de la puntuación y el nombre del juego
+  // vienen directamente de Steam y se quedan en inglés en todos los idiomas,
+  // como los textos de la maqueta de la app. Checkpoint64 aún no tiene su propia
+  // página de Steam — placeholderTpl lo deja claro.
+  steam: {
+    tape: 'LO QUE DICEN LOS JUGADORES',
+    hand: 'en vivo desde Steam',
+    h2Html: 'DIRECTO DE <span class="accent">STEAM.</span>',
+    lede: 'La página de Steam de Checkpoint64 está en camino. Cuando llegue, aquí aparecerán reseñas reales de jugadores — cargadas en vivo desde Steam. Por ahora, una vista previa con un juego que nos encanta.',
+    countTpl: '{0} reseñas',
+    viewOnSteam: 'Ver en Steam',
+    recommended: 'RECOMENDADO',
+    hoursTpl: '{0} jugadas',
+    helpfulTpl: '{0} lo encontraron útil',
+    anonymous: 'Jugador de Steam',
+    placeholderTpl: 'Solo una vista previa — mientras se finaliza la página de Steam de Checkpoint64, estas son reseñas reales de {0}, mostradas para ilustrar esta sección. Checkpoint64 no está afiliado a él.',
+  },
+
   savings: {
     tape: 'DEJA EL DEDICADO',
     hand: 'echa cuentas',
