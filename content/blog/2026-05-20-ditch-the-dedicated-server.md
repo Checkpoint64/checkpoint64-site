@@ -1,8 +1,9 @@
 ---
-title: Ditch the dedicated server — your co-op group is probably paying for empty hours
+title: Ditch the dedicated server; your co-op group is probably paying for empty hours
 date: 2026-05-20
 excerpt: A 24/7 rented box is great when ten people play every night. For the average co-op group, it's $120–$240 a year of idle uptime. Here's the math, and how Checkpoint64 covers ~90% of the use case for a one-time payment.
 tags: [savings, co-op, dedicated-servers]
+pinned: true
 ---
 
 If you've ever played Valheim, Factorio, Satisfactory, V Rising, Project Zomboid,

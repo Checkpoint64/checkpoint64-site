@@ -26,27 +26,24 @@ export const PLATFORMS = [
   {
     key: 'macos-arm',
     label: 'MACOS · APPLE SILICON',
-    // Match arch tokens explicitly so we never serve an Intel build to an
-    // Apple Silicon visitor (or vice versa). Deliberately no untagged-.dmg
-    // fallback — that would let one binary match both tiles.
+    // Match arch tokens explicitly so an Intel-named binary can never land on
+    // this tile. There is deliberately NO Intel tile: the x86_64-apple-darwin
+    // build is disabled in the app's release matrix, and advertising one
+    // (even as "coming soon") would over-promise.
     // Note: `\b` would NOT fire between `_` and `aarch64` because underscore
     // is a word character; use lookarounds for the typical delimiters.
     prefer: [/(?:^|[-_.])(aarch64|arm64|apple[-_]silicon)(?=[-_.]).*\.(dmg|pkg)$/i],
     placeholderHint: '.dmg · arm64',
   },
   {
-    key: 'macos-intel',
-    label: 'MACOS · INTEL',
-    prefer: [/(?:^|[-_.])(x86_64|x64|amd64|intel)(?=[-_.]).*\.(dmg|pkg)$/i],
-    placeholderHint: '.dmg · x64',
-  },
-  {
     key: 'linux',
     // .tar.gz is deliberately excluded — `Checkpoint64.app.tar.gz` is a
-    // macOS app bundle and would otherwise be mistaken for Linux.
+    // macOS app bundle and would otherwise be mistaken for Linux. AppImage is
+    // kept as a first preference in case it ever ships, but current releases
+    // are .deb/.rpm only, so the placeholder hint reflects that.
     label: 'LINUX',
     prefer: [/\.AppImage$/i, /\.deb$/i, /\.rpm$/i],
-    placeholderHint: '.appimage',
+    placeholderHint: '.deb / .rpm',
   },
 ]
 

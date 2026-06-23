@@ -1,12 +1,12 @@
 ---
 title: Terms of Service
-description: The terms you agree to when you use the Checkpoint64 website, sign up for the launch list, or use the Checkpoint64 desktop app and cloud service.
-updated: 2026-05-19
+description: The terms you agree to when you use the Checkpoint64 website, desktop app, and cloud service.
+updated: 2026-06-13
 ---
 
 # Terms of Service
 
-**Last updated:** 19 May 2026
+**Last updated:** 13 June 2026
 
 These Terms of Service ("**Terms**") are a contract between you and **[LEGAL ENTITY]** ("**Checkpoint64**", "**we**", "**us**", "**our**"). They govern your use of:
 
@@ -14,7 +14,7 @@ These Terms of Service ("**Terms**") are a contract between you and **[LEGAL ENT
 - the Checkpoint64 desktop application for Windows, macOS, and Linux (the "**App**"), and
 - the Checkpoint64 cloud backup service, account system, and APIs (together the "**Service**").
 
-By using the Site, joining the launch list, downloading the App, or creating an account, you agree to these Terms. If you do not agree, do not use the Service.
+By using the Site, downloading the App, or creating an account, you agree to these Terms. If you do not agree, do not use the Service.
 
 ## 1. Who can use the Service
 
@@ -24,9 +24,9 @@ You must not use the Service if you are prohibited from doing so under the laws 
 
 ## 2. The Service today
 
-Checkpoint64 is a save-file backup tool for PC games. It takes snapshots of folders you point it at, uploads only the changed bytes to cloud storage, and lets you roll back to earlier versions. It also lets small groups share a single live save through co-operative locks and a shared activity log.
+Checkpoint64 is a save-file backup tool for PC games. It takes snapshots of folders you point it at, uploads only the files that changed to cloud storage, and lets you roll back to earlier versions. It also lets small groups share a single live save through co-operative locks and a shared activity log.
 
-The Service is in pre-launch development. Today the Site is primarily a marketing page and waitlist signup. The App and cloud service are being tested privately and will be made generally available at a later date. Features, pricing, storage quotas, and tier names may change before launch, and we may add, remove, or alter functionality at any time.
+The Service is in pre-launch development. Today the Site is primarily a marketing page. The App and cloud service are being tested privately and will be made generally available at a later date. Features, pricing, storage quotas, and tier names may change before launch, and we may add, remove, or alter functionality at any time.
 
 ## 3. Accounts
 
@@ -109,7 +109,7 @@ The App may download and install updates automatically, including security and b
 
 ## 12. Service availability, "as-is", and warranty disclaimer
 
-We work hard to keep the Service running, but we do not guarantee uninterrupted, error-free, or perfectly secure operation, and we do not guarantee that any specific save will always be recoverable. **The Service is provided "as-is" and "as-available".**
+We work hard to keep the Service running, but we do not guarantee uninterrupted, error-free, or perfectly secure operation. **Specifically, we are not responsible for any data loss, service downtime, or if the Service goes offline permanently.** **The Service is provided "as-is" and "as-available".**
 
 To the maximum extent permitted by law, we disclaim all warranties, whether express, implied, statutory, or otherwise, including any warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, and any warranty arising from a course of dealing or trade usage.
 

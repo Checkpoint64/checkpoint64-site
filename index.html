@@ -27,9 +27,9 @@
     <!-- Primary SEO -->
     <title>Checkpoint64 — Never Lose a Save Again, Solo or Co-op</title>
     <meta name="description"
-          content="Checkpoint64 automatically backs up your PC game saves to the cloud, keeps full version history, and lets co-op friends share worlds safely with locks. Works with Factorio, Satisfactory, Valheim, Stardew Valley, Elden Ring and 40+ more. One-time purchase. Windows, macOS, Linux."/>
+          content="Automatic cloud backup and full version history for PC game saves. Roll back corrupted saves and share co-op worlds with locks. Works with Minecraft, Stardew Valley, Elden Ring and 60+ games. Free download for Windows, Mac, Linux."/>
     <meta name="keywords"
-          content="game save backup, cloud save sync, co-op save sharing, factorio save backup, satisfactory save backup, valheim save backup, stardew valley save sync, dedicated server alternative, save file versioning, PC game save cloud, automatic save backup, save manager, game save vault, v rising save sync, elden ring save backup, ark save backup, project zomboid save backup, save game manager, rollback save game"/>
+          content="game save backup, cloud save sync, save file versioning, rollback save game, minecraft world backup, modded minecraft save backup, stardew valley save sync, skyrim save backup, palworld save backup, valheim world backup, factorio save backup, satisfactory save backup, elden ring save backup, project zomboid save backup, enshrouded save backup, co-op save sharing, dedicated server alternative, emulator save sync, retroarch save backup, save state history, PC game save cloud, automatic save backup, game save manager"/>
     <meta name="author" content="Checkpoint64"/>
     <meta name="publisher" content="Checkpoint64"/>
     <meta name="application-name" content="Checkpoint64"/>
@@ -90,7 +90,6 @@
     <link rel="alternate icon" href="./retro_save_icon.svg"/>
     <link rel="mask-icon" href="./retro_save_icon.svg" color="#ff5f4e"/>
     <link rel="apple-touch-icon" href="./retro_save_icon.svg"/>
-    <link rel="manifest" href="./site.webmanifest"/>
     <meta name="apple-mobile-web-app-title" content="Checkpoint64"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
@@ -100,7 +99,7 @@
     <meta property="og:site_name" content="Checkpoint64"/>
     <meta content="Checkpoint64 — Never Lose a Save Again, Solo or Co-op" property="og:title"/>
     <meta property="og:description"
-          content="Never lose a save again. Automatic cloud backup, full version history, and co-op locks so friends can share worlds without overwriting each other. One-time purchase."/>
+          content="Never lose a save again. Automatic backups, full version history, and co-op locks so friends can share worlds without overwriting each other. 60+ games ready. Free download — pay once for more space."/>
     <meta property="og:url" content="https://checkpoint64.com/"/>
     <meta property="og:image" content="https://checkpoint64.com/og-image.svg"/>
     <meta property="og:image:type" content="image/svg+xml"/>
@@ -114,15 +113,13 @@
     <meta name="twitter:card" content="summary_large_image"/>
     <meta content="Checkpoint64 — Never Lose a Save Again, Solo or Co-op" name="twitter:title"/>
     <meta name="twitter:description"
-          content="Never lose a save again. Automatic cloud backup, full version history, and co-op locks. One-time purchase. Windows, Mac, Linux."/>
+          content="Never lose a save again. Automatic cloud backups, full version history, co-op locks. 60+ games ready. Free download for Windows, Mac, Linux."/>
     <meta name="twitter:image" content="https://checkpoint64.com/og-image.svg"/>
     <meta name="twitter:image:alt" content="Checkpoint64 — never lose a save again."/>
 
     <!-- Performance hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-    <link rel="dns-prefetch" href="https://app.checkpoint64.com"/>
-    <link rel="preconnect" href="https://app.checkpoint64.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500;700&display=swap"
           rel="stylesheet"/>
 
@@ -165,9 +162,9 @@
             "applicationSubCategory": "Backup Software",
             "operatingSystem": "Windows, macOS, Linux",
             "url": "https://checkpoint64.com/",
-            "description": "Automatic cloud backup, full version history, and co-op locks for PC game saves. Pay once, keep it forever. Works with Factorio, Satisfactory, Valheim, V Rising, Stardew Valley, Elden Ring, and 40+ more games out of the box.",
+            "description": "Automatic cloud backup, full version history, and co-op locks for PC game saves. Free plan included; pay once for more space. Works with Minecraft, Stardew Valley, Skyrim, Palworld, Elden Ring, Factorio, Valheim, plus 60+ more games and 7 emulators out of the box.",
             "image": "https://checkpoint64.com/og-image.svg",
-            "softwareVersion": "1.0",
+            "softwareVersion": "0.4",
             "downloadUrl": "https://checkpoint64.com/#download",
             "publisher": {
                 "@type": "Organization",
@@ -178,17 +175,18 @@
                 "@type": "Offer",
                 "price": "0",
                 "priceCurrency": "USD",
-                "availability": "https://schema.org/PreOrder",
+                "availability": "https://schema.org/InStock",
                 "url": "https://checkpoint64.com/#pricing"
             },
             "featureList": [
-                "Automatic background backups every 2 minutes",
-                "Full version history for every save",
-                "Co-op locks so only one person can upload at a time",
-                "Delta uploads — only the changed bytes are sent",
-                "Per-game backup rules with 40+ presets",
-                "Shared activity logbook for co-op groups",
-                "One-time purchase, no subscription"
+                "Automatic background backups every 30 seconds",
+                "Full version history with one-click restore",
+                "Server-enforced co-op locks — one world holder at a time",
+                "Deduplicated uploads — only the files that changed are sent",
+                "Presets for 60+ games and 7 emulators",
+                "Shared activity logbook for teams",
+                "Read-only share codes for community worlds",
+                "Pay-once Lifetime plan — no subscription required"
             ]
         }
     </script>
@@ -229,7 +227,7 @@
                     "@type": "HowToStep",
                     "position": 2,
                     "name": "Turn on auto-backup",
-                    "text": "Flip auto-backup on. Checkpoint64 watches the folder and uploads a fresh version every couple of minutes whenever it changes. Only the changed bytes are sent.",
+                    "text": "Flip auto-backup on. Checkpoint64 checks the folder every 30 seconds and uploads a fresh version whenever something changed. Only the files that changed are sent.",
                     "url": "https://checkpoint64.com/#how"
                 },
                 {
@@ -251,10 +249,10 @@
             "mainEntity": [
                 {
                     "@type": "Question",
-                    "name": "What is a 'save'?",
+                    "name": "What counts as a 'save'?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Whatever your game writes to your hard drive. Checkpoint64 treats the files in a folder as one save and backs them up together. You point it at the folder and pick which files count. We've already set this up for 40+ popular games."
+                        "text": "Whatever your game writes to your hard drive. Checkpoint64 treats the files in a folder as one save and backs them up together. Presets for 60+ games (and seven emulators) set this up for you; for anything else, point at the folder and pick the files yourself."
                     }
                 },
                 {
@@ -262,15 +260,15 @@
                     "name": "Do you upload while the game is running?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Yes, carefully. Checkpoint64 never locks your save files. If the game is in the middle of saving when we check, we wait a moment and try again — no broken files, no crashes. Most games finish saving in a split second anyway."
+                        "text": "Yes, carefully. Checkpoint64 never locks your save files. It checks the folder every 30 seconds; if the game is mid-save it waits for things to go quiet and tries again — no broken files, no stutter. The app naps between checks, so you won't notice it while playing."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "What happens if my co-op partner overwrites my upload?",
+                    "name": "What if my co-op partner overwrites my upload?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "They can't, on purpose. Only the person holding the lock can upload. If they want to push their version, they have to grab the lock first — and that warns you before it happens. Your last version stays safe in the history; you can always roll back to it."
+                        "text": "They can't, on purpose. Only the person holding the lock can upload. To push their version they have to take the lock first — which warns you, and goes in the logbook for all to see. Worst case, your version is one Restore away in the history."
                     }
                 },
                 {
@@ -278,31 +276,39 @@
                     "name": "Do I still need a dedicated server?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "For most groups, no. The whole point of a dedicated server is keeping your world online when the host's PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves $120–240 a year compared to renting a 24/7 server that sits idle 18 hours a day."
+                        "text": "For most groups, no. The whole point of a dedicated server is keeping your world online when the host's PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves €120–€240 a year compared to renting a 24/7 server that sits idle 18 hours a day."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "Does this work for console saves?",
+                    "name": "Does this work for emulators or console saves?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Only if you can get your console saves onto a PC — like emulators, Xbox or PS+ cloud save exports, and Steam Cloud through your PC. Checkpoint64 itself only runs on Windows, Mac, and Linux."
+                        "text": "Emulators, absolutely — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3, and Cemu all have presets, so your save states finally get real version history. Console saves only work if you can get them onto a PC first. The app itself runs on Windows, macOS (Apple Silicon), and Linux."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "What will it cost?",
+                    "name": "What does it cost?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Three tiers: Free (20 MiB, personal only), Lifetime (one-time payment, 5 GiB per space plus 2 teams), and Pro (monthly, 50 GiB per space plus 5 teams, for bigger crews). No charge per person on any tier. Final numbers aren't set — sign up to the launch list and we'll tell you before everyone else, plus lock you in at the early-bird price."
+                        "text": "The free plan is real and stays free: 20 MiB, your own space plus one team. Lifetime is a one-time payment — 2.5 GiB per space, up to 3 teams, bought direct or through Steam. Pro is for big crews: 50 GiB per space, 5 teams, 25 seats each, read-only share codes. No charge per person on any tier. Final numbers land with v1."
                     }
                 },
                 {
                     "@type": "Question",
-                    "name": "When does it ship?",
+                    "name": "Can I use it today?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "Soon — we're testing in private now and aiming for a public launch later this year. Get on the list and we'll send one email the day the Windows, Mac, and Linux versions are ready."
+                        "text": "Yes — the early build is free to download right now for Windows, macOS (Apple Silicon), and Linux. v1 and the Steam release are coming later this year."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Who can see my saves?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Your teammates — and only the ones you invite. They see your display name, never your email. And your data stays yours: export everything as a zip whenever you like, and deleting your account actually deletes it (after a 7-day cooling-off period)."
                     }
                 }
             ]
@@ -319,9 +325,8 @@
      degraded behaviour without JavaScript. -->
 <!-- i18n:noscript:start --><noscript>
     <p style="max-width:60ch;margin:1.5rem auto;padding:1rem;border:2px dashed #a82828;font-family:ui-monospace,monospace;text-align:center">
-        Heads-up — JavaScript is disabled, so the launch-list signup form and
-        the animated demo on this page won't work. The rest of the content is
-        fully visible above.
+        Heads-up — JavaScript is disabled, so the animated demo on this page
+        won't work. The rest of the content is fully visible above.
     </p>
 </noscript><!-- i18n:noscript:end -->
 
