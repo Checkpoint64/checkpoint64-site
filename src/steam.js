@@ -7,16 +7,8 @@
 //      store.steampowered.com, and means crawlers see the cards too.
 //   2. src/render.js  — to render the review cards from the baked data.
 //
-// PLACEHOLDER: Checkpoint64 doesn't have its own Steam store page yet, so this
-// pulls reviews for a stand-in title purely to demo the section. When the real
-// store page is live, change STEAM_APP_ID / STEAM_APP_NAME to Checkpoint64's
-// own app and the rest of the pipeline follows. The render layer makes the
-// placeholder nature explicit to visitors (see render.js steamReviews()).
-
-// Stardew Valley — a save-heavy co-op favourite already featured on the shelf,
-// "Overwhelmingly Positive" with a deep review pool. Swap when ours is live.
-export const STEAM_APP_ID = '413150'
-export const STEAM_APP_NAME = 'Stardew Valley'
+export const STEAM_APP_ID = '4790820'
+export const STEAM_APP_NAME = 'Checkpoint64'
 export const STEAM_STORE_URL = `https://store.steampowered.com/app/${STEAM_APP_ID}/`
 
 // First call (num_per_page=0) returns ONLY the aggregate query_summary
