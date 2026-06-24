@@ -1,5 +1,5 @@
 ---
-title: Checkpoint64 is on Steam; wishlist it and join the playtest
+title: Checkpoint64 is on Steam! Wishlist it and join the playtest
 date: 2026-06-24
 excerpt: There's now a Checkpoint64 page on Steam. You can wishlist it, follow for the launch, and get into the playtest — and yes, the irony of a save-backup tool living next to Steam Cloud is the whole point. Here's what the listing means and what it doesn't change.
 tags: [launch, steam, playtest]
