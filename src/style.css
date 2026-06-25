@@ -138,9 +138,12 @@ nav.top .brand::before {
   background: var(--accent);
   box-shadow: inset 0 -3px 0 var(--ink);
 }
-nav.top .links { display: flex; gap: 28px; }
+/* Nav links use the mono face (not the wide pixel face) so all of them fit on
+   one row beside the pixel wordmark without crowding or wrapping. */
+nav.top .links { display: flex; gap: 20px; }
 nav.top .links a {
-  font-family: var(--f-pixel); font-size: 10px; color: var(--fg);
+  font-family: var(--f-mono); font-size: 12.5px; font-weight: 700;
+  letter-spacing: 0.4px; white-space: nowrap; color: var(--fg);
   text-decoration: none; opacity: 0.78;
 }
 nav.top .links a:hover { opacity: 1; color: var(--accent); }
@@ -226,10 +229,16 @@ nav.top .cta:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var
 .lang-pop .lang-opt.cur { color: var(--accent); opacity: 1; }
 .lang-pop .lang-opt.cur::after { content: "●"; font-size: 7px; }
 
-@media (max-width: 880px) {
-  /* Collapse the nav links on mobile, but keep BLOG visible — it's the only
-     destination that isn't an anchor on this page, so users would otherwise
-     have no way to reach it without scrolling to the footer. */
+@media (max-width: 1199px) {
+  /* Small-laptop / tablet band: tighten the row so all links stay on one line
+     with breathing room before the mobile collapse takes over. */
+  nav.top .links { gap: 13px; }
+  nav.top .links a { font-size: 11.5px; }
+}
+@media (max-width: 1023px) {
+  /* Below the width where all eight links fit with breathing room, collapse the
+     row but keep BLOG visible: it's the only destination that isn't an anchor on
+     this page, so users would otherwise have to scroll to the footer to reach it. */
   nav.top .links { gap: 0; }
   nav.top .links a { display: none; }
   nav.top .links a.blog {
