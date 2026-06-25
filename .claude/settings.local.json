@@ -15,7 +15,8 @@
       "Bash(cmd /c dir /b C:\\\\Users\\\\ducti\\\\IdeaProjects\\\\savebetter-site\\\\public)",
       "Bash(cmd /c dir /b C:\\\\Users\\\\ducti\\\\IdeaProjects\\\\savebetter-site\\\\*.svg)",
       "Bash(cmd *)",
-      "Bash(rtk gh *)"
+      "Bash(rtk gh *)",
+      "Bash(gh pr *)"
     ]
   }
 }

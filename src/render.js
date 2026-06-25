@@ -667,8 +667,7 @@ function downloadTile(platform, releases, t) {
 // wording is brand chrome and stays in English across all locales.
 function steamStrip() {
   return `
-    <section class="steam-strip" aria-label="Available on Steam">
-      <div class="wrap">
+   
         <a class="steam-badge" href="https://store.steampowered.com/app/4790820" target="_blank" rel="noopener noreferrer">
           <span class="steam-badge-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -680,8 +679,7 @@ function steamStrip() {
             <span class="steam-badge-brand">Steam</span>
           </span>
         </a>
-      </div>
-    </section>
+    
   `
 }
 
@@ -697,6 +695,7 @@ function downloadStrip(t, { releases } = {}) {
   return `
     <section class="cta-strip" id="download" aria-labelledby="download-heading">
       <div class="wrap">
+   
         <div class="inner">
           <div>
             <h2 id="download-heading">${headline}</h2>
@@ -704,6 +703,7 @@ function downloadStrip(t, { releases } = {}) {
             <p class="signoff">${signoff}</p>
           </div>
           <div class="downloads">
+           ${steamStrip()}
             ${tiles}
           </div>
         </div>
@@ -799,7 +799,6 @@ export function renderApp({ year = new Date().getFullYear(), releases = null, st
     steamReviews(t, { steam }),
     dediStrip(t, intl),
     pricing(t, intl),
-    steamStrip(),
     downloadStrip(t, { releases }),
     faq(t, intl),
     '</main>',
