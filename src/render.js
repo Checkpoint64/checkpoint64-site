@@ -627,7 +627,7 @@ function priceCard({ tag, price, unit, tagline, features: fs, cta, highlight, ba
 
 function pricing(t, intl) {
   const pr = t.pricing
-  const prices = [money(0, { intl }), esc(pr.tbc), esc(pr.tbc)]
+  const prices = [money(0, { intl }), 9.99, 5]
   return `
     <section id="pricing" aria-labelledby="pricing-heading">
       <div class="wrap">
