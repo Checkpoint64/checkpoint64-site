@@ -75,7 +75,7 @@ export function renderStructuredData({ code, t, intl }) {
       operatingSystem: 'Windows, macOS, Linux',
       url: `${ORIGIN}/`,
       description: j.softwareDescription,
-      image: `${ORIGIN}/og-image.svg`,
+      image: `${ORIGIN}/og-image.png`,
       softwareVersion: '1.0',
       downloadUrl: `${ORIGIN}/#download`,
       publisher: { '@type': 'Organization', name: 'Checkpoint64', url: `${ORIGIN}/` },
