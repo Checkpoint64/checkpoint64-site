@@ -10,6 +10,7 @@ export default {
       how: 'COMMENT ÇA MARCHE',
       shelf: "L'ÉTAGÈRE",
       features: 'FONCTIONS',
+      creators: 'CRÉATEURS',
       savings: 'ÉCONOMIES',
       pricing: 'TARIFS',
       faq: 'FAQ',
@@ -96,6 +97,24 @@ export default {
     liveCaption: 'en direct · actualisé à la visite',
   },
 
+  creators: {
+    tape: 'POUR STREAMERS & CRÉATEURS',
+    hand: 'un code, tous les fans',
+    h2Html: 'PARTAGEZ VOTRE RUN<br/>AVEC <span class="accent">TOUT LE CHAT.</span>',
+    lede: 'Vous avez un public ? Donnez-lui votre sauvegarde exacte. Générez un code en lecture seule pour n’importe quel monde : votre fichier à 100 %, une seed de défi, le run maudit d’hier soir. Glissez-le dans la description de votre vidéo, et vos fans récupèrent une copie parfaite dans leur propre bibliothèque. Ils la téléchargent et y jouent ; jamais ils ne pourront écrire sur la vôtre.',
+    steps: [
+      { label: '01 · GÉNÉRER', h3Html: 'CRÉER UN CODE', body: 'Ouvrez la sauvegarde, appuyez sur Accès hébergé et générez un code. Plafonnez le nombre d’utilisations ou laissez-le illimité, à vous de voir. Quelques secondes suffisent. (Formule Pro.)' },
+      { label: '02 · PARTAGER LE LIEN', h3Html: 'POSTEZ-LE PARTOUT', body: 'Mettez le code dans la description de votre vidéo, votre Discord ou un panneau de stream. Des fans sans l’app ? Partagez le lien, et il ouvre une page de téléchargement qui les guide.' },
+      { label: '03 · ILS Y JOUENT', h3Html: 'LES FANS L’OBTIENNENT', body: 'Les fans collent le code et votre monde arrive dans leur propre bibliothèque, en lecture seule. Ils téléchargent votre run et y jouent, sans aucun moyen de l’écraser.' },
+    ],
+    points: [
+      'Toujours en lecture seule : vos fans jouent votre sauvegarde sans jamais pouvoir la modifier',
+      'Partagez avec autant de fans que vous voulez, ou plafonnez le code et révoquez-le quand bon vous semble',
+      'Les fans en lecture seule n’occupent aucune place de votre équipe',
+    ],
+    proNoteHtml: 'Les codes de partage hébergés font partie de <a href="#pricing">Pro</a>, pensés pour les créateurs, les groupes et les communautés de mods.',
+  },
+
   // Avis Steam. La description du score et le nom du jeu viennent directement de
   // Steam et restent en anglais dans toutes les langues, comme les textes de la
   // maquette de l'app. Checkpoint64 n'a pas encore sa propre page Steam —
@@ -168,7 +187,7 @@ export default {
         tagline: 'payez une fois — vos sauvegardes survivront à votre GPU',
         features: [
           "espace personnel + jusqu'à 3 équipes",
-          '2.5 Gio de stockage par espace',
+          '2,5 Gio de stockage par espace',
           'achat direct ou sur Steam',
           "jamais d'abonnement",
           'tout le plan Gratuit, avec de la marge',
@@ -213,7 +232,7 @@ export default {
       { q: 'ET SI MON PARTENAIRE CO-OP ÉCRASE MON ENVOI ?', a: "Il ne peut pas, c'est voulu. Seule la personne qui tient le verrou peut envoyer. Pour pousser sa version, il doit d'abord reprendre le verrou — ce qui vous prévient, et s'inscrit dans le journal au vu de tous. Au pire, votre version reste à un clic de Restaurer dans l'historique." },
       { q: "AI-JE ENCORE BESOIN D'UN SERVEUR DÉDIÉ ?", a: "Pour la plupart des groupes, non. Tout l'intérêt d'un serveur dédié est de garder votre monde en ligne quand le PC de l'hôte est éteint. Checkpoint64 couvre environ 90 % de ça pour un paiement unique : celui qui veut jouer prend le verrou, joue sa session, puis repousse la sauvegarde. Un groupe co-op typique économise {0} par rapport à un serveur 24/7 qui reste inactif 18 heures par jour." },
       { q: 'ÇA MARCHE AVEC LES ÉMULATEURS OU LES SAUVEGARDES CONSOLE ?', a: "Les émulateurs, carrément — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 et Cemu ont tous leur préréglage : vos save states ont enfin un vrai historique de versions. Les sauvegardes console ne marchent que si vous les amenez d'abord sur un PC. L'appli elle-même tourne sur Windows, macOS (Apple Silicon) et Linux." },
-      { q: 'COMBIEN ÇA COÛTE ?', a: "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 5 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 50 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule. Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs arrivent avec la v1." },
+      { q: 'COMBIEN ÇA COÛTE ?', a: "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 2,5 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 50 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule. Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs arrivent avec la v1." },
       { q: "JE PEUX L'UTILISER DÈS AUJOURD'HUI ?", a: "Oui — le premier build est téléchargeable gratuitement dès maintenant pour Windows, macOS (Apple Silicon) et Linux. La v1 et la sortie Steam arrivent plus tard cette année." },
       { q: 'QUI PEUT VOIR MES SAUVEGARDES ?', a: "Vos coéquipiers — et seulement ceux que vous invitez. Ils voient votre pseudo, jamais votre e-mail. Et vos données restent les vôtres : exportez tout en zip quand vous voulez, et supprimer votre compte le supprime vraiment (après 7 jours de réflexion, au cas où le regret de 2 h du matin frappe)." },
     ],
@@ -289,7 +308,7 @@ export default {
       { q: 'Et si mon partenaire co-op écrase mon envoi ?', a: "Il ne peut pas, c'est voulu. Seule la personne qui tient le verrou peut envoyer. Pour pousser sa version, il doit d'abord reprendre le verrou — ce qui vous prévient, et s'inscrit dans le journal au vu de tous. Au pire, votre version reste à un clic de Restaurer dans l'historique." },
       { q: "Ai-je encore besoin d'un serveur dédié ?", a: "Pour la plupart des groupes, non. Tout l'intérêt d'un serveur dédié est de garder votre monde en ligne quand le PC de l'hôte est éteint. Checkpoint64 couvre environ 90 % de ça pour un paiement unique : celui qui veut jouer prend le verrou, joue sa session, puis repousse la sauvegarde. Un groupe co-op typique économise {0} par rapport à un serveur 24/7 qui reste inactif 18 heures par jour." },
       { q: 'Ça marche avec les émulateurs ou les sauvegardes console ?', a: "Les émulateurs, carrément — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 et Cemu ont tous leur préréglage : vos save states ont enfin un vrai historique de versions. Les sauvegardes console ne marchent que si vous les amenez d'abord sur un PC. L'appli elle-même tourne sur Windows, macOS (Apple Silicon) et Linux." },
-      { q: 'Combien ça coûte ?', a: "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 5 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 50 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule. Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs arrivent avec la v1." },
+      { q: 'Combien ça coûte ?', a: "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 2,5 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 50 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule. Aucun frais par personne, quelle que soit la formule. Les chiffres définitifs arrivent avec la v1." },
       { q: "Je peux l'utiliser dès aujourd'hui ?", a: "Oui — le premier build est téléchargeable gratuitement dès maintenant pour Windows, macOS (Apple Silicon) et Linux. La v1 et la sortie Steam arrivent plus tard cette année." },
       { q: 'Qui peut voir mes sauvegardes ?', a: "Vos coéquipiers — et seulement ceux que vous invitez. Ils voient votre pseudo, jamais votre e-mail. Et vos données restent les vôtres : exportez tout en zip quand vous voulez, et supprimer votre compte le supprime vraiment (après 7 jours de réflexion)." },
     ],

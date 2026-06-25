@@ -11,6 +11,7 @@ export default {
       how: 'HOW IT WORKS',
       shelf: 'THE SHELF',
       features: 'FEATURES',
+      creators: 'CREATORS',
       savings: 'SAVINGS',
       pricing: 'PRICING',
       faq: 'FAQ',
@@ -95,6 +96,28 @@ export default {
     lede: 'Everything anyone in your group does gets written down. Handy for co-op friends, modded servers, speedrun teams, and the classic “wait, who deleted that?”',
     eventsLabel: 'events',
     liveCaption: 'live · refresh on visit',
+  },
+
+  // For streamers / content creators (MARKETING.md §4.4). Expands the SHARE
+  // CODES feature tile into an audience pitch: read-only "hosted access" join
+  // codes (Pro-gated, shipped #60) let a creator hand their exact save to any
+  // number of fans, who get download-only access and can never overwrite it.
+  creators: {
+    tape: 'FOR STREAMERS & CREATORS',
+    hand: 'one code, every fan',
+    h2Html: 'SHARE YOUR RUN<br/>WITH <span class="accent">THE WHOLE CHAT.</span>',
+    lede: 'Got an audience? Hand them your exact save. Mint a read-only share code for any world: your 100% file, a challenge seed, last night’s cursed run. Drop it in your video description, and fans pull a perfect copy into their own library. They download it and play; they can never save over yours.',
+    steps: [
+      { label: '01 · MINT', h3Html: 'MAKE A CODE', body: 'Open the save, hit Hosted access, and mint a share code. Cap it at a number of uses, or leave it unlimited. Your call, and it takes a couple of seconds. (Pro plan.)' },
+      { label: '02 · DROP THE LINK', h3Html: 'POST IT ANYWHERE', body: 'Put the code in your video description, your Discord, or a stream panel. Fans without the app yet? Share the link instead, and it opens a download page that walks them in.' },
+      { label: '03 · THEY PLAY IT', h3Html: 'FANS GRAB YOUR SAVE', body: 'Fans paste the code and your world drops into their own library, read-only. They download and play your exact run, with no way to overwrite it.' },
+    ],
+    points: [
+      'Always read-only, so fans can play your save but never change it',
+      'Share with as many fans as you like, or cap the code and revoke it whenever',
+      'Read-only fans don’t use up your team’s seats',
+    ],
+    proNoteHtml: 'Hosted share codes are part of <a href="#pricing">Pro</a>, built for creators, crews, and modding groups.',
   },
 
   // Steam reviews social-proof strip. The score description (e.g.

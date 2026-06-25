@@ -124,6 +124,7 @@ function topNav(t, locale) {
           <a href="#how">${esc(n.links.how)}</a>
           <a href="#shelf">${esc(n.links.shelf)}</a>
           <a href="#features">${esc(n.links.features)}</a>
+          <a href="#creators">${esc(n.links.creators)}</a>
           <a href="#savings">${esc(n.links.savings)}</a>
           <a href="#pricing">${esc(n.links.pricing)}</a>
           <a href="#faq">${esc(n.links.faq)}</a>
@@ -395,6 +396,72 @@ function logbookPreview(t) {
           `).join('')}
           <div class="live">${esc(lb.liveCaption)}</div>
         </div>
+      </div>
+    </section>
+  `
+}
+
+// Streamer / content-creator pitch (MARKETING.md §4.4). Expands the SHARE
+// CODES feature tile into an audience play: read-only "hosted access" join
+// codes (Pro, shipped #60) let a creator hand their exact save to any number
+// of fans, who get download-only access and can never overwrite it. The
+// console mockup chrome (HOSTED ACCESS, the code, the chips, the fan carts)
+// stays English across locales like every other app-mockup visual.
+function creators(t) {
+  const c = t.creators
+  const fanCart = cartridge({
+    color: '#3df0ff', name: 'STREAM WORLD', meta: 'now · 6.0 MB', files: null,
+    status: 'READ-ONLY', statusKind: 'dim', showVersions: false, size: 'sm',
+  })
+  return `
+    <section id="creators" aria-labelledby="creators-heading">
+      <div class="wrap">
+        <div class="head">
+          <span class="tape">▮ ${esc(c.tape)}</span>
+          <span class="hand" style="color:var(--accent);font-size:22px">${esc(c.hand)}</span>
+        </div>
+        <h2 id="creators-heading">${c.h2Html}</h2>
+        <p class="lede">${esc(c.lede)}</p>
+
+        <div class="steps">
+          ${c.steps.map(s => `
+            <div class="step">
+              <div class="n">${esc(s.label)}</div>
+              <h3>${s.h3Html}</h3>
+              <p>${esc(s.body)}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="hosted">
+          <div class="bar">
+            <span><span class="accent">▮</span> HOSTED ACCESS</span>
+            <span class="ro">READ-ONLY · PRO</span>
+          </div>
+          <div class="body">
+            <div class="code-label">SHARE CODE</div>
+            <div class="code-row">
+              <span class="code">RUN-W1TH-ME</span>
+              <span class="copy">COPY LINK</span>
+            </div>
+            <div class="hchips">
+              <span class="hchip">∞ USES</span>
+              <span class="hchip">218 JOINED</span>
+              <span class="hchip">NO SEATS USED</span>
+              <span class="hchip warn">REVOKE</span>
+            </div>
+            <div class="fans-label">fans who grabbed it</div>
+            <div class="fans" aria-hidden="true">
+              ${fanCart}${fanCart}${fanCart}
+              <span class="more">+215</span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="creator-points">
+          ${c.points.map(p => `<li><span aria-hidden="true">▸ </span>${esc(p)}</li>`).join('')}
+        </ul>
+        <p class="creator-pro">${c.proNoteHtml}</p>
       </div>
     </section>
   `
@@ -728,6 +795,7 @@ export function renderApp({ year = new Date().getFullYear(), releases = null, st
     shelfMock(t),
     features(t),
     logbookPreview(t),
+    creators(t),
     steamReviews(t, { steam }),
     dediStrip(t, intl),
     pricing(t, intl),
