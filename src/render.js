@@ -105,7 +105,7 @@ function langSwitch(t, locale) {
     return `<a class="lang-opt${cur ? ' cur' : ''}" href="${href}" hreflang="${l.code}" data-lang="${l.code}"${cur ? ' aria-current="true"' : ''}>${esc(l.name)}</a>`
   }).join('')
   return `
-          <details class="lang-menu">
+          <details class="lang-menu menu">
             <summary aria-label="${esc(t.nav.switcherAria)}" title="${esc(t.nav.switcherAria)}">
               <span class="lang-cur">${esc(current.label)}</span>
               <span class="lang-caret" aria-hidden="true">▾</span>
@@ -116,19 +116,27 @@ function langSwitch(t, locale) {
 
 function topNav(t, locale) {
   const n = t.nav
+  // Single source for the in-page section anchors: rendered once into the
+  // desktop/tablet row and again into the mobile drawer (the standard
+  // responsive pattern — one list in code, two placements in the DOM).
+  const sections = [
+    ['#how', n.links.how],
+    ['#shelf', n.links.shelf],
+    ['#features', n.links.features],
+    ['#creators', n.links.creators],
+    ['#savings', n.links.savings],
+    ['#pricing', n.links.pricing],
+    ['#faq', n.links.faq],
+  ]
+  const sectionLinks = sections.map(([h, l]) => `<a href="${h}">${esc(l)}</a>`).join('\n          ')
+  const blogLink = `<a href="./blog/" class="blog">${esc(n.links.blog)}</a>`
   return `
     <nav class="top" aria-label="Primary">
       <div class="inner">
         <a href="/" class="brand" aria-label="${esc(n.brandAria)}">CHECKPOINT64</a>
         <div class="links">
-          <a href="#how">${esc(n.links.how)}</a>
-          <a href="#shelf">${esc(n.links.shelf)}</a>
-          <a href="#features">${esc(n.links.features)}</a>
-          <a href="#creators">${esc(n.links.creators)}</a>
-          <a href="#savings">${esc(n.links.savings)}</a>
-          <a href="#pricing">${esc(n.links.pricing)}</a>
-          <a href="#faq">${esc(n.links.faq)}</a>
-          <a href="./blog/" class="blog">${esc(n.links.blog)}</a>
+          ${sectionLinks}
+          ${blogLink}
         </div>
         <div class="nav-actions">
           ${langSwitch(t, locale)}
@@ -136,6 +144,16 @@ function topNav(t, locale) {
             <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
           </button>
           <a class="cta" href="#download" aria-label="${esc(n.ctaAria)}">${esc(n.cta)} ↗</a>
+          <details class="nav-menu menu">
+            <summary class="nav-toggle" aria-label="${esc(n.menuAria)}" title="${esc(n.menuAria)}">
+              <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+            </summary>
+            <div class="nav-pop">
+              <a class="nav-dl" href="#download" aria-label="${esc(n.ctaAria)}">${esc(n.cta)} ↗</a>
+              ${sectionLinks}
+              ${blogLink}
+            </div>
+          </details>
         </div>
       </div>
     </nav>

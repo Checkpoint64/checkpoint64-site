@@ -11,22 +11,38 @@ import { getLocale, fmt } from './i18n/config.js'
 // produced at runtime — currently just the live download-tile aria labels.
 const t = getLocale(document.documentElement.lang || 'en').t
 
-// Language dropdown: remember the visitor's explicit choice (so the auto-detect
-// redirect in index.html leaves them alone next time) and close the menu on
-// outside-click / Escape — the rest is native <details> behaviour.
+// Nav disclosure menus (language picker + mobile hamburger drawer): close on
+// outside-click / Escape, close the others when one opens so two panels never
+// overlap, and close on link tap (in-page anchor jumps don't fire the
+// outside-click handler). The rest is native <details> behaviour.
 ;(() => {
-  const menu = document.querySelector('.lang-menu')
-  if (!menu) return
-  menu.querySelectorAll('[data-lang]').forEach((a) => {
+  const menus = Array.from(document.querySelectorAll('details.menu'))
+  if (!menus.length) return
+
+  // Remember the visitor's explicit language choice so the auto-detect redirect
+  // in index.html leaves them alone next time.
+  document.querySelectorAll('.lang-menu [data-lang]').forEach((a) => {
     a.addEventListener('click', () => {
       try { localStorage.setItem('cp64-lang', a.dataset.lang) } catch (e) { /* storage blocked — link still navigates */ }
     })
   })
-  document.addEventListener('click', (e) => {
-    if (menu.open && !menu.contains(e.target)) menu.open = false
+
+  menus.forEach((menu) => {
+    menu.addEventListener('toggle', () => {
+      if (menu.open) menus.forEach((m) => { if (m !== menu) m.open = false })
+    })
+    menu.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { menu.open = false; menu.querySelector('summary')?.focus() }
+    })
+    menu.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => { menu.open = false })
+    })
   })
-  menu.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') { menu.open = false; menu.querySelector('summary')?.focus() }
+
+  document.addEventListener('click', (e) => {
+    menus.forEach((menu) => {
+      if (menu.open && !menu.contains(e.target)) menu.open = false
+    })
   })
 })()
 

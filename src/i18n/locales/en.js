@@ -20,6 +20,7 @@ export default {
     cta: 'DOWNLOAD',
     ctaAria: 'Download Checkpoint64',
     switcherAria: 'Choose language',
+    menuAria: 'Menu',
   },
 
   hero: {
