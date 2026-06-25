@@ -14,8 +14,8 @@
   <text x="170" y="84" font-family="'Press Start 2P', monospace, system-ui" font-size="14" fill="#1a1814" text-anchor="middle" transform="rotate(-2 170 77)">CHECKPOINT64</text>
 
   <!-- Headline -->
-  <text x="60" y="220" font-family="'Press Start 2P', monospace, system-ui" font-weight="800" font-size="64" fill="#1a1814">NEVER LOSE</text>
-  <text x="60" y="300" font-family="'Press Start 2P', monospace, system-ui" font-weight="800" font-size="64" fill="#1a1814">A SAVE <tspan fill="#ff5f4e">AGAIN.</tspan></text>
+  <text x="60" y="220" font-family="'Press Start 2P', monospace, system-ui" font-weight="800" font-size="56" fill="#1a1814">NEVER LOSE</text>
+  <text x="60" y="300" font-family="'Press Start 2P', monospace, system-ui" font-weight="800" font-size="56" fill="#1a1814">A SAVE <tspan fill="#ff5f4e">AGAIN.</tspan></text>
 
   <!-- Subhead -->
   <text x="60" y="360" font-family="'Patrick Hand', cursive, system-ui" font-size="28" fill="#3a342a">Automatic cloud backup · version history · co-op locks</text>
