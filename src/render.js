@@ -105,7 +105,7 @@ function langSwitch(t, locale) {
     return `<a class="lang-opt${cur ? ' cur' : ''}" href="${href}" hreflang="${l.code}" data-lang="${l.code}"${cur ? ' aria-current="true"' : ''}>${esc(l.name)}</a>`
   }).join('')
   return `
-          <details class="lang-menu">
+          <details class="lang-menu menu">
             <summary aria-label="${esc(t.nav.switcherAria)}" title="${esc(t.nav.switcherAria)}">
               <span class="lang-cur">${esc(current.label)}</span>
               <span class="lang-caret" aria-hidden="true">▾</span>
@@ -116,18 +116,27 @@ function langSwitch(t, locale) {
 
 function topNav(t, locale) {
   const n = t.nav
+  // Single source for the in-page section anchors: rendered once into the
+  // desktop/tablet row and again into the mobile drawer (the standard
+  // responsive pattern — one list in code, two placements in the DOM).
+  const sections = [
+    ['#how', n.links.how],
+    ['#shelf', n.links.shelf],
+    ['#features', n.links.features],
+    ['#creators', n.links.creators],
+    ['#savings', n.links.savings],
+    ['#pricing', n.links.pricing],
+    ['#faq', n.links.faq],
+  ]
+  const sectionLinks = sections.map(([h, l]) => `<a href="${h}">${esc(l)}</a>`).join('\n          ')
+  const blogLink = `<a href="./blog/" class="blog">${esc(n.links.blog)}</a>`
   return `
     <nav class="top" aria-label="Primary">
       <div class="inner">
         <a href="/" class="brand" aria-label="${esc(n.brandAria)}">CHECKPOINT64</a>
         <div class="links">
-          <a href="#how">${esc(n.links.how)}</a>
-          <a href="#shelf">${esc(n.links.shelf)}</a>
-          <a href="#features">${esc(n.links.features)}</a>
-          <a href="#savings">${esc(n.links.savings)}</a>
-          <a href="#pricing">${esc(n.links.pricing)}</a>
-          <a href="#faq">${esc(n.links.faq)}</a>
-          <a href="./blog/" class="blog">${esc(n.links.blog)}</a>
+          ${sectionLinks}
+          ${blogLink}
         </div>
         <div class="nav-actions">
           ${langSwitch(t, locale)}
@@ -135,6 +144,16 @@ function topNav(t, locale) {
             <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
           </button>
           <a class="cta" href="#download" aria-label="${esc(n.ctaAria)}">${esc(n.cta)} ↗</a>
+          <details class="nav-menu menu">
+            <summary class="nav-toggle" aria-label="${esc(n.menuAria)}" title="${esc(n.menuAria)}">
+              <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+            </summary>
+            <div class="nav-pop">
+              <a class="nav-dl" href="#download" aria-label="${esc(n.ctaAria)}">${esc(n.cta)} ↗</a>
+              ${sectionLinks}
+              ${blogLink}
+            </div>
+          </details>
         </div>
       </div>
     </nav>
@@ -400,6 +419,72 @@ function logbookPreview(t) {
   `
 }
 
+// Streamer / content-creator pitch (MARKETING.md §4.4). Expands the SHARE
+// CODES feature tile into an audience play: read-only "hosted access" join
+// codes (Pro, shipped #60) let a creator hand their exact save to any number
+// of fans, who get download-only access and can never overwrite it. The
+// console mockup chrome (HOSTED ACCESS, the code, the chips, the fan carts)
+// stays English across locales like every other app-mockup visual.
+function creators(t) {
+  const c = t.creators
+  const fanCart = cartridge({
+    color: '#3df0ff', name: 'STREAM WORLD', meta: 'now · 6.0 MB', files: null,
+    status: 'READ-ONLY', statusKind: 'dim', showVersions: false, size: 'sm',
+  })
+  return `
+    <section id="creators" aria-labelledby="creators-heading">
+      <div class="wrap">
+        <div class="head">
+          <span class="tape">▮ ${esc(c.tape)}</span>
+          <span class="hand" style="color:var(--accent);font-size:22px">${esc(c.hand)}</span>
+        </div>
+        <h2 id="creators-heading">${c.h2Html}</h2>
+        <p class="lede">${esc(c.lede)}</p>
+
+        <div class="steps">
+          ${c.steps.map(s => `
+            <div class="step">
+              <div class="n">${esc(s.label)}</div>
+              <h3>${s.h3Html}</h3>
+              <p>${esc(s.body)}</p>
+            </div>
+          `).join('')}
+        </div>
+
+        <div class="hosted">
+          <div class="bar">
+            <span><span class="accent">▮</span> HOSTED ACCESS</span>
+            <span class="ro">READ-ONLY · PRO</span>
+          </div>
+          <div class="body">
+            <div class="code-label">SHARE CODE</div>
+            <div class="code-row">
+              <span class="code">RUN-W1TH-ME</span>
+              <span class="copy">COPY LINK</span>
+            </div>
+            <div class="hchips">
+              <span class="hchip">∞ USES</span>
+              <span class="hchip">218 JOINED</span>
+              <span class="hchip">NO SEATS USED</span>
+              <span class="hchip warn">REVOKE</span>
+            </div>
+            <div class="fans-label">fans who grabbed it</div>
+            <div class="fans" aria-hidden="true">
+              ${fanCart}${fanCart}${fanCart}
+              <span class="more">+215</span>
+            </div>
+          </div>
+        </div>
+
+        <ul class="creator-points">
+          ${c.points.map(p => `<li><span aria-hidden="true">▸ </span>${esc(p)}</li>`).join('')}
+        </ul>
+        <p class="creator-pro">${c.proNoteHtml}</p>
+      </div>
+    </section>
+  `
+}
+
 function reviewCard(r, s) {
   const pt = formatPlaytime(r.playtimeMinutes)
   const initial = (r.author || '?').trim().charAt(0).toUpperCase() || '?'
@@ -600,8 +685,7 @@ function downloadTile(platform, releases, t) {
 // wording is brand chrome and stays in English across all locales.
 function steamStrip() {
   return `
-    <section class="steam-strip" aria-label="Available on Steam">
-      <div class="wrap">
+   
         <a class="steam-badge" href="https://store.steampowered.com/app/4790820" target="_blank" rel="noopener noreferrer">
           <span class="steam-badge-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -613,8 +697,7 @@ function steamStrip() {
             <span class="steam-badge-brand">Steam</span>
           </span>
         </a>
-      </div>
-    </section>
+    
   `
 }
 
@@ -630,6 +713,7 @@ function downloadStrip(t, { releases } = {}) {
   return `
     <section class="cta-strip" id="download" aria-labelledby="download-heading">
       <div class="wrap">
+   
         <div class="inner">
           <div>
             <h2 id="download-heading">${headline}</h2>
@@ -637,6 +721,7 @@ function downloadStrip(t, { releases } = {}) {
             <p class="signoff">${signoff}</p>
           </div>
           <div class="downloads">
+           ${steamStrip()}
             ${tiles}
           </div>
         </div>
@@ -728,10 +813,10 @@ export function renderApp({ year = new Date().getFullYear(), releases = null, st
     shelfMock(t),
     features(t),
     logbookPreview(t),
+    creators(t),
     steamReviews(t, { steam }),
     dediStrip(t, intl),
     pricing(t, intl),
-    steamStrip(),
     downloadStrip(t, { releases }),
     faq(t, intl),
     '</main>',
