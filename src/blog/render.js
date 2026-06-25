@@ -5,6 +5,48 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[c]))
 
+const ORIGIN = 'https://checkpoint64.com'
+// Social cards need an absolute, raster image — SVG OG images are dropped by
+// Facebook/X/LinkedIn/Slack/Discord. Mirrors the homepage og:image.
+const OG_IMAGE = `${ORIGIN}/og-image.png`
+const OG_IMAGE_ALT = 'Checkpoint64 — never lose a save again.'
+const PUBLISHER = {
+  '@type': 'Organization',
+  name: 'Checkpoint64',
+  url: `${ORIGIN}/`,
+  logo: { '@type': 'ImageObject', url: `${ORIGIN}/retro_save_icon.svg` },
+}
+
+// Emit a JSON-LD <script>. Keys whose value is `undefined` are dropped by
+// JSON.stringify, so callers can pass optional fields without guarding each one.
+function jsonLd(obj) {
+  return `  <script type="application/ld+json">\n${JSON.stringify(obj, null, 2).replace(/^/gm, '  ')}\n  </script>`
+}
+
+// Open Graph + Twitter card tags shared by posts (type 'article') and the
+// index (type 'website'). All blog pages are English-only, so no locale swap.
+function socialMeta({ type, title, description, url }) {
+  return [
+    `<link rel="canonical" href="${url}" />`,
+    `<meta property="og:type" content="${type}" />`,
+    `<meta property="og:site_name" content="Checkpoint64" />`,
+    `<meta property="og:locale" content="en_US" />`,
+    `<meta property="og:title" content="${esc(title)}" />`,
+    description ? `<meta property="og:description" content="${esc(description)}" />` : '',
+    `<meta property="og:url" content="${url}" />`,
+    `<meta property="og:image" content="${OG_IMAGE}" />`,
+    `<meta property="og:image:type" content="image/png" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:alt" content="${OG_IMAGE_ALT}" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta name="twitter:title" content="${esc(title)}" />`,
+    description ? `<meta name="twitter:description" content="${esc(description)}" />` : '',
+    `<meta name="twitter:image" content="${OG_IMAGE}" />`,
+    `<meta name="twitter:image:alt" content="${OG_IMAGE_ALT}" />`,
+  ].filter(Boolean).map((t) => `  ${t}`).join('\n')
+}
+
 marked.use({
   async: true,
   gfm: true,
@@ -30,7 +72,7 @@ export async function markdownToHtml(md) {
 // `depth` = how many `../` segments are needed to climb back to site root.
 // /blog/index.html        → depth 1
 // /blog/<slug>/index.html → depth 2
-function layout({ title, description, body, depth }) {
+function layout({ title, description, body, depth, head = '' }) {
   const prefix = depth === 0 ? './' : '../'.repeat(depth)
   const desc = description
     ? `<meta name="description" content="${esc(description)}" />`
@@ -58,7 +100,7 @@ function layout({ title, description, body, depth }) {
       } catch (e) { /* localStorage blocked */ }
     })();
   </script>
-</head>
+${head ? `${head}\n` : ''}</head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <nav class="blog-nav">
@@ -111,6 +153,7 @@ export async function renderPost(post, { depth = 2 } = {}) {
   const html = await markdownToHtml(post.content)
   const meta = [
     post.date ? `<time datetime="${post.date}">${post.date}</time>` : '',
+    '<span class="blog-author">By the Checkpoint64 team</span>',
     post.tags.length
       ? post.tags.map((t) => `<span class="blog-tag">${esc(t)}</span>`).join(' ')
       : '',
@@ -124,11 +167,33 @@ export async function renderPost(post, { depth = 2 } = {}) {
 ${html}
       </div>
     </article>`
+  const url = `${ORIGIN}/blog/${post.slug}/`
+  const head = [
+    socialMeta({ type: 'article', title: post.title, description: post.excerpt, url }),
+    post.date ? `  <meta property="article:published_time" content="${post.date}" />` : '',
+    ...post.tags.map((t) => `  <meta property="article:tag" content="${esc(t)}" />`),
+    jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: post.title,
+      description: post.excerpt || undefined,
+      url,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      datePublished: post.date || undefined,
+      dateModified: post.date || undefined,
+      image: OG_IMAGE,
+      inLanguage: 'en',
+      keywords: post.tags.length ? post.tags.join(', ') : undefined,
+      author: { '@type': 'Organization', name: 'Checkpoint64', url: `${ORIGIN}/` },
+      publisher: PUBLISHER,
+    }),
+  ].filter(Boolean).join('\n')
   return layout({
     title: `${post.title} — Checkpoint64`,
     description: post.excerpt,
     body,
     depth,
+    head,
   })
 }
 
@@ -150,10 +215,31 @@ export function renderIndex(posts, { depth = 1 } = {}) {
     </header>
     <ul class="blog-list">${items}
     </ul>`
+  const url = `${ORIGIN}/blog/`
+  const description = 'Release notes and write-ups from the Checkpoint64 team.'
+  const head = [
+    socialMeta({ type: 'website', title: 'Logbook — Checkpoint64', description, url }),
+    jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: 'Checkpoint64 Logbook',
+      description,
+      url,
+      inLanguage: 'en',
+      publisher: PUBLISHER,
+      blogPost: posts.map((p) => ({
+        '@type': 'BlogPosting',
+        headline: p.title,
+        url: `${ORIGIN}/blog/${p.slug}/`,
+        datePublished: p.date || undefined,
+      })),
+    }),
+  ].join('\n')
   return layout({
     title: 'Logbook — Checkpoint64',
-    description: 'Release notes and write-ups from the Checkpoint64 team.',
+    description,
     body,
     depth,
+    head,
   })
 }
