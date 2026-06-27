@@ -5,10 +5,10 @@ excerpt: A creator can now host a save and hand out a join code that lets an aud
 tags: [community, hosted-saves, read-only]
 ---
 
-The current save-sharing model is a google drive and a secret password that gets passed around. 
-Why risk your mega builds getting leaked. Checkpoint64 puts you in control.
+The current save-sharing model is a Google Drive folder and a secret password that gets passed around. 
+Why risk your mega builds leaking? Checkpoint64 puts you in control.
 
-When a streamer builds an absurd Factorio megabase and the chat wants to walk
+A streamer builds an absurd Factorio megabase and the chat wants to walk
 through it. A modpack author ships a hand-tuned starting world. A Minecraft
 creator wants 500 people to spawn into the same showcase build. In every one of
 those cases the relationship is one-directional — the host has the canonical
@@ -35,7 +35,7 @@ Everything that mutates the shared world is off the table:
 Read-only members don't get invited by email. You mint a **join code** on your
 team and share it however you like — pin it in a Discord, drop it in a video
 description, paste it in chat.
-Each code is unique and has a configurable amount of uses.
+Each code is unique and has a configurable number of uses.
 
 ```
 checkpoint64 join  A7F3-K92Q-LM4X
