@@ -46,15 +46,9 @@
   </url>
   <url>
     <loc>https://checkpoint64.com/blog/</loc>
-    <lastmod>2026-06-18</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://checkpoint64.com/blog/back-up-the-whole-folder/</loc>
-    <lastmod>2026-06-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://checkpoint64.com/blog/ditch-the-dedicated-server/</loc>
@@ -71,6 +65,12 @@
   <url>
     <loc>https://checkpoint64.com/blog/checkpoint64-is-on-steam/</loc>
     <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://checkpoint64.com/blog/back-up-the-whole-folder/</loc>
+    <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
