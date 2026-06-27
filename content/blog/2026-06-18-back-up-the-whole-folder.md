@@ -3,7 +3,6 @@ title: Back up the whole folder; the save files your game writes later won't sli
 date: 2026-06-18
 excerpt: Picking save files by hand has a blind spot — it never notices the ones your game writes after you set it up. A new farm, a fresh profile, an extra slot. The next build can watch the whole save folder and keep catching whatever lands in it. Restoring got safer too. Here's what's new.
 tags: [release, backups, whole-folder, restore]
-pinned: true
 ---
 
 When you add a game to Checkpoint64, you tell it which files to watch. You point
