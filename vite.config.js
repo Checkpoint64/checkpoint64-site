@@ -9,6 +9,7 @@ const RELEASES = pathToFileURL(resolve(import.meta.dirname, 'src/releases.js')).
 const STEAM = pathToFileURL(resolve(import.meta.dirname, 'src/steam.js')).href
 const BLOG_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/blog/load.js')).href
 const BLOG_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/blog/render.js')).href
+const BLOG_FEED = pathToFileURL(resolve(import.meta.dirname, 'src/blog/feed.js')).href
 const LEGAL_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/legal/load.js')).href
 const LEGAL_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/legal/render.js')).href
 const I18N_CONFIG = pathToFileURL(resolve(import.meta.dirname, 'src/i18n/config.js')).href
@@ -73,18 +74,24 @@ function blog() {
       server.middlewares.use(async (req, res, next) => {
         const url = (req.url || '').split('?')[0]
         try {
+          // BLOG_FEED is imported WITHOUT a `?t=` cache-buster (unlike the
+          // load/render modules) so fetchFeedPosts' in-module memo survives
+          // across dev requests — otherwise every /blog page load would re-hit
+          // the network feed. A dev-server restart re-fetches.
           if (url === '/blog' || url === '/blog/') {
-            const { loadPosts } = await import(`${BLOG_LOAD}?t=${Date.now()}`)
+            const { loadAllPosts } = await import(`${BLOG_LOAD}?t=${Date.now()}`)
             const { renderIndex } = await import(`${BLOG_RENDER}?t=${Date.now()}`)
+            const { fetchFeedPosts } = await import(BLOG_FEED)
             res.setHeader('Content-Type', 'text/html; charset=utf-8')
-            res.end(renderIndex(loadPosts()))
+            res.end(renderIndex(loadAllPosts(await fetchFeedPosts())))
             return
           }
           const m = url.match(/^\/blog\/([^/]+)\/?$/)
           if (m) {
-            const { loadPost } = await import(`${BLOG_LOAD}?t=${Date.now()}`)
+            const { loadAllPost } = await import(`${BLOG_LOAD}?t=${Date.now()}`)
             const { renderPost } = await import(`${BLOG_RENDER}?t=${Date.now()}`)
-            const post = loadPost(m[1])
+            const { fetchFeedPosts } = await import(BLOG_FEED)
+            const post = loadAllPost(m[1], await fetchFeedPosts())
             if (post) {
               res.setHeader('Content-Type', 'text/html; charset=utf-8')
               res.end(await renderPost(post))
@@ -103,9 +110,10 @@ function blog() {
     },
     async closeBundle() {
       // Only run on the client build (not e.g. SSR builds, if added later).
-      const { loadPosts } = await import(BLOG_LOAD)
+      const { loadAllPosts } = await import(BLOG_LOAD)
       const { renderIndex, renderPost } = await import(BLOG_RENDER)
-      const posts = loadPosts()
+      const { fetchFeedPosts } = await import(BLOG_FEED)
+      const posts = loadAllPosts(await fetchFeedPosts())
       const outDir = resolve(import.meta.dirname, 'dist')
       const blogDir = resolve(outDir, 'blog')
       mkdirSync(blogDir, { recursive: true })
@@ -236,10 +244,13 @@ function sitemap({ origin = 'https://checkpoint64.com' } = {}) {
   return {
     name: 'sitemap',
     async closeBundle() {
-      const { loadPosts } = await import(BLOG_LOAD)
+      const { loadAllPosts } = await import(BLOG_LOAD)
+      const { fetchFeedPosts } = await import(BLOG_FEED)
       const { legalSlugs, loadLegal } = await import(LEGAL_LOAD)
       const { LOCALES, pathForLocale } = await import(I18N_CONFIG)
-      const posts = loadPosts()
+      // Same merged list the blog build emits, so every imported post gets a
+      // sitemap entry (they're self-canonical at /blog/<slug>/).
+      const posts = loadAllPosts(await fetchFeedPosts())
 
       // The homepage exists in every language; emit one <url> per locale, each
       // listing the full alternate set (Google's preferred multilingual form).

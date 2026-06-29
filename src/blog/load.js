@@ -29,15 +29,37 @@ export function loadPosts() {
       content,
     }
   })
-  return posts
-    .filter((p) => !p.draft)
-    // Pinned posts float to the top; within each group, newest first.
-    .sort((a, b) => {
-      if (a.pinned !== b.pinned) return a.pinned ? -1 : 1
-      return (b.date || '').localeCompare(a.date || '')
-    })
+  return sortPosts(posts.filter((p) => !p.draft))
+}
+
+// Pinned posts float to the top; within each group, newest first. Shared by the
+// local-only loader and the merged (local + feed) loader so both orderings match.
+function sortPosts(posts) {
+  return posts.slice().sort((a, b) => {
+    if (a.pinned !== b.pinned) return a.pinned ? -1 : 1
+    return (b.date || '').localeCompare(a.date || '')
+  })
 }
 
 export function loadPost(slug) {
   return loadPosts().find((p) => p.slug === slug) || null
+}
+
+// Merge local markdown posts with externally-fetched feed posts (see
+// src/blog/feed.js). The markdown file is the source of truth, so a local post
+// wins on a slug collision; drafts are dropped and the combined list is
+// re-sorted. `feedPosts` is passed in by the caller (vite.config.js), which
+// owns the network fetch + its caching — keeping this module DOM-free and sync.
+export function mergePosts(localPosts, feedPosts = []) {
+  const localSlugs = new Set(localPosts.map((p) => p.slug))
+  const extras = feedPosts.filter((p) => p && !p.draft && p.slug && !localSlugs.has(p.slug))
+  return sortPosts([...localPosts, ...extras])
+}
+
+export function loadAllPosts(feedPosts = []) {
+  return mergePosts(loadPosts(), feedPosts)
+}
+
+export function loadAllPost(slug, feedPosts = []) {
+  return loadAllPosts(feedPosts).find((p) => p.slug === slug) || null
 }
