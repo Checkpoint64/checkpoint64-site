@@ -192,6 +192,11 @@ a:hover { text-decoration: underline; }
 .blog-post-title {
   font-size: 28px; color: var(--accent); margin: 0;
 }
+.blog-post-source {
+  font-family: var(--f-mono); font-size: 12px;
+  opacity: 0.65; margin: 12px 0 0;
+}
+.blog-post-source a { color: inherit; }
 
 .blog-post-body { font-size: 16px; }
 .blog-post-body h2 {

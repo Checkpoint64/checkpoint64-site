@@ -5,6 +5,19 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[c]))
 
+// Only http(s) URLs may appear in a feed-controlled href. esc() prevents
+// attribute breakout but not a `javascript:`/`data:` scheme, so validate the
+// scheme here too (defense in depth — feed.js already gates this upstream).
+// Returns the normalized URL, or null if it isn't a safe absolute http(s) URL.
+const safeHttpUrl = (url) => {
+  try {
+    const u = new URL(String(url))
+    return u.protocol === 'http:' || u.protocol === 'https:' ? u.href : null
+  } catch {
+    return null
+  }
+}
+
 const ORIGIN = 'https://checkpoint64.com'
 // Social cards need an absolute, raster image — SVG OG images are dropped by
 // Facebook/X/LinkedIn/Slack/Discord. Mirrors the homepage og:image.
@@ -25,7 +38,10 @@ function jsonLd(obj) {
 
 // Open Graph + Twitter card tags shared by posts (type 'article') and the
 // index (type 'website'). All blog pages are English-only, so no locale swap.
-function socialMeta({ type, title, description, url }) {
+// `image` defaults to the site card (a known 1200×630 PNG, so we assert its
+// dimensions); imported feed posts may carry their own image of unknown shape,
+// in which case the caller passes imageMeta:false to drop the size assertions.
+function socialMeta({ type, title, description, url, image = OG_IMAGE, imageAlt = OG_IMAGE_ALT, imageMeta = true }) {
   return [
     `<link rel="canonical" href="${url}" />`,
     `<meta property="og:type" content="${type}" />`,
@@ -34,16 +50,16 @@ function socialMeta({ type, title, description, url }) {
     `<meta property="og:title" content="${esc(title)}" />`,
     description ? `<meta property="og:description" content="${esc(description)}" />` : '',
     `<meta property="og:url" content="${url}" />`,
-    `<meta property="og:image" content="${OG_IMAGE}" />`,
-    `<meta property="og:image:type" content="image/png" />`,
-    `<meta property="og:image:width" content="1200" />`,
-    `<meta property="og:image:height" content="630" />`,
-    `<meta property="og:image:alt" content="${OG_IMAGE_ALT}" />`,
+    `<meta property="og:image" content="${esc(image)}" />`,
+    imageMeta ? `<meta property="og:image:type" content="image/png" />` : '',
+    imageMeta ? `<meta property="og:image:width" content="1200" />` : '',
+    imageMeta ? `<meta property="og:image:height" content="630" />` : '',
+    `<meta property="og:image:alt" content="${esc(imageAlt)}" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${esc(title)}" />`,
     description ? `<meta name="twitter:description" content="${esc(description)}" />` : '',
-    `<meta name="twitter:image" content="${OG_IMAGE}" />`,
-    `<meta name="twitter:image:alt" content="${OG_IMAGE_ALT}" />`,
+    `<meta name="twitter:image" content="${esc(image)}" />`,
+    `<meta name="twitter:image:alt" content="${esc(imageAlt)}" />`,
   ].filter(Boolean).map((t) => `  ${t}`).join('\n')
 }
 
@@ -150,7 +166,10 @@ ${body}
 }
 
 export async function renderPost(post, { depth = 2 } = {}) {
-  const html = await markdownToHtml(post.content)
+  // Local posts are markdown; imported feed posts already carry sanitized HTML
+  // (content:encoded), so render that directly rather than through marked.
+  const html = post.contentHtml != null ? post.contentHtml : await markdownToHtml(post.content)
+  const image = post.image || OG_IMAGE
   const meta = [
     post.date ? `<time datetime="${post.date}">${post.date}</time>` : '',
     '<span class="blog-author">By the Checkpoint64 team</span>',
@@ -158,10 +177,17 @@ export async function renderPost(post, { depth = 2 } = {}) {
       ? post.tags.map((t) => `<span class="blog-tag">${esc(t)}</span>`).join(' ')
       : '',
   ].filter(Boolean).join(' · ')
+  // Imported posts are self-canonical, but if the feed item linked off-site we
+  // credit the original — only when it's a safe http(s) URL.
+  const sourceUrl = post.source?.url ? safeHttpUrl(post.source.url) : null
+  const sourceNote = sourceUrl
+    ? `
+        <p class="blog-post-source">Originally published at <a href="${esc(sourceUrl)}" rel="nofollow noopener" target="_blank">${esc(post.source.host || post.source.name || 'the source')}</a> ↗</p>`
+    : ''
   const body = `    <article class="blog-post">
       <header class="blog-post-header">
         <p class="blog-post-meta">${meta}</p>
-        <h1 class="blog-post-title pixel">${esc(post.title)}</h1>
+        <h1 class="blog-post-title pixel">${esc(post.title)}</h1>${sourceNote}
       </header>
       <div class="blog-post-body">
 ${html}
@@ -169,7 +195,7 @@ ${html}
     </article>`
   const url = `${ORIGIN}/blog/${post.slug}/`
   const head = [
-    socialMeta({ type: 'article', title: post.title, description: post.excerpt, url }),
+    socialMeta({ type: 'article', title: post.title, description: post.excerpt, url, image, imageMeta: !post.image }),
     post.date ? `  <meta property="article:published_time" content="${post.date}" />` : '',
     ...post.tags.map((t) => `  <meta property="article:tag" content="${esc(t)}" />`),
     jsonLd({
@@ -181,7 +207,7 @@ ${html}
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
       datePublished: post.date || undefined,
       dateModified: post.date || undefined,
-      image: OG_IMAGE,
+      image,
       inLanguage: 'en',
       keywords: post.tags.length ? post.tags.join(', ') : undefined,
       author: { '@type': 'Organization', name: 'Checkpoint64', url: `${ORIGIN}/` },
