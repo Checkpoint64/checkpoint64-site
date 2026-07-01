@@ -257,3 +257,53 @@ a:hover { text-decoration: underline; }
   .blog-index-header h1 { font-size: 24px; }
   .blog-card-link { padding: 20px; }
 }
+
+/* ---------- GUIDE PAGES (comparison + hub landing pages) ---------- */
+/* These reuse .blog-post / .blog-post-body for prose + tables; the rules below
+   style only the extra chrome the guides add: breadcrumb, FAQ accordion,
+   download CTA, and the related-guides cross-links. */
+.guide-crumb {
+  font-family: var(--f-mono); font-size: 12px;
+  opacity: 0.65; letter-spacing: 0.04em; margin: 0 0 18px;
+}
+.guide-crumb a { color: var(--fg); opacity: 0.9; }
+.guide-crumb span[aria-hidden] { padding: 0 6px; opacity: 0.4; }
+
+.guide-faq { margin: 56px 0 0; }
+.guide-faq > h2, .guide-related > h2 {
+  font-family: var(--f-pixel); font-size: 16px; line-height: 1.3;
+  color: var(--fg); margin: 0 0 20px;
+}
+.guide-faq-item { border-top: 1px solid var(--night-line); padding: 16px 0; }
+.guide-faq-item:last-of-type { border-bottom: 1px solid var(--night-line); }
+.guide-faq-item summary {
+  font-family: var(--f-mono); font-weight: 700; font-size: 16px;
+  color: var(--fg); cursor: pointer; list-style: none; display: flex; gap: 10px;
+}
+.guide-faq-item summary::-webkit-details-marker { display: none; }
+.guide-faq-item summary::before { content: "\25B8"; color: var(--accent); flex: none; }
+.guide-faq-item[open] summary::before { content: "\25BE"; }
+.guide-faq-item p { margin: 12px 0 0; padding-left: 20px; opacity: 0.85; font-size: 15px; }
+
+.guide-cta {
+  margin: 48px 0 0; padding: 28px; text-align: center;
+  border: 1px solid var(--accent); border-radius: 8px;
+  background: linear-gradient(rgba(255, 95, 78, 0.06), rgba(255, 95, 78, 0.06));
+}
+.guide-cta-title { font-size: 15px; color: var(--accent); margin: 0 0 10px; }
+.guide-cta p { margin: 0 0 18px; opacity: 0.85; }
+.guide-cta-btn {
+  display: inline-block; font-size: 11px;
+  background: var(--accent); color: var(--accent-ink);
+  padding: 13px 20px; border-radius: 3px; text-decoration: none;
+}
+.guide-cta-btn:hover { text-decoration: none; filter: brightness(1.06); }
+
+.guide-related { margin: 56px 0 0; }
+.guide-related ul { list-style: none; padding: 0; margin: 0; }
+.guide-related li { margin: 0 0 10px; }
+.guide-related li a {
+  color: var(--fg); opacity: 0.9;
+  border-bottom: 1px solid var(--night-line); padding-bottom: 1px;
+}
+.guide-related li a:hover { color: var(--accent); opacity: 1; text-decoration: none; }

@@ -12,6 +12,8 @@ const BLOG_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/blog/render.
 const BLOG_FEED = pathToFileURL(resolve(import.meta.dirname, 'src/blog/feed.js')).href
 const LEGAL_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/legal/load.js')).href
 const LEGAL_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/legal/render.js')).href
+const PAGES_LOAD = pathToFileURL(resolve(import.meta.dirname, 'src/pages/load.js')).href
+const PAGES_RENDER = pathToFileURL(resolve(import.meta.dirname, 'src/pages/render.js')).href
 const I18N_CONFIG = pathToFileURL(resolve(import.meta.dirname, 'src/i18n/config.js')).href
 const I18N_LOCALIZE = pathToFileURL(resolve(import.meta.dirname, 'src/i18n/localize.js')).href
 const INDEX_HTML = resolve(import.meta.dirname, 'index.html')
@@ -166,6 +168,50 @@ function legal() {
   }
 }
 
+// Static marketing "guide" pages — comparison + hub landing pages that target
+// commercial-intent queries the homepage can't (e.g. "steam cloud alternative").
+// Markdown sources live in /content/pages/. Same dev/build shape as legal(),
+// but each page is a single top-level segment (/steam-cloud-alternative/), so
+// the dev middleware guards on loadPage() returning non-null rather than a
+// fixed slug regex — unknown single-segment URLs fall through to the next
+// handler (blog, legal, i18n), which is why this runs after them.
+function pages() {
+  return {
+    name: 'pages',
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const url = (req.url || '').split('?')[0]
+        const m = url.match(/^\/([a-z0-9-]+)\/?$/)
+        if (!m) return next()
+        try {
+          const { loadPage } = await import(`${PAGES_LOAD}?t=${Date.now()}`)
+          const { renderPage } = await import(`${PAGES_RENDER}?t=${Date.now()}`)
+          const doc = loadPage(m[1])
+          if (!doc) return next()
+          res.setHeader('Content-Type', 'text/html; charset=utf-8')
+          res.end(await renderPage(doc))
+        } catch (err) {
+          res.statusCode = 500
+          res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+          res.end(`Page render error:\n${err.stack || err.message}`)
+        }
+      })
+    },
+    async closeBundle() {
+      const { pageSlugs, loadPage } = await import(PAGES_LOAD)
+      const { renderPage } = await import(PAGES_RENDER)
+      const outDir = resolve(import.meta.dirname, 'dist')
+      for (const slug of pageSlugs()) {
+        const doc = loadPage(slug)
+        if (!doc) continue
+        const dir = resolve(outDir, slug)
+        mkdirSync(dir, { recursive: true })
+        writeFileSync(resolve(dir, 'index.html'), await renderPage(doc))
+      }
+    },
+  }
+}
+
 // Localized pages. English lives at "/"; every other locale in src/i18n/config
 // is emitted at "/<code>/index.html". Both dev and build start from the SAME
 // English HTML (so the localized copies inherit every <head> tweak and the
@@ -247,6 +293,7 @@ function sitemap({ origin = 'https://checkpoint64.com' } = {}) {
       const { loadAllPosts } = await import(BLOG_LOAD)
       const { fetchFeedPosts } = await import(BLOG_FEED)
       const { legalSlugs, loadLegal } = await import(LEGAL_LOAD)
+      const { pageSlugs, loadPage } = await import(PAGES_LOAD)
       const { LOCALES, pathForLocale } = await import(I18N_CONFIG)
       // Same merged list the blog build emits, so every imported post gets a
       // sitemap entry (they're self-canonical at /blog/<slug>/).
@@ -284,6 +331,15 @@ function sitemap({ origin = 'https://checkpoint64.com' } = {}) {
             changefreq: 'yearly',
             priority: '0.3',
           })),
+        ...pageSlugs()
+          .map((slug) => loadPage(slug))
+          .filter(Boolean)
+          .map((doc) => ({
+            loc: `/${doc.slug}/`,
+            lastmod: doc.updated || today(),
+            changefreq: 'monthly',
+            priority: '0.8',
+          })),
       ]
       const body = urls
         .map(
@@ -301,5 +357,5 @@ function sitemap({ origin = 'https://checkpoint64.com' } = {}) {
 // AND at PR-preview subpaths (checkpoint64.com/pr-preview/pr-N/).
 export default defineConfig({
   base: './',
-  plugins: [stripAnalyticsInDev(), prerenderAppShell(), blog(), legal(), i18n(), sitemap()],
+  plugins: [stripAnalyticsInDev(), prerenderAppShell(), blog(), legal(), pages(), i18n(), sitemap()],
 })
