@@ -32,7 +32,7 @@ const PUBLISHER = {
 
 // Emit a JSON-LD <script>. Keys whose value is `undefined` are dropped by
 // JSON.stringify, so callers can pass optional fields without guarding each one.
-function jsonLd(obj) {
+export function jsonLd(obj) {
   return `  <script type="application/ld+json">\n${JSON.stringify(obj, null, 2).replace(/^/gm, '  ')}\n  </script>`
 }
 
@@ -41,7 +41,7 @@ function jsonLd(obj) {
 // `image` defaults to the site card (a known 1200×630 PNG, so we assert its
 // dimensions); imported feed posts may carry their own image of unknown shape,
 // in which case the caller passes imageMeta:false to drop the size assertions.
-function socialMeta({ type, title, description, url, image = OG_IMAGE, imageAlt = OG_IMAGE_ALT, imageMeta = true }) {
+export function socialMeta({ type, title, description, url, image = OG_IMAGE, imageAlt = OG_IMAGE_ALT, imageMeta = true }) {
   return [
     `<link rel="canonical" href="${url}" />`,
     `<meta property="og:type" content="${type}" />`,
@@ -88,7 +88,7 @@ export async function markdownToHtml(md) {
 // `depth` = how many `../` segments are needed to climb back to site root.
 // /blog/index.html        → depth 1
 // /blog/<slug>/index.html → depth 2
-function layout({ title, description, body, depth, head = '' }) {
+export function layout({ title, description, body, depth, head = '' }) {
   const prefix = depth === 0 ? './' : '../'.repeat(depth)
   const desc = description
     ? `<meta name="description" content="${esc(description)}" />`
