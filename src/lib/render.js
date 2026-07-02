@@ -4,11 +4,11 @@
 // Node (vite.config.js) at build time, so it must stay free of any DOM /
 // browser-only APIs. Everything in here is just string templates.
 //
-// All user-visible copy comes from the locale `t` object (src/i18n/locales/*).
+// All user-visible copy comes from the locale `t` object (src/lib/i18n/locales/*).
 // Pass `locale` to renderApp to render the page in that language; English is
 // the default. Links are always emitted relative to the site root ("./blog/",
-// "./de/"); localizeHtml() in src/i18n/localize.js rewrites them to "../" for
-// the depth-1 localized pages.
+// "./de/"); the homepage route (routes/[[lang=lang]]/+page.svelte) rewrites them
+// to "../" for the depth-1 localized (/de/, /fr/, /es/) pages.
 
 import { PLATFORMS, RELEASES_PAGE_URL, formatSize, extensionOf } from './releases.js'
 import { formatPlaytime } from './steam.js'

@@ -85,6 +85,11 @@ export async function markdownToHtml(md) {
   return await marked.parse(md)
 }
 
+// Splits the blog/guide shell into { head, body } inner-HTML pieces so a
+// SvelteKit route can drop them into app.html via {@html} — head into
+// <svelte:head>, body after it. The old build wrapped these in a full
+// <!doctype> document; charset/viewport now live in app.html.
+//
 // `depth` = how many `../` segments are needed to climb back to site root.
 // /blog/index.html        → depth 1
 // /blog/<slug>/index.html → depth 2
@@ -93,12 +98,7 @@ export function layout({ title, description, body, depth, head = '' }) {
   const desc = description
     ? `<meta name="description" content="${esc(description)}" />`
     : ''
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${esc(title)}</title>
+  const headHtml = `  <title>${esc(title)}</title>
   ${desc}
   <meta name="robots" content="index, follow" />
   <meta name="color-scheme" content="light dark" />
@@ -115,10 +115,8 @@ export function layout({ title, description, body, depth, head = '' }) {
         if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
       } catch (e) { /* localStorage blocked */ }
     })();
-  </script>
-${head ? `${head}\n` : ''}</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  </script>${head ? `\n${head}` : ''}`
+  const bodyHtml = `  <a class="skip-link" href="#main">Skip to content</a>
   <nav class="blog-nav">
     <div class="blog-wrap">
       <a class="blog-brand pixel" href="${prefix}">CHECKPOINT64</a>
@@ -159,10 +157,8 @@ ${body}
         try { localStorage.setItem('cp64-theme', next); } catch (e) {}
       });
     })();
-  </script>
-</body>
-</html>
-`
+  </script>`
+  return { head: headHtml, body: bodyHtml }
 }
 
 export async function renderPost(post, { depth = 2 } = {}) {
@@ -227,7 +223,7 @@ export function renderIndex(posts, { depth = 1 } = {}) {
   const items = posts.length
     ? posts.map((p) => `
       <li class="blog-card${p.pinned ? ' pinned' : ''}">
-        <a href="/blog/${esc(p.slug)}/" class="blog-card-link">
+        <a href="${esc(p.slug)}/" class="blog-card-link">
           ${p.pinned ? '<span class="blog-card-pin" aria-label="Pinned post">📌 Pinned</span>' : ''}
           <h2 class="blog-card-title">${esc(p.title)}</h2>
           ${p.date ? `<time class="blog-card-date" datetime="${p.date}">${p.date}</time>` : ''}

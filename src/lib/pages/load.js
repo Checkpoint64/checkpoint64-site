@@ -1,6 +1,5 @@
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
 
 // Marketing "guide" pages — comparison + hub landing pages that target
@@ -11,9 +10,11 @@ import matter from 'gray-matter'
 // Comparison/hub guides live in content/pages/; per-game guides in content/games/.
 // Same markdown shape and same URL scheme (slug-driven) — only the source folder
 // differs, so loadPage() just checks both.
+// Resolved from the project root (process.cwd()) so it survives server bundling
+// into .svelte-kit/output, where import.meta.url no longer points at the source.
 const PAGE_DIRS = [
-  fileURLToPath(new URL('../../content/pages/', import.meta.url)),
-  fileURLToPath(new URL('../../content/games/', import.meta.url)),
+  join(process.cwd(), 'content', 'pages'),
+  join(process.cwd(), 'content', 'games'),
 ]
 
 // Comparison/hub guide slugs (content/pages/*.md).

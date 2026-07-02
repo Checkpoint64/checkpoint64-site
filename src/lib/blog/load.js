@@ -1,9 +1,11 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
 
-const BLOG_DIR = fileURLToPath(new URL('../../content/blog/', import.meta.url))
+// Resolved from the project root at build/prerender time (process.cwd() is the
+// repo root when `vite build` runs) rather than import.meta.url, which no longer
+// points at the source tree once this module is bundled into .svelte-kit/output.
+const BLOG_DIR = join(process.cwd(), 'content', 'blog')
 
 function slugFromFilename(file) {
   return file

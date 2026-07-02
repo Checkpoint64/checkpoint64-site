@@ -4,6 +4,10 @@ const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
 }[c]))
 
+// Splits the legal shell into { head, body } inner-HTML pieces for a SvelteKit
+// route ({@html} into <svelte:head> + after it). Simpler than the blog shell —
+// no theme scripts, no color-scheme meta — matching the old build exactly.
+//
 // `depth` = how many `../` segments are needed to climb back to site root.
 // /terms/index.html or /privacy/index.html → depth 1
 function layout({ title, description, body, depth }) {
@@ -11,22 +15,15 @@ function layout({ title, description, body, depth }) {
   const desc = description
     ? `<meta name="description" content="${esc(description)}" />`
     : ''
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>${esc(title)}</title>
+  const headHtml = `  <title>${esc(title)}</title>
   ${desc}
   <meta name="robots" content="index, follow" />
   <link rel="icon" type="image/svg+xml" href="${prefix}retro_save_icon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="${prefix}blog.css" />
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <link rel="stylesheet" href="${prefix}blog.css" />`
+  const bodyHtml = `  <a class="skip-link" href="#main">Skip to content</a>
   <nav class="blog-nav">
     <div class="blog-wrap">
       <a class="blog-brand pixel" href="${prefix}">CHECKPOINT64</a>
@@ -44,10 +41,8 @@ ${body}
       <span style="opacity:.5;padding:0 8px">·</span>
       <a href="${prefix}privacy/">Privacy</a>
     </div>
-  </footer>
-</body>
-</html>
-`
+  </footer>`
+  return { head: headHtml, body: bodyHtml }
 }
 
 export async function renderLegal(doc, { depth = 1 } = {}) {

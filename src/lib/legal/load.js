@@ -1,9 +1,10 @@
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
 
-const LEGAL_DIR = fileURLToPath(new URL('../../content/legal/', import.meta.url))
+// Resolved from the project root (process.cwd()) so it survives server bundling
+// into .svelte-kit/output, where import.meta.url no longer points at the source.
+const LEGAL_DIR = join(process.cwd(), 'content', 'legal')
 
 // Slug-to-filename map. Add a new entry here to publish a new legal page.
 const PAGES = {
