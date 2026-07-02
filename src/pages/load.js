@@ -8,25 +8,47 @@ import matter from 'gray-matter'
 // Markdown + gray-matter, same shape as content/legal, but with `breadcrumb`
 // and a structured `faq` list that drives BOTH the visible FAQ and the
 // FAQPage JSON-LD (single source, so they can never drift out of sync).
-const PAGES_DIR = fileURLToPath(new URL('../../content/pages/', import.meta.url))
+// Comparison/hub guides live in content/pages/; per-game guides in content/games/.
+// Same markdown shape and same URL scheme (slug-driven) — only the source folder
+// differs, so loadPage() just checks both.
+const PAGE_DIRS = [
+  fileURLToPath(new URL('../../content/pages/', import.meta.url)),
+  fileURLToPath(new URL('../../content/games/', import.meta.url)),
+]
 
-// Ordered slug list. Also controls the order of the "Related guides" block.
-// Add a content/pages/<slug>.md file plus an entry here to publish a new page.
-const PAGES = [
+// Comparison/hub guide slugs (content/pages/*.md).
+const GUIDES = [
   'steam-cloud-alternative',
   'dedicated-server-alternative',
   'modded-game-save-backup',
   'emulator-save-backup',
 ]
 
+// Per-game guide slugs (content/games/*.md). The `/games/` hub fans out to these.
+const GAMES = [
+  'skyrim-save-backup',
+  'minecraft-save-backup',
+  'satisfactory-save-backup',
+  'valheim-save-backup',
+]
+
+// Every routable page. `games` is the hub index (content/pages/games.md) whose
+// body is followed by an auto-generated grid of the GAMES pages (see render.js).
+// Add a content/{pages,games}/<slug>.md file plus an entry here to publish one.
+const PAGES = [...GUIDES, 'games', ...GAMES]
+
 export function pageSlugs() {
   return [...PAGES]
 }
 
+export function gameSlugs() {
+  return [...GAMES]
+}
+
 export function loadPage(slug) {
   if (!PAGES.includes(slug)) return null
-  const path = join(PAGES_DIR, `${slug}.md`)
-  if (!existsSync(path)) return null
+  const path = PAGE_DIRS.map((dir) => join(dir, `${slug}.md`)).find(existsSync)
+  if (!path) return null
   const raw = readFileSync(path, 'utf8')
   const { data, content } = matter(raw)
   const updated = data.updated
@@ -55,6 +77,23 @@ export function pageSummaries() {
     .map((slug) => {
       const doc = loadPage(slug)
       return doc ? { slug, title: doc.title, breadcrumb: doc.breadcrumb } : null
+    })
+    .filter(Boolean)
+}
+
+// Cards for the /games/ hub. The display name is the breadcrumb minus the
+// " save backup" suffix ("Skyrim save backup" -> "Skyrim"), so there's no extra
+// frontmatter to keep in sync with the game name.
+export function gameSummaries() {
+  return gameSlugs()
+    .map((slug) => {
+      const doc = loadPage(slug)
+      if (!doc) return null
+      return {
+        slug,
+        name: doc.breadcrumb.replace(/\s*save backup$/i, ''),
+        description: doc.description,
+      }
     })
     .filter(Boolean)
 }

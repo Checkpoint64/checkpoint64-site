@@ -779,6 +779,7 @@ function footer(t, year) {
             <h2 class="footer-h">${esc(f.resources)}</h2>
             <ul>
               <li><a href="./blog/">${esc(f.links.blog)}</a></li>
+              <li><a href="./games/">Game save backup guides</a></li>
               <!-- ponytail: guide-page labels hardcoded EN (pages are EN-only; render.js can't import pages/load.js — it must stay browser-safe). localize.js rewrites ./ -> ../ for locale pages. -->
               <li><a href="./steam-cloud-alternative/">Steam Cloud alternative</a></li>
               <li><a href="./dedicated-server-alternative/">Dedicated server alternative</a></li>

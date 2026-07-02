@@ -1,5 +1,5 @@
 import { markdownToHtml, layout, socialMeta, jsonLd } from '../blog/render.js'
-import { pageSummaries } from './load.js'
+import { pageSummaries, gameSummaries } from './load.js'
 
 const ORIGIN = 'https://checkpoint64.com'
 
@@ -36,6 +36,35 @@ function ctaBlock(prefix) {
         </aside>`
 }
 
+// The /games/ hub body: a card grid fanning out to every per-game guide.
+// Reuses the blog's .blog-card styles so there's no new CSS.
+function gamesGrid(prefix) {
+  const cards = gameSummaries().map((g) => `          <li class="blog-card">
+            <a class="blog-card-link" href="${prefix}${g.slug}/">
+              <h2 class="blog-card-title">${esc(g.name)}</h2>
+              <p class="blog-card-excerpt">${esc(g.description)}</p>
+            </a>
+          </li>`).join('\n')
+  return `        <ul class="blog-list guide-games-grid" aria-label="Supported games">
+${cards}
+        </ul>`
+}
+
+// ItemList schema for the hub — tells search engines this page enumerates the
+// per-game guides, and in what order.
+function gamesItemListLd() {
+  return jsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: gameSummaries().map((g, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: g.name,
+      url: `${ORIGIN}/${g.slug}/`,
+    })),
+  })
+}
+
 // Cross-links to the other guide pages — internal linking for topical
 // authority, and a real next-click for the reader.
 function relatedGuides(slug, prefix) {
@@ -60,6 +89,13 @@ export async function renderPage(doc, { depth = 1 } = {}) {
     ? `<p class="blog-post-meta">Last updated <time datetime="${doc.updated}">${doc.updated}</time></p>`
     : ''
 
+  const isGamesHub = doc.slug === 'games'
+  // The hub fans out to the per-game guides (grid before the CTA); every other
+  // page keeps the original CTA-then-related-guides tail.
+  const tail = isGamesHub
+    ? `${gamesGrid(prefix)}\n${ctaBlock(prefix)}`
+    : `${ctaBlock(prefix)}\n${relatedGuides(doc.slug, prefix)}`
+
   const body = `    <article class="blog-post guide-page">
       <header class="blog-post-header">
 ${breadcrumbNav(doc, prefix)}
@@ -70,8 +106,7 @@ ${breadcrumbNav(doc, prefix)}
 ${bodyHtml}
       </div>
 ${faqSection(doc)}
-${ctaBlock(prefix)}
-${relatedGuides(doc.slug, prefix)}
+${tail}
     </article>`
 
   // Breadcrumb: Home > this page (2 levels — no intermediate hub index yet).
@@ -99,6 +134,7 @@ ${relatedGuides(doc.slug, prefix)}
     socialMeta({ type: 'article', title: doc.title, description: doc.description, url }),
     breadcrumbLd,
     faqLd,
+    isGamesHub ? gamesItemListLd() : '',
   ].filter(Boolean).join('\n')
 
   return layout({
