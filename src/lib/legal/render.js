@@ -1,8 +1,5 @@
 import { markdownToHtml } from '../blog/render.js'
-
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-}[c]))
+import { esc } from '../esc.js'
 
 // Splits the legal shell into { head, body } inner-HTML pieces for a SvelteKit
 // route ({@html} into <svelte:head> + after it). Simpler than the blog shell —

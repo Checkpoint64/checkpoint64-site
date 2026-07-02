@@ -10,12 +10,9 @@
 // the icon-link prefix. Everything else is identical on all four home pages.
 import { getLocale, pathForLocale, fmt } from './config.js'
 import { DEFAULT_CURRENCY, formatMoney } from '../currency.js'
+import { esc } from '../esc.js'
 
 const ORIGIN = 'https://checkpoint64.com'
-
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-}[c]))
 
 // Identical on every locale (the old localize.js left keywords untouched).
 const KEYWORDS = 'game save backup, cloud save sync, save file versioning, rollback save game, minecraft world backup, modded minecraft save backup, stardew valley save sync, skyrim save backup, palworld save backup, valheim world backup, factorio save backup, satisfactory save backup, elden ring save backup, project zomboid save backup, enshrouded save backup, co-op save sharing, dedicated server alternative, emulator save sync, retroarch save backup, save state history, PC game save cloud, automatic save backup, game save manager, game progress backup, save game transfer, cloud save manager'

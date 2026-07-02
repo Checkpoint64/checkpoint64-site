@@ -1,11 +1,8 @@
 import { markdownToHtml, layout, socialMeta, jsonLd } from '../blog/render.js'
 import { pageSummaries, gameSummaries } from './load.js'
+import { esc } from '../esc.js'
 
 const ORIGIN = 'https://checkpoint64.com'
-
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-}[c]))
 
 // Visible breadcrumb trail — Home / <this page>. Mirrors the BreadcrumbList
 // JSON-LD below so the visible trail and the structured data agree.

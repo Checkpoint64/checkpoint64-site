@@ -1,9 +1,6 @@
 import { marked } from 'marked'
 import { codeToHtml } from 'shiki'
-
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-}[c]))
+import { esc } from '../esc.js'
 
 // Only http(s) URLs may appear in a feed-controlled href. esc() prevents
 // attribute breakout but not a `javascript:`/`data:` scheme, so validate the

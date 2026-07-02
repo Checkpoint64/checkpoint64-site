@@ -2,11 +2,10 @@
   import { onMount } from 'svelte'
   import { fetchLatestRelease, formatSize, extensionOf, PLATFORMS, RELEASES_PAGE_URL } from '$lib/releases.js'
   import { fmt } from '$lib/i18n/config.js'
+  import { esc } from '$lib/esc.js'
 
   let { t, releases = null } = $props()
   const d = t.download
-
-  const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]))
 
   // Headline/blurb/signoff are baked from the build-time release and stay put
   // client-side (like the old build); only the tiles refresh live.

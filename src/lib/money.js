@@ -1,8 +1,5 @@
 import { DEFAULT_CURRENCY, formatMoney } from './currency.js'
-
-const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({
-  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-}[c]))
+import { esc } from './esc.js'
 
 // Money amounts are stored as raw USD and emitted as a <span data-money>
 // formatted in DEFAULT_CURRENCY (EUR) at build time; the homepage's currency

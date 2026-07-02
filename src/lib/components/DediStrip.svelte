@@ -2,13 +2,14 @@
   import { money } from '$lib/money.js'
   import { fmt } from '$lib/i18n/config.js'
 
-  // `prefix` rewrites the embedded "./blog/…" link in footTpl to "../" on the
-  // localized pages — the one root-relative link in the locale copy (what the
-  // old whole-document ./→../ rewrite handled).
+  // `prefix` builds the depth-correct href for the one link embedded in the
+  // savings copy (footTpl's {1}): './blog/…' at the root, '../blog/…' on the
+  // localized pages. Keeping the URL out of the copy string avoids any ./→../
+  // string rewriting.
   let { t, intl, prefix = './' } = $props()
   const sv = t.savings
   const m = t.money
-  const relink = (html) => (prefix === './' ? html : html.replace(/"\.\//g, `"${prefix}`))
+  const dediGuideUrl = `${prefix}blog/ditch-the-dedicated-server/`
   const cardN = [
     money(15, { suffix: m.perMonthShort, intl }),
     '~3.6%',
@@ -62,7 +63,7 @@
         <b class="accent">{@html money(180, { suffix: m.perYear, intl })}</b>
       </div>
       <div class="rfoot">
-        {@html relink(fmt(sv.footTpl, money(900, { intl })))}
+        {@html fmt(sv.footTpl, money(900, { intl }), dediGuideUrl)}
       </div>
     </div>
   </div>

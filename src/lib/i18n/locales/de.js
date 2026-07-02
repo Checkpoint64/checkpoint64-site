@@ -136,7 +136,7 @@ export default {
     receiptYear: 'jahr eins',
     receiptAria: 'Kostenaufstellung eines typischen, monatlich abgerechneten dedizierten Servers',
     totalLabel: 'Was du mit Checkpoint64 Lifetime ab Jahr zwei sparst',
-    footTpl: 'Über fünf Jahre sind das grob <b>{0}</b>, die du behältst. Oder eine neue GPU, ganz wie du magst. <a href="./blog/ditch-the-dedicated-server/">Lies die ganze Rechnung →</a>',
+    footTpl: 'Über fünf Jahre sind das grob <b>{0}</b>, die du behältst. Oder eine neue GPU, ganz wie du magst. <a href="{1}">Lies die ganze Rechnung →</a>',
   },
 
   money: {

@@ -154,7 +154,7 @@ export default {
     receiptYear: 'año uno',
     receiptAria: 'Desglose de costes de un servidor dedicado típico facturado al mes',
     totalLabel: 'Lo que ahorrarías con Checkpoint64 Lifetime, a partir del segundo año',
-    footTpl: 'En cinco años son más o menos <b>{0}</b> que te quedas. O una GPU nueva, lo que prefieras. <a href="./blog/ditch-the-dedicated-server/">Lee el cálculo completo →</a>',
+    footTpl: 'En cinco años son más o menos <b>{0}</b> que te quedas. O una GPU nueva, lo que prefieras. <a href="{1}">Lee el cálculo completo →</a>',
   },
 
   money: {
