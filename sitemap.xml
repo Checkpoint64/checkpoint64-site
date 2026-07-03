@@ -153,6 +153,12 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://checkpoint64.com/compare/</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://checkpoint64.com/steam-cloud-alternative/</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
