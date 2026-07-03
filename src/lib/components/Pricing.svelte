@@ -5,7 +5,7 @@
   const pr = t.pricing
   // Only the free tier ($0) is a currency-rewritable money span; the paid prices
   // are rendered as-is, matching the old build.
-  const prices = [money(0, { intl }), 9.99, 5]
+  const prices = [money(0, { intl }), money(9.99, { intl }), money(5, { intl })]
 </script>
 
 <section id="pricing" aria-labelledby="pricing-heading">
