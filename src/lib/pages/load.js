@@ -32,6 +32,14 @@ const GAMES = [
   'minecraft-save-backup',
   'satisfactory-save-backup',
   'valheim-save-backup',
+  'stardew-save-backup',
+  'elden-ring-save-backup',
+  'palworld-save-backup',
+  'factorio-save-backup',
+  'dont-starve-together-save-backup',
+  '7-days-to-die-save-backup',
+  'sons-of-the-forest-save-backup',
+  'enshrouded-save-backup',
 ]
 
 // Every routable page. `games` is the hub index (content/pages/games.md) whose
