@@ -27,6 +27,8 @@ export default {
     sub: 'Tus partidas, respaldadas automáticamente — y cada versión, guardada. Vuelve atrás tras un archivo corrupto, una mala noche o un arrepentimiento. Los grupos de co-op se pasan un mundo como un cartucho, con un bloqueo para que nadie sobrescriba a nadie. ¿El anfitrión está de vacaciones? Toma el bloqueo y sigue jugando.',
     ctaPrimary: 'DESCARGAR GRATIS',
     ctaPrimaryAria: 'Descargar Checkpoint64 gratis',
+    ctaSteam: 'DESCARGAR EN STEAM',
+    ctaSteamAria: 'Descargar Checkpoint64 en Steam',
     ctaSecondary: 'VERLO EN ACCIÓN',
     ctaSecondaryAria: 'Ver cómo funciona Checkpoint64',
     small: ['plan gratis, gratis de verdad', 'paga una vez por más espacio', 'nunca una suscripción'],

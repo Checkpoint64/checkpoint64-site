@@ -28,6 +28,8 @@ export default {
     sub: 'Your saves, backed up automatically — and every version kept. Roll back a corrupted file, a bad night, or a regret. Co-op crews pass one world around like a cartridge, with a lock so nobody saves over anybody. Host on holiday? Take the lock and play on.',
     ctaPrimary: 'DOWNLOAD FREE',
     ctaPrimaryAria: 'Download Checkpoint64 for free',
+    ctaSteam: 'DOWNLOAD ON STEAM',
+    ctaSteamAria: 'Download Checkpoint64 on Steam',
     ctaSecondary: 'SEE IT WORK',
     ctaSecondaryAria: 'See how Checkpoint64 works',
     small: ['free plan, actually free', 'pay once for more space', 'no subscription, ever'],

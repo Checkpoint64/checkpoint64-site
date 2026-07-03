@@ -19,6 +19,7 @@ const PAGE_DIRS = [
 
 // Comparison/hub guide slugs (content/pages/*.md).
 const GUIDES = [
+  'compare',
   'steam-cloud-alternative',
   'dedicated-server-alternative',
   'modded-game-save-backup',

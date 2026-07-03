@@ -27,6 +27,8 @@ export default {
     sub: 'Deine Spielstände, automatisch gesichert — und jede Version bleibt erhalten. Roll eine kaputte Datei, einen schlechten Abend oder einen Fehlgriff einfach zurück. Co-op-Crews reichen eine Welt weiter wie ein Modul, mit Sperre, damit niemand jemanden überschreibt. Host im Urlaub? Schnapp dir die Sperre und spiel weiter.',
     ctaPrimary: 'GRATIS LADEN',
     ctaPrimaryAria: 'Checkpoint64 kostenlos herunterladen',
+    ctaSteam: 'AUF STEAM LADEN',
+    ctaSteamAria: 'Checkpoint64 auf Steam herunterladen',
     ctaSecondary: 'IN AKTION SEHEN',
     ctaSecondaryAria: 'Sehen, wie Checkpoint64 funktioniert',
     small: ['Gratis-Plan, wirklich gratis', 'einmal zahlen für mehr Platz', 'niemals ein Abo'],

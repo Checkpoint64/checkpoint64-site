@@ -27,6 +27,8 @@ export default {
     sub: "Vos sauvegardes, protégées automatiquement — et chaque version conservée. Revenez en arrière après un fichier corrompu, une mauvaise soirée ou un regret. En co-op, le monde passe de main en main comme une cartouche, avec un verrou pour que personne n'écrase personne. L'hôte est en vacances ? Prenez le verrou et continuez.",
     ctaPrimary: 'TÉLÉCHARGER GRATUIT',
     ctaPrimaryAria: 'Télécharger Checkpoint64 gratuitement',
+    ctaSteam: 'TÉLÉCHARGER SUR STEAM',
+    ctaSteamAria: 'Télécharger Checkpoint64 sur Steam',
     ctaSecondary: 'VOIR EN ACTION',
     ctaSecondaryAria: 'Voir comment fonctionne Checkpoint64',
     small: ['plan gratuit, vraiment gratuit', "payez une fois pour plus d'espace", "jamais d'abonnement"],
