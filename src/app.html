@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="%lang%">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  %sveltekit.head%
+</head>
+<body>
+  <!-- data-sveltekit-reload: every navigation is a full page load, matching the
+       old build. Do NOT remove it — the homepage's pre-paint scripts (theme
+       bootstrap, language redirect, analytics) live in <svelte:head>{@html …}
+       and only run on a fresh document load; SvelteKit client-side nav would
+       skip them. -->
+  <div style="display: contents" data-sveltekit-reload>%sveltekit.body%</div>
+</body>
+</html>
