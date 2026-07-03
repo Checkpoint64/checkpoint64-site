@@ -34,7 +34,7 @@
 <section class="paper" id="savings" aria-labelledby="savings-heading">
   <div class="wrap">
     <div class="head">
-      <span class="tape" style="color:#a82828">▮ {sv.tape}</span>
+      <span class="tape" style="color:#a82828">{sv.tape}</span>
       <span class="hand" style="color:#a82828;font-size:22px">{sv.hand}</span>
     </div>
     <h2 id="savings-heading">{@html sv.h2Html}</h2>

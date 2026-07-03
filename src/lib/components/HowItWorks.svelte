@@ -35,7 +35,7 @@
 <section class="paper" id="how" aria-labelledby="how-heading">
   <div class="wrap">
     <div class="head">
-      <span class="tape" style="color:#a82828">▮ {h.tape}</span>
+      <span class="tape" style="color:#a82828">{h.tape}</span>
     </div>
     <h2 id="how-heading">{@html h.h2Html}</h2>
     <p class="lede">{h.lede}</p>

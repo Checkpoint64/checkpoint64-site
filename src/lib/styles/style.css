@@ -495,7 +495,7 @@ section .head .tape {
   display: inline-flex; align-items: center; gap: 8px;
 }
 section .head .tape::before {
-  content: "▮"; color: var(--accent);
+  content: "▮";
 }
 
 .paper {
@@ -678,6 +678,9 @@ section .head .tape::before {
 }
 
 /* ---------- PROBLEM STRIP ---------- */
+/* Tighter than the generic `section` rhythm: it follows the hero, whose own
+   large bottom padding already does most of the separating work. */
+.problem-strip { padding: 90px 0 100px; }
 .problem-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1155,7 +1158,7 @@ section .head .tape::before {
 /* ---------- STEAM STRIP ---------- */
 .steam-strip { background: var(--paper); padding: 40px 0 8px; }
 .steam-strip .wrap { display: flex; justify-content: center; }
-.steam-badge {
+.steam-store-badge {
   display: inline-flex; align-items: center; gap: 14px;
   padding: 12px 22px 12px 18px;
   background: linear-gradient(180deg, #1b2838 0%, #0e1b25 100%);
@@ -1165,7 +1168,7 @@ section .head .tape::before {
   text-decoration: none;
   transition: transform 80ms, box-shadow 80ms, color 80ms;
 }
-.steam-badge:hover {
+.steam-store-badge:hover {
   transform: translate(-2px, -2px);
   box-shadow: 6px 6px 0 var(--ink);
   color: #66c0f4;
@@ -1371,6 +1374,7 @@ footer.bot .copyline {
   section .lede { margin-bottom: 36px; font-size: 15px; }
   section .head { margin-bottom: 14px; }
   section h2 { margin-bottom: 14px; }
+  .problem-strip { padding: 58px 0 64px; }
 
   .hero { padding: 44px 0 64px; }
   .hero h1 { font-size: clamp(34px, 9vw, 72px); letter-spacing: -1.5px; margin-bottom: 22px; }
@@ -1426,6 +1430,7 @@ footer.bot .copyline {
   nav.top .nav-actions { gap: 10px; }
 
   section { padding: 56px 0; }
+  .problem-strip { padding: 46px 0 52px; }
   .hero { padding: 36px 0 52px; }
   .hero h1 { font-size: clamp(30px, 10vw, 56px); }
 

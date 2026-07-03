@@ -11,7 +11,7 @@
 <section id="faq" aria-labelledby="faq-heading">
   <div class="wrap">
     <div class="head">
-      <span class="tape">▮ {f.tape}</span>
+      <span class="tape">{f.tape}</span>
     </div>
     <h2 id="faq-heading">{@html f.h2Html}</h2>
     <div class="faq">

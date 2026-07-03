@@ -37,7 +37,7 @@
 <section id="shelf" aria-labelledby="shelf-heading">
   <div class="wrap">
     <div class="head">
-      <span class="tape">▮ {sh.tape}</span>
+      <span class="tape">{sh.tape}</span>
       <span class="hand" style="color:var(--accent);font-size:22px">{sh.hand}</span>
     </div>
     <h2 id="shelf-heading">{@html sh.h2Html}</h2>

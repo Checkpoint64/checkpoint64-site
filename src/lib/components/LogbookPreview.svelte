@@ -15,7 +15,7 @@
 <section class="paper" aria-labelledby="logbook-heading">
   <div class="wrap">
     <div class="head">
-      <span class="tape" style="color:#a82828">▮ {lb.tape}</span>
+      <span class="tape" style="color:#a82828">{lb.tape}</span>
       <span class="hand" style="color:#a82828;font-size:22px">{lb.hand}</span>
     </div>
     <h2 id="logbook-heading">{@html lb.h2Html}</h2>

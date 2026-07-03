@@ -6,7 +6,7 @@
 <section id="features" aria-labelledby="features-heading">
   <div class="wrap">
     <div class="head">
-      <span class="tape">▮ {f.tape}</span>
+      <span class="tape">{f.tape}</span>
     </div>
     <h2 id="features-heading">{@html f.h2Html}</h2>
     <p class="lede">{f.lede}</p>

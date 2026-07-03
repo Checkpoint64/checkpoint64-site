@@ -11,7 +11,7 @@
 <section id="creators" aria-labelledby="creators-heading">
   <div class="wrap">
     <div class="head">
-      <span class="tape">▮ {c.tape}</span>
+      <span class="tape">{c.tape}</span>
       <span class="hand" style="color:var(--accent);font-size:22px">{c.hand}</span>
     </div>
     <h2 id="creators-heading">{@html c.h2Html}</h2>

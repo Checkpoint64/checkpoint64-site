@@ -11,7 +11,7 @@
 <section id="pricing" aria-labelledby="pricing-heading">
   <div class="wrap">
     <div class="head">
-      <span class="tape">▮ {pr.tape}</span>
+      <span class="tape">{pr.tape}</span>
     </div>
     <h2 id="pricing-heading">{@html pr.h2Html}</h2>
     <p class="lede">{pr.lede}</p>

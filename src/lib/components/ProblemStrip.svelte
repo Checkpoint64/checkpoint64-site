@@ -5,7 +5,7 @@
   const p = t.problems
 </script>
 
-<section style="padding:90px 0 100px" aria-labelledby="problems-heading">
+<section class="problem-strip" aria-labelledby="problems-heading">
   <div class="wrap">
     <div class="head">
       <span class="tape">{p.tape}</span>
