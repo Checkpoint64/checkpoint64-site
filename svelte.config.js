@@ -8,6 +8,12 @@ const config = {
     // PR-preview subpaths (checkpoint64.com/pr-preview/pr-N/) — the same reason
     // the old Vite build used base: './'.
     paths: { relative: true },
+    // GitHub Pages is on the legacy "Deploy from a branch" build, which always
+    // runs a Jekyll pass over gh-pages before serving it. Jekyll's default
+    // EntryFilter silently drops any top-level path starting with "_" (its
+    // dotfile/underscore exclusion runs regardless of .nojekyll here), which
+    // was swallowing the default `_app/` bundle dir and 404ing all CSS/JS.
+    appDir: 'app',
     prerender: {
       entries: ['*', '/', '/de/', '/fr/', '/es/', '/sitemap.xml'],
       handleHttpError: 'fail',
