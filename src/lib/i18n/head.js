@@ -11,6 +11,8 @@
 import { getLocale, pathForLocale, fmt } from './config.js'
 import { DEFAULT_CURRENCY, formatMoney } from '../currency.js'
 import { esc } from '../esc.js'
+import { STEAM_STORE_URL } from '../steam.js'
+import { REPO } from '../releases.js'
 
 const ORIGIN = 'https://checkpoint64.com'
 
@@ -105,27 +107,40 @@ function plainSavings(t, intl) {
 // en-vs-localized drift, which is the one intended change from the baseline.
 function jsonLdBlocks({ code, t, intl }) {
   const j = t.jsonld
+  // Stable @ids so the three site-level entities read as ONE graph instead of
+  // three islands — Google merges cross-referencing @id nodes across separate
+  // <script> blocks on the same page. Ids are identical on every locale (one
+  // entity; page-level language varies via inLanguage).
+  const orgId = `${ORIGIN}/#organization`
+  const siteId = `${ORIGIN}/#website`
+  const softwareId = `${ORIGIN}/#software`
+  const githubOrgUrl = `https://github.com/${REPO.split('/')[0]}`
   const blocks = [
     {
       '@context': 'https://schema.org',
       '@type': 'Organization',
+      '@id': orgId,
       name: 'Checkpoint64',
       alternateName: 'Checkpoint 64',
       url: `${ORIGIN}/`,
       logo: `${ORIGIN}/retro_save_icon.svg`,
       description: j.orgDescription,
-      sameAs: ['https://discord.gg/kxeYwuuHEn'],
+      sameAs: ['https://discord.gg/kxeYwuuHEn', githubOrgUrl, STEAM_STORE_URL],
     },
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
+      '@id': siteId,
       name: 'Checkpoint64',
       url: `${ORIGIN}/`,
       inLanguage: code,
+      publisher: { '@id': orgId },
+      about: { '@id': softwareId },
     },
     {
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
+      '@id': softwareId,
       name: 'Checkpoint64',
       alternateName: 'Checkpoint 64',
       applicationCategory: 'UtilitiesApplication',
@@ -136,7 +151,9 @@ function jsonLdBlocks({ code, t, intl }) {
       image: `${ORIGIN}/og-image.png`,
       softwareVersion: '0.4',
       downloadUrl: `${ORIGIN}/#download`,
-      publisher: { '@type': 'Organization', name: 'Checkpoint64', url: `${ORIGIN}/` },
+      isAccessibleForFree: true,
+      sameAs: [STEAM_STORE_URL, `https://github.com/${REPO}`],
+      publisher: { '@id': orgId },
       offers: {
         '@type': 'Offer',
         price: '0',
