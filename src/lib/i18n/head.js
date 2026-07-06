@@ -17,8 +17,11 @@ const ORIGIN = 'https://checkpoint64.com'
 // Identical on every locale (the old localize.js left keywords untouched).
 const KEYWORDS = 'game save backup, cloud save sync, save file versioning, rollback save game, minecraft world backup, modded minecraft save backup, stardew valley save sync, skyrim save backup, palworld save backup, valheim world backup, factorio save backup, satisfactory save backup, elden ring save backup, project zomboid save backup, enshrouded save backup, co-op save sharing, dedicated server alternative, emulator save sync, retroarch save backup, save state history, PC game save cloud, automatic save backup, game save manager, game progress backup, save game transfer, cloud save manager'
 
-// Simple Analytics + Ahrefs + Microsoft Clarity. Homepage + locale copies only,
-// and omitted in dev (replaces the old stripAnalyticsInDev plugin).
+// Simple Analytics + Ahrefs + Microsoft Clarity + Google Analytics (GA4).
+// Homepage + locale copies only, and omitted in dev (replaces the old
+// stripAnalyticsInDev plugin).
+// GA_ID: the GA4 Measurement ID for checkpoint64.com.
+const GA_ID = 'G-DVGT21P1HL'
 const ANALYTICS = `    <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt=""
                    referrerpolicy="no-referrer-when-downgrade"/></noscript>
@@ -36,6 +39,15 @@ const ANALYTICS = `    <script data-collect-dnt="true" async src="https://script
             y = l.getElementsByTagName(r)[0];
             y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "wt2sg869vg");
+    </script>
+
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_ID}');
     </script>`
 
 // Language auto-detect: on the apex root only, first-time visitors whose browser
