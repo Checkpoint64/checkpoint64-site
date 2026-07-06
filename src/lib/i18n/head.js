@@ -23,7 +23,7 @@ const KEYWORDS = 'game save backup, cloud save sync, save file versioning, rollb
 // Homepage + locale copies only, and omitted in dev (replaces the old
 // stripAnalyticsInDev plugin).
 // GA_ID: the GA4 Measurement ID for checkpoint64.com.
-const GA_ID = 'G-DVGT21P1HL'
+const GA_ID = 'G-Z6QH00W8CG'
 const ANALYTICS = `    <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
     <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt=""
                    referrerpolicy="no-referrer-when-downgrade"/></noscript>
