@@ -159,6 +159,15 @@ a:hover { text-decoration: underline; }
   letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--accent);
 }
+/* Featured-image thumbnail at the top of a card (feed posts always have one;
+   local posts only if they set an `image` in frontmatter). Bleeds to the card
+   edges by cancelling the link padding, and sits above the pin badge/title. */
+.blog-card-thumb {
+  display: block; width: calc(100% + 56px);
+  margin: -24px -28px 20px; border-radius: 6px 6px 0 0;
+  aspect-ratio: 16 / 9; object-fit: cover;
+  border-bottom: 1px solid var(--night-line);
+}
 .blog-card-title {
   font-family: var(--f-pixel); font-size: 16px; line-height: 1.3;
   color: var(--fg); margin: 0 0 8px;
@@ -197,6 +206,13 @@ a:hover { text-decoration: underline; }
   opacity: 0.65; margin: 12px 0 0;
 }
 .blog-post-source a { color: inherit; }
+
+/* Featured/lead image for a post, above the body prose. */
+.blog-post-lead { margin: 0 0 40px; }
+.blog-post-lead img {
+  display: block; width: 100%; height: auto;
+  border-radius: 6px; border: 1px solid var(--night-line);
+}
 
 .blog-post-body { font-size: 16px; }
 .blog-post-body h2 {
@@ -256,6 +272,7 @@ a:hover { text-decoration: underline; }
   .blog-post-title { font-size: 22px; }
   .blog-index-header h1 { font-size: 24px; }
   .blog-card-link { padding: 20px; }
+  .blog-card-thumb { width: calc(100% + 40px); margin: -20px -20px 16px; }
 }
 
 /* ---------- GUIDE PAGES (comparison + hub landing pages) ---------- */
