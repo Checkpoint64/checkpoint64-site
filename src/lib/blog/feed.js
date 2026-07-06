@@ -217,11 +217,35 @@ function firstCategories(item) {
   return out
 }
 
-// First image for the post: media:thumbnail / media:content url, else the first
-// <img src> inside the content. Used as the per-post OG/Twitter card image, so
-// gate it to http(s) — a data:/weird-scheme URL is useless there anyway.
+// Pull the url off an <enclosure> node (single or array), keeping only ones
+// declared as images — an audio/video enclosure isn't a card image. A missing
+// type is tolerated (some feeds omit it) and left for the http(s) gate.
+function enclosureImageUrl(node) {
+  if (!node) return ''
+  if (Array.isArray(node)) {
+    for (const n of node) {
+      const u = enclosureImageUrl(n)
+      if (u) return u
+    }
+    return ''
+  }
+  if (typeof node === 'object') {
+    const type = String(node['@_type'] || '')
+    if (!type || /^image\//i.test(type)) return node['@_url'] || ''
+  }
+  return ''
+}
+
+// Featured image for the post: media:thumbnail / media:content / <enclosure>
+// url (our feed ships the article's hero this way, with NO <img> in the body),
+// else the first <img src> inside the content. Rendered as the post's lead
+// image AND used as the per-post OG/Twitter card, so gate it to http(s) — a
+// data:/weird-scheme URL is useless in either place.
 function firstImage(item, contentHtml) {
-  const fromMedia = attrUrl(item['media:thumbnail']) || attrUrl(item['media:content'])
+  const fromMedia =
+    attrUrl(item['media:thumbnail']) ||
+    attrUrl(item['media:content']) ||
+    enclosureImageUrl(item.enclosure)
   if (fromMedia && isHttpUrl(fromMedia)) return fromMedia
   const m = /<img\b[^>]*?\ssrc\s*=\s*("([^"]+)"|'([^']+)')/i.exec(contentHtml || '')
   const fromContent = m ? m[2] || m[3] : ''

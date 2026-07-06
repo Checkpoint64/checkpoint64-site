@@ -28,6 +28,11 @@ export function loadPosts() {
       tags: Array.isArray(data.tags) ? data.tags : [],
       draft: !!data.draft,
       pinned: !!data.pinned,
+      // Optional featured image (rendered as the post's lead image + OG card).
+      // A root-relative path (e.g. /blog/foo.png in static/) or an absolute URL;
+      // render.js validates the scheme and absolutizes it for OG/JSON-LD.
+      image: data.image || '',
+      imageAlt: data.imageAlt || '',
       content,
     }
   })

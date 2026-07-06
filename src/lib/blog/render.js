@@ -16,6 +16,25 @@ const safeHttpUrl = (url) => {
 }
 
 const ORIGIN = 'https://checkpoint64.com'
+
+// A post image safe to render in-page: an http(s) URL (feed featured images) or
+// a root-relative path (local posts, e.g. /blog/foo.png served from static/).
+// `//host` protocol-relative and javascript:/data: are rejected.
+const safeImageUrl = (url) => {
+  const s = String(url || '').trim()
+  if (!s) return null
+  if (s.startsWith('/') && !s.startsWith('//')) return s
+  return safeHttpUrl(s)
+}
+
+// Absolute form for OG/Twitter/JSON-LD, which reject relative URLs. Root-relative
+// local images get the origin; http(s) URLs pass through the scheme gate.
+const absoluteImageUrl = (url) => {
+  const s = String(url || '').trim()
+  if (!s) return null
+  if (s.startsWith('/') && !s.startsWith('//')) return `${ORIGIN}${s}`
+  return safeHttpUrl(s)
+}
 // Social cards need an absolute, raster image — SVG OG images are dropped by
 // Facebook/X/LinkedIn/Slack/Discord. Mirrors the homepage og:image.
 const OG_IMAGE = `${ORIGIN}/og-image.png`
@@ -162,7 +181,19 @@ export async function renderPost(post, { depth = 2 } = {}) {
   // Local posts are markdown; imported feed posts already carry sanitized HTML
   // (content:encoded), so render that directly rather than through marked.
   const html = post.contentHtml != null ? post.contentHtml : await markdownToHtml(post.content)
-  const image = post.image || OG_IMAGE
+  // Featured image: rendered as the post's lead image AND used as the OG card.
+  // Our feed ships the hero image via <enclosure>/<media:content> with no <img>
+  // in the body, so without this the post would show no image at all. Skip the
+  // lead render when the same image already appears inline (a markdown post that
+  // opens with its own image, or a feed body that embeds the hero) to avoid a
+  // duplicate.
+  const leadSrc = safeImageUrl(post.image)
+  const leadImage = leadSrc && !html.includes(leadSrc)
+    ? `      <figure class="blog-post-lead">
+        <img src="${esc(leadSrc)}" alt="${esc(post.imageAlt || post.title)}" loading="eager" />
+      </figure>\n`
+    : ''
+  const image = absoluteImageUrl(post.image) || OG_IMAGE
   const meta = [
     post.date ? `<time datetime="${post.date}">${post.date}</time>` : '',
     '<span class="blog-author">By the Checkpoint64 team</span>',
@@ -182,13 +213,13 @@ export async function renderPost(post, { depth = 2 } = {}) {
         <p class="blog-post-meta">${meta}</p>
         <h1 class="blog-post-title pixel">${esc(post.title)}</h1>${sourceNote}
       </header>
-      <div class="blog-post-body">
+${leadImage}      <div class="blog-post-body">
 ${html}
       </div>
     </article>`
   const url = `${ORIGIN}/blog/${post.slug}/`
   const head = [
-    socialMeta({ type: 'article', title: post.title, description: post.excerpt, url, image, imageMeta: !post.image }),
+    socialMeta({ type: 'article', title: post.title, description: post.excerpt, url, image, imageMeta: image === OG_IMAGE }),
     post.date ? `  <meta property="article:published_time" content="${post.date}" />` : '',
     ...post.tags.map((t) => `  <meta property="article:tag" content="${esc(t)}" />`),
     jsonLd({
@@ -218,15 +249,19 @@ ${html}
 
 export function renderIndex(posts, { depth = 1 } = {}) {
   const items = posts.length
-    ? posts.map((p) => `
+    ? posts.map((p) => {
+      const thumb = safeImageUrl(p.image)
+      return `
       <li class="blog-card${p.pinned ? ' pinned' : ''}">
         <a href="${esc(p.slug)}/" class="blog-card-link">
+          ${thumb ? `<img class="blog-card-thumb" src="${esc(thumb)}" alt="" loading="lazy" />` : ''}
           ${p.pinned ? '<span class="blog-card-pin" aria-label="Pinned post">📌 Pinned</span>' : ''}
           <h2 class="blog-card-title">${esc(p.title)}</h2>
           ${p.date ? `<time class="blog-card-date" datetime="${p.date}">${p.date}</time>` : ''}
           ${p.excerpt ? `<p class="blog-card-excerpt">${esc(p.excerpt)}</p>` : ''}
         </a>
-      </li>`).join('')
+      </li>`
+    }).join('')
     : '<li class="blog-empty">No posts yet — drop a markdown file in <code>content/blog/</code>.</li>'
   const body = `    <header class="blog-index-header">
       <h1 class="pixel">LOGBOOK</h1>
