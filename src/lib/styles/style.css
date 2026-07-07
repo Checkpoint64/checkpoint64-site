@@ -110,14 +110,15 @@ section[id] { scroll-margin-top: 80px; }
      above the fold, where entry-phase timing is unreliable). */
   .hero { animation: fade-up 0.6s ease-out both; }
 
-  /* Below-hero sections fade + rise as they scroll into view. Native
-     scroll-driven animation, no JS/observer. @supports-gated so browsers
-     without scroll timelines (Firefox, older Safari) render them static
-     rather than risk a flash; animation-range: entry leaves anything already
-     on screen fully shown. */
+  /* Below-hero sections rise gently into place as they scroll in — movement
+     only, no opacity fade: on the dark theme a fade-from-transparent read as a
+     dark gap before the content resolved. Native scroll-driven animation, no
+     JS/observer. @supports-gated so browsers without scroll timelines (Firefox,
+     older Safari) render them static; animation-range: entry leaves anything
+     already on screen fully shown. */
   @supports (animation-timeline: view()) {
     main > :not(.hero) {
-      animation: fade-up linear both;
+      animation: rise-in linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 100%;
     }
@@ -127,6 +128,13 @@ section[id] { scroll-margin-top: 80px; }
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: none; }
+}
+
+/* Scroll reveal: a gentle upward settle, no opacity — content stays fully lit
+   (never a dark gap) and only moves. */
+@keyframes rise-in {
+  from { transform: translateY(28px); }
+  to   { transform: none; }
 }
 
 
