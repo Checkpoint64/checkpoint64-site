@@ -252,7 +252,7 @@ export function renderIndex(posts, { depth = 1 } = {}) {
     ? posts.map((p) => {
       const thumb = safeImageUrl(p.image)
       return `
-      <li class="blog-card${p.pinned ? ' pinned' : ''}">
+      <li class="blog-card${p.pinned ? ' pinned' : ''}" data-source="${p.isFeed ? 'feed' : 'manual'}">
         <a href="${esc(p.slug)}/" class="blog-card-link">
           ${thumb ? `<img class="blog-card-thumb" src="${esc(thumb)}" alt="" loading="lazy" />` : ''}
           ${p.pinned ? '<span class="blog-card-pin" aria-label="Pinned post">📌 Pinned</span>' : ''}
@@ -263,12 +263,49 @@ export function renderIndex(posts, { depth = 1 } = {}) {
       </li>`
     }).join('')
     : '<li class="blog-empty">No posts yet — drop a markdown file in <code>content/blog/</code>.</li>'
+  // Client-side source filter (feed vs manual). Only worth showing when both
+  // kinds are present — otherwise every post shares one source and the filter is
+  // dead UI. Plain inline JS + [hidden]: the site is csr:false (zero-JS), so this
+  // rides the same prerendered-inline-script path as the theme toggle.
+  const hasFeed = posts.some((p) => p.isFeed)
+  const hasManual = posts.some((p) => !p.isFeed)
+  const filter = hasFeed && hasManual
+    ? `    <div class="blog-filter" data-blog-filter role="group" aria-label="Filter posts by source">
+      <button type="button" class="blog-filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="blog-filter-btn" data-filter="manual" aria-pressed="false">Manual</button>
+      <button type="button" class="blog-filter-btn" data-filter="feed" aria-pressed="false">Feed</button>
+    </div>
+`
+    : ''
+  const filterScript = filter
+    ? `
+    <script>
+      (function () {
+        var bar = document.querySelector('[data-blog-filter]');
+        if (!bar) return;
+        var cards = document.querySelectorAll('.blog-card[data-source]');
+        bar.addEventListener('click', function (e) {
+          var btn = e.target.closest('.blog-filter-btn');
+          if (!btn) return;
+          var f = btn.getAttribute('data-filter');
+          bar.querySelectorAll('.blog-filter-btn').forEach(function (b) {
+            var on = b === btn;
+            b.classList.toggle('is-active', on);
+            b.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+          cards.forEach(function (c) {
+            c.hidden = !(f === 'all' || c.getAttribute('data-source') === f);
+          });
+        });
+      })();
+    </script>`
+    : ''
   const body = `    <header class="blog-index-header">
       <h1 class="pixel">LOGBOOK</h1>
       <p class="blog-index-tagline">Notes from the Checkpoint64 team.</p>
     </header>
-    <ul class="blog-list">${items}
-    </ul>`
+${filter}    <ul class="blog-list">${items}
+    </ul>${filterScript}`
   const url = `${ORIGIN}/blog/`
   const description = 'Release notes and write-ups from the Checkpoint64 team.'
   const head = [
