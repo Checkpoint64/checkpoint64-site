@@ -94,6 +94,41 @@ html, body {
   }
 }
 
+/* ---------- MOTION: SMOOTH SCROLL + SECTION REVEALS ---------- */
+/* Anchor jumps (#how, #features, #pricing, #download) glide instead of
+   snapping; scroll-margin clears the sticky nav (~64px tall on mobile, ~48px
+   on desktop) so the target heading isn't tucked under it. The reduce block
+   above already forces scroll-behavior back to auto for motion-sensitive
+   users. */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 80px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Hero: on-load fade-up on the document timeline — every browser gets this
+     one, and CSS paints the start state before the first frame so there's no
+     flash. Doubles as the hero's exclusion from the scroll reveal below (it's
+     above the fold, where entry-phase timing is unreliable). */
+  .hero { animation: fade-up 0.6s ease-out both; }
+
+  /* Below-hero sections fade + rise as they scroll into view. Native
+     scroll-driven animation, no JS/observer. @supports-gated so browsers
+     without scroll timelines (Firefox, older Safari) render them static
+     rather than risk a flash; animation-range: entry leaves anything already
+     on screen fully shown. */
+  @supports (animation-timeline: view()) {
+    main > :not(.hero) {
+      animation: fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
 
 body {
   background-image:
