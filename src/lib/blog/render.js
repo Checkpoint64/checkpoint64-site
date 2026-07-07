@@ -177,7 +177,20 @@ ${body}
   return { head: headHtml, body: bodyHtml }
 }
 
-export async function renderPost(post, { depth = 2 } = {}) {
+// "Keep reading": the n posts following this one in the already-sorted list,
+// wrapping at the tail. Sequential neighbours (not "n most recent") so every
+// post — crucially the imported feed posts, which carry no editorial in-body
+// links — is linked from a handful of siblings. Uniform in-degree is the point:
+// the keyword-targeted feed posts are the pages that most need internal links.
+// ponytail: recency-order neighbours; swap in shared-tag scoring if tags fill out.
+function relatedPosts(post, posts, n = 3) {
+  const i = posts.findIndex((p) => p.slug === post.slug)
+  if (i === -1) return posts.slice(0, n)
+  return [...posts.slice(i + 1), ...posts.slice(0, i)].slice(0, n)
+}
+
+export async function renderPost(post, { depth = 2, posts = [] } = {}) {
+  const prefix = depth === 0 ? './' : '../'.repeat(depth)
   // Local posts are markdown; imported feed posts already carry sanitized HTML
   // (content:encoded), so render that directly rather than through marked.
   const html = post.contentHtml != null ? post.contentHtml : await markdownToHtml(post.content)
@@ -208,20 +221,49 @@ export async function renderPost(post, { depth = 2 } = {}) {
     ? `
         <p class="blog-post-source">Originally published at <a href="${esc(sourceUrl)}" rel="nofollow noopener" target="_blank">${esc(post.source.host || post.source.name || 'the source')}</a> ↗</p>`
     : ''
+  // Visible breadcrumb — Home / Logbook / this post. Mirrors the BreadcrumbList
+  // JSON-LD below (same labels, same resolved URLs) so the two agree, which is
+  // what makes Google treat the structured data as valid. Reuses the guide
+  // pages' .guide-crumb styling — no new CSS.
+  const breadcrumbNav = `        <nav class="guide-crumb" aria-label="Breadcrumb">
+          <a href="${prefix}">Home</a> <span aria-hidden="true">/</span> <a href="${prefix}blog/">Logbook</a> <span aria-hidden="true">/</span> <span>${esc(post.title)}</span>
+        </nav>`
+  // "Keep reading" cross-links to sibling posts. Reuses .guide-related styling.
+  const related = relatedPosts(post, posts)
+  const relatedNav = related.length
+    ? `      <nav class="guide-related" aria-label="More from the Logbook">
+        <h2>Keep reading</h2>
+        <ul>
+${related.map((p) => `          <li><a href="${prefix}blog/${esc(p.slug)}/">${esc(p.title)}</a></li>`).join('\n')}
+        </ul>
+      </nav>\n`
+    : ''
   const body = `    <article class="blog-post">
       <header class="blog-post-header">
+${breadcrumbNav}
         <p class="blog-post-meta">${meta}</p>
         <h1 class="blog-post-title pixel">${esc(post.title)}</h1>${sourceNote}
       </header>
 ${leadImage}      <div class="blog-post-body">
 ${html}
       </div>
-    </article>`
+${relatedNav}    </article>`
   const url = `${ORIGIN}/blog/${post.slug}/`
   const head = [
     socialMeta({ type: 'article', title: post.title, description: post.excerpt, url, image, imageMeta: image === OG_IMAGE }),
     post.date ? `  <meta property="article:published_time" content="${post.date}" />` : '',
     ...post.tags.map((t) => `  <meta property="article:tag" content="${esc(t)}" />`),
+    // Home / Logbook / this post — same labels & resolved URLs as the visible
+    // breadcrumb above, so Google accepts it as a valid breadcrumb rich result.
+    jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${ORIGIN}/` },
+        { '@type': 'ListItem', position: 2, name: 'Logbook', item: `${ORIGIN}/blog/` },
+        { '@type': 'ListItem', position: 3, name: post.title, item: url },
+      ],
+    }),
     jsonLd({
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',

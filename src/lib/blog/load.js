@@ -66,7 +66,3 @@ export function mergePosts(localPosts, feedPosts = []) {
 export function loadAllPosts(feedPosts = []) {
   return mergePosts(loadPosts(), feedPosts)
 }
-
-export function loadAllPost(slug, feedPosts = []) {
-  return loadAllPosts(feedPosts).find((p) => p.slug === slug) || null
-}
