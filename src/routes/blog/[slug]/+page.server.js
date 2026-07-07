@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit'
-import { loadAllPost, loadAllPosts } from '$lib/blog/load.js'
+import { loadAllPosts } from '$lib/blog/load.js'
 import { getFeedPosts } from '$lib/server/build-data.js'
 import { renderPost } from '$lib/blog/render.js'
 
@@ -11,7 +11,10 @@ export async function entries() {
 }
 
 export async function load({ params }) {
-  const post = loadAllPost(params.slug, await getFeedPosts())
+  // Load the full list (not just this slug) so renderPost can pick sibling
+  // "Keep reading" cross-links from it.
+  const posts = loadAllPosts(await getFeedPosts())
+  const post = posts.find((p) => p.slug === params.slug)
   if (!post) error(404)
-  return renderPost(post, { depth: 2 })
+  return renderPost(post, { depth: 2, posts })
 }
