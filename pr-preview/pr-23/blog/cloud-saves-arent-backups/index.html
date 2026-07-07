@@ -46,6 +46,32 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://checkpoint64.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Logbook",
+        "item": "https://checkpoint64.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Cloud saves aren't backups; sync will happily overwrite your good save",
+        "item": "https://checkpoint64.com/blog/cloud-saves-arent-backups/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Cloud saves aren't backups; sync will happily overwrite your good save",
     "description": "Steam Cloud, GOG Galaxy, and console cloud saves keep one copy in sync across your machines. That's not the same as a backup. The moment a save corrupts or a bad autosave fires, sync does its job perfectly and pushes the broken file everywhere. Here's the difference, and why versioning is the thing you actually wanted.",
@@ -97,6 +123,9 @@
   <main id="main" class="blog-main blog-wrap">
     <article class="blog-post">
       <header class="blog-post-header">
+        <nav class="guide-crumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a> <span aria-hidden="true">/</span> <a href="../../blog/">Logbook</a> <span aria-hidden="true">/</span> <span>Cloud saves aren&#39;t backups; sync will happily overwrite your good save</span>
+        </nav>
         <p class="blog-post-meta"><time datetime="2026-06-09">2026-06-09</time> · <span class="blog-author">By the Checkpoint64 team</span> · <span class="blog-tag">cloud-saves</span> <span class="blog-tag">backups</span> <span class="blog-tag">versioning</span> <span class="blog-tag">steam-cloud</span></p>
         <h1 class="blog-post-title pixel">Cloud saves aren&#39;t backups; sync will happily overwrite your good save</h1>
       </header>
@@ -196,6 +225,14 @@ it&#39;s the difference between a save that&#39;s <em>synced</em> and a save tha
 ships. One email, no follow-ups.</p>
 
       </div>
+      <nav class="guide-related" aria-label="More from the Logbook">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="../../blog/checkpoint64-for-emulators/">The perfect companion for emulators; real version history for save states</a></li>
+          <li><a href="../../blog/read-only-community-servers/">Community servers; host a world, share it with a crowd, keep it pristine</a></li>
+          <li><a href="../../blog/welcome/">Welcome to the Checkpoint64 logbook</a></li>
+        </ul>
+      </nav>
     </article>
   </main>
   <footer class="blog-footer">

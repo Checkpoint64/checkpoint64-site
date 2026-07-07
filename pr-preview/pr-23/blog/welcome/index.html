@@ -44,6 +44,32 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://checkpoint64.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Logbook",
+        "item": "https://checkpoint64.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Welcome to the Checkpoint64 logbook",
+        "item": "https://checkpoint64.com/blog/welcome/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
     "@type": "BlogPosting",
     "headline": "Welcome to the Checkpoint64 logbook",
     "description": "First entry. What we're building, why we're building it, and how this blog works.",
@@ -95,6 +121,9 @@
   <main id="main" class="blog-main blog-wrap">
     <article class="blog-post">
       <header class="blog-post-header">
+        <nav class="guide-crumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a> <span aria-hidden="true">/</span> <a href="../../blog/">Logbook</a> <span aria-hidden="true">/</span> <span>Welcome to the Checkpoint64 logbook</span>
+        </nav>
         <p class="blog-post-meta"><time datetime="2026-05-19">2026-05-19</time> · <span class="blog-author">By the Checkpoint64 team</span> · <span class="blog-tag">meta</span> <span class="blog-tag">launch</span></p>
         <h1 class="blog-post-title pixel">Welcome to the Checkpoint64 logbook</h1>
       </header>
@@ -121,6 +150,14 @@ looks like, what the gotchas are, and how we handle hot-saves.</li>
 <span class="line"><span style="color:#ADBAC7">}</span></span></code></pre><p>And inline <code>code</code> works too. That&#39;s it for now — see you on the next checkpoint.</p>
 
       </div>
+      <nav class="guide-related" aria-label="More from the Logbook">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="../../blog/ditch-the-dedicated-server/">Ditch the dedicated server; your co-op group is probably paying for empty hours</a></li>
+          <li><a href="../../blog/stardew-valley-co-op-save-share/">Stardew Valley Co-op Save Share, Sorted</a></li>
+          <li><a href="../../blog/best-minecraft-world-backup-tool-pc/">Best Minecraft World Backup Tool for PC</a></li>
+        </ul>
+      </nav>
     </article>
   </main>
   <footer class="blog-footer">
