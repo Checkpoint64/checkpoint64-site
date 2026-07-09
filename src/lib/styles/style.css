@@ -128,18 +128,13 @@ html { scroll-behavior: smooth; }
 section[id] { scroll-margin-top: 80px; }
 
 @media (prefers-reduced-motion: no-preference) {
-  /* Hero: on-load rise on the document timeline — every browser gets this one,
-     and CSS paints the start state before the first frame so there's no flash.
-     Doubles as the hero's exclusion from the scroll reveal below (it's above the
-     fold, where entry-phase timing is unreliable). */
-  .hero { animation: rise-in 0.6s ease-out both; }
-
   /* Below-hero sections rise gently into place as they scroll in — movement
      only, no opacity fade: on the dark theme a fade-from-transparent read as a
      dark gap before the content resolved. Native scroll-driven animation, no
      JS/observer. @supports-gated so browsers without scroll timelines (Firefox,
      older Safari) render them static; animation-range: entry leaves anything
-     already on screen fully shown. */
+     already on screen fully shown. The hero is excluded — it's above the fold
+     and renders static, with no on-load motion. */
   @supports (animation-timeline: view()) {
     main > :not(.hero) {
       animation: rise-in linear both;
@@ -150,7 +145,7 @@ section[id] { scroll-margin-top: 80px; }
 }
 
 /* A gentle upward settle, no opacity — content stays fully lit (never a dark
-   gap) and only moves. Used for the hero on load and every section on scroll. */
+   gap) and only moves. Used by the below-hero sections as they scroll in. */
 @keyframes rise-in {
   from { transform: translateY(28px); }
   to   { transform: none; }
