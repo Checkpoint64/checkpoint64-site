@@ -1,3 +1,27 @@
+/* Metric-matched fallback faces for the two heavy web fonts, so text doesn't
+   reflow when Google Fonts swap in on first load (the "jump"). Press Start 2P
+   is a full-em-wide pixel font (~67% wider than generic monospace) and JetBrains
+   Mono has a taller box — both differ enough from the fallback to shift layout on
+   swap. size-adjust/ascent/descent make the fallback occupy the web font's box,
+   so the swap is invisible. Values are capsize-generated from the real woff2
+   metrics (@capsizecss/core createFontStack vs Courier New) — regenerate, don't
+   hand-edit, if the fonts change. VT323/Patrick Hand are decorative, left as-is. */
+@font-face {
+  font-family: "Press Start 2P Fallback";
+  src: local("Courier New"), local("CourierNewPSMT");
+  font-display: swap;
+  ascent-override: 60.0098%;
+  size-adjust: 166.6395%;
+}
+@font-face {
+  font-family: "JetBrains Mono Fallback";
+  src: local("Courier New"), local("CourierNewPSMT");
+  font-display: swap;
+  ascent-override: 102.0166%;
+  descent-override: 30.0049%;
+  size-adjust: 99.9837%;
+}
+
 :root {
   /* Design palette — stable across themes. Cartridges, paper sections, etc.
      reference these directly so they keep their physical look in light mode. */
@@ -21,9 +45,9 @@
   --bg-nav: rgba(12, 11, 9, 0.78);
   --night-line: rgba(var(--fg-rgb), 0.08);
 
-  --f-pixel: "Press Start 2P", monospace;
+  --f-pixel: "Press Start 2P", "Press Start 2P Fallback", monospace;
   --f-vt: "VT323", monospace;
-  --f-mono: "JetBrains Mono", ui-monospace, monospace;
+  --f-mono: "JetBrains Mono", "JetBrains Mono Fallback", ui-monospace, monospace;
   --f-hand: "Patrick Hand", cursive;
 }
 
