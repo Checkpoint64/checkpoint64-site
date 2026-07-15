@@ -26,7 +26,7 @@ export function loadPosts() {
       date,
       excerpt: data.excerpt || '',
       tags: Array.isArray(data.tags) ? data.tags : [],
-      draft: !!data.draft,
+      draft: !!data.draft || new Date(date).getTime() > new Date().getTime(),
       pinned: !!data.pinned,
       // Optional featured image (rendered as the post's lead image + OG card).
       // A root-relative path (e.g. /blog/foo.png in static/) or an absolute URL;
