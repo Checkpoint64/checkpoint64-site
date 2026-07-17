@@ -118,6 +118,23 @@ export default {
     proNoteHtml: 'Gehostete Teilen-Codes gehören zu <a href="#pricing">Pro</a>, gemacht für Creator, Crews und Modding-Gruppen.',
   },
 
+  // Steam-Reviews. Die Score-Beschreibung und der Spielname kommen direkt von
+  // Steam und bleiben in allen Sprachen englisch, wie die App-Mockup-Texte —
+  // ebenso die Spielzeit ("142 hrs"), die hoursTpl einsetzt. Die Reviews sind
+  // Checkpoint64s eigene, live von seiner Steam-Seite (siehe src/lib/steam.js).
+  steam: {
+    tape: 'WAS SPIELER SAGEN',
+    hand: 'live von Steam',
+    h2Html: 'DIREKT VON <span class="accent">STEAM.</span>',
+    lede: 'Echte Reviews von echten Spielern, live von unserer Steam-Seite geladen.',
+    countTpl: '{0} Reviews',
+    viewOnSteam: 'Auf Steam ansehen',
+    recommended: 'EMPFOHLEN',
+    hoursTpl: '{0} auf dem Konto',
+    helpfulTpl: '{0} fanden das hilfreich',
+    anonymous: 'Steam-Spieler',
+  },
+
   savings: {
     tape: 'SPAR DIR DEN DEDI',
     hand: 'rechne nach',
