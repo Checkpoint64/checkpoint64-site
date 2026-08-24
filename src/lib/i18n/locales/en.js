@@ -328,7 +328,7 @@ export default {
         cta: 'GET LIFETIME',
       },
       {
-        tag: 'PRO', unit: 'monthly, cancel anytime',
+        tag: 'PRO', unit: 'one-time, yours forever',
         tagline: 'for crews, streamers, modding groups',
         features: [
           'personal space + up to 5 teams',
@@ -350,7 +350,7 @@ export default {
 
     // The three dashed caveats under the cards on /pricing/.
     notes: [
-      '<b>On Steam, Pro is a one-time unlock.</b> Bought direct, it’s monthly. There are no subscriptions of any kind on Steam.',
+      '<b>Pro is a one-time unlock too.</b> Bought direct or on Steam, you pay once and keep it. There are no subscriptions on any tier.',
       '<b>No charge per person</b> on any tier. Invite your crew; the price doesn’t move.',
       '<b>Your data stays yours.</b> Export everything as a zip whenever you like; deleting your account actually deletes it.',
     ],
@@ -427,7 +427,7 @@ export default {
       { q: 'CAN I USE IT TODAY?', a: 'Yes — 2.0 is out. It’s a free download for Windows, macOS (Apple Silicon), and Linux, and it’s on Steam too.' },
       { q: 'WHO CAN SEE MY SAVES?', a: 'Your teammates — and only the ones you invite. They see your display name, never your email. And your data stays yours: export everything as a zip whenever you like, and deleting your account actually deletes it (after a 7-day cooling-off period, in case of 2am regret).' },
       { q: 'IS THE FREE PLAN A TRIAL?', a: 'No. It has no timer and no card on file. 20 MiB is small on purpose — enough for Stardew, Hollow Knight, or a whole retro library — and it never expires.' },
-      { q: 'IS PRO A SUBSCRIPTION?', a: 'Bought direct, yes — monthly, cancel anytime. On Steam, Pro is a one-time unlock; there are no subscriptions of any kind on Steam.' },
+      { q: 'IS PRO A SUBSCRIPTION?', a: 'No. Pro is a one-time purchase, bought direct or on Steam, the same as Lifetime. There are no subscriptions on any tier.' },
       { q: 'CAN FRIENDS JOIN A SERVER ON MY PC WITHOUT PORT FORWARDING?', a: 'Yes, with Checkpoint Connect in the Steam version. Start the game’s server on your PC, share it with your team, and teammates hit Join. Their game connects to 127.0.0.1 and Steam carries the traffic, direct or through Valve’s relays, so nobody touches a router. It works for UDP and TCP servers, only your team’s members get in, and it’s on every plan.' },
     ],
   },
@@ -642,7 +642,7 @@ export default {
       { q: 'Can I use it today?', a: 'Yes — 2.0 is out. It’s a free download for Windows, macOS (Apple Silicon), and Linux, and it’s on Steam too.' },
       { q: 'Who can see my saves?', a: 'Your teammates — and only the ones you invite. They see your display name, never your email. And your data stays yours: export everything as a zip whenever you like, and deleting your account actually deletes it (after a 7-day cooling-off period).' },
       { q: 'Is the free plan a trial?', a: 'No. It has no timer and no card on file. 20 MiB is small on purpose — enough for Stardew, Hollow Knight, or a whole retro library — and it never expires.' },
-      { q: 'Is Pro a subscription?', a: 'Bought direct, yes — monthly, cancel anytime. On Steam, Pro is a one-time unlock; there are no subscriptions of any kind on Steam.' },
+      { q: 'Is Pro a subscription?', a: 'No. Pro is a one-time purchase, bought direct or on Steam, the same as Lifetime. There are no subscriptions on any tier.' },
       { q: 'Can friends join a server on my PC without port forwarding?', a: "Yes, with Checkpoint Connect in the Steam version. Start the game's server on your PC, share it with your team, and teammates hit Join. Their game connects to 127.0.0.1 and Steam carries the traffic, direct or through Valve's relays, so nobody touches a router. It works for UDP and TCP servers, only your team's members get in, and it's on every plan." },
     ],
   },
