@@ -442,7 +442,7 @@
   </url>
   <url>
     <loc>https://checkpoint64.com/blog/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -455,6 +455,12 @@
   <url>
     <loc>https://checkpoint64.com/blog/ditch-the-dedicated-server/</loc>
     <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://checkpoint64.com/blog/gaming-preservation-save-file-self-defence/</loc>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
