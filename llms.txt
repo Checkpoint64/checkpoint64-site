@@ -204,6 +204,7 @@ published in 5.
 
 Newest first. Every post is also in the RSS feed at https://checkpoint64.com/rss.xml.
 
+- [Co-op World Ownership Guide for PC Crews](https://checkpoint64.com/blog/co-op-world-ownership-guide/): 2026-09-10 — Use this co-op world ownership guide to stop host hostage drama, hand worlds over safely, and keep rollback-ready saves when any PC session goes badly.
 - [Gaming Preservation Is Save-File Self-Defence](https://checkpoint64.com/blog/gaming-preservation-save-file-self-defence/): 2026-09-09 — Gaming preservation means keeping your saves, mods and shared worlds playable after crashes, bad updates and one disastrous overwrite without the drama.
 - [How to Undo Accidental Game Overwrites Safely](https://checkpoint64.com/blog/undo-accidental-game-overwrites/): 2026-09-08 — Undo accidental game overwrites without losing more progress. Learn where saves hide, when recovery works, and how version history prevents the next disaster.
 - [Patreon is connected; your patrons get the save, and the lapsed ones don't](https://checkpoint64.com/blog/patreon-supporters-get-the-save/): 2026-09-07 — Bind a team to your Patreon campaign and your active patrons get read-only access to its saves on their own. Lapsed pledges lose it on their own. Nobody pastes a code, nobody keeps a list, and a Patreon outage never removes anyone.
