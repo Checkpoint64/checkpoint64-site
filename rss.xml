@@ -6,7 +6,14 @@
     <description>Release notes and write-ups from the Checkpoint64 team.</description>
     <language>en</language>
     <atom:link href="https://checkpoint64.com/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Thu, 10 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 11 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Is Cloud Backup Worth It for Serious PC Gamers?</title>
+      <link>https://checkpoint64.com/blog/is-cloud-backup-worth-it-pc-gamers/</link>
+      <guid isPermaLink="true">https://checkpoint64.com/blog/is-cloud-backup-worth-it-pc-gamers/</guid>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Is cloud backup worth it when a corrupted save can erase a 200-hour world? See the real costs, limits and smarter ways to protect your PC game progress.</description>
+    </item>
     <item>
       <title>Co-op World Ownership Guide for PC Crews</title>
       <link>https://checkpoint64.com/blog/co-op-world-ownership-guide/</link>
