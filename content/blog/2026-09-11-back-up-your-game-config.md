@@ -1,7 +1,7 @@
 ---
 title: Counter-Strike has no save file; it still has four hours of your settings. Checkpoint64 now backs up game and server configs
 date: 2026-09-11
-excerpt: A competitive shooter keeps your progress on the publisher's servers, so there is no save to back up. What sits on your disk is the config, and that is the part you rebuild by hand after a reinstall. Checkpoint64 now stocks configs for 36 competitive games and 16 dedicated servers.
+excerpt: A competitive shooter keeps your progress on the publisher's servers, so there is no save to back up. What sits on your disk is the config, and that is the part you rebuild by hand after a reinstall. Checkpoint64 now stocks configs for 67 games and 16 dedicated servers.
 tags: [update, catalog, config, multiplayer, dedicated-servers, backups]
 draft: true
 ---
@@ -20,7 +20,7 @@ about eighty percent of it back.
 We built Checkpoint64 around save files, so for a long time a game with no save
 file did not qualify for the catalog. That was the wrong test. The right test is
 whether the game puts something on your disk that you would hate to lose, and a
-competitive shooter does. This release stocks 52 of them.
+competitive shooter does. This release stocks 83 of them.
 
 ## 36 games whose config is the whole point
 
@@ -69,6 +69,29 @@ which no catalog can guess, so point the entry at it with **Change folder** and
 it will be used ahead of ours. Project Zomboid is the exception: its server
 config sits under your user profile, so it resolves either way.
 
+## 31 more where the UI is the thing you lose
+
+The first two groups are about keybinds and sensitivity. The third is about
+everything you arranged on screen.
+
+Ask an EVE Online player what happens when `settings_Default` goes missing and
+they will tell you about every overview tab they ever tuned, gone. An FFXIV
+player loses hotbars, macros, gearsets and HUD layout for every character on the
+account. A DCS pilot loses control bindings that took longer to set up than most
+people spend on a campaign.
+
+So: Final Fantasy XIV, EVE Online, Guild Wars 2, Path of Exile 1 and 2, Diablo
+IV, Lost Ark, Age of Empires II: Definitive Edition, Age of Mythology: Retold,
+Helldivers 2, Deep Rock Galactic, Sea of Thieves, Darktide, Vermintide 2, PAYDAY
+3, Killing Floor 2, For Honor, Ready or Not, Gray Zone Warfare, Squad 44, GROUND
+BRANCH, Dune: Awakening, The First Descendant, DCS World, Assetto Corsa, F1 24,
+Mortal Kombat 1, Guilty Gear Strive, Battlefield V, Battlefield 1 and Among Us.
+
+A few of these are narrowed to specific file types rather than the whole folder,
+because an MMO keeps its settings in the same directory it fills with
+screenshots and combat logs, and you do not want four years of screenshots in
+your backup.
+
 ## What actually gets backed up
 
 A config directory is backed up whole, which is the model that fits it. You do
@@ -86,7 +109,7 @@ entry in the catalog.
 
 ## You do not need to update anything
 
-The catalog lives on our servers, not inside the app. These 52 entries appear on
+The catalog lives on our servers, not inside the app. These 83 entries appear on
 your Add screen on their own, with no download and no release to install. If
 Checkpoint64 is already on your machine, open it and search for Counter-Strike.
 
@@ -95,9 +118,8 @@ at any folder and it will version it, whether or not we have ever heard of the
 game. That is how several of these entries started life, including the one that
 prompted the batch.
 
-More are on the way. The obvious gap right now is the games whose UI state is the
-artifact rather than the keybinds: an EVE overview, an FFXIV hotbar layout, a
-flight sim's control bindings. Those are in progress.
+If a game you play is still missing after all that, add it yourself and we may
+stock it later.
 
 ---
 
