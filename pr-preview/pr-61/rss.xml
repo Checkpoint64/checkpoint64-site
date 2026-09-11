@@ -8,6 +8,19 @@
     <atom:link href="https://checkpoint64.com/rss.xml" rel="self" type="application/rss+xml"/>
     <lastBuildDate>Fri, 11 Sep 2026 00:00:00 GMT</lastBuildDate>
     <item>
+      <title>Counter-Strike has no save file; it still has four hours of your settings. Checkpoint64 now backs up game and server configs</title>
+      <link>https://checkpoint64.com/blog/back-up-your-game-config/</link>
+      <guid isPermaLink="true">https://checkpoint64.com/blog/back-up-your-game-config/</guid>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
+      <description>A competitive shooter keeps your progress on the publisher&#39;s servers, so there is no save to back up. What sits on your disk is the config, and that is the part you rebuild by hand after a reinstall. Checkpoint64 now stocks configs for 67 games and 16 dedicated servers.</description>
+      <category>update</category>
+      <category>catalog</category>
+      <category>config</category>
+      <category>multiplayer</category>
+      <category>dedicated-servers</category>
+      <category>backups</category>
+    </item>
+    <item>
       <title>Is Cloud Backup Worth It for Serious PC Gamers?</title>
       <link>https://checkpoint64.com/blog/is-cloud-backup-worth-it-pc-gamers/</link>
       <guid isPermaLink="true">https://checkpoint64.com/blog/is-cloud-backup-worth-it-pc-gamers/</guid>

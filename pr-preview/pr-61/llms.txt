@@ -204,6 +204,7 @@ published in 5.
 
 Newest first. Every post is also in the RSS feed at https://checkpoint64.com/rss.xml.
 
+- [Counter-Strike has no save file; it still has four hours of your settings. Checkpoint64 now backs up game and server configs](https://checkpoint64.com/blog/back-up-your-game-config/): 2026-09-11 — A competitive shooter keeps your progress on the publisher's servers, so there is no save to back up. What sits on your disk is the config, and that is the part you rebuild by hand after a reinstall. Checkpoint64 now stocks configs for 67 games and 16 dedicated servers.
 - [Is Cloud Backup Worth It for Serious PC Gamers?](https://checkpoint64.com/blog/is-cloud-backup-worth-it-pc-gamers/): 2026-09-11 — Is cloud backup worth it when a corrupted save can erase a 200-hour world? See the real costs, limits and smarter ways to protect your PC game progress.
 - [Co-op World Ownership Guide for PC Crews](https://checkpoint64.com/blog/co-op-world-ownership-guide/): 2026-09-10 — Use this co-op world ownership guide to stop host hostage drama, hand worlds over safely, and keep rollback-ready saves when any PC session goes badly.
 - [Gaming Preservation Is Save-File Self-Defence](https://checkpoint64.com/blog/gaming-preservation-save-file-self-defence/): 2026-09-09 — Gaming preservation means keeping your saves, mods and shared worlds playable after crashes, bad updates and one disastrous overwrite without the drama.
