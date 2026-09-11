@@ -375,7 +375,7 @@ to know what Checkpoint64 is and does.
 - [Grounded 2 save file location](https://checkpoint64.com/games/grounded-2/save/)
 - [Hades save file location](https://checkpoint64.com/games/hades/save/)
 - [Hades II save file location](https://checkpoint64.com/games/hades-2/save/)
-- [Hell Let Loose Config save file location](https://checkpoint64.com/games/hell-let-loose-config-7lljmi/save/)
+- [Hell Let Loose save file location](https://checkpoint64.com/games/hell-let-loose/save/)
 - [Hollow Knight save file location](https://checkpoint64.com/games/hollow-knight/save/)
 - [Hollow Knight: Silksong save file location](https://checkpoint64.com/games/hollow-knight-silksong/save/)
 - [How to Fish save file location](https://checkpoint64.com/games/how-to-fish/save/)
