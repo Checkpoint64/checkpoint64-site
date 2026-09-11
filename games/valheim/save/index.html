@@ -259,7 +259,7 @@
         "name": "Where does Valheim store save files on Windows?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Valheim keeps its saves at %USERPROFILE%\\AppData\\LocalLow\\IronGate\\Valheim. AppData is a hidden folder — paste the path into Explorer or the Win+R box to jump straight there. Checkpoint64 already knows this path and backs the folder up automatically."
+          "text": "Valheim keeps its saves at %USERPROFILE%\\AppData\\LocalLow\\IronGate\\Valheim or %USERPROFILE%\\AppData\\LocalLow\\IronGate\\Valheim\\worlds_local. AppData is a hidden folder — paste the path into Explorer or the Win+R box to jump straight there. Checkpoint64 already knows this path and backs the folder up automatically."
         }
       },
       {
@@ -320,10 +320,11 @@
         <p><strong>Valheim stores its save files at <code>%USERPROFILE%\AppData\LocalLow\IronGate\Valheim</code> on Windows.</strong> Checkpoint64 already knows this folder — it backs it up automatically and keeps every version, so a corrupted or overwritten save is one click from restored.</p>
         <h2>Where Valheim saves are stored</h2>
         <ul>
-          <li><strong>Windows</strong> — <code>%USERPROFILE%\AppData\LocalLow\IronGate\Valheim</code></li>
-          <li><strong>macOS</strong> — <code>~/Library/Application Support/IronGate/Valheim</code></li>
-          <li><strong>Linux</strong> — <code>~/.config/unity3d/IronGate/Valheim</code></li>
+          <li><strong>Windows</strong> — <code>%USERPROFILE%\AppData\LocalLow\IronGate\Valheim</code><br>or <code>%USERPROFILE%\AppData\LocalLow\IronGate\Valheim\worlds_local</code></li>
+          <li><strong>macOS</strong> — <code>~/Library/Application Support/IronGate/Valheim</code><br>or <code>~/Library/Application Support/IronGate/Valheim/worlds_local</code></li>
+          <li><strong>Linux</strong> — <code>~/.config/unity3d/IronGate/Valheim</code><br>or <code>~/.config/unity3d/IronGate/Valheim/worlds_local</code></li>
         </ul>
+        <p>Where two locations are listed, which one is in use depends on the install (Checkpoint64 checks them in order and uses the first that exists).</p>
         <p>The save data here is <code>.db</code> / <code>.fwl</code> / <code>.old</code> files — back up the folder as a set, not single files, so a restore always keeps them consistent.</p>
         <h2>How to open the save folder</h2>
         <ul>
@@ -345,7 +346,7 @@
           <h2>Common questions</h2>
           <details class="guide-faq-item" open>
             <summary>Where does Valheim store save files on Windows?</summary>
-            <p>Valheim keeps its saves at %USERPROFILE%\AppData\LocalLow\IronGate\Valheim. AppData is a hidden folder — paste the path into Explorer or the Win+R box to jump straight there. Checkpoint64 already knows this path and backs the folder up automatically.</p>
+            <p>Valheim keeps its saves at %USERPROFILE%\AppData\LocalLow\IronGate\Valheim or %USERPROFILE%\AppData\LocalLow\IronGate\Valheim\worlds_local. AppData is a hidden folder — paste the path into Explorer or the Win+R box to jump straight there. Checkpoint64 already knows this path and backs the folder up automatically.</p>
           </details>
           <details class="guide-faq-item">
             <summary>Can I back up Valheim saves automatically?</summary>
@@ -371,10 +372,10 @@
           <li><a href="../../../games/minecraft/save/">Minecraft (Java) save file location</a></li>
           <li><a href="../../../games/stardew/save/">Stardew Valley save file location</a></li>
           <li><a href="../../../games/elden-ring/save/">Elden Ring save file location</a></li>
-          <li><a href="../../../games/vintage-story/save/">Vintage Story save file location</a></li>
+          <li><a href="../../../games/valorant/save/">VALORANT save file location</a></li>
           <li><a href="../../../games/v-rising/save/">V Rising save file location</a></li>
-          <li><a href="../../../games/rogue-trader/save/">Warhammer 40,000: Rogue Trader save file location</a></li>
-          <li><a href="../../../games/">All 176 supported games</a></li>
+          <li><a href="../../../games/vintage-story/save/">Vintage Story save file location</a></li>
+          <li><a href="../../../games/">All 228 supported games</a></li>
           </ul>
         </nav>
     </article>
