@@ -1,5 +1,5 @@
 ---
-title: Counter-Strike has no save file; it still has four hours of your settings. 52 new catalog entries for game and server configs
+title: Counter-Strike has no save file; it still has four hours of your settings. Checkpoint64 now backs up game and server configs
 date: 2026-09-11
 excerpt: A competitive shooter keeps your progress on the publisher's servers, so there is no save to back up. What sits on your disk is the config, and that is the part you rebuild by hand after a reinstall. Checkpoint64 now stocks configs for 36 competitive games and 16 dedicated servers.
 tags: [update, catalog, config, multiplayer, dedicated-servers, backups]
@@ -94,6 +94,10 @@ If a game you play is still missing, you can add it yourself: point Checkpoint64
 at any folder and it will version it, whether or not we have ever heard of the
 game. That is how several of these entries started life, including the one that
 prompted the batch.
+
+More are on the way. The obvious gap right now is the games whose UI state is the
+artifact rather than the keybinds: an EVE overview, an FFXIV hotbar layout, a
+flight sim's control bindings. Those are in progress.
 
 ---
 
