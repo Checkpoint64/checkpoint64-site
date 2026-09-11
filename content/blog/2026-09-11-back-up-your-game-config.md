@@ -3,7 +3,7 @@ title: Counter-Strike has no save file; it still has four hours of your settings
 date: 2026-09-11
 excerpt: A competitive shooter keeps your progress on the publisher's servers, so there is no save to back up. What sits on your disk is the config, and that is the part you rebuild by hand after a reinstall. Checkpoint64 now stocks configs for 67 games and 16 dedicated servers.
 tags: [update, catalog, config, multiplayer, dedicated-servers, backups]
-draft: true
+pinned: true
 ---
 
 You can play Hell Let Loose for six hundred hours and never lose a save, because
