@@ -43,6 +43,7 @@
           <li><a href="{prefix}dedicated-server-alternative/">Dedicated server alternative</a></li>
           <li><a href="{prefix}modded-game-save-backup/">Modded save backup</a></li>
           <li><a href="{prefix}emulator-save-backup/">Emulator save backup</a></li>
+          <li><a href="{prefix}game-config-backup/">Game config backup</a></li>
           <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank" rel="noopener noreferrer" aria-label={f.changelogAria}>{f.links.changelog}</a></li>
         </ul>
       </nav>

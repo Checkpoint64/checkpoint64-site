@@ -47,6 +47,10 @@ Taking a lock from someone warns them and lands in the shared **logbook**, so th
 | **Setup** | Server config, ports, updates | Install, pick the game, share a team |
 | **Idle waste** | Pays 24/7 for a few hours' use | You pay once |
 
+## If you do run a server, back up its config
+
+Keeping a real server is a perfectly good answer for some groups, and it comes with its own thing to lose: the rule set. Multipliers, decay timers, slot counts, the admin list — hours of fiddling that exist on one box, usually the one nobody else has access to. Sixteen dedicated servers have a catalog entry of their own for exactly that, separate from the game client; the [game config backup guide](../game-config-backup/) covers which ones and where their files live.
+
 ## When you still want a real server
 
 Be honest about the 10%. A dedicated server still wins if your group needs the world **online around the clock** — a big community that plays across time zones, or 20+ players who expect to drop in any time. Checkpoint64 is built for the small crew that plays together in bursts, not the always-on public server.
