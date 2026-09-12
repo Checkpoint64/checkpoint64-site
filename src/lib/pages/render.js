@@ -48,7 +48,7 @@ export function ctaBlock(prefix) {
 // most of what that linking is worth. Driven by the same `coop` category
 // catalog/render.js gates on, so the two sides can't drift apart.
 function coopGamesList(prefix, games) {
-  const coop = games.filter((g) => g.categories.includes('coop'))
+  const coop = games.filter((g) => g.categories.includes('coop') && !g.categories.includes('config'))
   if (!coop.length) return ''
   const links = coop.map((g) =>
     `            <li><a href="${prefix}games/${esc(g.slug)}/save/">${esc(g.displayName)}</a></li>`).join('\n')

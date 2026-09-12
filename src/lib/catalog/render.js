@@ -29,6 +29,15 @@ const PLATFORMS = [
 // APPDATA = config dir, LOCALAPPDATA = local-data dir, LOCALLOW/DOCUMENTS/HOME
 // as named. Display forms, not runtime values — %VARS% on Windows (pasteable
 // into Explorer/Win+R), ~ paths on macOS/Linux.
+//
+// STEAM/STEAM_USERDATA arrived with the config and dedicated-server entries,
+// which point at a Steam install rather than a user folder. The app finds the
+// install wherever it is; what is shown here is the default location, which is
+// where it is for most people — and the STEAM_USERDATA one keeps an obvious
+// `<your Steam ID>` placeholder rather than inventing an account number.
+// An unmapped token renders raw (`{UBISOFT}\...`), which is how these two read
+// on the page before this map knew them, so check this list when the backend
+// starts using a new one.
 const TOKEN_DISPLAY = {
   windows: {
     HOME: '%USERPROFILE%',
@@ -36,18 +45,24 @@ const TOKEN_DISPLAY = {
     LOCALAPPDATA: '%LOCALAPPDATA%',
     LOCALLOW: '%USERPROFILE%\\AppData\\LocalLow',
     DOCUMENTS: '%USERPROFILE%\\Documents',
+    STEAM: 'C:\\Program Files (x86)\\Steam',
+    STEAM_USERDATA: 'C:\\Program Files (x86)\\Steam\\userdata\\<your Steam ID>',
   },
   macos: {
     HOME: '~',
     APPDATA: '~/Library/Application Support',
     LOCALAPPDATA: '~/Library/Application Support',
     DOCUMENTS: '~/Documents',
+    STEAM: '~/Library/Application Support/Steam',
+    STEAM_USERDATA: '~/Library/Application Support/Steam/userdata/<your Steam ID>',
   },
   linux: {
     HOME: '~',
     APPDATA: '~/.config',
     LOCALAPPDATA: '~/.local/share',
     DOCUMENTS: '~/Documents',
+    STEAM: '~/.steam/steam',
+    STEAM_USERDATA: '~/.steam/steam/userdata/<your Steam ID>',
   },
 }
 
@@ -80,6 +95,7 @@ function platformList(rows, { prose = false } = {}) {
 }
 
 function pathListSection(game, rows) {
+  const config = isConfig(game)
   const multi = rows.some((r) => r.paths.length > 1)
   const items = rows.map((r) => {
     const paths = r.paths
@@ -92,15 +108,15 @@ function pathListSection(game, rows) {
     : ''
   const exts = game.allowedFileExtensions
   const extNote = exts && exts.length > 0 && exts.length <= 8
-    ? `\n        <p>The save data here is ${exts.map((e) => `<code>.${esc(e)}</code>`).join(' / ')} files — back up the folder as a set, not single files, so a restore always keeps them consistent.</p>`
+    ? `\n        <p>The ${config ? 'settings' : 'save data'} here is ${exts.map((e) => `<code>.${esc(e)}</code>`).join(' / ')} files — back up the folder as a set, not single files, so a restore always keeps them consistent.</p>`
     : ''
-  return `        <h2>Where ${esc(game.displayName)} saves are stored</h2>
+  return `        <h2>Where ${esc(game.displayName)} ${config ? 'settings are' : 'saves are'} stored</h2>
         <ul>
 ${items}
         </ul>${multiNote}${extNote}`
 }
 
-function openFolderSection(rows) {
+function openFolderSection(rows, config) {
   const win = rows.find((r) => r.key === 'windows')
   const mac = rows.find((r) => r.key === 'macos')
   const tips = []
@@ -115,7 +131,7 @@ function openFolderSection(rows) {
     tips.push(`          <li><strong>macOS</strong> — in Finder press <strong>Cmd+Shift+G</strong> (Go to Folder) and paste <code>${esc(mac.paths[0])}</code>.</li>`)
   }
   if (!tips.length) return ''
-  return `        <h2>How to open the save folder</h2>
+  return `        <h2>How to open the ${config ? 'config' : 'save'} folder</h2>
         <ul>
 ${tips.join('\n')}
         </ul>`
@@ -123,24 +139,56 @@ ${tips.join('\n')}
 
 function backupSection(game, prefix, guide) {
   const name = esc(game.displayName)
+  const config = isConfig(game)
+  const deeper = config
+    ? `what resets a config and how rollback works`
+    : `how ${name} saves break and how rollback works`
   const guideLink = guide
-    ? `\n        <p>For the deeper story — how ${name} saves break and how rollback works — read the full <a href="${prefix}${guide.href}">${esc(guide.breadcrumb)}</a> guide.</p>`
+    ? `\n        <p>For the deeper story — ${deeper} — read the full <a href="${prefix}${guide.href}">${esc(guide.breadcrumb)}</a> guide.</p>`
     : ''
-  return `        <h2>Backing up ${name} saves automatically</h2>
+  const lastStep = config
+    ? `<strong>Restore any version in one click</strong> after a patch resets your settings, a file verification restores the defaults, or you move to a new PC.`
+    : `<strong>Restore any version in one click</strong> if a save corrupts, gets overwritten, or a mod breaks it.`
+  return `        <h2>Backing up ${name} ${config ? 'settings' : 'saves'} automatically</h2>
         <ol>
-          <li><strong>Install Checkpoint64</strong> (free) and pick ${name} — the save path above is already preset.</li>
+          <li><strong>Install Checkpoint64</strong> (free) and pick ${name} — the ${config ? 'config' : 'save'} path above is already preset.</li>
           <li><strong>Auto-backup watches the folder</strong> and uploads a new version whenever it changes, keeping full history.</li>
-          <li><strong>Restore any version in one click</strong> if a save corrupts, gets overwritten, or a mod breaks it.</li>
+          <li>${lastStep}</li>
         </ol>${guideLink}`
 }
 
 // Co-op games get a second intent on the same page. The folder above sits on
 // one person's PC — the host's — which is the "who has the latest world?"
 // problem, a query family these pages said nothing about. Gated on the
-// catalog's own `coop` category (63 of 147 games) rather than a hand-kept list,
+// catalog's own `coop` category (71 of the 259 entries today) rather than a hand-kept list,
 // so it tracks the catalog for free as games are added.
 function isCoop(game) {
-  return game.categories.includes('coop')
+  // Config-only entries are excluded even where the game has co-op: the
+  // take-turns flow below is about passing one world around, and a config
+  // folder is not a world — least of all on a dedicated server's own entry,
+  // where "rent a server instead" would be advice to the person already
+  // running one.
+  return game.categories.includes('coop') && !isConfig(game)
+}
+
+// A config-only entry — Counter-Strike 2, FFXIV, the 16 dedicated servers —
+// has no save file at all: its catalog path points at the settings folder,
+// because progress (if there is any) lives on the publisher's servers. Same
+// page shape, different noun throughout. Heading one of these "Save File
+// Location" is both wrong on its face and invisible to the query it exists for
+// ("cs2 config location"), so the wording keys off the catalog's own `config`
+// category, the way the co-op section keys off `coop`.
+function isConfig(game) {
+  return game.categories.includes('config')
+}
+
+// A dedicated-server entry, which is a config entry whose files are the rule
+// set rather than one player's keybinds. Its own category, and its own catalog
+// entry separate from the client (resolution is first-path-wins, so a server
+// path bolted onto the client entry would never be reached on a machine that
+// has both).
+function isServer(game) {
+  return game.categories.includes('server') && game.slug.endsWith('-server')
 }
 
 function coopSection(game, prefix) {
@@ -154,26 +202,34 @@ function buildFaq(game, rows) {
   const name = game.displayName
   const first = rows[0]
   const win = rows.find((r) => r.key === 'windows')
+  const config = isConfig(game)
+  // The visible FAQ and the FAQPage JSON-LD are both built from this list, so
+  // the config wording lands in both or in neither.
+  const stored = config ? 'config files' : 'save files'
+  const keeps = config ? 'keeps its settings' : 'keeps its saves'
   const faq = []
   if (win) {
     const hidden = win.paths[0].includes('\\AppData\\')
       ? ' AppData is a hidden folder — paste the path into Explorer or the Win+R box to jump straight there.'
       : ''
     faq.push({
-      q: `Where does ${name} store save files on Windows?`,
-      a: `${name} keeps its saves at ${win.paths.join(' or ')}.${hidden} Checkpoint64 already knows this path and backs the folder up automatically.`,
+      q: `Where does ${name} store ${stored} on Windows?`,
+      a: `${name} ${keeps} at ${win.paths.join(' or ')}.${hidden} Checkpoint64 already knows this path and backs the folder up automatically.`,
     })
   } else if (first) {
     faq.push({
-      q: `Where does ${name} store save files on ${first.label}?`,
-      a: `${name} keeps its saves at ${first.paths.join(' or ')}. Checkpoint64 already knows this path and backs the folder up automatically.`,
+      q: `Where does ${name} store ${stored} on ${first.label}?`,
+      a: `${name} ${keeps} at ${first.paths.join(' or ')}. Checkpoint64 already knows this path and backs the folder up automatically.`,
     })
   }
   faq.push({
-    q: `Can I back up ${name} saves automatically?`,
-    a: `Yes — Checkpoint64 watches ${name}'s save folder and uploads a new version every time it changes, so you get automatic backups with full version history. Free download for Windows, macOS, and Linux.`,
+    q: `Can I back up ${name} ${config ? 'settings' : 'saves'} automatically?`,
+    a: `Yes — Checkpoint64 watches ${name}'s ${config ? 'config' : 'save'} folder and uploads a new version every time it changes, so you get automatic backups with full version history. Free download for Windows, macOS, and Linux.`,
   })
-  faq.push({
+  faq.push(config ? {
+    q: `How do I restore my ${name} settings?`,
+    a: `With Checkpoint64, open the config folder's version list and restore any earlier version in one click — it puts those exact files back, so every keybind and video setting comes back together. Without a backup there is nothing to go back to: the game rewrote the folder with its defaults.`,
+  } : {
     q: `How do I restore an earlier ${name} save?`,
     a: `With Checkpoint64, open the save's version list and restore any earlier version in one click — it puts those exact files back in ${name}'s save folder. Without a backup tool there's usually nothing to go back to: the folder only holds the latest files.`,
   })
@@ -216,7 +272,7 @@ function neighbours(games, slug, n = 6, popularCount = 3) {
 function relatedSection(game, games, prefix) {
   const links = [
     ...neighbours(games, game.slug).map((g) =>
-      `          <li><a href="${prefix}games/${esc(g.slug)}/save/">${esc(g.displayName)} save file location</a></li>`),
+      `          <li><a href="${prefix}games/${esc(g.slug)}/save/">${esc(g.displayName)} ${isConfig(g) ? 'config' : 'save'} file location</a></li>`),
     `          <li><a href="${prefix}games/">All ${games.length} supported games</a></li>`,
   ].join('\n')
   return `        <nav class="guide-related" aria-label="Related pages">
@@ -228,13 +284,15 @@ ${links}
 }
 
 // The hand-written deep dive for this game, when there is one: the 1:1 guide,
-// or the family guide a launcher variant / emulator borrows. `href` is where it
-// now lives, which is not derivable from the doc slug any more.
-function deepDive(catalogSlug) {
-  const slug = relatedGuideSlugForCatalog(catalogSlug)
+// or the family guide a launcher variant / emulator / config-only entry
+// borrows. `href` is where it now lives, which is not derivable from the doc
+// slug any more. Takes the whole entry rather than the slug because the config
+// fallback keys off its categories.
+function deepDive(game) {
+  const slug = relatedGuideSlugForCatalog(game.slug, game.categories)
   if (!slug) return null
   const doc = loadPage(slug)
-  return doc ? { ...doc, href: guideHrefForCatalog(catalogSlug) } : null
+  return doc ? { ...doc, href: guideHrefForCatalog(game.slug, game.categories) } : null
 }
 
 // /games/<slug>/save/index.html → depth 3.
@@ -243,16 +301,21 @@ export function renderSavePage(game, games, { depth = 3 } = {}) {
   const rows = platformRows(game)
   const name = esc(game.displayName)
   const url = `${ORIGIN}/games/${game.slug}/save/`
-  const title = `${game.displayName} Save File Location (${platformList(rows)})`
-  const first = rows[0]
-  // The title is deliberately left alone: it exact-matches this page's highest-volume
+  const config = isConfig(game)
+  // The save title is deliberately left alone: it exact-matches this page's highest-volume
   // query and is already near the truncation limit. The description is the free slot.
+  // A config entry gets the noun its own query uses instead — nobody searches
+  // for a Counter-Strike 2 save file, because there isn't one.
+  const title = `${game.displayName} ${config ? 'Config File Location' : 'Save File Location'} (${platformList(rows)})`
+  const first = rows[0]
   const backupTail = isCoop(game)
     ? 'how to back them up automatically, and how to share the world with friends when the host is offline.'
     : 'and how to back them up automatically with Checkpoint64.'
-  const description = `${game.displayName} keeps its save files at ${first.paths[0]} on ${first.label}. Exact save folder paths for ${platformList(rows, { prose: true })}, ${backupTail}`
+  const description = config
+    ? `${game.displayName} keeps its config files at ${first.paths[0]} on ${first.label}. Exact settings folder paths for ${platformList(rows, { prose: true })}, and how to back up your keybinds and video settings automatically with Checkpoint64.`
+    : `${game.displayName} keeps its save files at ${first.paths[0]} on ${first.label}. Exact save folder paths for ${platformList(rows, { prose: true })}, ${backupTail}`
 
-  const guide = deepDive(game.slug)
+  const guide = deepDive(game)
   const faq = buildFaq(game, rows)
 
   const noteBlock = game.note
@@ -267,9 +330,11 @@ export function renderSavePage(game, games, { depth = 3 } = {}) {
         <h1 class="blog-post-title pixel">${esc(title)}</h1>
       </div>
       <div class="blog-post-body">
-        <p><strong>${name} stores its save files at <code>${esc(first.paths[0])}</code> on ${esc(first.label)}.</strong> Checkpoint64 already knows this folder — it backs it up automatically and keeps every version, so a corrupted or overwritten save is one click from restored.</p>${noteBlock}
+        <p><strong>${name} stores its ${config ? 'config files' : 'save files'} at <code>${esc(first.paths[0])}</code> on ${esc(first.label)}.</strong> ${config
+          ? `That folder holds ${isServer(game) ? 'the server rule set — multipliers, timers, slot counts and the admin list' : 'the settings rather than a save: keybinds, sensitivity, video options, the layout you arranged'}. Checkpoint64 already knows it, backs it up automatically and keeps every version, so a config that got reset is one click from restored.`
+          : 'Checkpoint64 already knows this folder — it backs it up automatically and keeps every version, so a corrupted or overwritten save is one click from restored.'}</p>${noteBlock}
 ${pathListSection(game, rows)}
-${openFolderSection(rows)}
+${openFolderSection(rows, config)}
 ${backupSection(game, prefix, guide)}
 ${isCoop(game) ? coopSection(game, prefix) : ''}
       </div>

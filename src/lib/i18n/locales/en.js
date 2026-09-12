@@ -418,6 +418,7 @@ export default {
         { kind: 'GUIDE', title: 'Save locations & backup guides for 140+ games', slug: 'games' },
         { kind: 'GUIDE', title: 'Emulator save backup', slug: 'emulator-save-backup' },
         { kind: 'GUIDE', title: 'Modded game save backup', slug: 'modded-game-save-backup' },
+        { kind: 'GUIDE', title: 'Game config & server settings backup', slug: 'game-config-backup' },
         { kind: 'COMPARE', title: 'Steam Cloud alternative', slug: 'steam-cloud-alternative' },
         { kind: 'COMPARE', title: 'Dedicated server alternative', slug: 'dedicated-server-alternative' },
         { kind: 'STEAM DECK', title: 'Where Steam Deck saves live', slug: 'blog/steam-deck-save-file-location' },

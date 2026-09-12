@@ -123,6 +123,10 @@ stock it later.
 
 ---
 
+The [game config backup guide](/game-config-backup/) is the standing version of
+this post: which games are covered, what resets a config in the first place, and
+how the dedicated-server entries fit.
+
 [Download Checkpoint64](/download/) or
 [grab it on Steam](https://store.steampowered.com/app/4790820). It is free to
 start, and it will now back up the config for a game that has no save at all.

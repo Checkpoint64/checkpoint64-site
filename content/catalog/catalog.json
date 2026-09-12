@@ -1,6 +1,22 @@
 {
   "games": [
     {
+      "slug": "007-first-light",
+      "displayName": "007 First Light",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM_USERDATA}/3768760"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "7-days-to-die",
       "displayName": "7 Days to Die",
       "iconUrl": "https://merch.thefunpimps.com/cdn/shop/collections/logo_7dtd.jpg?v=1706289330&width=1920",
@@ -48,6 +64,65 @@
       "note": null
     },
     {
+      "slug": "abiotic-factor-server",
+      "displayName": "Abiotic Factor (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Abiotic Factor Dedicated Server/AbioticFactor/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "aoe2-de",
+      "displayName": "Age of Empires II: Definitive Edition",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{HOME}/Games/Age of Empires 2 DE"
+        }
+      ],
+      "allowedFileExtensions": [
+        "profile"
+      ],
+      "categories": [
+        "config",
+        "singleplayer",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "aom-retold",
+      "displayName": "Age of Mythology: Retold",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{HOME}/Games/Age of Mythology Retold"
+        }
+      ],
+      "allowedFileExtensions": [
+        "xml"
+      ],
+      "categories": [
+        "config",
+        "singleplayer",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "alchemy-factory",
       "displayName": "Alchemy Factory",
       "iconUrl": null,
@@ -66,6 +141,40 @@
       "note": null
     },
     {
+      "slug": "among-us",
+      "displayName": "Among Us",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/Innersloth/Among Us"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "anno-117",
+      "displayName": "Anno 117: Pax Romana",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Anno 117 - Pax Romana/accounts"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "anno-1800",
       "displayName": "Anno 1800",
       "iconUrl": null,
@@ -80,6 +189,106 @@
         "singleplayer",
         "coop",
         "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "apex-legends",
+      "displayName": "Apex Legends",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{HOME}/Saved Games/Respawn/Apex"
+        }
+      ],
+      "allowedFileExtensions": [
+        "cfg",
+        "txt",
+        "json"
+      ],
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "arc-raiders",
+      "displayName": "ARC Raiders",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/PioneerGame/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "ark-asa-server",
+      "displayName": "ARK: Survival Ascended (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/ARK Survival Ascended Dedicated Server/ShooterGame/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "ark-se-server",
+      "displayName": "ARK: Survival Evolved (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/ARK Survival Evolved Dedicated Server/ShooterGame/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "arma-3",
+      "displayName": "Arma 3",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Arma 3"
+        }
+      ],
+      "allowedFileExtensions": [
+        "arma3profile",
+        "cfg"
+      ],
+      "categories": [
+        "config",
+        "singleplayer",
+        "coop",
+        "multiplayer",
+        "server"
       ],
       "note": null
     },
@@ -108,11 +317,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/273"
+          "pathTemplate": "{UBISOFT}/437"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/437"
+          "pathTemplate": "{UBISOFT}/273"
         }
       ],
       "allowedFileExtensions": null,
@@ -129,11 +338,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/6100"
+          "pathTemplate": "{UBISOFT}/6101"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/6101"
+          "pathTemplate": "{UBISOFT}/6100"
         }
       ],
       "allowedFileExtensions": null,
@@ -149,11 +358,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/5059"
+          "pathTemplate": "{UBISOFT}/5092"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/5092"
+          "pathTemplate": "{UBISOFT}/5059"
         }
       ],
       "allowedFileExtensions": null,
@@ -169,11 +378,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/3539"
+          "pathTemplate": "{UBISOFT}/4923"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/4923"
+          "pathTemplate": "{UBISOFT}/3539"
         }
       ],
       "allowedFileExtensions": null,
@@ -189,11 +398,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/8006"
+          "pathTemplate": "{UBISOFT}/1081"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/1081"
+          "pathTemplate": "{UBISOFT}/8006"
         }
       ],
       "allowedFileExtensions": null,
@@ -209,7 +418,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/1875"
+          "pathTemplate": "{UBISOFT}/1957"
+        },
+        {
+          "platform": "windows",
+          "pathTemplate": "{UBISOFT}/1958"
         },
         {
           "platform": "windows",
@@ -217,15 +430,11 @@
         },
         {
           "platform": "windows",
+          "pathTemplate": "{UBISOFT}/1875"
+        },
+        {
+          "platform": "windows",
           "pathTemplate": "{UBISOFT}/1956"
-        },
-        {
-          "platform": "windows",
-          "pathTemplate": "{UBISOFT}/1957"
-        },
-        {
-          "platform": "windows",
-          "pathTemplate": "{UBISOFT}/1958"
         }
       ],
       "allowedFileExtensions": null,
@@ -262,16 +471,52 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/13504"
+          "pathTemplate": "{UBISOFT}/7013"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/7013"
+          "pathTemplate": "{UBISOFT}/13504"
         }
       ],
       "allowedFileExtensions": null,
       "categories": [
         "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "assetto-corsa",
+      "displayName": "Assetto Corsa",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Assetto Corsa/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "acc",
+      "displayName": "Assetto Corsa Competizione",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Assetto Corsa Competizione/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "multiplayer"
       ],
       "note": null
     },
@@ -288,6 +533,25 @@
       "allowedFileExtensions": null,
       "categories": [
         "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "astroneer-server",
+      "displayName": "Astroneer (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/LEZ/Astro/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
         "coop",
         "multiplayer"
       ],
@@ -346,6 +610,74 @@
       "note": null
     },
     {
+      "slug": "battlefield-1",
+      "displayName": "Battlefield 1",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Battlefield 1/settings"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "battlefield-2042",
+      "displayName": "Battlefield 2042",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Battlefield 2042/settings"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "battlefield-6",
+      "displayName": "Battlefield 6",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Battlefield 6/settings"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "battlefield-v",
+      "displayName": "Battlefield V",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Battlefield V/settings"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "bellwright",
       "displayName": "Bellwright",
       "iconUrl": null,
@@ -371,6 +703,14 @@
           "pathTemplate": "{LOCALLOW}\\House House\\Big Walk\\user_data\\save_games"
         },
         {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/House House/Big Walk/user_data/save_games"
+        },
+        {
+          "platform": "macos",
+          "pathTemplate": "{HOME}/Library/Application Support/House House/Big Walk/user_data/save_games"
+        },
+        {
           "platform": "linux",
           "pathTemplate": "{HOME}/.var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/compatdata/1478500/pfx/drive_c/users/steamuser/AppData/LocalLow/House House/Big Walk/user_data/save_games"
         }
@@ -378,7 +718,9 @@
       "allowedFileExtensions": [
         "sav"
       ],
-      "categories": null,
+      "categories": [
+        "coop"
+      ],
       "note": "Linux paths unconfirmed"
     },
     {
@@ -415,6 +757,44 @@
       "allowedFileExtensions": null,
       "categories": [
         "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "cod-black-ops-6",
+      "displayName": "Call of Duty: Black Ops 6",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Call of Duty/players"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "cod-mw3",
+      "displayName": "Call of Duty: Modern Warfare III",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Call of Duty MWIII/players"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "coop",
+        "multiplayer"
       ],
       "note": null
     },
@@ -476,6 +856,24 @@
       "note": null
     },
     {
+      "slug": "chivalry-2",
+      "displayName": "Chivalry 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Chivalry 2/Saved/Config/WindowsNoEditor"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer",
+        "server"
+      ],
+      "note": null
+    },
+    {
       "slug": "cities-skylines",
       "displayName": "Cities: Skylines",
       "iconUrl": null,
@@ -529,6 +927,62 @@
       "note": null
     },
     {
+      "slug": "civ7",
+      "displayName": "Civilization VII",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/Sid Meier's Civilization VII/Saves"
+        },
+        {
+          "platform": "macos",
+          "pathTemplate": "{HOME}/Library/Application Support/Civilization VII/Saves"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "clair-obscur-expedition-33",
+      "displayName": "Clair Obscur: Expedition 33",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Sandfall/Saved/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "conan-exiles-server",
+      "displayName": "Conan Exiles (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Conan Exiles Dedicated Server/ConanSandbox/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "core-keeper",
       "displayName": "Core Keeper",
       "iconUrl": null,
@@ -546,6 +1000,79 @@
         "server"
       ],
       "note": null
+    },
+    {
+      "slug": "cs2",
+      "displayName": "Counter-Strike 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM_USERDATA}/730/local/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer",
+        "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "cs2-server",
+      "displayName": "Counter-Strike 2 (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Counter-Strike Global Offensive Beta - Dedicated Server/game/csgo/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "crimson-desert",
+      "displayName": "Crimson Desert",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Pearl Abyss/CD/save"
+        },
+        {
+          "platform": "macos",
+          "pathTemplate": "{HOME}/Library/Application Support/Pearl Abyss/CD/save"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "crimson-moon",
+      "displayName": "Crimson Moon",
+      "iconUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/4317690/43f965890a8f4e64917f20befc50a077036cc015/header.jpg",
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM_USERDATA}/4317690/remote"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop"
+      ],
+      "note": "Unconfirmed support. Please reach out if incorrect and use custom paths."
     },
     {
       "slug": "crisis-the-third-way",
@@ -647,6 +1174,20 @@
       "note": null
     },
     {
+      "slug": "darkest-dungeon",
+      "displayName": "Darkest Dungeon",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM_USERDATA}/262060/remote"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": null,
+      "note": null
+    },
+    {
       "slug": "dave-the-diver",
       "displayName": "Dave the Diver",
       "iconUrl": null,
@@ -663,6 +1204,98 @@
       "allowedFileExtensions": null,
       "categories": [
         "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "dcs-world",
+      "displayName": "DCS World",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{HOME}/Saved Games/DCS/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "dead-by-daylight",
+      "displayName": "Dead by Daylight",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/DeadByDaylight/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "deep-rock-galactic",
+      "displayName": "Deep Rock Galactic",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Deep Rock Galactic/FSD/Saved/Config/WindowsNoEditor"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "destiny-2",
+      "displayName": "Destiny 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/Bungie/DestinyPC/prefs"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "diablo-4",
+      "displayName": "Diablo IV",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Diablo IV"
+        }
+      ],
+      "allowedFileExtensions": [
+        "txt"
+      ],
+      "categories": [
+        "config",
+        "singleplayer",
+        "coop",
+        "multiplayer"
       ],
       "note": null
     },
@@ -776,6 +1409,23 @@
       "note": null
     },
     {
+      "slug": "dota-2",
+      "displayName": "Dota 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/dota 2 beta/game/dota/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "duckstation",
       "displayName": "DuckStation (PlayStation 1)",
       "iconUrl": null,
@@ -796,6 +1446,24 @@
       "allowedFileExtensions": null,
       "categories": [
         "emulator"
+      ],
+      "note": null
+    },
+    {
+      "slug": "dune-awakening",
+      "displayName": "Dune: Awakening",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/DuneSandbox/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
       ],
       "note": null
     },
@@ -853,6 +1521,58 @@
         "coop",
         "multiplayer",
         "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "escape-from-tarkov",
+      "displayName": "Escape from Tarkov",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/Battlestate Games/Escape from Tarkov/Settings"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "eve-online",
+      "displayName": "EVE Online",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/CCP/EVE/c_eve_sharedcache_tq_tranquility/settings_Default"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "f1-24",
+      "displayName": "F1 24",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/F1 24/hardwaresettings"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "multiplayer"
       ],
       "note": null
     },
@@ -946,7 +1666,7 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/420"
+          "pathTemplate": "{UBISOFT}/971"
         },
         {
           "platform": "windows",
@@ -954,7 +1674,7 @@
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/971"
+          "pathTemplate": "{UBISOFT}/420"
         }
       ],
       "allowedFileExtensions": null,
@@ -993,11 +1713,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/5266"
+          "pathTemplate": "{UBISOFT}/920"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/920"
+          "pathTemplate": "{UBISOFT}/5266"
         }
       ],
       "allowedFileExtensions": null,
@@ -1014,11 +1734,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/5210"
+          "pathTemplate": "{UBISOFT}/5211"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/5211"
+          "pathTemplate": "{UBISOFT}/5210"
         }
       ],
       "allowedFileExtensions": null,
@@ -1049,6 +1769,24 @@
       "note": null
     },
     {
+      "slug": "far-far-west",
+      "displayName": "Far Far West",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/FarFarWest/Saved/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "fields-of-mistria",
       "displayName": "Fields of Mistria",
       "iconUrl": null,
@@ -1065,6 +1803,79 @@
       "allowedFileExtensions": null,
       "categories": [
         "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "ffxiv",
+      "displayName": "Final Fantasy XIV",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/FINAL FANTASY XIV - A Realm Reborn"
+        }
+      ],
+      "allowedFileExtensions": [
+        "cfg",
+        "dat"
+      ],
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "for-honor",
+      "displayName": "For Honor",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/For Honor"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "fortnite",
+      "displayName": "Fortnite",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/FortniteGame/Saved/Config/WindowsClient"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "forza-horizon-6",
+      "displayName": "Forza Horizon 6",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/ForzaHorizon6/LocalStorage_Shared"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "multiplayer"
       ],
       "note": null
     },
@@ -1089,6 +1900,57 @@
       "note": null
     },
     {
+      "slug": "garrys-mod",
+      "displayName": "Garry's Mod",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/GarrysMod/garrysmod/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "multiplayer",
+        "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "garrys-mod-server",
+      "displayName": "Garry's Mod (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/GarrysModDS/garrysmod/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "gothic-1-remake",
+      "displayName": "Gothic 1 Remake",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/G1R/Saved/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": null,
+      "note": null
+    },
+    {
       "slug": "gta-v",
       "displayName": "Grand Theft Auto V",
       "iconUrl": null,
@@ -1110,6 +1972,43 @@
       "note": null
     },
     {
+      "slug": "gray-zone-warfare",
+      "displayName": "Gray Zone Warfare",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/GZW/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "ground-branch",
+      "displayName": "GROUND BRANCH",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/GroundBranch/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "grounded",
       "displayName": "Grounded",
       "iconUrl": null,
@@ -1123,6 +2022,62 @@
       "categories": [
         "singleplayer",
         "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "grounded-2",
+      "displayName": "Grounded 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{HOME}/Saved Games/Grounded2"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "guild-wars-2",
+      "displayName": "Guild Wars 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/Guild Wars 2"
+        }
+      ],
+      "allowedFileExtensions": [
+        "xml"
+      ],
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "guilty-gear-strive",
+      "displayName": "Guilty Gear Strive",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/GGST/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
         "multiplayer"
       ],
       "note": null
@@ -1147,6 +2102,85 @@
       ],
       "categories": [
         "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "hades-2",
+      "displayName": "Hades II",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{HOME}/Saved Games/Hades II"
+        },
+        {
+          "platform": "macos",
+          "pathTemplate": "{HOME}/Library/Application Support/Supergiant Games/Hades II"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "halo-infinite",
+      "displayName": "Halo Infinite",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/HaloInfinite/Settings"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "hell-let-loose",
+      "displayName": "Hell Let Loose",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}\\HLL\\Saved\\Config\\WindowsNoEditor"
+        },
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/HLL/Saved/Config/WindowsNoEditor"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer",
+        "server"
+      ],
+      "note": "Very useful for reseting after crashes"
+    },
+    {
+      "slug": "helldivers-2",
+      "displayName": "Helldivers 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/Arrowhead/Helldivers2"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
       ],
       "note": null
     },
@@ -1178,6 +2212,48 @@
       "note": null
     },
     {
+      "slug": "hollow-knight-silksong",
+      "displayName": "Hollow Knight: Silksong",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/Team Cherry/Hollow Knight Silksong"
+        },
+        {
+          "platform": "macos",
+          "pathTemplate": "{HOME}/Library/Application Support/unity.Team-Cherry.Silksong"
+        },
+        {
+          "platform": "linux",
+          "pathTemplate": "{HOME}/.config/unity3d/Team Cherry/Hollow Knight Silksong"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "how-to-fish",
+      "displayName": "How to Fish",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/Dazed Games/How to Fish/Saves"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "humanitz",
       "displayName": "HumanitZ",
       "iconUrl": null,
@@ -1195,6 +2271,24 @@
         "coop",
         "multiplayer",
         "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "hunt-showdown",
+      "displayName": "Hunt: Showdown 1896",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Hunt Showdown 1896/user/profiles/default"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
       ],
       "note": null
     },
@@ -1237,6 +2331,25 @@
       "note": null
     },
     {
+      "slug": "icarus-server",
+      "displayName": "ICARUS (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Icarus Dedicated Server/Icarus/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "immortals-fenyx-rising",
       "displayName": "Immortals Fenyx Rising",
       "iconUrl": null,
@@ -1257,6 +2370,44 @@
       "note": null
     },
     {
+      "slug": "insurgency-sandstorm",
+      "displayName": "Insurgency: Sandstorm",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Insurgency/Saved/Config/WindowsClient"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer",
+        "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "insurgency-sandstorm-server",
+      "displayName": "Insurgency: Sandstorm (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/sandstorm_server/Insurgency/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "kenshi",
       "displayName": "Kenshi",
       "iconUrl": null,
@@ -1269,6 +2420,25 @@
       "allowedFileExtensions": null,
       "categories": [
         "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "killing-floor-2",
+      "displayName": "Killing Floor 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/KillingFloor2/KFGame/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer",
+        "server"
       ],
       "note": null
     },
@@ -1338,6 +2508,79 @@
       "note": null
     },
     {
+      "slug": "league-of-legends",
+      "displayName": "League of Legends",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "C:/Riot Games/League of Legends/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "left-4-dead-2",
+      "displayName": "Left 4 Dead 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Left 4 Dead 2/left4dead2/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer",
+        "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "left-4-dead-2-server",
+      "displayName": "Left 4 Dead 2 (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Left 4 Dead 2 Dedicated Server/left4dead2/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "lost-ark",
+      "displayName": "Lost Ark",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Lost Ark/EFGame/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "mafia-old-country",
       "displayName": "Mafia: The Old Country",
       "iconUrl": null,
@@ -1370,6 +2613,24 @@
       ],
       "categories": [
         "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "meccha-chameleon",
+      "displayName": "Meccha Chameleon",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Chameleon/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
       ],
       "note": null
     },
@@ -1423,6 +2684,30 @@
         {
           "platform": "linux",
           "pathTemplate": "{HOME}/.local/share/metro_3"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "mina-the-hollower",
+      "displayName": "Mina the Hollower",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/Yacht Club Games/Mina the Hollower"
+        },
+        {
+          "platform": "macos",
+          "pathTemplate": "{HOME}/Library/Application Support/Yacht Club Games/Mina the Hollower"
+        },
+        {
+          "platform": "linux",
+          "pathTemplate": "{HOME}/.local/share/Yacht Club Games/Mina the Hollower"
         }
       ],
       "allowedFileExtensions": null,
@@ -1593,6 +2878,22 @@
       "note": null
     },
     {
+      "slug": "mixtape",
+      "displayName": "Mixtape",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/NewMoon/Saved/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "monster-hunter-rise",
       "displayName": "MONSTER HUNTER RISE",
       "iconUrl": null,
@@ -1618,6 +2919,10 @@
         {
           "platform": "windows",
           "pathTemplate": "{steam}\\2246340\\remote\\win64_save"
+        },
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM_USERDATA}/2246340/remote/win64_save"
         }
       ],
       "allowedFileExtensions": null,
@@ -1638,6 +2943,76 @@
       "categories": [
         "singleplayer",
         "coop"
+      ],
+      "note": null
+    },
+    {
+      "slug": "mordhau",
+      "displayName": "Mordhau",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Mordhau/Saved/Config/WindowsClient"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer",
+        "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "mordhau-server",
+      "displayName": "Mordhau (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Mordhau Dedicated Server/Mordhau/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "mortal-kombat-1",
+      "displayName": "Mortal Kombat 1",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/MK12/Saved/Steam/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "mortal-shell-2",
+      "displayName": "Mortal Shell II",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/MortalShell2/Saved/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
       ],
       "note": null
     },
@@ -1669,6 +3044,24 @@
       "note": null
     },
     {
+      "slug": "nioh-3",
+      "displayName": "Nioh 3",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/KoeiTecmo/NIOH3/Savedata"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "no-mans-sky",
       "displayName": "No Man's Sky",
       "iconUrl": null,
@@ -1690,6 +3083,23 @@
       "note": null
     },
     {
+      "slug": "no-more-room-in-hell-2",
+      "displayName": "No More Room in Hell 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/NMRiH2/Saved/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "no-rest-for-the-wicked",
       "displayName": "No Rest for the Wicked",
       "iconUrl": null,
@@ -1703,6 +3113,59 @@
       "categories": [
         "singleplayer",
         "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "omori",
+      "displayName": "OMORI",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/OMORI/www/save"
+        },
+        {
+          "platform": "linux",
+          "pathTemplate": "{STEAM}/steamapps/common/OMORI/www/save"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "onimusha-way-of-the-sword",
+      "displayName": "Onimusha: Way of the Sword",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM_USERDATA}/3974650/remote/win64_save"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "overwatch-2",
+      "displayName": "Overwatch 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Overwatch/Settings"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
         "multiplayer"
       ],
       "note": null
@@ -1732,6 +3195,23 @@
       "note": null
     },
     {
+      "slug": "paladins",
+      "displayName": "Paladins",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/Paladins/ChaosGame/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "palworld",
       "displayName": "Palworld",
       "iconUrl": null,
@@ -1750,6 +3230,83 @@
         "coop",
         "multiplayer",
         "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "palworld-server",
+      "displayName": "Palworld (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/PalServer/Pal/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "path-of-exile",
+      "displayName": "Path of Exile",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/Path of Exile"
+        }
+      ],
+      "allowedFileExtensions": [
+        "ini"
+      ],
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "path-of-exile-2",
+      "displayName": "Path of Exile 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/Path of Exile 2"
+        }
+      ],
+      "allowedFileExtensions": [
+        "ini"
+      ],
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "payday-3",
+      "displayName": "PAYDAY 3",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/PAYDAY3/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
       ],
       "note": null
     },
@@ -1834,6 +3391,22 @@
       "note": null
     },
     {
+      "slug": "pragmata",
+      "displayName": "Pragmata",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM_USERDATA}/3357650/remote/win64_save"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "prince-of-persia-lost-crown",
       "displayName": "Prince of Persia: The Lost Crown",
       "iconUrl": null,
@@ -1901,6 +3474,64 @@
       "note": null
     },
     {
+      "slug": "project-zomboid-server",
+      "displayName": "Project Zomboid (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{HOME}/Zomboid/Server"
+        },
+        {
+          "platform": "macos",
+          "pathTemplate": "{HOME}/Zomboid/Server"
+        },
+        {
+          "platform": "linux",
+          "pathTemplate": "{HOME}/Zomboid/Server"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "pubg",
+      "displayName": "PUBG: Battlegrounds",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/TslGame/Saved/Config/WindowsNoEditor"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "quaismorph",
+      "displayName": "Quaismorph",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}\\Magnum Scriptum Ltd\\Quasimorph"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": null,
+      "note": null
+    },
+    {
       "slug": "raft",
       "displayName": "Raft",
       "iconUrl": null,
@@ -1915,6 +3546,41 @@
         "singleplayer",
         "coop",
         "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "ready-or-not",
+      "displayName": "Ready or Not",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/ReadyOrNot/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "resident-evil-requiem",
+      "displayName": "Resident Evil Requiem",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM_USERDATA}/3764200/remote/win64_save"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
       ],
       "note": null
     },
@@ -2012,6 +3678,23 @@
       "note": null
     },
     {
+      "slug": "rocket-league",
+      "displayName": "Rocket League",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/Rocket League/TAGame/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "romestead",
       "displayName": "Romestead",
       "iconUrl": null,
@@ -2070,6 +3753,24 @@
       "note": null
     },
     {
+      "slug": "rust",
+      "displayName": "Rust",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Rust/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer",
+        "server"
+      ],
+      "note": null
+    },
+    {
       "slug": "rvthereyet",
       "displayName": "RV There Yet",
       "iconUrl": null,
@@ -2093,15 +3794,15 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{LOCALAPPDATA}/Stalker2/Saved/STEAM/SaveGames"
-        },
-        {
-          "platform": "windows",
           "pathTemplate": "{LOCALAPPDATA}/Stalker2/Saved/EOS/SaveGames"
         },
         {
           "platform": "windows",
           "pathTemplate": "{LOCALAPPDATA}/Stalker2/Saved/GOG/SaveGames"
+        },
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Stalker2/Saved/STEAM/SaveGames"
         }
       ],
       "allowedFileExtensions": null,
@@ -2152,6 +3853,41 @@
       "note": null
     },
     {
+      "slug": "satisfactory-server",
+      "displayName": "Satisfactory (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/SatisfactoryDedicatedServer/FactoryGame/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "scavland",
+      "displayName": "Scavland",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}\\NoShadow\\Scavland"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "schedule-1",
       "displayName": "Schedule I",
       "iconUrl": null,
@@ -2198,6 +3934,24 @@
       "allowedFileExtensions": null,
       "categories": [
         "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "sea-of-thieves",
+      "displayName": "Sea of Thieves",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Athena/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
       ],
       "note": null
     },
@@ -2255,6 +4009,30 @@
       "note": null
     },
     {
+      "slug": "slay-the-spire-2",
+      "displayName": "Slay the Spire 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/SlayTheSpire2"
+        },
+        {
+          "platform": "macos",
+          "pathTemplate": "{HOME}/Library/Application Support/SlayTheSpire2"
+        },
+        {
+          "platform": "linux",
+          "pathTemplate": "{HOME}/.local/share/SlayTheSpire2"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "sons-of-the-forest",
       "displayName": "Sons of the Forest",
       "iconUrl": null,
@@ -2301,11 +4079,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/3584"
+          "pathTemplate": "{DOCUMENTS}/My Games/South Park - The Stick of Truth/save"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{DOCUMENTS}/My Games/South Park - The Stick of Truth/save"
+          "pathTemplate": "{UBISOFT}/3584"
         }
       ],
       "allowedFileExtensions": null,
@@ -2334,6 +4112,62 @@
       "note": null
     },
     {
+      "slug": "squad",
+      "displayName": "Squad",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/SquadGame/Saved/Config/WindowsNoEditor"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer",
+        "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "squad-server",
+      "displayName": "Squad (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Squad Dedicated Server/SquadGame/Saved/Config/WindowsServer"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "squad-44",
+      "displayName": "Squad 44",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/PostScriptum/Saved"
+        }
+      ],
+      "allowedFileExtensions": [
+        "ini"
+      ],
+      "categories": [
+        "config",
+        "multiplayer",
+        "server"
+      ],
+      "note": null
+    },
+    {
       "slug": "star-wars-outlaws",
       "displayName": "Star Wars Outlaws",
       "iconUrl": null,
@@ -2345,6 +4179,22 @@
         {
           "platform": "windows",
           "pathTemplate": "{UBISOFT}/64181"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "star-wars-zero-company",
+      "displayName": "Star Wars: Zero Company",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/SWZeroCompany/Saved/SaveGames"
         }
       ],
       "allowedFileExtensions": null,
@@ -2542,6 +4392,60 @@
       "note": null
     },
     {
+      "slug": "tf2",
+      "displayName": "Team Fortress 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Team Fortress 2/tf/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer",
+        "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "tf2-server",
+      "displayName": "Team Fortress 2 (Dedicated Server)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Team Fortress 2 Dedicated Server/tf/cfg"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "server",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "tekken-8",
+      "displayName": "Tekken 8",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/TEKKEN 8/Saved/Config/Windows"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "terraria",
       "displayName": "Terraria",
       "iconUrl": null,
@@ -2610,6 +4514,41 @@
       "note": null
     },
     {
+      "slug": "the-finals",
+      "displayName": "The Finals",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Discovery/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "the-first-descendant",
+      "displayName": "The First Descendant",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/M1/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "the-last-caretaker",
       "displayName": "The Last Caretaker",
       "iconUrl": null,
@@ -2637,6 +4576,22 @@
         {
           "platform": "linux",
           "pathTemplate": "{HOME}/.local/share/Hinterland/TheLongDark"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "the-outer-worlds-2",
+      "displayName": "The Outer Worlds 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{HOME}/Saved Games/TheOuterWorlds2"
         }
       ],
       "allowedFileExtensions": null,
@@ -2792,6 +4747,23 @@
       "note": null
     },
     {
+      "slug": "rainbow-six-siege-config",
+      "displayName": "Tom Clancy's Rainbow Six Siege (Config)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/Rainbow Six - Siege"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "splinter-cell-blacklist",
       "displayName": "Tom Clancy's Splinter Cell: Blacklist",
       "iconUrl": null,
@@ -2820,11 +4792,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{APPDATA}/The Creative Assembly/Warhammer3/save_games"
+          "pathTemplate": "{APPDATA}/The Creative Assembly/Warhammer3/EOS/save_games"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{APPDATA}/The Creative Assembly/Warhammer3/EOS/save_games"
+          "pathTemplate": "{APPDATA}/The Creative Assembly/Warhammer3/save_games"
         },
         {
           "platform": "windows",
@@ -2896,11 +4868,23 @@
       "paths": [
         {
           "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/IronGate/Valheim"
+        },
+        {
+          "platform": "windows",
           "pathTemplate": "{LOCALLOW}/IronGate/Valheim/worlds_local"
         },
         {
           "platform": "macos",
+          "pathTemplate": "{HOME}/Library/Application Support/IronGate/Valheim"
+        },
+        {
+          "platform": "macos",
           "pathTemplate": "{HOME}/Library/Application Support/IronGate/Valheim/worlds_local"
+        },
+        {
+          "platform": "linux",
+          "pathTemplate": "{HOME}/.config/unity3d/IronGate/Valheim"
         },
         {
           "platform": "linux",
@@ -2917,6 +4901,23 @@
         "coop",
         "multiplayer",
         "server"
+      ],
+      "note": null
+    },
+    {
+      "slug": "valorant",
+      "displayName": "VALORANT",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/VALORANT/Saved/Config"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
       ],
       "note": null
     },
@@ -2949,6 +4950,43 @@
       "note": null
     },
     {
+      "slug": "war-thunder",
+      "displayName": "War Thunder",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/WarThunder/Saves"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "darktide",
+      "displayName": "Warhammer 40,000: Darktide",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/Fatshark/Darktide"
+        }
+      ],
+      "allowedFileExtensions": [
+        "config"
+      ],
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null
+    },
+    {
       "slug": "rogue-trader",
       "displayName": "Warhammer 40,000: Rogue Trader",
       "iconUrl": null,
@@ -2965,6 +5003,26 @@
       "allowedFileExtensions": null,
       "categories": [
         "singleplayer"
+      ],
+      "note": null
+    },
+    {
+      "slug": "vermintide-2",
+      "displayName": "Warhammer: Vermintide 2",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/Fatshark/Vermintide 2"
+        }
+      ],
+      "allowedFileExtensions": [
+        "config"
+      ],
+      "categories": [
+        "config",
+        "coop",
+        "multiplayer"
       ],
       "note": null
     },
@@ -2996,11 +5054,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/2688"
+          "pathTemplate": "{UBISOFT}/3619"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/3619"
+          "pathTemplate": "{UBISOFT}/2688"
         }
       ],
       "allowedFileExtensions": null,
@@ -3018,11 +5076,11 @@
       "paths": [
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/3353"
+          "pathTemplate": "{UBISOFT}/7017"
         },
         {
           "platform": "windows",
-          "pathTemplate": "{UBISOFT}/7017"
+          "pathTemplate": "{UBISOFT}/3353"
         }
       ],
       "allowedFileExtensions": null,
@@ -3047,6 +5105,27 @@
       "categories": [
         "singleplayer",
         "coop"
+      ],
+      "note": null
+    },
+    {
+      "slug": "world-of-tanks",
+      "displayName": "World of Tanks",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/wargaming.net/WorldOfTanks"
+        }
+      ],
+      "allowedFileExtensions": [
+        "xml",
+        "json",
+        "cfg"
+      ],
+      "categories": [
+        "config",
+        "multiplayer"
       ],
       "note": null
     }

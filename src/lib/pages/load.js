@@ -24,6 +24,7 @@ const GUIDES = [
   'dedicated-server-alternative',
   'modded-game-save-backup',
   'emulator-save-backup',
+  'game-config-backup',
 ]
 
 // Per-game guide slugs (content/games/*.md). These are the *markdown file*
@@ -122,13 +123,23 @@ const CATALOG_FAMILY_GUIDES = {
   tmodloader: 'modded-game-save-backup',
 }
 
+// The config-only catalog entries (Counter-Strike 2, FFXIV, the dedicated
+// servers) have no per-game guide and are not going to get 83 of them, so they
+// share one deep dive. Matched on the catalog's `config` category rather than
+// by slug: the batch grows on the backend without a commit here, and a new
+// config entry should not be the one page in the cluster with no guide link.
+const CONFIG_GUIDE = 'game-config-backup'
+
+
 /**
  * Best deep-dive guide for a catalog slug: the 1:1 game guide when one
  * exists, else the family guide (launcher variant → game guide, emulator →
  * emulator guide), else null. For the save pages' cross-link.
  */
-export function relatedGuideSlugForCatalog(catalogSlug) {
-  return guideSlugForCatalog(catalogSlug) ?? CATALOG_FAMILY_GUIDES[catalogSlug] ?? null
+export function relatedGuideSlugForCatalog(catalogSlug, categories = []) {
+  return guideSlugForCatalog(catalogSlug)
+    ?? CATALOG_FAMILY_GUIDES[catalogSlug]
+    ?? (categories.includes('config') ? CONFIG_GUIDE : null)
 }
 
 /**
@@ -138,11 +149,13 @@ export function relatedGuideSlugForCatalog(catalogSlug) {
  * game (games/skyrim-se/guide/); a launcher variant borrows the parent game's
  * (minecraft-curseforge -> games/minecraft/guide/) rather than minting 13 URLs
  * of duplicate content; and an emulator borrows the flat /emulator-save-backup/
- * comparison guide, which is not a game page at all.
+ * comparison guide, which is not a game page at all — as a config-only entry
+ * borrows /game-config-backup/.
  */
-export function guideHrefForCatalog(catalogSlug) {
+export function guideHrefForCatalog(catalogSlug, categories = []) {
   if (guideSlugForCatalog(catalogSlug)) return `games/${catalogSlug}/guide/`
   const family = CATALOG_FAMILY_GUIDES[catalogSlug]
+    ?? (categories.includes('config') ? CONFIG_GUIDE : null)
   if (!family) return null
   const familyCatalog = catalogSlugForGuide(family)
   return familyCatalog ? `games/${familyCatalog}/guide/` : `${family}/`
