@@ -24,7 +24,7 @@ Portuguese, and Russian.
   Valheim only have one live world file at a time. Whoever holds the lock can upload;
   everyone else downloads. Locks expire on their own, and taking one over warns the holder
   and is recorded in the group logbook. Solves "who has the latest save?" forever.
-- **Per-game backup rules with 228 built-in presets.** 216 games, 7 emulators, and 5
+- **Per-game backup rules with 259 built-in presets.** 247 games, 7 emulators, and 5
   modded-Minecraft launchers (CurseForge, Modrinth, Prism, FTB, Pinecone), each tagged
   by category (singleplayer, co-op, multiplayer, server, emulator, launcher) so you can
   filter the list. Choose which files to back up and which to ignore — skip crash logs
@@ -99,7 +99,7 @@ overwrites, or co-op friends saving on top of each other. Particularly useful fo
 
 ## Games Checkpoint64 supports out of the box
 
-228 presets ship built in: 216 games, 7 emulators, and 5 modded-Minecraft launchers.
+259 presets ship built in: 247 games, 7 emulators, and 5 modded-Minecraft launchers.
 
 Factorio, Satisfactory, Valheim, Stardew Valley, Elden Ring, Baldur's Gate 3, Minecraft
 (vanilla plus CurseForge, Modrinth, Prism, FTB, and Pinecone), Skyrim SE, Fallout 4,
@@ -173,6 +173,7 @@ published in 5.
 - [Dedicated Server Alternative](https://checkpoint64.com/dedicated-server-alternative/): A Dedicated Server Alternative for Co-op Save Sharing
 - [Modded Game Save Backup](https://checkpoint64.com/modded-game-save-backup/): Modded Game Save Backup: A Rewind Button for Corruption
 - [Emulator Save Backup](https://checkpoint64.com/emulator-save-backup/): Emulator Save Backup and Save-State Version History
+- [Game Config Backup](https://checkpoint64.com/game-config-backup/): Game Config Backup: Keybinds, Settings and Server Files
 
 ## Per-game backup guides
 
@@ -204,6 +205,7 @@ published in 5.
 
 Newest first. Every post is also in the RSS feed at https://checkpoint64.com/rss.xml.
 
+- [Do Worlds Need Servers? The Honest Answer](https://checkpoint64.com/blog/do-worlds-need-servers/): 2026-09-12 — Do worlds need servers for co-op? Often, no. Learn when a dedicated server earns its keep and how to keep shared saves safe without ongoing rental fees.
 - [Counter-Strike has no save file; it still has four hours of your settings. Checkpoint64 now backs up game and server configs](https://checkpoint64.com/blog/back-up-your-game-config/): 2026-09-11 — A competitive shooter keeps your progress on the publisher's servers, so there is no save to back up. What sits on your disk is the config, and that is the part you rebuild by hand after a reinstall. Checkpoint64 now stocks configs for 67 games and 16 dedicated servers.
 - [Is Cloud Backup Worth It for Serious PC Gamers?](https://checkpoint64.com/blog/is-cloud-backup-worth-it-pc-gamers/): 2026-09-11 — Is cloud backup worth it when a corrupted save can erase a 200-hour world? See the real costs, limits and smarter ways to protect your PC game progress.
 - [Co-op World Ownership Guide for PC Crews](https://checkpoint64.com/blog/co-op-world-ownership-guide/): 2026-09-10 — Use this co-op world ownership guide to stop host hostage drama, hand worlds over safely, and keep rollback-ready saves when any PC session goes badly.
@@ -313,7 +315,10 @@ to know what Checkpoint64 is and does.
 - [7 Days to Die save file location](https://checkpoint64.com/games/7-days-to-die/save/)
 - [Abiotic Factor save file location](https://checkpoint64.com/games/abiotic-factor/save/)
 - [Abiotic Factor (Dedicated Server) save file location](https://checkpoint64.com/games/abiotic-factor-server/save/)
+- [Age of Empires II: Definitive Edition save file location](https://checkpoint64.com/games/aoe2-de/save/)
+- [Age of Mythology: Retold save file location](https://checkpoint64.com/games/aom-retold/save/)
 - [Alchemy Factory save file location](https://checkpoint64.com/games/alchemy-factory/save/)
+- [Among Us save file location](https://checkpoint64.com/games/among-us/save/)
 - [Anno 117: Pax Romana save file location](https://checkpoint64.com/games/anno-117/save/)
 - [Anno 1800 save file location](https://checkpoint64.com/games/anno-1800/save/)
 - [Apex Legends save file location](https://checkpoint64.com/games/apex-legends/save/)
@@ -330,13 +335,16 @@ to know what Checkpoint64 is and does.
 - [Assassin's Creed Syndicate save file location](https://checkpoint64.com/games/ac-syndicate/save/)
 - [Assassin's Creed Unity save file location](https://checkpoint64.com/games/ac-unity/save/)
 - [Assassin's Creed Valhalla save file location](https://checkpoint64.com/games/ac-valhalla/save/)
+- [Assetto Corsa save file location](https://checkpoint64.com/games/assetto-corsa/save/)
 - [Assetto Corsa Competizione save file location](https://checkpoint64.com/games/acc/save/)
 - [Astroneer save file location](https://checkpoint64.com/games/astroneer/save/)
 - [Astroneer (Dedicated Server) save file location](https://checkpoint64.com/games/astroneer-server/save/)
 - [Avatar: Frontiers of Pandora save file location](https://checkpoint64.com/games/avatar-frontiers-of-pandora/save/)
 - [Baldur's Gate 3 save file location](https://checkpoint64.com/games/bg3/save/)
+- [Battlefield 1 save file location](https://checkpoint64.com/games/battlefield-1/save/)
 - [Battlefield 2042 save file location](https://checkpoint64.com/games/battlefield-2042/save/)
 - [Battlefield 6 save file location](https://checkpoint64.com/games/battlefield-6/save/)
+- [Battlefield V save file location](https://checkpoint64.com/games/battlefield-v/save/)
 - [Bellwright save file location](https://checkpoint64.com/games/bellwright/save/)
 - [Big Walk save file location](https://checkpoint64.com/games/big-walk/save/)
 - [Black Mesa save file location](https://checkpoint64.com/games/black-mesa/save/)
@@ -364,8 +372,11 @@ to know what Checkpoint64 is and does.
 - [Dark Souls III save file location](https://checkpoint64.com/games/dark-souls-3/save/)
 - [Darkest Dungeon save file location](https://checkpoint64.com/games/darkest-dungeon/save/)
 - [Dave the Diver save file location](https://checkpoint64.com/games/dave-the-diver/save/)
+- [DCS World save file location](https://checkpoint64.com/games/dcs-world/save/)
 - [Dead by Daylight save file location](https://checkpoint64.com/games/dead-by-daylight/save/)
+- [Deep Rock Galactic save file location](https://checkpoint64.com/games/deep-rock-galactic/save/)
 - [Destiny 2 save file location](https://checkpoint64.com/games/destiny-2/save/)
+- [Diablo IV save file location](https://checkpoint64.com/games/diablo-4/save/)
 - [Disco Elysium save file location](https://checkpoint64.com/games/disco-elysium/save/)
 - [Dishonored 2 save file location](https://checkpoint64.com/games/dishonored-2/save/)
 - [Divinity: Original Sin 2 save file location](https://checkpoint64.com/games/dos2/save/)
@@ -373,10 +384,13 @@ to know what Checkpoint64 is and does.
 - [Don't Starve Together save file location](https://checkpoint64.com/games/dont-starve-together/save/)
 - [Dota 2 save file location](https://checkpoint64.com/games/dota-2/save/)
 - [DuckStation (PlayStation 1) save file location](https://checkpoint64.com/games/duckstation/save/)
+- [Dune: Awakening save file location](https://checkpoint64.com/games/dune-awakening/save/)
 - [Dyson Sphere Program save file location](https://checkpoint64.com/games/dyson-sphere-program/save/)
 - [Elden Ring save file location](https://checkpoint64.com/games/elden-ring/save/)
 - [Enshrouded save file location](https://checkpoint64.com/games/enshrouded/save/)
 - [Escape from Tarkov save file location](https://checkpoint64.com/games/escape-from-tarkov/save/)
+- [EVE Online save file location](https://checkpoint64.com/games/eve-online/save/)
+- [F1 24 save file location](https://checkpoint64.com/games/f1-24/save/)
 - [Factorio save file location](https://checkpoint64.com/games/factorio/save/)
 - [Fallout 4 save file location](https://checkpoint64.com/games/fallout4/save/)
 - [Fallout: New Vegas save file location](https://checkpoint64.com/games/fallout-nv/save/)
@@ -388,6 +402,8 @@ to know what Checkpoint64 is and does.
 - [Far Cry Primal save file location](https://checkpoint64.com/games/far-cry-primal/save/)
 - [Far Far West save file location](https://checkpoint64.com/games/far-far-west/save/)
 - [Fields of Mistria save file location](https://checkpoint64.com/games/fields-of-mistria/save/)
+- [Final Fantasy XIV save file location](https://checkpoint64.com/games/ffxiv/save/)
+- [For Honor save file location](https://checkpoint64.com/games/for-honor/save/)
 - [Fortnite save file location](https://checkpoint64.com/games/fortnite/save/)
 - [Forza Horizon 6 save file location](https://checkpoint64.com/games/forza-horizon-6/save/)
 - [Frostpunk save file location](https://checkpoint64.com/games/frostpunk/save/)
@@ -395,12 +411,17 @@ to know what Checkpoint64 is and does.
 - [Garry's Mod (Dedicated Server) save file location](https://checkpoint64.com/games/garrys-mod-server/save/)
 - [Gothic 1 Remake save file location](https://checkpoint64.com/games/gothic-1-remake/save/)
 - [Grand Theft Auto V save file location](https://checkpoint64.com/games/gta-v/save/)
+- [Gray Zone Warfare save file location](https://checkpoint64.com/games/gray-zone-warfare/save/)
+- [GROUND BRANCH save file location](https://checkpoint64.com/games/ground-branch/save/)
 - [Grounded save file location](https://checkpoint64.com/games/grounded/save/)
 - [Grounded 2 save file location](https://checkpoint64.com/games/grounded-2/save/)
+- [Guild Wars 2 save file location](https://checkpoint64.com/games/guild-wars-2/save/)
+- [Guilty Gear Strive save file location](https://checkpoint64.com/games/guilty-gear-strive/save/)
 - [Hades save file location](https://checkpoint64.com/games/hades/save/)
 - [Hades II save file location](https://checkpoint64.com/games/hades-2/save/)
 - [Halo Infinite save file location](https://checkpoint64.com/games/halo-infinite/save/)
 - [Hell Let Loose save file location](https://checkpoint64.com/games/hell-let-loose/save/)
+- [Helldivers 2 save file location](https://checkpoint64.com/games/helldivers-2/save/)
 - [Hollow Knight save file location](https://checkpoint64.com/games/hollow-knight/save/)
 - [Hollow Knight: Silksong save file location](https://checkpoint64.com/games/hollow-knight-silksong/save/)
 - [How to Fish save file location](https://checkpoint64.com/games/how-to-fish/save/)
@@ -413,6 +434,7 @@ to know what Checkpoint64 is and does.
 - [Insurgency: Sandstorm save file location](https://checkpoint64.com/games/insurgency-sandstorm/save/)
 - [Insurgency: Sandstorm (Dedicated Server) save file location](https://checkpoint64.com/games/insurgency-sandstorm-server/save/)
 - [Kenshi save file location](https://checkpoint64.com/games/kenshi/save/)
+- [Killing Floor 2 save file location](https://checkpoint64.com/games/killing-floor-2/save/)
 - [Kingdom Come: Deliverance save file location](https://checkpoint64.com/games/kingdom-come/save/)
 - [Kingdom Come: Deliverance II save file location](https://checkpoint64.com/games/kcd2/save/)
 - [Kingdoms Reborn save file location](https://checkpoint64.com/games/kingdoms-reborn/save/)
@@ -420,6 +442,7 @@ to know what Checkpoint64 is and does.
 - [League of Legends save file location](https://checkpoint64.com/games/league-of-legends/save/)
 - [Left 4 Dead 2 save file location](https://checkpoint64.com/games/left-4-dead-2/save/)
 - [Left 4 Dead 2 (Dedicated Server) save file location](https://checkpoint64.com/games/left-4-dead-2-server/save/)
+- [Lost Ark save file location](https://checkpoint64.com/games/lost-ark/save/)
 - [Mafia: The Old Country save file location](https://checkpoint64.com/games/mafia-old-country/save/)
 - [Mass Effect Legendary Edition save file location](https://checkpoint64.com/games/mass-effect-le/save/)
 - [Meccha Chameleon save file location](https://checkpoint64.com/games/meccha-chameleon/save/)
@@ -439,6 +462,7 @@ to know what Checkpoint64 is and does.
 - [Monster Hunter: World save file location](https://checkpoint64.com/games/monster-hunter-world/save/)
 - [Mordhau save file location](https://checkpoint64.com/games/mordhau/save/)
 - [Mordhau (Dedicated Server) save file location](https://checkpoint64.com/games/mordhau-server/save/)
+- [Mortal Kombat 1 save file location](https://checkpoint64.com/games/mortal-kombat-1/save/)
 - [Mortal Shell II save file location](https://checkpoint64.com/games/mortal-shell-2/save/)
 - [Necesse save file location](https://checkpoint64.com/games/necesse/save/)
 - [Nioh 3 save file location](https://checkpoint64.com/games/nioh-3/save/)
@@ -452,6 +476,9 @@ to know what Checkpoint64 is and does.
 - [Paladins save file location](https://checkpoint64.com/games/paladins/save/)
 - [Palworld save file location](https://checkpoint64.com/games/palworld/save/)
 - [Palworld (Dedicated Server) save file location](https://checkpoint64.com/games/palworld-server/save/)
+- [Path of Exile save file location](https://checkpoint64.com/games/path-of-exile/save/)
+- [Path of Exile 2 save file location](https://checkpoint64.com/games/path-of-exile-2/save/)
+- [PAYDAY 3 save file location](https://checkpoint64.com/games/payday-3/save/)
 - [PCSX2 (PlayStation 2) save file location](https://checkpoint64.com/games/pcsx2/save/)
 - [Persona 3 Reload save file location](https://checkpoint64.com/games/persona-3-reload/save/)
 - [Planet Coaster 2 save file location](https://checkpoint64.com/games/planet-coaster-2/save/)
@@ -464,6 +491,7 @@ to know what Checkpoint64 is and does.
 - [PUBG: Battlegrounds save file location](https://checkpoint64.com/games/pubg/save/)
 - [Quaismorph save file location](https://checkpoint64.com/games/quaismorph/save/)
 - [Raft save file location](https://checkpoint64.com/games/raft/save/)
+- [Ready or Not save file location](https://checkpoint64.com/games/ready-or-not/save/)
 - [Resident Evil Requiem save file location](https://checkpoint64.com/games/resident-evil-requiem/save/)
 - [RetroArch save file location](https://checkpoint64.com/games/retroarch/save/)
 - [Riders Republic save file location](https://checkpoint64.com/games/riders-republic/save/)
@@ -483,6 +511,7 @@ to know what Checkpoint64 is and does.
 - [Schedule I save file location](https://checkpoint64.com/games/schedule-1/save/)
 - [Scrap Mechanic save file location](https://checkpoint64.com/games/scrap-mechanic/save/)
 - [Scriptorium: Master of Manuscripts save file location](https://checkpoint64.com/games/scriptorium-master-of-manuscripts/save/)
+- [Sea of Thieves save file location](https://checkpoint64.com/games/sea-of-thieves/save/)
 - [Sekiro: Shadows Die Twice save file location](https://checkpoint64.com/games/sekiro/save/)
 - [Shapez 2 - Factory save file location](https://checkpoint64.com/games/shapez-2-factory/save/)
 - [Skyrim Special Edition save file location](https://checkpoint64.com/games/skyrim-se/save/)
@@ -493,6 +522,7 @@ to know what Checkpoint64 is and does.
 - [Space Engineers save file location](https://checkpoint64.com/games/space-engineers/save/)
 - [Squad save file location](https://checkpoint64.com/games/squad/save/)
 - [Squad (Dedicated Server) save file location](https://checkpoint64.com/games/squad-server/save/)
+- [Squad 44 save file location](https://checkpoint64.com/games/squad-44/save/)
 - [Star Wars Outlaws save file location](https://checkpoint64.com/games/star-wars-outlaws/save/)
 - [Star Wars: Zero Company save file location](https://checkpoint64.com/games/star-wars-zero-company/save/)
 - [Stardew Valley save file location](https://checkpoint64.com/games/stardew/save/)
@@ -511,6 +541,7 @@ to know what Checkpoint64 is and does.
 - [The Crew 2 save file location](https://checkpoint64.com/games/the-crew-2/save/)
 - [The Elder Scrolls IV: Oblivion save file location](https://checkpoint64.com/games/oblivion/save/)
 - [The Finals save file location](https://checkpoint64.com/games/the-finals/save/)
+- [The First Descendant save file location](https://checkpoint64.com/games/the-first-descendant/save/)
 - [The Last Caretaker save file location](https://checkpoint64.com/games/the-last-caretaker/save/)
 - [The Long Dark save file location](https://checkpoint64.com/games/the-long-dark/save/)
 - [The Outer Worlds 2 save file location](https://checkpoint64.com/games/the-outer-worlds-2/save/)
@@ -531,7 +562,9 @@ to know what Checkpoint64 is and does.
 - [VALORANT save file location](https://checkpoint64.com/games/valorant/save/)
 - [Vintage Story save file location](https://checkpoint64.com/games/vintage-story/save/)
 - [War Thunder save file location](https://checkpoint64.com/games/war-thunder/save/)
+- [Warhammer 40,000: Darktide save file location](https://checkpoint64.com/games/darktide/save/)
 - [Warhammer 40,000: Rogue Trader save file location](https://checkpoint64.com/games/rogue-trader/save/)
+- [Warhammer: Vermintide 2 save file location](https://checkpoint64.com/games/vermintide-2/save/)
 - [Watch Dogs save file location](https://checkpoint64.com/games/watch-dogs/save/)
 - [Watch Dogs 2 save file location](https://checkpoint64.com/games/watch-dogs-2/save/)
 - [Watch Dogs: Legion save file location](https://checkpoint64.com/games/watch-dogs-legion/save/)

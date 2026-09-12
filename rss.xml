@@ -6,7 +6,14 @@
     <description>Release notes and write-ups from the Checkpoint64 team.</description>
     <language>en</language>
     <atom:link href="https://checkpoint64.com/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 11 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Do Worlds Need Servers? The Honest Answer</title>
+      <link>https://checkpoint64.com/blog/do-worlds-need-servers/</link>
+      <guid isPermaLink="true">https://checkpoint64.com/blog/do-worlds-need-servers/</guid>
+      <pubDate>Sat, 12 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Do worlds need servers for co-op? Often, no. Learn when a dedicated server earns its keep and how to keep shared saves safe without ongoing rental fees.</description>
+    </item>
     <item>
       <title>Counter-Strike has no save file; it still has four hours of your settings. Checkpoint64 now backs up game and server configs</title>
       <link>https://checkpoint64.com/blog/back-up-your-game-config/</link>
