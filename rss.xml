@@ -6,7 +6,14 @@
     <description>Release notes and write-ups from the Checkpoint64 team.</description>
     <language>en</language>
     <atom:link href="https://checkpoint64.com/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Sat, 12 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 13 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Shared World Access Control Without the Host</title>
+      <link>https://checkpoint64.com/blog/shared-world-access-control/</link>
+      <guid isPermaLink="true">https://checkpoint64.com/blog/shared-world-access-control/</guid>
+      <pubDate>Sun, 13 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Shared world access control stops co-op saves becoming hostage situations. Hand off safely, prevent overwrites, and keep rollback ready when chaos hits.</description>
+    </item>
     <item>
       <title>Do Worlds Need Servers? The Honest Answer</title>
       <link>https://checkpoint64.com/blog/do-worlds-need-servers/</link>

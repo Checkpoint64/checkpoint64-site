@@ -205,6 +205,7 @@ published in 5.
 
 Newest first. Every post is also in the RSS feed at https://checkpoint64.com/rss.xml.
 
+- [Shared World Access Control Without the Host](https://checkpoint64.com/blog/shared-world-access-control/): 2026-09-13 — Shared world access control stops co-op saves becoming hostage situations. Hand off safely, prevent overwrites, and keep rollback ready when chaos hits.
 - [Do Worlds Need Servers? The Honest Answer](https://checkpoint64.com/blog/do-worlds-need-servers/): 2026-09-12 — Do worlds need servers for co-op? Often, no. Learn when a dedicated server earns its keep and how to keep shared saves safe without ongoing rental fees.
 - [Counter-Strike has no save file; it still has four hours of your settings. Checkpoint64 now backs up game and server configs](https://checkpoint64.com/blog/back-up-your-game-config/): 2026-09-11 — A competitive shooter keeps your progress on the publisher's servers, so there is no save to back up. What sits on your disk is the config, and that is the part you rebuild by hand after a reinstall. Checkpoint64 now stocks configs for 67 games and 16 dedicated servers.
 - [Is Cloud Backup Worth It for Serious PC Gamers?](https://checkpoint64.com/blog/is-cloud-backup-worth-it-pc-gamers/): 2026-09-11 — Is cloud backup worth it when a corrupted save can erase a 200-hour world? See the real costs, limits and smarter ways to protect your PC game progress.
