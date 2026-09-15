@@ -25,6 +25,8 @@ const GUIDES = [
   'modded-game-save-backup',
   'emulator-save-backup',
   'game-config-backup',
+  'steam-save-file-location',
+  'ubisoft-connect-save-location',
 ]
 
 // Per-game guide slugs (content/games/*.md). These are the *markdown file*
@@ -130,6 +132,30 @@ const CATALOG_FAMILY_GUIDES = {
 // config entry should not be the one page in the cluster with no guide link.
 const CONFIG_GUIDE = 'game-config-backup'
 
+// The launcher guides, each with the path templates that put a game on its
+// roster. Steam and Ubisoft Connect can keep saves in a folder of their own,
+// under an account ID no preset page can spell out, which is what those two
+// guides explain. Matched on the token the app resolves rather than a hand-kept
+// list, so a title added on the backend joins the roster, and gains its link
+// back from its save page, with no commit here. `{STEAM}` counts only under
+// `steamapps/`: that is a save inside the game's install folder, the case the
+// Steam guide covers, and the prefix keeps a malformed `{STEAM}\<appid>\remote`
+// catalog row off the list.
+export const LAUNCHER_GUIDES = {
+  'steam-save-file-location': (tpl) =>
+    tpl.startsWith('{STEAM_USERDATA}') || /^\{STEAM\}[\\/]steamapps[\\/]/.test(tpl),
+  'ubisoft-connect-save-location': (tpl) => tpl.startsWith('{UBISOFT}'),
+}
+
+/**
+ * The launcher guide whose roster a catalog game is on, or null. Config-only
+ * entries are the config guide's: their folder is settings, not saves.
+ */
+export function launcherGuideSlugForCatalog(game) {
+  if (game.categories.includes('config')) return null
+  const templates = game.paths.map((p) => p.pathTemplate)
+  return Object.keys(LAUNCHER_GUIDES).find((slug) => templates.some((tpl) => LAUNCHER_GUIDES[slug](tpl))) ?? null
+}
 
 /**
  * Best deep-dive guide for a catalog slug: the 1:1 game guide when one

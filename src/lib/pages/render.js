@@ -1,4 +1,4 @@
-import { pageSummaries, catalogSlugForGuide } from './load.js'
+import { pageSummaries, catalogSlugForGuide, LAUNCHER_GUIDES } from './load.js'
 import { getCatalog } from '../catalog/load.js'
 import { aboutGame } from '../catalog/entities.js'
 import { markdownToHtml, layout, socialMeta, jsonLd, PUBLISHER, OG_IMAGE } from '../blog/render.js'
@@ -61,6 +61,35 @@ ${links}
         </nav>`
 }
 
+// A launcher guide's table rows: every non-config catalog game on that guide's
+// roster (LAUNCHER_GUIDES), with the part of its path below the launcher's own
+// folder — the Ubisoft game-ID folder, or the Steam userdata or install-folder
+// tail. Each row links the game's save page, which links back
+// (catalog/render.js launcherNote), so the cluster links both ways. Markdown,
+// not HTML: the guide's own markdown owns the table header and places these
+// rows with {{games}}.
+export function launcherRows(slug, games, prefix) {
+  const onRoster = LAUNCHER_GUIDES[slug]
+  const text = (s) => s.replace(/[\\`*_[\]|]/g, '\\$&')
+  return games
+    .filter((g) => !g.categories.includes('config'))
+    .map((g) => {
+      const tails = [...new Set(g.paths
+        .map((p) => p.pathTemplate)
+        .filter((tpl) => onRoster(tpl))
+        .map((tpl) => tpl
+          .replace(/^\{UBISOFT\}[\\/]/, '')
+          .replace(/^\{STEAM_USERDATA\}/, 'userdata/<account ID>')
+          .replace(/^\{STEAM\}[\\/]/, '')
+          .replaceAll('/', '\\')))]
+      return tails.length
+        ? `| [${text(g.displayName)}](${prefix}games/${g.slug}/save/) | ${tails.map((t) => `\`${t}\``).join(' or ')} |`
+        : null
+    })
+    .filter(Boolean)
+    .join('\n')
+}
+
 // Cross-links to the other guide pages — internal linking for topical
 // authority, and a real next-click for the reader. `extraLinks`
 // ({href, label}) render first, before the guide list.
@@ -86,7 +115,16 @@ ${links}
 // breaks PR previews (links are relative) while production still looks fine.
 export async function renderPage(doc, { depth = 1 } = {}) {
   const prefix = depth === 0 ? './' : '../'.repeat(depth)
-  const bodyHtml = await markdownToHtml(doc.content)
+  // A launcher guide places its catalog table with {{games}}, the same token
+  // fill /press/ does: the rows are the one part that has to track the catalog.
+  // The committed snapshot carries them too, so an API outage keeps the table.
+  // A function replacement, so a `$` in a game name can't act as a pattern.
+  let content = doc.content
+  if (LAUNCHER_GUIDES[doc.slug]) {
+    const rows = launcherRows(doc.slug, await getCatalog(), prefix)
+    content = content.replaceAll('{{games}}', () => rows)
+  }
+  const bodyHtml = await markdownToHtml(content)
   const updated = doc.updated
     ? `<p class="blog-post-meta">Last updated <time datetime="${doc.updated}">${doc.updated}</time></p>`
     : ''
