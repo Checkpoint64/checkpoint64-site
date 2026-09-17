@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { parsePorts } from './ports.js'
 
 // The app backend's game catalog — the data behind the generated /games/<slug>/save/
 // pages. Fetched ONCE per build from the
@@ -40,6 +41,11 @@ function normalize(games) {
         : null,
       categories: Array.isArray(g.categories) ? g.categories.map(String) : [],
       note: g.note ? String(g.note) : null,
+      // Absent on every entry until the backend that serves this field ships
+      // (savebetter's PublicCatalogController), and absent forever on a game
+      // whose server ports we don't know — both read as [], which renders no
+      // ports section rather than an empty one.
+      serverPorts: parsePorts(g.serverPorts),
     }))
     .filter((g) => g.paths.length > 0) // a location page with no locations is pointless
     .sort((a, b) => a.displayName.localeCompare(b.displayName, 'en', { sensitivity: 'base' }))
@@ -72,7 +78,7 @@ async function fetchCatalog() {
 
 let _catalog
 
-/** @returns {Promise<Array<{slug: string, displayName: string, paths: Array<{platform: string, pathTemplate: string}>, allowedFileExtensions: string[]|null, categories: string[], note: string|null}>>} */
+/** @returns {Promise<Array<{slug: string, displayName: string, paths: Array<{platform: string, pathTemplate: string}>, allowedFileExtensions: string[]|null, categories: string[], note: string|null, serverPorts: Array<{proto: string, from: number, to: number}>}>>} */
 export function getCatalog() {
   return (_catalog ??= fetchCatalog())
 }

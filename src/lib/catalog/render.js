@@ -2,6 +2,7 @@ import { markdownToHtml, layout, socialMeta, jsonLd, PUBLISHER, OG_IMAGE } from 
 import { aboutGame, POPULAR_SLUGS } from './entities.js'
 import { ctaBlock, faqSection } from '../pages/render.js'
 import { relatedGuideSlugForCatalog, guideHrefForCatalog, gameSummaries, loadPage, launcherGuideSlugForCatalog } from '../pages/load.js'
+import { portsSection, portsFaq } from './ports.js'
 import { esc } from '../esc.js'
 
 // Generated "save file location" pages — one per backend-catalog game
@@ -259,6 +260,11 @@ function buildFaq(game, rows) {
     q: `How do I restore an earlier ${name} save?`,
     a: `With Checkpoint64, open the save's version list and restore any earlier version in one click — it puts those exact files back in ${name}'s save folder. Without a backup tool there's usually nothing to go back to: the folder only holds the latest files.`,
   })
+  // "What ports does a <game> server use" is its own query, asked by the same
+  // person on the same afternoon as "where are the saves" — and the catalog
+  // already holds the answer for the app. Empty for a game we know no ports
+  // for, which is most of them.
+  faq.push(...portsFaq(game, game.serverPorts, { server: isServer(game) }))
   if (isCoop(game)) {
     faq.push({
       q: `Can I share ${name} saves with friends?`,
@@ -363,6 +369,7 @@ ${pathListSection(game, rows)}${launcherNote(game, prefix)}
 ${openFolderSection(rows, config)}
 ${backupSection(game, prefix, guide)}
 ${isCoop(game) ? coopSection(game, prefix) : ''}
+${portsSection(game, game.serverPorts, prefix, { server: isServer(game) })}
       </div>
 ${faqSection({ faq })}
 ${ctaBlock(prefix)}
