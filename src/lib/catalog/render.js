@@ -1,7 +1,7 @@
 import { markdownToHtml, layout, socialMeta, jsonLd, PUBLISHER, OG_IMAGE } from '../blog/render.js'
 import { aboutGame, POPULAR_SLUGS } from './entities.js'
 import { ctaBlock, faqSection } from '../pages/render.js'
-import { relatedGuideSlugForCatalog, guideHrefForCatalog, gameSummaries, loadPage } from '../pages/load.js'
+import { relatedGuideSlugForCatalog, guideHrefForCatalog, gameSummaries, loadPage, launcherGuideSlugForCatalog } from '../pages/load.js'
 import { esc } from '../esc.js'
 
 // Generated "save file location" pages — one per backend-catalog game
@@ -35,8 +35,10 @@ const PLATFORMS = [
 // install wherever it is; what is shown here is the default location, which is
 // where it is for most people — and the STEAM_USERDATA one keeps an obvious
 // `<your Steam ID>` placeholder rather than inventing an account number.
-// An unmapped token renders raw (`{UBISOFT}\...`), which is how these two read
-// on the page before this map knew them, so check this list when the backend
+// UBISOFT is the same shape, on Windows only because the app resolves it
+// nowhere else: Ubisoft Connect's savegames folder, under a per-account ID.
+// An unmapped token renders raw — `{UBISOFT}\1803` did, on every Ubisoft
+// title's page, until it was added here — so check this list when the backend
 // starts using a new one.
 const TOKEN_DISPLAY = {
   windows: {
@@ -47,6 +49,7 @@ const TOKEN_DISPLAY = {
     DOCUMENTS: '%USERPROFILE%\\Documents',
     STEAM: 'C:\\Program Files (x86)\\Steam',
     STEAM_USERDATA: 'C:\\Program Files (x86)\\Steam\\userdata\\<your Steam ID>',
+    UBISOFT: 'C:\\Program Files (x86)\\Ubisoft\\Ubisoft Game Launcher\\savegames\\<your Ubisoft account ID>',
   },
   macos: {
     HOME: '~',
@@ -116,19 +119,42 @@ ${items}
         </ul>${multiNote}${extNote}`
 }
 
+// A path with a per-account placeholder (`<your Steam ID>`) can't be pasted into
+// Win+R or Go to Folder as it stands, so the tip hands over the folder above the
+// placeholder and says which one to open next.
+function pasteable(full) {
+  const cut = full.search(/[\\/]</)
+  return cut > 0
+    ? { path: full.slice(0, cut), then: ", then open your account's folder inside it" }
+    : { path: full, then: '' }
+}
+
+// A save page whose path runs through Steam's or Ubisoft Connect's own folder
+// points at the guide that explains it: the account ID in that path is the part
+// nobody can copy off a page. The guide lists this game in turn, from the same
+// LAUNCHER_GUIDES match (pages/render.js launcherRows).
+function launcherNote(game, prefix) {
+  const slug = launcherGuideSlugForCatalog(game)
+  const doc = slug && loadPage(slug)
+  return doc
+    ? `\n        <p>Not sure where yours is? The <a href="${prefix}${slug}/">${esc(doc.breadcrumb)}</a> guide explains how that path is built.</p>`
+    : ''
+}
+
 function openFolderSection(rows, config) {
   const win = rows.find((r) => r.key === 'windows')
   const mac = rows.find((r) => r.key === 'macos')
   const tips = []
   if (win) {
-    const p = win.paths[0]
+    const { path: p, then } = pasteable(win.paths[0])
     const hidden = p.includes('\\AppData\\')
       ? ' (the AppData folder is hidden in Explorer, which is why this path is so easy to miss — pasting it skips the hunt)'
       : ''
-    tips.push(`          <li><strong>Windows</strong> — press <strong>Win+R</strong>, paste <code>${esc(p)}</code>, and press Enter${hidden}.</li>`)
+    tips.push(`          <li><strong>Windows</strong> — press <strong>Win+R</strong>, paste <code>${esc(p)}</code>, and press Enter${then}${hidden}.</li>`)
   }
   if (mac) {
-    tips.push(`          <li><strong>macOS</strong> — in Finder press <strong>Cmd+Shift+G</strong> (Go to Folder) and paste <code>${esc(mac.paths[0])}</code>.</li>`)
+    const { path: p, then } = pasteable(mac.paths[0])
+    tips.push(`          <li><strong>macOS</strong> — in Finder press <strong>Cmd+Shift+G</strong> (Go to Folder) and paste <code>${esc(p)}</code>${then}.</li>`)
   }
   if (!tips.length) return ''
   return `        <h2>How to open the ${config ? 'config' : 'save'} folder</h2>
@@ -333,7 +359,7 @@ export function renderSavePage(game, games, { depth = 3 } = {}) {
         <p><strong>${name} stores its ${config ? 'config files' : 'save files'} at <code>${esc(first.paths[0])}</code> on ${esc(first.label)}.</strong> ${config
           ? `That folder holds ${isServer(game) ? 'the server rule set — multipliers, timers, slot counts and the admin list' : 'the settings rather than a save: keybinds, sensitivity, video options, the layout you arranged'}. Checkpoint64 already knows it, backs it up automatically and keeps every version, so a config that got reset is one click from restored.`
           : 'Checkpoint64 already knows this folder — it backs it up automatically and keeps every version, so a corrupted or overwritten save is one click from restored.'}</p>${noteBlock}
-${pathListSection(game, rows)}
+${pathListSection(game, rows)}${launcherNote(game, prefix)}
 ${openFolderSection(rows, config)}
 ${backupSection(game, prefix, guide)}
 ${isCoop(game) ? coopSection(game, prefix) : ''}
