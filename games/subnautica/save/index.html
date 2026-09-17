@@ -259,7 +259,7 @@
         "name": "Where does Subnautica store save files on Windows?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Subnautica keeps its saves at %USERPROFILE%\\AppData\\LocalLow\\Unknown Worlds\\Subnautica\\SavedGames. AppData is a hidden folder — paste the path into Explorer or the Win+R box to jump straight there. Checkpoint64 already knows this path and backs the folder up automatically."
+          "text": "Subnautica keeps its saves at %USERPROFILE%\\AppData\\LocalLow\\Unknown Worlds\\Subnautica\\SavedGames or C:\\Program Files (x86)\\Steam\\steamapps\\common\\Subnautica\\SNAppData\\SavedGames or %USERPROFILE%\\AppData\\LocalLow\\Unknown Worlds\\Subnautica\\Subnautica\\SavedGames. AppData is a hidden folder — paste the path into Explorer or the Win+R box to jump straight there. Checkpoint64 already knows this path and backs the folder up automatically."
         }
       },
       {
@@ -312,8 +312,9 @@
         <p><strong>Subnautica stores its save files at <code>%USERPROFILE%\AppData\LocalLow\Unknown Worlds\Subnautica\SavedGames</code> on Windows.</strong> Checkpoint64 already knows this folder — it backs it up automatically and keeps every version, so a corrupted or overwritten save is one click from restored.</p>
         <h2>Where Subnautica saves are stored</h2>
         <ul>
-          <li><strong>Windows</strong> — <code>%USERPROFILE%\AppData\LocalLow\Unknown Worlds\Subnautica\SavedGames</code></li>
+          <li><strong>Windows</strong> — <code>%USERPROFILE%\AppData\LocalLow\Unknown Worlds\Subnautica\SavedGames</code><br>or <code>C:\Program Files (x86)\Steam\steamapps\common\Subnautica\SNAppData\SavedGames</code><br>or <code>%USERPROFILE%\AppData\LocalLow\Unknown Worlds\Subnautica\Subnautica\SavedGames</code></li>
         </ul>
+        <p>Where two locations are listed, which one is in use depends on the install (Checkpoint64 checks them in order and uses the first that exists).</p>
         <p>The save data here is <code>.json</code> / <code>.bin</code> / <code>.dat</code> / <code>.png</code> / <code>.jpg</code> files — back up the folder as a set, not single files, so a restore always keeps them consistent.</p>
         <h2>How to open the save folder</h2>
         <ul>
@@ -331,7 +332,7 @@
           <h2>Common questions</h2>
           <details class="guide-faq-item" open>
             <summary>Where does Subnautica store save files on Windows?</summary>
-            <p>Subnautica keeps its saves at %USERPROFILE%\AppData\LocalLow\Unknown Worlds\Subnautica\SavedGames. AppData is a hidden folder — paste the path into Explorer or the Win+R box to jump straight there. Checkpoint64 already knows this path and backs the folder up automatically.</p>
+            <p>Subnautica keeps its saves at %USERPROFILE%\AppData\LocalLow\Unknown Worlds\Subnautica\SavedGames or C:\Program Files (x86)\Steam\steamapps\common\Subnautica\SNAppData\SavedGames or %USERPROFILE%\AppData\LocalLow\Unknown Worlds\Subnautica\Subnautica\SavedGames. AppData is a hidden folder — paste the path into Explorer or the Win+R box to jump straight there. Checkpoint64 already knows this path and backs the folder up automatically.</p>
           </details>
           <details class="guide-faq-item">
             <summary>Can I back up Subnautica saves automatically?</summary>
