@@ -1,6 +1,7 @@
 import { pageSummaries, catalogSlugForGuide, LAUNCHER_GUIDES } from './load.js'
 import { getCatalog } from '../catalog/load.js'
 import { aboutGame } from '../catalog/entities.js'
+import { portsSection, portsSentence } from '../catalog/ports.js'
 import { markdownToHtml, layout, socialMeta, jsonLd, PUBLISHER, OG_IMAGE } from '../blog/render.js'
 import { esc } from '../esc.js'
 
@@ -57,6 +58,28 @@ function coopGamesList(prefix, games) {
           <p>${coop.length} games in the catalog have co-op. Each link is that game's save file location — the folder the take-turns flow above passes around.</p>
           <ul>
 ${links}
+          </ul>
+        </nav>`
+}
+
+// The dedicated-server guide is where somebody weighs hosting against not
+// hosting, so it is the one page that should say what hosting actually costs in
+// router work. Same catalog field the per-game pages print, listed for every
+// game we know ports for — which is a short list today and grows with the
+// catalog, without this file changing.
+function serverPortsList(prefix, games) {
+  // Config entries are skipped for the same reason the co-op roster skips them:
+  // a game and its dedicated-server entry carry the same ports, and listing both
+  // says one thing twice.
+  const withPorts = games.filter((g) => g.serverPorts?.length && !g.categories.includes('config'))
+  if (!withPorts.length) return ''
+  const rows = withPorts.map((g) =>
+    `            <li><a href="${prefix}games/${esc(g.slug)}/save/">${esc(g.displayName)}</a> — <code>${esc(portsSentence(g.serverPorts))}</code></li>`).join('\n')
+  return `        <nav class="guide-related" aria-label="Server ports by game">
+          <h2>Ports a player-hosted server needs</h2>
+          <p>If you do run the server yourself, these are the ports that have to reach the host's PC. Each link is that game's save file location — the folder the host has, and everyone else doesn't.</p>
+          <ul>
+${rows}
           </ul>
         </nav>`
 }
@@ -165,9 +188,16 @@ export async function renderPage(doc, { depth = 1 } = {}) {
         { href: `${prefix}games/`, label: 'All supported games' },
       ]
     : []
+  // A game guide prints its game's server ports under the body, from the same
+  // catalog field (and the same renderer) as the save-location page — the
+  // reader looking up where a world lives is the reader about to host it.
+  const ports = catalogGame
+    ? portsSection(catalogGame, catalogGame.serverPorts, prefix)
+    : ''
+
   // Only this one guide grows a roster; every other page keeps the plain tail.
   const coopRoster = doc.slug === 'dedicated-server-alternative'
-    ? coopGamesList(prefix, await getCatalog()) + '\n'
+    ? coopGamesList(prefix, await getCatalog()) + '\n' + serverPortsList(prefix, await getCatalog()) + '\n'
     : ''
   const tail = `${coopRoster}${ctaBlock(prefix)}\n${relatedGuides(doc.slug, prefix, locationLinks)}`
 
@@ -179,6 +209,7 @@ ${breadcrumbNav(doc, prefix, { underGames: Boolean(catalogSlug) })}
       </div>
       <div class="blog-post-body">
 ${bodyHtml}
+${ports}
       </div>
 ${faqSection(doc)}
 ${tail}
