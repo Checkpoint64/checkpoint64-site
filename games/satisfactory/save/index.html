@@ -280,6 +280,14 @@
       },
       {
         "@type": "Question",
+        "name": "What ports does a Satisfactory server use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A player-hosted Satisfactory server listens on UDP 7777 and TCP 8888. Those are the ports to forward to the machine running it, and to allow through its firewall. The save folder itself is local to that machine too — Checkpoint64 backs it up automatically and keeps every version, so the world survives a reinstall of the server."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Can I share Satisfactory saves with friends?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -337,6 +345,13 @@
         <h2>Sharing Satisfactory saves with friends</h2>
         <p>Satisfactory has co-op, so the folder above usually lives on one person's PC — whoever hosts. When they're offline nobody else can carry on, and if two people play separately, one session quietly overwrites the other.</p>
         <p>Checkpoint64 lets a small group pass one Satisfactory world around instead of renting a dedicated server. Whoever plays next takes a server-enforced lock, pulls the latest save, plays, and pushes it back; everyone else stays read-only until the lock frees up, so nobody saves over anybody. Every version is kept, so a bad session is one restore away. The <a href="../../../dedicated-server-alternative/">dedicated server alternative</a> guide walks through the full take-turns flow.</p>
+        <h2>What ports does a Satisfactory server use?</h2>
+        <p>A player-hosted Satisfactory server listens on <strong>UDP 7777 and TCP 8888</strong>. That is what has to reach the host's PC: the port forward on their router, and what the firewall prompt on first launch is asking for.</p>
+        <ul>
+          <li><code>UDP 7777</code> — inbound, to the machine running the server.</li>
+          <li><code>TCP 8888</code> — inbound, to the machine running the server.</li>
+        </ul>
+        <p>Ports are the half of hosting that happens on the router. The other half is on disk — the world itself, which lives on one PC and which nobody else has a copy of. Checkpoint64 doesn't host anything for you; it backs that folder up automatically and keeps every version, so a corrupted or overwritten world is one click from restored. If you'd rather not run a server at all, a small group can pass one world between them instead: the <a href="../../../dedicated-server-alternative/">dedicated server alternative</a> guide walks through it.</p>
       </div>
         <section class="guide-faq" aria-label="Frequently asked questions">
           <h2>Common questions</h2>
@@ -351,6 +366,10 @@
           <details class="guide-faq-item">
             <summary>How do I restore an earlier Satisfactory save?</summary>
             <p>With Checkpoint64, open the save&#39;s version list and restore any earlier version in one click — it puts those exact files back in Satisfactory&#39;s save folder. Without a backup tool there&#39;s usually nothing to go back to: the folder only holds the latest files.</p>
+          </details>
+          <details class="guide-faq-item">
+            <summary>What ports does a Satisfactory server use?</summary>
+            <p>A player-hosted Satisfactory server listens on UDP 7777 and TCP 8888. Those are the ports to forward to the machine running it, and to allow through its firewall. The save folder itself is local to that machine too — Checkpoint64 backs it up automatically and keeps every version, so the world survives a reinstall of the server.</p>
           </details>
           <details class="guide-faq-item">
             <summary>Can I share Satisfactory saves with friends?</summary>

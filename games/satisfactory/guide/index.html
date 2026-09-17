@@ -340,6 +340,13 @@
 <h2 id="co-op-factories">Co-op factories</h2>
 <p>In co-op, one world is canonical, and &quot;who&#39;s got the latest save?&quot; gets messy when players host separate sessions. Checkpoint64 gives that world a single backed-up history with version locks, so one save moves forward instead of forking into three. If you&#39;re coordinating co-op without renting a 24/7 machine, the <a href="../../../dedicated-server-alternative/">dedicated server alternative guide</a> goes deeper, and the <a href="../../../blog/ditch-the-dedicated-server/">idle-hours cost math</a> explains why most groups are overpaying.</p>
 
+        <h2>What ports does a Satisfactory server use?</h2>
+        <p>A player-hosted Satisfactory server listens on <strong>UDP 7777 and TCP 8888</strong>. That is what has to reach the host's PC: the port forward on their router, and what the firewall prompt on first launch is asking for.</p>
+        <ul>
+          <li><code>UDP 7777</code> — inbound, to the machine running the server.</li>
+          <li><code>TCP 8888</code> — inbound, to the machine running the server.</li>
+        </ul>
+        <p>Ports are the half of hosting that happens on the router. The other half is on disk — the world itself, which lives on one PC and which nobody else has a copy of. Checkpoint64 doesn't host anything for you; it backs that folder up automatically and keeps every version, so a corrupted or overwritten world is one click from restored. If you'd rather not run a server at all, a small group can pass one world between them instead: the <a href="../../../dedicated-server-alternative/">dedicated server alternative</a> guide walks through it.</p>
       </div>
         <section class="guide-faq" aria-label="Frequently asked questions">
           <h2>Common questions</h2>
