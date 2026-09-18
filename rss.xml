@@ -6,7 +6,14 @@
     <description>Release notes and write-ups from the Checkpoint64 team.</description>
     <language>en</language>
     <atom:link href="https://checkpoint64.com/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 16 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Top World Handoff Methods for Co-op Saves</title>
+      <link>https://checkpoint64.com/blog/top-world-handoff-methods/</link>
+      <guid isPermaLink="true">https://checkpoint64.com/blog/top-world-handoff-methods/</guid>
+      <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Compare top world handoff methods for co-op saves, from folder swapping to shared servers and lock-based handoffs that stop overwrite disasters for good.</description>
+    </item>
     <item>
       <title>Are Deleted Saves Recoverable? Sometimes, Not Always</title>
       <link>https://checkpoint64.com/blog/are-deleted-saves-recoverable/</link>
