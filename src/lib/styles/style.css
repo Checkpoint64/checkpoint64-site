@@ -1368,35 +1368,68 @@ section .head .tape::before {
   color: rgba(var(--fg-rgb), 0.78);
 }
 
-/* ---------- FOOTER ---------- */
+/* ---------- FOOTER ----------
+   Brand block plus four link columns, one per kind of page (product, guides,
+   save locations, company), with the legal links in the bottom bar. A grid
+   rather than a space-between flex row so the columns line up, and so they
+   wrap four-up under the brand, then two-up on a phone, instead of one column
+   dropping to a row of its own. */
 footer.bot {
   border-top: 2px dashed rgba(var(--fg-rgb), 0.25);
-  padding: 44px 0 60px;
+  padding: 44px 0 48px;
   font-family: var(--f-mono); font-size: 12px;
   color: rgba(var(--fg-rgb), 0.55);
 }
 footer.bot .inner {
-  display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(200px, 1.2fr) repeat(4, minmax(0, 1fr));
+  gap: 32px 24px;
+  align-items: start;
 }
-footer.bot .col1 { max-width: 280px; }
+footer.bot .col1 { max-width: 260px; }
 footer.bot .col1 .brand { font-family: var(--f-pixel); font-size: 13px; color: var(--accent); letter-spacing: -1px; }
 footer.bot .col1 .blurb { margin-top: 14px; opacity: 0.7; line-height: 1.6; }
 footer.bot .col1 .sign { margin-top: 18px; font-family: var(--f-hand); font-size: 18px; color: var(--accent); }
-footer.bot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
-footer.bot ul a { text-decoration: none; opacity: 0.75; }
+footer.bot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+/* Block links with vertical padding: a 12px line on its own is a 16px tap
+   target, which is why the old list was so easy to mis-tap on a phone. */
+footer.bot ul a {
+  display: inline-block; padding: 4px 0;
+  text-decoration: none; opacity: 0.75;
+}
 footer.bot ul a:hover { color: var(--accent); opacity: 1; }
+/* The one hub link (/games/) leads the SAVE LOCATIONS column; a little weight
+   says "start here" before the two launcher-specific pages under it. */
+footer.bot ul a.hub { font-weight: 700; opacity: 0.9; }
 footer.bot h5,
 footer.bot .footer-h {
   font-family: var(--f-pixel); font-size: 10px; color: var(--fg);
-  margin: 0 0 12px;
+  margin: 0 0 10px; line-height: 1.6;
   font-weight: normal;
 }
 footer.bot .copyline {
-  margin-top: 36px; padding-top: 22px;
+  margin-top: 40px; padding-top: 20px;
   border-top: 1px dashed rgba(var(--fg-rgb), 0.18);
-  display: flex; align-items: baseline; justify-content: space-between;
-  flex-wrap: wrap; gap: 8px 14px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 10px 28px;
   font-family: var(--f-pixel); font-size: 9px; line-height: 1.6;
+}
+footer.bot .copyline .disclaimer { opacity: 0.6; }
+/* Legal links keep the body face and size of the columns above — 9px pixel
+   type is fine for a copyright line nobody clicks, not for three links. */
+footer.bot .legal {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0 20px;
+  font-family: var(--f-mono); font-size: 12px;
+}
+footer.bot .legal a { text-decoration: none; opacity: 0.75; padding: 4px 0; }
+footer.bot .legal a:hover { color: var(--accent); opacity: 1; }
+footer.bot .legal .footer-linkbtn { padding: 4px 0; }
+
+/* Brand on top, four columns beneath, before the columns get too narrow for a
+   label like "Dedicated server alternative" to sit on one line. */
+@media (max-width: 1080px) {
+  footer.bot .inner { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 20px; }
+  footer.bot .col1 { grid-column: 1 / -1; max-width: 420px; }
 }
 
 /* misc helpers */
@@ -1567,9 +1600,10 @@ footer.bot .copyline {
   .faq summary { padding: 16px 18px; font-size: 12px; }
   .faq .body { padding: 0 18px 20px; font-size: 13.5px; }
 
-  footer.bot { padding: 36px 0 44px; }
-  footer.bot .inner { gap: 28px 20px; }
-  footer.bot .col1 { flex: 1 1 100%; max-width: none; }
+  footer.bot { padding: 36px 0 40px; }
+  footer.bot .inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 18px; }
+  footer.bot .col1 { max-width: none; }
+  footer.bot .copyline { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
 
 @media (max-width: 420px) {

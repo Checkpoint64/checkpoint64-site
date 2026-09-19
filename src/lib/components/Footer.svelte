@@ -1,14 +1,19 @@
 <script>
-  import {fmt} from '$lib/i18n/config.js'
+  import { fmt } from '$lib/i18n/config.js'
+  import { SITE_PAGES, GUIDE_GROUPS } from '$lib/nav.js'
 
   // Two prefixes, same split as TopNav: `lp` reaches the current locale's
   // product pages, `prefix` reaches the site root for the English-only content
-  // (blog, guides, legal, about, contact). Guide labels stay hardcoded English
-  // because those pages are English-only.
+  // (blog, guides, legal, about, contact).
   //
-  // The Resources column keeps the four deep-guide links the design's footer
-  // dropped. They are this site's main internal links into the guide cluster —
-  // removing them from every page is an SEO change, not a layout one.
+  // Four link columns, one per kind of page. The old three were PRODUCT /
+  // RESOURCES / COMPANY, and RESOURCES was eleven links of five kinds — a blog,
+  // a help page, the games hub, five how-to guides, two launcher pages and a
+  // changelog — in one flat list. Now PRODUCT reads SITE_PAGES so it cannot
+  // drift from the top nav; GUIDES and SAVE LOCATIONS read GUIDE_GROUPS (their
+  // labels stay English there because those pages are); COMPANY keeps the
+  // people-and-news links; and the legal links sit in the bottom bar, where a
+  // visitor expects to find them.
   let { t, year, prefix, lp = prefix, onCookieSettings } = $props()
   const f = t.footer
 </script>
@@ -21,50 +26,44 @@
         <p class="blurb">{f.blurb}</p>
         <p class="sign">{f.sign} <span aria-hidden="true">✦</span></p>
       </div>
-      <nav aria-label={f.ariaProduct}>
+      <nav class="fcol" aria-label={f.aria.product}>
         <h2 class="footer-h">{f.product}</h2>
         <ul>
-          <li><a href="{lp}features/">{f.links.features}</a></li>
-          <li><a href="{lp}how-it-works/">{f.links.how}</a></li>
-          <li><a href="{lp}co-op/">{f.links.coop}</a></li>
-          <li><a href="{lp}creators/">{f.links.creators}</a></li>
-          <li><a href="{lp}pricing/">{f.links.pricing}</a></li>
-          <li><a href="{prefix}compare/">{f.links.compare}</a></li>
-          <li><a href="{lp}download/">{f.links.joinList}</a></li>
+          {#each SITE_PAGES as page}
+            <li><a href="{lp}{page.slug}/">{f.links[page.key]}</a></li>
+          {/each}
         </ul>
       </nav>
-      <nav aria-label={f.ariaResources}>
-        <h2 class="footer-h">{f.resources}</h2>
-        <ul>
-          <li><a href="{prefix}blog/">{f.links.blog}</a></li>
-          <li><a href="{lp}help/">{f.links.help}</a></li>
-          <li><a href="{prefix}games/">Games &amp; save locations</a></li>
-          <li><a href="{prefix}steam-cloud-alternative/">Steam Cloud alternative</a></li>
-          <li><a href="{prefix}dedicated-server-alternative/">Dedicated server alternative</a></li>
-          <li><a href="{prefix}modded-game-save-backup/">Modded save backup</a></li>
-          <li><a href="{prefix}emulator-save-backup/">Emulator save backup</a></li>
-          <li><a href="{prefix}game-config-backup/">Game config backup</a></li>
-          <li><a href="{prefix}steam-save-file-location/">Steam save locations</a></li>
-          <li><a href="{prefix}ubisoft-connect-save-location/">Ubisoft Connect saves</a></li>
-          <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank" rel="noopener noreferrer" aria-label={f.changelogAria}>{f.links.changelog}</a></li>
-        </ul>
-      </nav>
-      <nav aria-label={f.ariaCompany}>
+      {#each GUIDE_GROUPS as group}
+        <nav class="fcol" aria-label={f.aria[group.key]}>
+          <h2 class="footer-h">{f[group.key]}</h2>
+          <ul>
+            {#each group.items as item}
+              <li><a href="{prefix}{item.slug}/" class:hub={item.hub}>{item.label}</a></li>
+            {/each}
+          </ul>
+        </nav>
+      {/each}
+      <nav class="fcol" aria-label={f.aria.company}>
         <h2 class="footer-h">{f.company}</h2>
         <ul>
-          <li><a href="{prefix}about/">About</a></li>
-          <li><a href="{prefix}contact/">Contact</a></li>
-          <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label={f.discordAria}>{f.links.discord}</a></li>
-          <li><a href="{prefix}terms/">{f.links.terms}</a></li>
-          <li><a href="{prefix}privacy/">{f.links.privacy}</a></li>
+          <li><a href="{prefix}about/">{f.links.about}</a></li>
+          <li><a href="{prefix}blog/">{f.links.blog}</a></li>
+          <li><a href="https://github.com/checkpoint64/checkpoint64/releases" target="_blank" rel="noopener noreferrer" aria-label={f.changelogAria}>{f.links.changelog}</a></li>
           <li><a href="{prefix}press/">{f.links.press}</a></li>
-          <li><button type="button" class="footer-linkbtn" onclick={onCookieSettings}>{f.links.cookies}</button></li>
+          <li><a href="{prefix}contact/">{f.links.contact}</a></li>
+          <li><a href="https://discord.gg/kxeYwuuHEn" target="_blank" rel="noopener noreferrer" aria-label={f.discordAria}>{f.links.discord}</a></li>
         </ul>
       </nav>
     </div>
     <div class="copyline">
-      <span>{fmt(f.copyTpl, year)}</span>
-      <span style="opacity:.6">{f.notAffiliated}</span>
+      <span class="copy">{fmt(f.copyTpl, year)}</span>
+      <nav class="legal" aria-label={f.aria.legal}>
+        <a href="{prefix}terms/">{f.links.terms}</a>
+        <a href="{prefix}privacy/">{f.links.privacy}</a>
+        <button type="button" class="footer-linkbtn" onclick={onCookieSettings}>{f.links.cookies}</button>
+      </nav>
+      <span class="disclaimer">{f.notAffiliated}</span>
     </div>
   </div>
 </footer>

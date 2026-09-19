@@ -18,6 +18,7 @@ import assert from 'node:assert/strict'
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join, relative } from 'node:path'
 import { MARKDOWN_TWINS } from '../src/lib/markdown-twins.js'
+import { GUIDE_GROUPS } from '../src/lib/nav.js'
 
 const DIST = join(process.cwd(), 'dist')
 const ORG_ID = 'https://checkpoint64.com/#organization'
@@ -290,5 +291,21 @@ test('the footer links the trust anchors from every homepage', () => {
     const html = read(join(DIST, home))
     assert.match(html, /href="\.{0,2}\/?about\/"/, `${home}: no footer link to /about/`)
     assert.match(html, /href="\.{0,2}\/?contact\/"/, `${home}: no footer link to /contact/`)
+  }
+})
+
+test('the footer links every guide and the games hub from every localized page', () => {
+  // GUIDE_GROUPS (src/lib/nav.js) is the footer's registry: each entry is a
+  // footer link on all forty localized pages, which is this site's main
+  // internal linking into the guide cluster. This is what keeps a footer
+  // redesign from quietly becoming an SEO change. Three depths, because the
+  // links are relative and the prefix is computed per page.
+  const slugs = GUIDE_GROUPS.flatMap((g) => g.items.map((item) => item.slug))
+  assert.ok(slugs.length >= 9, 'the guide registry lost entries')
+  for (const page of ['index.html', 'de/index.html', 'ru/pricing/index.html']) {
+    const html = read(join(DIST, page))
+    for (const slug of slugs) {
+      assert.match(html, new RegExp(`href="(\\.\\./)*(\\./)?${slug}/"`), `${page}: no footer link to /${slug}/`)
+    }
   }
 })
