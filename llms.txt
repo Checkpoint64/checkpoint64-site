@@ -168,12 +168,12 @@ published in 5.
 
 ## Guides and comparisons
 
-- [Compare](https://checkpoint64.com/compare/): Steam Cloud, Drive Sync, and Local Backup Tools Compared
 - [Steam Cloud Alternative](https://checkpoint64.com/steam-cloud-alternative/): A Steam Cloud Alternative With Real Version History
 - [Dedicated Server Alternative](https://checkpoint64.com/dedicated-server-alternative/): A Dedicated Server Alternative for Co-op Save Sharing
 - [Modded Game Save Backup](https://checkpoint64.com/modded-game-save-backup/): Modded Game Save Backup: A Rewind Button for Corruption
 - [Emulator Save Backup](https://checkpoint64.com/emulator-save-backup/): Emulator Save Backup and Save-State Version History
 - [Game Config Backup](https://checkpoint64.com/game-config-backup/): Game Config Backup: Keybinds, Settings and Server Files
+- [Compare](https://checkpoint64.com/compare/): Steam Cloud, Drive Sync, and Local Backup Tools Compared
 - [Steam Save File Location](https://checkpoint64.com/steam-save-file-location/): Steam Save File Location: Where Steam Games Keep Your Saves
 - [Ubisoft Connect Save Location](https://checkpoint64.com/ubisoft-connect-save-location/): Ubisoft Connect Save Location: The savegames Folder Explained
 
