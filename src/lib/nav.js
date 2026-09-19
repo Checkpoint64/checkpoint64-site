@@ -24,6 +24,48 @@ export const SITE_PAGES = [
 
 export const PAGE_SLUGS = SITE_PAGES.map((p) => p.slug)
 
+// The English-only guide cluster, grouped the way the footer shows it. Two
+// groups because "where does Valheim keep its saves" and "is this better than
+// Steam Cloud" are different errands, and the one RESOURCES list that used to
+// hold both (eleven links of five kinds) made a visitor read all of it to find
+// either. `label` lives here rather than in the locale files because these
+// pages exist in English only, like the blog. `hub` marks /games/, which is its
+// own route (src/routes/games/) rather than a markdown guide, so GUIDE_SLUGS
+// below leaves it out.
+//
+// Every entry is a footer link on all forty localized pages — this site's main
+// internal linking into the guide cluster. Dropping one is an SEO change, not
+// a layout one.
+export const GUIDE_GROUPS = [
+  {
+    key: 'guides', // heading is t.footer.guides, landmark name t.footer.aria.guides
+    items: [
+      { slug: 'steam-cloud-alternative', label: 'Steam Cloud alternative' },
+      { slug: 'dedicated-server-alternative', label: 'Dedicated server alternative' },
+      { slug: 'modded-game-save-backup', label: 'Modded game save backup' },
+      { slug: 'emulator-save-backup', label: 'Emulator save backup' },
+      { slug: 'game-config-backup', label: 'Game config backup' },
+      { slug: 'compare', label: 'Compare backup tools' },
+    ],
+  },
+  {
+    key: 'saves',
+    items: [
+      { slug: 'games', label: 'All games', hub: true },
+      { slug: 'steam-save-file-location', label: 'Steam saves' },
+      { slug: 'ubisoft-connect-save-location', label: 'Ubisoft Connect saves' },
+    ],
+  },
+]
+
+// The flat markdown guides (content/pages/*.md), in footer order. pages/load.js
+// builds its route list, sitemap entries and "More guides" nav from this, so a
+// guide the footer links always renders and a guide that renders is always
+// linked.
+export const GUIDE_SLUGS = GUIDE_GROUPS.flatMap((g) => g.items)
+  .filter((item) => !item.hub)
+  .map((item) => item.slug)
+
 // The "Who it's for" dropdown. Compare is an existing markdown guide
 // (content/pages/compare.md), so it is English-only and linked with the
 // site-root prefix rather than the locale one.

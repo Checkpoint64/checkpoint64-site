@@ -30,6 +30,11 @@ There is no linter and no type checker configured.
 `src/lib/nav.js` is the **one registry** of the site's pages. The top nav, the footer, `sitemap.xml`
 and `svelte.config.js`'s prerender entries all read it, so adding a product page is: add a slug
 there, add a route folder, add its copy under `t.pages` in `en.js`. Nothing else needs touching.
+`GUIDE_GROUPS` beside it is the registry of the English-only guide cluster, grouped the way the footer's
+GUIDES and SAVE LOCATIONS columns show it (slug + English label; `hub` marks `/games/`, which is its own
+route). `src/lib/pages/load.js` derives its flat-guide list from it, so adding a comparison guide is: drop
+the markdown in `content/pages/`, add a slug and label to `GUIDE_GROUPS`. Leave it out and the page 404s
+(loud) rather than rendering with nothing linking to it (silent).
 
 - **Routes.** Everything localized lives under `src/routes/[[lang=lang]]/` — `+page.svelte` is the
   homepage, and one folder per product page beside it. `+layout.svelte` owns the chrome (skip link,
@@ -43,6 +48,12 @@ there, add a route folder, add its copy under `t.pages` in `en.js`. Nothing else
   back to the *current locale's* root and carries the localized product pages, so `/de/features/`
   links to `/de/pricing/` and not the English one. Both are computed in `+layout.js` from the URL
   depth. They are relative rather than root-absolute because PR previews are served from a subpath.
+- **The footer is four link columns, one per kind of page, plus a legal bottom bar.** `Footer.svelte`
+  renders PRODUCT from `SITE_PAGES` (labels under `t.footer.links` by page key), GUIDES and SAVE LOCATIONS
+  from `GUIDE_GROUPS`, and a hand-listed COMPANY column; Terms / Privacy / Cookie settings sit in the
+  copyright line. It used to be three columns with an eleven-link RESOURCES list mixing all of those kinds,
+  which is the layout `tests/agent-readiness.test.js` now guards against regressing: it asserts every
+  `GUIDE_GROUPS` entry is linked from the homepage, a locale homepage and a nested product page.
 - **No `<header>` around page content.** Each page's masthead is `PageHeader.svelte` (or `CoopHero`,
   or `DownloadStrip` at `level="h1"`), and all of them render a `<section>`. See the boilerplate-
   stripping note below — `tests/agent-readiness.test.js` fails the build if any page's `<h1>` ends up

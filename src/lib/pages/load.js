@@ -1,6 +1,7 @@
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'
+import { GUIDE_SLUGS } from '../nav.js'
 
 // Marketing "guide" pages — comparison + hub landing pages that target
 // commercial-intent queries the homepage can't (e.g. "steam cloud alternative").
@@ -17,17 +18,10 @@ const PAGE_DIRS = [
   join(process.cwd(), 'content', 'games'),
 ]
 
-// Comparison/hub guide slugs (content/pages/*.md).
-const GUIDES = [
-  'compare',
-  'steam-cloud-alternative',
-  'dedicated-server-alternative',
-  'modded-game-save-backup',
-  'emulator-save-backup',
-  'game-config-backup',
-  'steam-save-file-location',
-  'ubisoft-connect-save-location',
-]
+// Comparison/hub guide slugs (content/pages/*.md) — the footer's registry in
+// src/lib/nav.js, so a guide is never linked from every page without also
+// being routed, or routed without being linked.
+const GUIDES = [...GUIDE_SLUGS]
 
 // Per-game guide slugs (content/games/*.md). These are the *markdown file*
 // names, not URLs any more: each renders at /games/<catalog-slug>/guide/ (see
