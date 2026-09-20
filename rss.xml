@@ -6,7 +6,14 @@
     <description>Release notes and write-ups from the Checkpoint64 team.</description>
     <language>en</language>
     <atom:link href="https://checkpoint64.com/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 18 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>How to Prevent Save Desync in Co-op Games</title>
+      <link>https://checkpoint64.com/blog/how-to-prevent-save-desync/</link>
+      <guid isPermaLink="true">https://checkpoint64.com/blog/how-to-prevent-save-desync/</guid>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Learn how to prevent save desync with safer co-op handoffs, version history and simple rules that keep your shared world alive, intact and playable again.</description>
+    </item>
     <item>
       <title>Top World Handoff Methods for Co-op Saves</title>
       <link>https://checkpoint64.com/blog/top-world-handoff-methods/</link>
