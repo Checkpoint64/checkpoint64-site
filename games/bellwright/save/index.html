@@ -258,7 +258,7 @@
         "name": "Where does Bellwright store save files on Windows?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Bellwright keeps its saves at %LOCALAPPDATA%\\Bellwright\\Saved\\SaveGames\\. Checkpoint64 already knows this path and backs the folder up automatically."
+          "text": "Bellwright keeps its saves at %LOCALAPPDATA%\\Bellwright\\Saved\\SaveGames\\ or %LOCALAPPDATA%\\Bellwright\\Saved\\SaveGames. Checkpoint64 already knows this path and backs the folder up automatically."
         }
       },
       {
@@ -319,8 +319,9 @@
         <p><strong>Bellwright stores its save files at <code>%LOCALAPPDATA%\Bellwright\Saved\SaveGames\</code> on Windows.</strong> Checkpoint64 already knows this folder — it backs it up automatically and keeps every version, so a corrupted or overwritten save is one click from restored.</p>
         <h2>Where Bellwright saves are stored</h2>
         <ul>
-          <li><strong>Windows</strong> — <code>%LOCALAPPDATA%\Bellwright\Saved\SaveGames\</code></li>
+          <li><strong>Windows</strong> — <code>%LOCALAPPDATA%\Bellwright\Saved\SaveGames\</code><br>or <code>%LOCALAPPDATA%\Bellwright\Saved\SaveGames</code></li>
         </ul>
+        <p>Where two locations are listed, which one is in use depends on the install (Checkpoint64 checks them in order and uses the first that exists).</p>
         <h2>How to open the save folder</h2>
         <ul>
           <li><strong>Windows</strong> — press <strong>Win+R</strong>, paste <code>%LOCALAPPDATA%\Bellwright\Saved\SaveGames\</code>, and press Enter.</li>
@@ -340,7 +341,7 @@
           <h2>Common questions</h2>
           <details class="guide-faq-item" open>
             <summary>Where does Bellwright store save files on Windows?</summary>
-            <p>Bellwright keeps its saves at %LOCALAPPDATA%\Bellwright\Saved\SaveGames\. Checkpoint64 already knows this path and backs the folder up automatically.</p>
+            <p>Bellwright keeps its saves at %LOCALAPPDATA%\Bellwright\Saved\SaveGames\ or %LOCALAPPDATA%\Bellwright\Saved\SaveGames. Checkpoint64 already knows this path and backs the folder up automatically.</p>
           </details>
           <details class="guide-faq-item">
             <summary>Can I back up Bellwright saves automatically?</summary>
@@ -369,7 +370,7 @@
           <li><a href="../../../games/big-walk/save/">Big Walk save file location</a></li>
           <li><a href="../../../games/battlefield-v/save/">Battlefield V config file location</a></li>
           <li><a href="../../../games/black-mesa/save/">Black Mesa save file location</a></li>
-          <li><a href="../../../games/">All 260 supported games</a></li>
+          <li><a href="../../../games/">All 277 supported games</a></li>
           </ul>
         </nav>
     </article>
