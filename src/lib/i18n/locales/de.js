@@ -290,6 +290,70 @@ export default {
     notAffiliated: 'NICHT MIT DEN OBEN GENANNTEN SPIELEN VERBUNDEN',
   },
 
+  // Seitenweise Head- und Masthead-Texte für die sieben Produktseiten
+  // (siehe en.js). `breadcrumb` entspricht dem Footer-Label der Seite.
+  pages: {
+    features: {
+      title: 'Funktionen — Versionsverlauf, Co-op-Sperren, 140+ Spiele',
+      description: 'Jedes Backup als Version, serverseitige co-op-Sperren, Uploads nur der Änderungen und Vorlagen für 140+ Spiele und 7 Emulatoren. Gratis-Plan inklusive.',
+      breadcrumb: 'Funktionen',
+      hand: 'kein geschwafel, keine gebühr pro person',
+      h1Html: 'WAS <span class="accent">DRINSTECKT.</span>',
+      lede: 'Gebaut von Leuten, die viel zurückladen. Kein Geschwafel, keine Gebühr pro Person, kein „powered by AI“. Nur ein Spielstand-Tresor, der funktioniert.',
+      notes: [
+        'nur spielstände — spiele und ROMs rührt es nie an',
+        'läuft mit Steam, GOG, Epic, Emulatoren — es beobachtet den Ordner, nicht den Launcher',
+      ],
+    },
+    'how-it-works': {
+      title: 'Spielstand-Backup automatisch — so geht Checkpoint64',
+      description: 'Zeig Checkpoint64 auf deinen Spielstand-Ordner, schalte Auto-Backup ein und roll in Sekunden zurück. Prüft alle 60 Sekunden, lädt nur Änderungen hoch.',
+      breadcrumb: "So geht's",
+      hand: 'drei schritte, einmal',
+      h1Html: 'ZEIG AUF EINEN ORDNER.<br/><span class="accent">VERGISS IHN.</span>',
+      lede: 'Drei Schritte, einmal. Danach denkst du nie wieder an Spielstand-Dateien — und genau darum geht es.',
+    },
+    'co-op': {
+      title: 'Koop & Teams — eine Welt teilen, ohne zu überschreiben',
+      description: 'Eine aktive Welt, ein Halter. Serverseitige Sperren: Nur wer die Sperre hält, lädt hoch. Sperren laufen von selbst ab, jede Übernahme steht im Logbuch.',
+      breadcrumb: 'Koop & Teams',
+      hand: 'eine welt, eine sperre',
+      h1Html: 'EINE WELT.<br/>EINE SPERRE.<br/><span class="accent">NULL ÜBERSCHREIBEN.</span>',
+      lede: 'Spiele wie Factorio, Valheim und Satisfactory haben immer nur eine aktive Welt. Wer die Sperre hält, lädt hoch; alle anderen laden herunter. Halter abgetaucht? Sperren laufen von selbst ab, und du kannst übernehmen — mit Vorwarnung und Logbuch-Eintrag, damit es alle wissen.',
+    },
+    creators: {
+      title: 'Für Streamer & Creator — Spielstand mit dem Chat teilen',
+      description: 'Erstell einen Nur-Lese-Teilen-Code und gib deinen Spielstand an alle Fans. Überschreiben können sie ihn nie. Gratis 3 Fans, Lifetime 15, Pro unbegrenzt.',
+      breadcrumb: 'Für Creator',
+      hand: 'ein code, alle fans',
+      h1Html: 'TEILE DEINEN RUN<br/>MIT DEM <span class="accent">GANZEN CHAT.</span>',
+      lede: 'Du hast ein Publikum? Gib ihm genau deinen Spielstand. Erstell einen Nur-Lese-Code für jede Welt: deine 100-%-Datei, einen Challenge-Seed, den verfluchten Run von gestern Nacht. Pack ihn in deine Videobeschreibung, und Fans ziehen sich eine perfekte Kopie in ihre eigene Bibliothek. Sie laden sie herunter und spielen; deine überschreiben können sie nie.',
+    },
+    pricing: {
+      title: 'Preise — Gratis-Plan, Lifetime einmalig oder Pro für Crews',
+      description: 'Gratis ist echt gratis: kein Zeitlimit, keine Karte. Lifetime zahlst du einmal. Teilen-Codes auf jedem Tarif, Pro gibt mehr Platz. Keine Gebühr pro Person.',
+      breadcrumb: 'Preise',
+      hand: 'keine reißleinen',
+      h1Html: 'WÄHLE DEIN <span class="accent">MODUL.</span>',
+      lede: 'Drei Arten zu spielen. Gratis ist wirklich gratis — kein Sieben-Tage-Test. Lifetime ist einmal zahlen. Pro ist für Crews, die zusammen sichern. Keine Gebühr pro Person, keine Überraschungskosten, keine Reißleinen.',
+    },
+    download: {
+      title: 'Checkpoint64 Download — gratis für Windows, macOS und Linux',
+      description: 'Gratis-Download mit echtem Gratis-Plan statt Testversion. Für Windows, macOS (Apple Silicon) und Linux, dazu Steam für Windows, Linux und Steam Deck.',
+      breadcrumb: 'Download',
+      hand: 'gratis-plan, wirklich gratis',
+      h1Html: 'HOL ES DIR.',
+      lede: '',
+    },
+    help: {
+      title: 'Hilfe & FAQ — Checkpoint64 Spielstand-Backup',
+      description: 'Die häufigsten Fragen, sortiert: was als Spielstand zählt, Backup bei laufendem Spiel, co-op-Sperren, Emulatoren, Tarife und Abrechnung. Plus Kontakt.',
+      breadcrumb: 'Hilfe',
+      hand: 'echte menschen am anderen ende',
+      h1Html: 'HÄUFIG <span class="accent">GEPRÜFT.</span>',
+      lede: 'Die häufigsten Fragen, sortiert. Nicht dabei? Schreib an support@checkpoint64.com oder frag im Discord.',
+    },
+  },
 
   meta: {
     skipLink: 'Zum Inhalt springen',

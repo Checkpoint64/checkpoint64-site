@@ -2,7 +2,7 @@ import { pageSummaries, catalogSlugForGuide, LAUNCHER_GUIDES } from './load.js'
 import { getCatalog } from '../catalog/load.js'
 import { aboutGame } from '../catalog/entities.js'
 import { portsSection, portsSentence } from '../catalog/ports.js'
-import { markdownToHtml, layout, socialMeta, jsonLd, PUBLISHER, OG_IMAGE } from '../blog/render.js'
+import { markdownToHtml, layout, socialMeta, jsonLd, PUBLISHER, OG_IMAGE, brandTitle } from '../blog/render.js'
 import { esc } from '../esc.js'
 
 const ORIGIN = 'https://checkpoint64.com'
@@ -273,7 +273,7 @@ ${tail}
   ].filter(Boolean).join('\n')
 
   return layout({
-    title: `${doc.title} — Checkpoint64`,
+    title: brandTitle(doc.title),
     description: doc.description,
     body,
     depth,

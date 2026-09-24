@@ -1,4 +1,4 @@
-import { markdownToHtml, jsonLd } from '../blog/render.js'
+import { markdownToHtml, jsonLd, socialMeta, brandTitle } from '../blog/render.js'
 import { esc } from '../esc.js'
 import { MARKDOWN_TWINS } from '../markdown-twins.js'
 import { organizationNode, ORIGIN } from '../organization.js'
@@ -42,9 +42,15 @@ function layout({ title, description, body, depth, slug, crumb, extraHead = '' }
   const markdown = MARKDOWN_TWINS.includes(slug)
     ? `\n  <link rel="alternate" type="text/markdown" href="${prefix}${slug}.md" />`
     : ''
+  // Canonical + OG/Twitter from the same helper the blog and guide shell use.
+  // These five pages were the only indexable ones on the site with neither, so
+  // a shared link to /privacy/ unfurled as a bare URL and any tracking-param
+  // variant of /about/ was left for Google to dedupe on its own.
+  const social = socialMeta({ type: 'website', title, description, url: pageUrl })
   const headHtml = `  <title>${esc(title)}</title>
   ${desc}
   <meta name="robots" content="index, follow" />
+${social}
   <link rel="icon" type="image/svg+xml" href="${prefix}retro_save_icon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -96,7 +102,7 @@ ${html}
       </div>
     </article>`
   return layout({
-    title: `${doc.title} — Checkpoint64`,
+    title: brandTitle(doc.title),
     description: doc.description,
     body,
     depth,

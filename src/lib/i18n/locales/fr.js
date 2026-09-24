@@ -290,6 +290,71 @@ export default {
     notAffiliated: 'NON AFFILIÉ AUX JEUX CITÉS CI-DESSUS',
   },
 
+  // Titre, meta description et en-tête des sept pages produit (voir en.js).
+  // Les clés doivent correspondre aux slugs de src/lib/nav.js.
+  pages: {
+    features: {
+      title: 'Fonctionnalités — versions, verrous co-op et 140+ jeux',
+      description: 'Chaque backup gardé en version restaurable, verrous co-op côté serveur, envoi des seuls changements, préréglages pour 140+ jeux et 7 émulateurs. Plan gratuit.',
+      breadcrumb: 'Fonctions',
+      hand: 'sans blabla, sans frais par personne',
+      h1Html: "CE QU'IL Y A <span class=\"accent\">DANS LA BOÎTE.</span>",
+      lede: "Conçu par des gens qui rechargent beaucoup leurs parties. Sans blabla, sans frais par personne, sans « propulsé par l'IA ». Juste un coffre à sauvegardes qui fonctionne.",
+      notes: [
+        'fichiers de sauvegarde uniquement — il ne touche jamais aux jeux ni aux ROM',
+        'marche avec Steam, GOG, Epic, les émulateurs — il surveille le dossier, pas le launcher',
+      ],
+    },
+    'how-it-works': {
+      title: 'Sauvegarde automatique de jeux en 3 étapes — Checkpoint64',
+      description: "Pointez Checkpoint64 vers votre dossier de sauvegarde, activez l'auto-backup, revenez à toute version. Vérifié toutes les 60 s ; seuls les changements partent.",
+      breadcrumb: 'Comment ça marche',
+      hand: 'trois étapes, une fois',
+      h1Html: 'POINTEZ UN DOSSIER.<br/><span class="accent">OUBLIEZ-LE.</span>',
+      lede: "Trois étapes, une fois. Ensuite vous ne pensez plus jamais aux fichiers de sauvegarde — et c'est exactement le but.",
+    },
+    'co-op': {
+      title: 'Coop & équipes — partagez un monde sans vous écraser',
+      description: "Un monde actif, un seul détenteur. Verrous côté serveur : seul celui qui tient le verrou envoie ; ils expirent seuls et chaque reprise s'inscrit au journal.",
+      breadcrumb: 'Coop & équipes',
+      hand: 'un monde, un verrou',
+      h1Html: 'UN MONDE.<br/>UN VERROU.<br/><span class="accent">ZÉRO ÉCRASEMENT.</span>',
+      lede: "Des jeux comme Factorio, Valheim et Satisfactory n'ont qu'un monde actif à la fois. Celui qui tient le verrou envoie ; les autres téléchargent. Le détenteur a disparu ? Les verrous expirent tout seuls, et vous pouvez prendre le relais — avec un avertissement, et une ligne dans le journal pour que tout le monde le sache.",
+    },
+    creators: {
+      title: 'Streamers & créateurs — partagez votre sauvegarde au chat',
+      description: "Un code en lecture seule donne votre sauvegarde exacte à vos fans, sans qu'ils l'écrasent. 3 fans à la fois en Gratuit, 15 en Lifetime, sans limite en Pro.",
+      breadcrumb: 'Pour les créateurs',
+      hand: 'un code, tous les fans',
+      h1Html: 'PARTAGEZ VOTRE RUN<br/>AVEC <span class="accent">TOUT LE CHAT.</span>',
+      lede: 'Vous avez un public ? Donnez-lui votre sauvegarde exacte. Générez un code en lecture seule pour n’importe quel monde : votre fichier à 100 %, une seed de défi, le run maudit d’hier soir. Glissez-le dans la description de votre vidéo, et vos fans récupèrent une copie parfaite dans leur propre bibliothèque. Ils la téléchargent et y jouent ; jamais ils ne pourront écrire sur la vôtre.',
+    },
+    pricing: {
+      title: 'Tarifs — Gratuit, Lifetime en paiement unique ou Pro',
+      description: 'Le Gratuit est vraiment gratuit : sans limite de durée, sans carte. Le Lifetime se paie une fois. Codes de partage partout. Aucun frais par personne.',
+      breadcrumb: 'Tarifs',
+      hand: 'aucun piège',
+      h1Html: 'CHOISISSEZ VOTRE<br/><span class="accent">CARTOUCHE.</span>',
+      lede: 'Trois façons de jouer. Le Gratuit est vraiment gratuit — pas un essai de sept jours. Le Lifetime se paie une fois. Le Pro est pour les groupes qui sauvegardent ensemble. Pas de frais par personne, pas de frais cachés, aucun piège.',
+    },
+    download: {
+      title: 'Télécharger Checkpoint64 gratuit — Windows, macOS et Linux',
+      description: "Gratuit, avec un plan gratuit qui n'est pas un essai. Installeurs Windows, macOS Apple Silicon et Linux, plus Steam pour Windows et Linux, Steam Deck inclus.",
+      breadcrumb: 'Télécharger',
+      hand: 'plan gratuit, vraiment gratuit',
+      h1Html: 'PRENEZ-LE.',
+      lede: '',
+    },
+    help: {
+      title: 'Aide & FAQ — sauvegarde de jeux avec Checkpoint64',
+      description: 'Les questions fréquentes, par thème : sauvegardes, backup en cours de jeu, verrous co-op, émulateurs, formules et facturation. Plus des guides et le contact.',
+      breadcrumb: 'Aide',
+      hand: 'de vrais humains au bout du fil',
+      h1Html: 'QUESTIONS <span class="accent">FRÉQUENTES.</span>',
+      lede: "Les questions qu'on nous pose le plus, par thème. La vôtre n'y est pas ? Écrivez à support@checkpoint64.com ou demandez sur Discord.",
+    },
+  },
+
   meta: {
     skipLink: 'Aller au contenu',
     title: 'Checkpoint64 — Ne perdez plus jamais une sauvegarde, solo ou co-op',
