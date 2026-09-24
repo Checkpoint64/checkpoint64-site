@@ -24,7 +24,7 @@ export default {
 
   hero: {
     h1Html: 'NIE WIEDER EINEN<br/>SPIELSTAND <span class="accent">VERLIEREN.</span>',
-    sub: 'Deine Spielstände, automatisch gesichert — und jede Version bleibt erhalten. Roll eine kaputte Datei, einen schlechten Abend oder einen Fehlgriff einfach zurück. Co-op-Crews reichen eine Welt weiter wie ein Modul, mit Sperre, damit niemand jemanden überschreibt. Host im Urlaub? Schnapp dir die Sperre und spiel weiter.',
+    sub: 'Deine Spielstände, automatisch gesichert — und jede Version bleibt erhalten. Roll eine kaputte Datei, einen schlechten Abend oder einen Fehlgriff einfach zurück. Co-op-Crews reichen eine Welt weiter wie ein Modul, mit Sperre, damit niemand jemanden überschreibt. Lieber live zusammen spielen? Starte einen Server auf deinem eigenen PC, und deine Crew kommt über Steam rein, ohne Portweiterleitung.',
     ctaPrimary: 'GRATIS LADEN',
     ctaPrimaryAria: 'Checkpoint64 kostenlos herunterladen',
     ctaSteam: 'AUF STEAM LADEN',
@@ -85,9 +85,17 @@ export default {
       { tag: 'VERSIONSVERLAUF', title: 'JEDER UPLOAD\nIST EINE VERSION.', body: 'Scroll durch jedes Backup mit Dateianzahl, Größe und allem, was sich seit dem letzten Mal geändert hat. Drück Wiederherstellen, und die Dateien landen wieder auf der Platte, als aktuell markiert — kein Raten, keine „final_v2_ECHT"-Ordner.' },
       { tag: 'CO-OP-SPERREN', title: 'EINER HÄLT\nDIE WELT.', body: 'Spiele wie Factorio, Valheim und Satisfactory haben immer nur eine aktive Welt. Wer die Sperre hält, lädt hoch; alle anderen laden herunter. Halter abgetaucht? Sperren laufen von selbst ab, und du kannst übernehmen — mit Vorwarnung und Logbuch-Eintrag, damit es alle wissen.' },
       { tag: 'NUR ÄNDERUNGEN', title: 'WINZIGE\nUPLOADS.', body: 'Nur die geänderten Dateien werden hochgeladen — umbenannte Dateien kosten nichts extra. Eine 500-MB-Minecraft-Welt lädt nach einer normalen Session ein paar MB neu hoch, nicht das Ganze. Schont dein Internet, schont deinen Speicher.' },
-      { tag: '140+ SPIELE BEREIT', title: 'IN SEKUNDEN\nEINGERICHTET.', body: 'Vorlagen für 140+ Spiele — vier Spielarten von modded Minecraft, Stardew, Skyrim, Palworld, Elden Ring — plus sieben Emulatoren. Wähl, welche Dateien zählen, und überspring die Screenshots. Wenn es in einen Ordner speichert, funktioniert es.' },
+      { tag: '180+ SPIELE BEREIT', title: 'IN SEKUNDEN\nEINGERICHTET.', body: 'Vorlagen für 180+ Spiele — vier Spielarten von modded Minecraft, Stardew, Skyrim, Palworld, Elden Ring — plus sieben Emulatoren. Wähl, welche Dateien zählen, und überspring die Screenshots. Wenn es in einen Ordner speichert, funktioniert es.' },
       { tag: 'TEILEN-CODES', title: 'EINE WELT,\nGANZE CROWD.', body: 'Du betreibst eine Community-Welt? Erstell einen Beitritts-Code, und jeder damit kann deine Welt herunterladen — aber nie überschreiben. Codes sind begrenzt und widerrufbar, und Nur-Lese-Gäste belegen keine Plätze. Hosten kann jeder Tarif — 3 Fans gleichzeitig bei Gratis, 15 bei Lifetime, unbegrenzt bei Pro.' },
       { tag: 'LOGBUCH', title: 'WER, WAS\nUND WANN.', body: 'Jeder Upload, jede Wiederherstellung und jedes Sperren-Schnappen landet im Logbuch deiner Gruppe. Praktisch, wenn dein co-op-Partner dir den schlechten Run anhängt.' },
+      // Holes keep the new v2 tiles at their en.js indices (arrays merge
+      // element-wise over English); fill them when these tiles are translated.
+      undefined, // not translated yet — falls back to en.js at this index
+      undefined, // not translated yet — falls back to en.js at this index
+      undefined, // not translated yet — falls back to en.js at this index
+      { tag: "CHECKPOINT CONNECT", title: "KEINE PORT-\nWEITERLEITUNG.", body: "Lass einen Spielserver auf deinem eigenen PC laufen und teile ihn mit deinem Team. Mitspieler klicken auf Beitreten, und ihr Spiel verbindet sich über Steam, direkt oder über Valves Relays. Keine Router-Einstellungen, und nur dein Team kommt rein. Steam-Version." },
+      { tag: "CONTROLLER", title: "LÄUFT MIT\nGAMEPAD.", body: "Bedien die ganze App mit dem Gamepad: Steuerkreuz zum Bewegen, A zum Auswählen, B zurück. Auf dem Steam Deck funktioniert die Steuerung einfach, und Textfelder öffnen Steams Tastatur." },
+      { tag: "AUCH CONFIGS", title: "EINSTELLUNGEN,\nNICHT NUR SPIELSTÄNDE.", body: "Tastenbelegung, Empfindlichkeit, Fadenkreuz, Grafikeinstellungen und Regelwerke dedizierter Server für 80+ Spiele und Server. Der Teil, den du nach einer Neuinstallation von Hand neu baust, versioniert wie ein Spielstand." },
     ],
   },
 
@@ -218,8 +226,8 @@ export default {
   },
 
   download: {
-    headlineSoonHtml: 'CHECKPOINT64 v1.0<br/>IST DA.<br/><span class="invert">HOL ES DIR.</span>',
-    headlineLiveHtml: 'CHECKPOINT64 v1.0<br/>IST DA.<br/><span class="invert">HOL ES DIR.</span>',
+    headlineSoonHtml: 'CHECKPOINT64 v2<br/>IST DA.<br/><span class="invert">HOL ES DIR.</span>',
+    headlineLiveHtml: 'CHECKPOINT64 v2<br/>IST DA.<br/><span class="invert">HOL ES DIR.</span>',
     blurbSoon: 'Kostenloser Download, Gratis-Plan inklusive. Hol es dir auf Steam, oder zieh dir den neuesten Installer direkt von GitHub.',
     blurbLive: 'Kostenloser Download, Gratis-Plan inklusive. Builds erscheinen direkt über GitHub — diese Buttons zeigen immer auf den neuesten Installer.',
     signoffSoon: 'gratis zum ausprobieren — der gratis-plan ist echt',
@@ -233,14 +241,17 @@ export default {
     tape: 'FAQ',
     h2Html: 'HÄUFIG <span class="accent">GEPRÜFT.</span>',
     items: [
-      { q: 'WAS ZÄHLT ALS „SPIELSTAND"?', a: 'Alles, was dein Spiel auf die Festplatte schreibt. Checkpoint64 behandelt die Dateien in einem Ordner als einen Spielstand und sichert sie gemeinsam. Vorlagen für 140+ Spiele (und sieben Emulatoren) richten das für dich ein; für alles andere zeigst du auf den Ordner und wählst die Dateien selbst.' },
+      { q: 'WAS ZÄHLT ALS „SPIELSTAND"?', a: 'Alles, was dein Spiel auf die Festplatte schreibt. Checkpoint64 behandelt die Dateien in einem Ordner als einen Spielstand und sichert sie gemeinsam. Vorlagen für 180+ Spiele (und sieben Emulatoren) richten das für dich ein; für alles andere zeigst du auf den Ordner und wählst die Dateien selbst.' },
       { q: 'LADET IHR HOCH, WÄHREND DAS SPIEL LÄUFT?', a: 'Ja, behutsam. Checkpoint64 sperrt deine Spielstand-Dateien nie. Es prüft den Ordner alle 60 Sekunden; speichert das Spiel gerade, wartet es, bis Ruhe ist, und versucht es erneut — keine kaputten Dateien, kein Ruckeln. Zwischen den Prüfungen döst die App, du merkst sie beim Spielen nicht.' },
       { q: 'WAS, WENN MEIN CO-OP-PARTNER MEINEN UPLOAD ÜBERSCHREIBT?', a: 'Das geht nicht, mit Absicht. Nur wer die Sperre hält, kann hochladen. Wer seine Version pushen will, muss erst die Sperre übernehmen — das warnt dich und landet für alle sichtbar im Logbuch. Schlimmster Fall: Deine Version ist im Verlauf nur ein Wiederherstellen entfernt.' },
-      { q: 'BRAUCHE ICH NOCH EINEN DEDIZIERTEN SERVER?', a: 'Für die meisten Gruppen nein. Der ganze Sinn eines dedizierten Servers ist, deine Welt online zu halten, wenn der PC des Hosts aus ist. Checkpoint64 deckt davon etwa 90 % für eine einmalige Gebühr ab: Wer spielen will, schnappt sich die Sperre, spielt seine Session und schiebt den Spielstand zurück. Eine typische co-op-Gruppe spart {0} gegenüber einem 24/7-Server, der 18 Stunden am Tag leer steht.' },
+      { q: 'BRAUCHE ICH NOCH EINEN DEDIZIERTEN SERVER?', a: 'Für die meisten Gruppen nein. Der ganze Sinn eines dedizierten Servers ist, deine Welt online zu halten, wenn der PC des Hosts aus ist. Checkpoint64 deckt davon etwa 90 % für eine einmalige Gebühr ab: Wer spielen will, schnappt sich die Sperre, spielt seine Session und schiebt den Spielstand zurück. Alle gleichzeitig drin? Starte den Server auf deinem eigenen PC, und dein Team kommt in der Steam-Version über Checkpoint Connect rein, ohne Portweiterleitung. Eine typische co-op-Gruppe spart {0} gegenüber einem 24/7-Server, der 18 Stunden am Tag leer steht.' },
       { q: 'FUNKTIONIERT DAS MIT EMULATOREN ODER KONSOLEN-SPIELSTÄNDEN?', a: 'Emulatoren, absolut — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 und Cemu haben alle Vorlagen, deine Save-States bekommen also endlich echten Versionsverlauf. Konsolen-Spielstände funktionieren nur, wenn du sie erst auf einen PC bekommst. Die App selbst läuft auf Windows, macOS (Apple Silicon) und Linux.' },
       { q: 'WAS KOSTET ES?', a: 'Der Gratis-Plan ist echt und bleibt gratis: 20 MiB, dein eigener Bereich plus ein Team. Lifetime ist eine Einmalzahlung — 1 GiB pro Bereich, bis zu 3 Teams, direkt oder über Steam gekauft. Pro ist für große Crews: 5 GiB pro Bereich, 5 Teams, je 25 Plätze, unbegrenzte Nur-Lese-Teilen-Codes. Teilen-Codes selbst gibt es auf jedem Tarif — Gratis hostet 3 Nur-Lese-Fans gleichzeitig, Lifetime 15. Auf keiner Stufe Gebühr pro Person.' },
-      { q: 'KANN ICH ES HEUTE SCHON NUTZEN?', a: 'Ja — v1.0 ist da. Gratis-Download für Windows, macOS (Apple Silicon) und Linux, und auf Steam gibt es sie auch.' },
+      { q: 'KANN ICH ES HEUTE SCHON NUTZEN?', a: 'Ja — v2 ist da. Gratis-Download für Windows, macOS (Apple Silicon) und Linux, und auf Steam gibt es sie auch.' },
       { q: 'WER KANN MEINE SPIELSTÄNDE SEHEN?', a: 'Deine Teamkollegen — und nur die, die du einlädst. Sie sehen deinen Anzeigenamen, nie deine E-Mail. Und deine Daten gehören dir: Exportiere jederzeit alles als Zip, und Konto löschen heißt wirklich löschen (nach 7 Tagen Bedenkzeit, falls dich nachts um zwei die Reue packt).' },
+      undefined, // not translated yet — falls back to en.js at this index
+      undefined, // not translated yet — falls back to en.js at this index
+      { q: "KANN MEIN TEAM OHNE PORTWEITERLEITUNG AUF EINEN SERVER AUF MEINEM PC?", a: "Ja, mit Checkpoint Connect in der Steam-Version. Starte den Server des Spiels auf deinem PC, teile ihn mit deinem Team, und deine Mitspieler klicken auf Beitreten. Ihr Spiel verbindet sich mit 127.0.0.1, und Steam transportiert den Verkehr, direkt oder über Valves Relays, also muss niemand an den Router. Es funktioniert für UDP- und TCP-Server, nur Mitglieder deines Teams kommen rein, und es ist in jedem Tarif enthalten." },
     ],
   },
 
@@ -294,25 +305,25 @@ export default {
   meta: {
     skipLink: 'Zum Inhalt springen',
     title: 'Checkpoint64 — Nie wieder einen Spielstand verlieren, solo oder co-op',
-    description: 'Automatisches Cloud-Backup und voller Versionsverlauf für PC-Spielstände. Roll kaputte Spielstände zurück und teil co-op-Welten per Sperre. Funktioniert mit Minecraft, Stardew Valley, Elden Ring und 140+ Spielen. Gratis-Download für Windows, Mac, Linux.',
+    description: 'Automatisches Cloud-Backup und voller Versionsverlauf für PC-Spielstände. Roll kaputte Spielstände zurück und teil co-op-Welten per Sperre. Funktioniert mit Minecraft, Stardew Valley, Elden Ring und 180+ Spielen. Gratis-Download für Windows, Mac, Linux.',
     ogTitle: 'Checkpoint64 — Nie wieder einen Spielstand verlieren, solo oder co-op',
-    ogDescription: 'Nie wieder einen Spielstand verlieren. Automatische Backups, voller Versionsverlauf und co-op-Sperren, damit Freunde Welten teilen, ohne sich gegenseitig zu überschreiben. 140+ Spiele bereit. Gratis-Download — einmal zahlen für mehr Platz.',
+    ogDescription: 'Nie wieder einen Spielstand verlieren. Automatische Backups, voller Versionsverlauf und co-op-Sperren, damit Freunde Welten teilen, ohne sich gegenseitig zu überschreiben. 180+ Spiele bereit. Gratis-Download — einmal zahlen für mehr Platz.',
     ogImageAlt: 'Checkpoint64 — nie wieder einen Spielstand verlieren. Ein Retro-Modulregal voller Spielstände.',
     twitterTitle: 'Checkpoint64 — Nie wieder einen Spielstand verlieren, solo oder co-op',
-    twitterDescription: 'Nie wieder einen Spielstand verlieren. Automatische Cloud-Backups, voller Versionsverlauf, co-op-Sperren. 140+ Spiele bereit. Gratis-Download für Windows, Mac, Linux.',
+    twitterDescription: 'Nie wieder einen Spielstand verlieren. Automatische Cloud-Backups, voller Versionsverlauf, co-op-Sperren. 180+ Spiele bereit. Gratis-Download für Windows, Mac, Linux.',
     twitterImageAlt: 'Checkpoint64 — nie wieder einen Spielstand verlieren.',
     noscriptHtml: 'Hinweis — JavaScript ist deaktiviert, daher funktionieren das Anmeldeformular und die animierte Demo auf dieser Seite nicht. Der restliche Inhalt ist oben vollständig sichtbar.',
   },
 
   jsonld: {
     orgDescription: 'Checkpoint64 entwickelt ein Spielstand-Backup-Tool für PC-Gamer — automatische Cloud-Backups, voller Versionsverlauf und co-op-Sperren, damit Freunde Welten teilen, ohne sich gegenseitig zu überschreiben.',
-    softwareDescription: 'Automatisches Cloud-Backup, voller Versionsverlauf und co-op-Sperren für PC-Spielstände. Gratis-Plan inklusive; einmal zahlen für mehr Platz. Funktioniert von Haus aus mit Minecraft, Stardew Valley, Skyrim, Palworld, Elden Ring, Factorio, Valheim sowie 140+ weiteren Spielen und 7 Emulatoren.',
+    softwareDescription: 'Automatisches Cloud-Backup, voller Versionsverlauf und co-op-Sperren für PC-Spielstände. Gratis-Plan inklusive; einmal zahlen für mehr Platz. Funktioniert von Haus aus mit Minecraft, Stardew Valley, Skyrim, Palworld, Elden Ring, Factorio, Valheim sowie 180+ weiteren Spielen und 7 Emulatoren.',
     featureList: [
       'Automatische Hintergrund-Backups alle 60 Sekunden',
       'Voller Versionsverlauf mit Ein-Klick-Wiederherstellung',
       'Serverseitig erzwungene co-op-Sperren — immer nur ein Welt-Halter',
       'Deduplizierte Uploads — nur die geänderten Dateien werden gesendet',
-      'Vorlagen für 140+ Spiele und 7 Emulatoren',
+      'Vorlagen für 180+ Spiele und 7 Emulatoren',
       'Geteiltes Aktivitäts-Logbuch für Teams',
       'Nur-Lese-Teilen-Codes für Community-Welten',
       'Lifetime-Plan mit Einmalzahlung — kein Abo nötig',
@@ -330,14 +341,17 @@ export default {
       { name: 'Stelle jede frühere Version wieder her', text: 'Öffne bei jedem Spielstand „Versionen", um den ganzen Verlauf zu sehen. Wähl eine und klick Wiederherstellen, um sofort zurückzurollen — die Dateien landen wieder auf der Platte, und diese Version wird aktuell.' },
     ],
     faq: [
-      { q: 'Was zählt als „Spielstand"?', a: 'Alles, was dein Spiel auf die Festplatte schreibt. Checkpoint64 behandelt die Dateien in einem Ordner als einen Spielstand und sichert sie gemeinsam. Vorlagen für 140+ Spiele (und sieben Emulatoren) richten das für dich ein; für alles andere zeigst du auf den Ordner und wählst die Dateien selbst.' },
+      { q: 'Was zählt als „Spielstand"?', a: 'Alles, was dein Spiel auf die Festplatte schreibt. Checkpoint64 behandelt die Dateien in einem Ordner als einen Spielstand und sichert sie gemeinsam. Vorlagen für 180+ Spiele (und sieben Emulatoren) richten das für dich ein; für alles andere zeigst du auf den Ordner und wählst die Dateien selbst.' },
       { q: 'Ladet ihr hoch, während das Spiel läuft?', a: 'Ja, behutsam. Checkpoint64 sperrt deine Spielstand-Dateien nie. Es prüft den Ordner alle 60 Sekunden; speichert das Spiel gerade, wartet es, bis Ruhe ist, und versucht es erneut — keine kaputten Dateien, kein Ruckeln. Zwischen den Prüfungen döst die App, du merkst sie beim Spielen nicht.' },
       { q: 'Was, wenn mein co-op-Partner meinen Upload überschreibt?', a: 'Das geht nicht, mit Absicht. Nur wer die Sperre hält, kann hochladen. Wer seine Version pushen will, muss erst die Sperre übernehmen — das warnt dich und landet für alle sichtbar im Logbuch. Schlimmster Fall: Deine Version ist im Verlauf nur ein Wiederherstellen entfernt.' },
-      { q: 'Brauche ich noch einen dedizierten Server?', a: 'Für die meisten Gruppen nein. Der ganze Sinn eines dedizierten Servers ist, deine Welt online zu halten, wenn der PC des Hosts aus ist. Checkpoint64 deckt davon etwa 90 % für eine einmalige Gebühr ab: Wer spielen will, schnappt sich die Sperre, spielt seine Session und schiebt den Spielstand zurück. Eine typische co-op-Gruppe spart {0} gegenüber einem 24/7-Server, der 18 Stunden am Tag leer steht.' },
+      { q: 'Brauche ich noch einen dedizierten Server?', a: 'Für die meisten Gruppen nein. Der ganze Sinn eines dedizierten Servers ist, deine Welt online zu halten, wenn der PC des Hosts aus ist. Checkpoint64 deckt davon etwa 90 % für eine einmalige Gebühr ab: Wer spielen will, schnappt sich die Sperre, spielt seine Session und schiebt den Spielstand zurück. Alle gleichzeitig drin? Starte den Server auf deinem eigenen PC, und dein Team kommt in der Steam-Version über Checkpoint Connect rein, ohne Portweiterleitung. Eine typische co-op-Gruppe spart {0} gegenüber einem 24/7-Server, der 18 Stunden am Tag leer steht.' },
       { q: 'Funktioniert das mit Emulatoren oder Konsolen-Spielständen?', a: 'Emulatoren, absolut — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 und Cemu haben alle Vorlagen, deine Save-States bekommen also endlich echten Versionsverlauf. Konsolen-Spielstände funktionieren nur, wenn du sie erst auf einen PC bekommst. Die App selbst läuft auf Windows, macOS (Apple Silicon) und Linux.' },
       { q: 'Was kostet es?', a: 'Der Gratis-Plan ist echt und bleibt gratis: 20 MiB, dein eigener Bereich plus ein Team. Lifetime ist eine Einmalzahlung — 1 GiB pro Bereich, bis zu 3 Teams, direkt oder über Steam gekauft. Pro ist für große Crews: 5 GiB pro Bereich, 5 Teams, je 25 Plätze, unbegrenzte Nur-Lese-Teilen-Codes. Teilen-Codes selbst gibt es auf jedem Tarif — Gratis hostet 3 Nur-Lese-Fans gleichzeitig, Lifetime 15. Auf keiner Stufe Gebühr pro Person.' },
-      { q: 'Kann ich es heute schon nutzen?', a: 'Ja — v1.0 ist da. Gratis-Download für Windows, macOS (Apple Silicon) und Linux, und auf Steam gibt es sie auch.' },
+      { q: 'Kann ich es heute schon nutzen?', a: 'Ja — v2 ist da. Gratis-Download für Windows, macOS (Apple Silicon) und Linux, und auf Steam gibt es sie auch.' },
       { q: 'Wer kann meine Spielstände sehen?', a: 'Deine Teamkollegen — und nur die, die du einlädst. Sie sehen deinen Anzeigenamen, nie deine E-Mail. Und deine Daten gehören dir: Exportiere jederzeit alles als Zip, und Konto löschen heißt wirklich löschen (nach 7 Tagen Bedenkzeit).' },
+      undefined, // not translated yet — falls back to en.js at this index
+      undefined, // not translated yet — falls back to en.js at this index
+      { q: "Kann mein Team ohne Portweiterleitung auf einen Server auf meinem PC?", a: "Ja, mit Checkpoint Connect in der Steam-Version. Starte den Server des Spiels auf deinem PC, teile ihn mit deinem Team, und deine Mitspieler klicken auf Beitreten. Ihr Spiel verbindet sich mit 127.0.0.1, und Steam transportiert den Verkehr, direkt oder über Valves Relays, also muss niemand an den Router. Es funktioniert für UDP- und TCP-Server, nur Mitglieder deines Teams kommen rein, und es ist in jedem Tarif enthalten." },
     ],
   },
 }

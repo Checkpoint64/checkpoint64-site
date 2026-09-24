@@ -35,6 +35,8 @@ test('the section names the ports, counts a range, and points at the no-server r
   assert.match(html, /<h2>What ports does a Valheim server use\?<\/h2>/)
   assert.match(html, /<code>UDP 2456-2457<\/code> \(2 ports\)/)
   assert.match(html, /href="\.\.\/\.\.\/\.\.\/dedicated-server-alternative\/"/)
+  // Every section that says "forward this port" also offers the route that doesn't.
+  assert.match(html, /href="\.\.\/\.\.\/\.\.\/co-op\/#connect">Checkpoint Connect<\/a>/)
   // A single port must not claim a span.
   assert.doesNotMatch(portsSection(VALHEIM, parsePorts(['udp:8211']), '../'), /\(1 ports\)/)
 })

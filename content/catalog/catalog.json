@@ -14,7 +14,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "7-days-to-die",
@@ -41,7 +42,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "abiotic-factor",
@@ -61,7 +63,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "abiotic-factor-server",
@@ -80,7 +83,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "aoe2-de",
@@ -100,7 +104,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "aom-retold",
@@ -120,7 +125,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "alchemy-factory",
@@ -138,7 +144,31 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "allumeria",
+      "displayName": "Allumeria",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/My Games/Allumeria"
+        },
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/Allumeria"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "among-us",
@@ -155,7 +185,27 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "anime-shop-simulator",
+      "displayName": "Anime Shop Simulator",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/OneMoreTime/Anime Shop Simulator"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "anno-117",
@@ -172,7 +222,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "anno-1800",
@@ -190,7 +241,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "apex-legends",
@@ -211,7 +263,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "arc-raiders",
@@ -229,7 +282,28 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "ark-asa",
+      "displayName": "ARK: Survival Ascended",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/ARK Survival Ascended/ShooterGame/Saved/SavedArksLocal"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer",
+        "server"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ark-asa-server",
@@ -248,7 +322,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ark-se-server",
@@ -267,7 +342,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "arma-3",
@@ -281,7 +357,8 @@
       ],
       "allowedFileExtensions": [
         "arma3profile",
-        "cfg"
+        "cfg",
+        "json"
       ],
       "categories": [
         "config",
@@ -290,7 +367,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:2302"
+      ]
     },
     {
       "slug": "aska",
@@ -308,7 +388,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ac-black-flag",
@@ -329,7 +410,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ac-mirage",
@@ -349,7 +431,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ac-odyssey",
@@ -369,7 +452,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ac-origins",
@@ -389,7 +473,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ac-shadows",
@@ -409,7 +494,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ac-syndicate",
@@ -441,7 +527,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ac-unity",
@@ -462,7 +549,8 @@
         "singleplayer",
         "coop"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ac-valhalla",
@@ -482,7 +570,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "assetto-corsa",
@@ -500,7 +589,11 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:9600",
+        "tcp:9600"
+      ]
     },
     {
       "slug": "acc",
@@ -518,7 +611,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "astroneer",
@@ -536,7 +630,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "astroneer-server",
@@ -555,7 +650,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "avatar-frontiers-of-pandora",
@@ -576,7 +672,8 @@
         "singleplayer",
         "coop"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "bg3",
@@ -607,7 +704,36 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "barotrauma",
+      "displayName": "Barotrauma",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Daedalic Entertainment GmbH/Barotrauma"
+        },
+        {
+          "platform": "macos",
+          "pathTemplate": "{HOME}/Library/Application Support/Daedalic Entertainment GmbH/Barotrauma"
+        },
+        {
+          "platform": "linux",
+          "pathTemplate": "{HOME}/.local/share/Daedalic Entertainment GmbH/Barotrauma"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer",
+        "server"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "battlefield-1",
@@ -624,7 +750,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "battlefield-2042",
@@ -641,7 +768,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "battlefield-6",
@@ -658,7 +786,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "battlefield-v",
@@ -675,7 +804,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "bellwright",
@@ -685,13 +815,18 @@
         {
           "platform": "windows",
           "pathTemplate": "{LOCALAPPDATA}\\Bellwright\\Saved\\SaveGames\\"
+        },
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Bellwright/Saved/SaveGames"
         }
       ],
       "allowedFileExtensions": null,
       "categories": [
         "coop"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "big-walk",
@@ -721,7 +856,8 @@
       "categories": [
         "coop"
       ],
-      "note": "Linux paths unconfirmed"
+      "note": "Linux paths unconfirmed",
+      "serverPorts": null
     },
     {
       "slug": "black-mesa",
@@ -742,7 +878,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "black-myth-wukong",
@@ -758,7 +895,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "cod-black-ops-6",
@@ -777,7 +915,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "cod-mw3",
@@ -796,7 +935,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "calyx",
@@ -812,7 +952,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "castle-story",
@@ -829,7 +970,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "cemu",
@@ -853,7 +995,8 @@
       "categories": [
         "emulator"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "chivalry-2",
@@ -871,7 +1014,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "cities-skylines",
@@ -897,7 +1041,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "civ6",
@@ -924,7 +1069,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "civ7",
@@ -945,7 +1091,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "clair-obscur-expedition-33",
@@ -961,7 +1108,28 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "conan-exiles",
+      "displayName": "Conan Exiles",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Conan Exiles/ConanSandbox/Saved"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer",
+        "server"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "conan-exiles-server",
@@ -980,7 +1148,10 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:7777"
+      ]
     },
     {
       "slug": "core-keeper",
@@ -999,7 +1170,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "cs2",
@@ -1017,7 +1189,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "cs2-server",
@@ -1035,7 +1208,8 @@
         "server",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "crimson-desert",
@@ -1055,7 +1229,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "crimson-moon",
@@ -1072,7 +1247,8 @@
         "singleplayer",
         "coop"
       ],
-      "note": "Unconfirmed support. Please reach out if incorrect and use custom paths."
+      "note": "Unconfirmed support. Please reach out if incorrect and use custom paths.",
+      "serverPorts": null
     },
     {
       "slug": "crisis-the-third-way",
@@ -1086,7 +1262,8 @@
       ],
       "allowedFileExtensions": null,
       "categories": null,
-      "note": "Unverified. English not supported"
+      "note": "Unverified. English not supported",
+      "serverPorts": null
     },
     {
       "slug": "ck3",
@@ -1113,7 +1290,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "cult-of-the-lamb",
@@ -1133,7 +1311,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "cyberpunk-2077",
@@ -1153,7 +1332,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "dark-souls-3",
@@ -1171,7 +1351,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "darkest-dungeon",
@@ -1185,7 +1366,8 @@
       ],
       "allowedFileExtensions": null,
       "categories": null,
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "dave-the-diver",
@@ -1205,7 +1387,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "dcs-world",
@@ -1223,7 +1406,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "dead-by-daylight",
@@ -1240,7 +1424,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "deep-rock-galactic",
@@ -1258,7 +1443,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "destiny-2",
@@ -1276,7 +1462,27 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "desynced",
+      "displayName": "Desynced",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Desynced/Saved/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "diablo-4",
@@ -1297,7 +1503,27 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "dimraeth",
+      "displayName": "Dimraeth",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/Mudtek/Dimraeth"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "disco-elysium",
@@ -1317,7 +1543,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "dishonored-2",
@@ -1333,7 +1560,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "dos2",
@@ -1356,7 +1584,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "dolphin",
@@ -1380,7 +1609,8 @@
       "categories": [
         "emulator"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "dont-starve-together",
@@ -1406,7 +1636,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:10999"
+      ]
     },
     {
       "slug": "dota-2",
@@ -1423,7 +1656,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "duckstation",
@@ -1447,7 +1681,8 @@
       "categories": [
         "emulator"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "dune-awakening",
@@ -1465,7 +1700,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "dyson-sphere-program",
@@ -1481,7 +1717,27 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "eden-crafters",
+      "displayName": "Eden Crafters",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/.edencrafters"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "elden-ring",
@@ -1503,7 +1759,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "enshrouded",
@@ -1522,7 +1779,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "escape-from-tarkov",
@@ -1539,7 +1797,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "eve-online",
@@ -1556,7 +1815,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "f1-24",
@@ -1574,7 +1834,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "factorio",
@@ -1603,7 +1864,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:34197"
+      ]
     },
     {
       "slug": "fallout4",
@@ -1623,7 +1887,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "fallout-nv",
@@ -1639,7 +1904,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "far-cry-3",
@@ -1657,7 +1923,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "far-cry-4",
@@ -1683,7 +1950,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "far-cry-5",
@@ -1704,7 +1972,8 @@
         "singleplayer",
         "coop"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "far-cry-6",
@@ -1725,7 +1994,8 @@
         "singleplayer",
         "coop"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "far-cry-new-dawn",
@@ -1746,7 +2016,8 @@
         "singleplayer",
         "coop"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "far-cry-primal",
@@ -1766,7 +2037,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "far-far-west",
@@ -1784,7 +2056,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "fields-of-mistria",
@@ -1804,7 +2077,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ffxiv",
@@ -1825,7 +2099,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "for-honor",
@@ -1842,7 +2117,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "fortnite",
@@ -1860,7 +2136,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "forza-horizon-6",
@@ -1877,7 +2154,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "frostpunk",
@@ -1897,7 +2175,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "garrys-mod",
@@ -1916,7 +2195,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:27015"
+      ]
     },
     {
       "slug": "garrys-mod-server",
@@ -1934,7 +2216,10 @@
         "server",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:27015"
+      ]
     },
     {
       "slug": "gothic-1-remake",
@@ -1948,7 +2233,8 @@
       ],
       "allowedFileExtensions": null,
       "categories": null,
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "gta-v",
@@ -1969,7 +2255,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "gray-zone-warfare",
@@ -1987,7 +2274,27 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "green-hell",
+      "displayName": "Green Hell",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM_USERDATA}/815370/remote"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ground-branch",
@@ -2006,7 +2313,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "grounded",
@@ -2024,7 +2332,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "grounded-2",
@@ -2042,7 +2351,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "guild-wars-2",
@@ -2062,7 +2372,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "guilty-gear-strive",
@@ -2080,7 +2391,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "hades",
@@ -2103,7 +2415,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "hades-2",
@@ -2123,7 +2436,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "halo-infinite",
@@ -2142,7 +2456,35 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "hoi4",
+      "displayName": "Hearts of Iron IV",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{DOCUMENTS}/Paradox Interactive/Hearts of Iron IV/save games"
+        },
+        {
+          "platform": "macos",
+          "pathTemplate": "{HOME}/Documents/Paradox Interactive/Hearts of Iron IV/save games"
+        },
+        {
+          "platform": "linux",
+          "pathTemplate": "{HOME}/.local/share/Paradox Interactive/Hearts of Iron IV/save games"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "hell-let-loose",
@@ -2164,7 +2506,8 @@
         "multiplayer",
         "server"
       ],
-      "note": "Very useful for reseting after crashes"
+      "note": "Very useful for reseting after crashes",
+      "serverPorts": null
     },
     {
       "slug": "helldivers-2",
@@ -2182,7 +2525,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "hollow-knight",
@@ -2209,7 +2553,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "hollow-knight-silksong",
@@ -2233,7 +2578,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "how-to-fish",
@@ -2251,7 +2597,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "humanitz",
@@ -2272,7 +2619,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "hunt-showdown",
@@ -2290,7 +2638,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "hytale",
@@ -2308,7 +2657,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "icarus",
@@ -2328,7 +2678,10 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:17777"
+      ]
     },
     {
       "slug": "icarus-server",
@@ -2347,7 +2700,10 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:17777"
+      ]
     },
     {
       "slug": "immortals-fenyx-rising",
@@ -2367,7 +2723,27 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "incursion-red-river",
+      "displayName": "Incursion Red River",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/Test_C/Saved/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "insurgency-sandstorm",
@@ -2386,7 +2762,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:27102"
+      ]
     },
     {
       "slug": "insurgency-sandstorm-server",
@@ -2405,7 +2784,10 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:27102"
+      ]
     },
     {
       "slug": "kenshi",
@@ -2421,7 +2803,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "killing-floor-2",
@@ -2440,7 +2823,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:7777"
+      ]
     },
     {
       "slug": "kingdom-come",
@@ -2456,7 +2842,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "kcd2",
@@ -2472,7 +2859,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "kingdoms-reborn",
@@ -2489,7 +2877,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "kirby-super-star-ultra",
@@ -2505,7 +2894,8 @@
         "sav"
       ],
       "categories": null,
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "league-of-legends",
@@ -2522,7 +2912,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "left-4-dead-2",
@@ -2541,7 +2932,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "left-4-dead-2-server",
@@ -2560,7 +2952,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "lost-ark",
@@ -2578,7 +2971,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "mafia-old-country",
@@ -2594,7 +2988,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "mass-effect-le",
@@ -2614,7 +3009,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "meccha-chameleon",
@@ -2632,7 +3028,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "medieval-dynasty",
@@ -2650,7 +3047,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "metaphor-refantazio",
@@ -2666,7 +3064,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "metro-exodus",
@@ -2690,7 +3089,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "mina-the-hollower",
@@ -2714,7 +3114,28 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "minecraft-bedrock",
+      "displayName": "Minecraft (Bedrock)",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{APPDATA}/Minecraft Bedrock/Users"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer",
+        "server"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "minecraft-curseforge",
@@ -2734,7 +3155,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "minecraft-ftb",
@@ -2754,7 +3176,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "minecraft",
@@ -2791,7 +3214,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "tcp:25565"
+      ]
     },
     {
       "slug": "minecraft-modrinth",
@@ -2819,7 +3245,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "minecraft-pinecone",
@@ -2847,7 +3274,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "minecraft-prism",
@@ -2875,7 +3303,27 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "misery",
+      "displayName": "MISERY",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/MISERY/Saved/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "mixtape",
@@ -2891,7 +3339,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "monster-hunter-rise",
@@ -2909,7 +3358,8 @@
       ],
       "allowedFileExtensions": null,
       "categories": null,
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "monster-hunter-wilds",
@@ -2927,7 +3377,8 @@
       ],
       "allowedFileExtensions": null,
       "categories": null,
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "monster-hunter-world",
@@ -2944,7 +3395,8 @@
         "singleplayer",
         "coop"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "mordhau",
@@ -2962,7 +3414,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "mordhau-server",
@@ -2980,7 +3433,8 @@
         "server",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "mortal-kombat-1",
@@ -2998,7 +3452,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "mortal-shell-2",
@@ -3014,7 +3469,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "necesse",
@@ -3041,7 +3497,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:14159"
+      ]
     },
     {
       "slug": "nioh-3",
@@ -3059,7 +3518,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "no-mans-sky",
@@ -3080,7 +3540,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "no-more-room-in-hell-2",
@@ -3097,7 +3558,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "no-rest-for-the-wicked",
@@ -3115,7 +3577,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "omori",
@@ -3135,7 +3598,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "onimusha-way-of-the-sword",
@@ -3151,7 +3615,45 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "only-up",
+      "displayName": "only up",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}\\OnlyUP\\Saved\\Config\\Windows"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "config",
+        "singleplayer"
+      ],
+      "note": "Game does not write save game files. Configs only",
+      "serverPorts": []
+    },
+    {
+      "slug": "ore-factory-squad",
+      "displayName": "Ore Factory Squad",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/threeW/Ore Factory Squad/Saves"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "overwatch-2",
@@ -3168,7 +3670,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "oxygen-not-included",
@@ -3192,7 +3695,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "paladins",
@@ -3209,7 +3713,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "palworld",
@@ -3231,7 +3736,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:8211"
+      ]
     },
     {
       "slug": "palworld-server",
@@ -3250,7 +3758,10 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:8211"
+      ]
     },
     {
       "slug": "path-of-exile",
@@ -3270,7 +3781,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "path-of-exile-2",
@@ -3290,7 +3802,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "payday-3",
@@ -3308,7 +3821,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "pcsx2",
@@ -3332,7 +3846,8 @@
       "categories": [
         "emulator"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "persona-3-reload",
@@ -3348,7 +3863,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "planet-coaster-2",
@@ -3364,7 +3880,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ppsspp",
@@ -3388,7 +3905,8 @@
       "categories": [
         "emulator"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "pragmata",
@@ -3404,7 +3922,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "prince-of-persia-lost-crown",
@@ -3420,7 +3939,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "prison-architect",
@@ -3444,7 +3964,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "project-zomboid",
@@ -3471,7 +3992,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:16261-16262"
+      ]
     },
     {
       "slug": "project-zomboid-server",
@@ -3498,7 +4022,10 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:16261-16262"
+      ]
     },
     {
       "slug": "pubg",
@@ -3515,7 +4042,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "quaismorph",
@@ -3529,7 +4057,8 @@
       ],
       "allowedFileExtensions": null,
       "categories": null,
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "raft",
@@ -3547,7 +4076,27 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "railroads-online",
+      "displayName": "RAILROADS Online",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALAPPDATA}/arr/Saved/SaveGames"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ready-or-not",
@@ -3566,7 +4115,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "resident-evil-requiem",
@@ -3582,7 +4132,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "retroarch",
@@ -3614,7 +4165,8 @@
       "categories": [
         "emulator"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "riders-republic",
@@ -3631,7 +4183,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "rimworld",
@@ -3658,7 +4211,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "roadside-research",
@@ -3675,7 +4229,8 @@
         "singleplayer",
         "coop"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "rocket-league",
@@ -3692,7 +4247,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "romestead",
@@ -3711,7 +4267,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "rpcs3",
@@ -3731,7 +4288,8 @@
       "categories": [
         "emulator"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "runescape-dragonwilds",
@@ -3750,7 +4308,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "rust",
@@ -3768,7 +4327,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:28015"
+      ]
     },
     {
       "slug": "rvthereyet",
@@ -3785,7 +4347,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "stalker-2",
@@ -3809,7 +4372,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "stalker-cop",
@@ -3819,13 +4383,37 @@
         {
           "platform": "windows",
           "pathTemplate": "{DOCUMENTS}/STALKER-COP/savedgames"
+        },
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Stalker Call of Pripyat/_appdata_/savedgames"
         }
       ],
       "allowedFileExtensions": null,
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "saleblazers",
+      "displayName": "Saleblazers",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/Airstrafe Interactive/Saleblazers/Saves"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "satisfactory",
@@ -3850,7 +4438,11 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:7777",
+        "tcp:8888"
+      ]
     },
     {
       "slug": "satisfactory-server",
@@ -3869,7 +4461,11 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:7777",
+        "tcp:8888"
+      ]
     },
     {
       "slug": "scavland",
@@ -3885,7 +4481,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "schedule-1",
@@ -3901,7 +4498,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "scrap-mechanic",
@@ -3919,7 +4517,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "scriptorium-master-of-manuscripts",
@@ -3935,7 +4534,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "sea-of-thieves",
@@ -3953,7 +4553,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "sekiro",
@@ -3969,7 +4570,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "shapez-2-factory",
@@ -3986,7 +4588,8 @@
         "vdf"
       ],
       "categories": null,
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "skyrim-se",
@@ -4006,7 +4609,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "slay-the-spire-2",
@@ -4030,7 +4634,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "sons-of-the-forest",
@@ -4051,7 +4656,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "soulmask",
@@ -4070,7 +4676,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "south-park-stick-of-truth",
@@ -4090,7 +4697,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "space-engineers",
@@ -4109,7 +4717,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:27016"
+      ]
     },
     {
       "slug": "squad",
@@ -4127,7 +4738,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "squad-server",
@@ -4145,7 +4757,8 @@
         "server",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "squad-44",
@@ -4165,7 +4778,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "star-wars-outlaws",
@@ -4185,7 +4799,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "star-wars-zero-company",
@@ -4201,7 +4816,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "stardew",
@@ -4227,7 +4843,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "starrupture",
@@ -4248,7 +4865,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "stationeers",
@@ -4266,7 +4884,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "stellaris",
@@ -4293,7 +4912,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "subnautica",
@@ -4303,6 +4923,14 @@
         {
           "platform": "windows",
           "pathTemplate": "{LOCALLOW}/Unknown Worlds/Subnautica/SavedGames"
+        },
+        {
+          "platform": "windows",
+          "pathTemplate": "{STEAM}/steamapps/common/Subnautica/SNAppData/SavedGames"
+        },
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/Unknown Worlds/Subnautica/Subnautica/SavedGames"
         }
       ],
       "allowedFileExtensions": [
@@ -4315,7 +4943,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "subnautica-2",
@@ -4336,7 +4965,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "suicide-squad-kill-the-justice-league",
@@ -4353,7 +4983,8 @@
         "singleplayer",
         "coop"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "sunkenland",
@@ -4371,7 +5002,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "supermarket-simulator",
@@ -4389,7 +5021,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "tf2",
@@ -4407,7 +5040,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "tf2-server",
@@ -4425,7 +5059,8 @@
         "server",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "tekken-8",
@@ -4443,7 +5078,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "terraria",
@@ -4478,7 +5114,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "tcp:7777"
+      ]
     },
     {
       "slug": "the-crew-2",
@@ -4495,7 +5134,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "oblivion",
@@ -4511,7 +5151,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "the-finals",
@@ -4528,7 +5169,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "the-first-descendant",
@@ -4546,7 +5188,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "the-last-caretaker",
@@ -4562,7 +5205,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "the-long-dark",
@@ -4582,7 +5226,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "the-outer-worlds-2",
@@ -4598,7 +5243,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "planet-crafter",
@@ -4618,7 +5264,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "sims-4",
@@ -4638,7 +5285,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "witcher3",
@@ -4657,7 +5305,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "tmodloader",
@@ -4684,7 +5333,8 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ghost-recon-breakpoint",
@@ -4702,7 +5352,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "ghost-recon-wildlands",
@@ -4724,7 +5375,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "rainbow-six-siege",
@@ -4744,7 +5396,8 @@
       "categories": [
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "rainbow-six-siege-config",
@@ -4761,7 +5414,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "splinter-cell-blacklist",
@@ -4783,7 +5437,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "total-war-warhammer-3",
@@ -4808,7 +5463,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "twisted-tower",
@@ -4824,7 +5480,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "two-point-museum",
@@ -4840,7 +5497,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "v-rising",
@@ -4859,7 +5517,10 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:9876"
+      ]
     },
     {
       "slug": "valheim",
@@ -4891,18 +5552,17 @@
           "pathTemplate": "{HOME}/.config/unity3d/IronGate/Valheim/worlds_local"
         }
       ],
-      "allowedFileExtensions": [
-        "db",
-        "fwl",
-        "old"
-      ],
+      "allowedFileExtensions": null,
       "categories": [
         "singleplayer",
         "coop",
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:2456-2457"
+      ]
     },
     {
       "slug": "valorant",
@@ -4919,7 +5579,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "vintage-story",
@@ -4947,7 +5608,11 @@
         "multiplayer",
         "server"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": [
+        "udp:42420",
+        "tcp:42420"
+      ]
     },
     {
       "slug": "war-thunder",
@@ -4964,7 +5629,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "darktide",
@@ -4984,7 +5650,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "rogue-trader",
@@ -5004,7 +5671,8 @@
       "categories": [
         "singleplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "vermintide-2",
@@ -5024,7 +5692,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "watch-dogs",
@@ -5045,7 +5714,8 @@
         "singleplayer",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "watch-dogs-2",
@@ -5067,7 +5737,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "watch-dogs-legion",
@@ -5089,7 +5760,8 @@
         "coop",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "water-park-simulator",
@@ -5106,7 +5778,27 @@
         "singleplayer",
         "coop"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
+    },
+    {
+      "slug": "waterpark-simulator",
+      "displayName": "Waterpark Simulator",
+      "iconUrl": null,
+      "paths": [
+        {
+          "platform": "windows",
+          "pathTemplate": "{LOCALLOW}/CayPlay/WaterparkSimulator"
+        }
+      ],
+      "allowedFileExtensions": null,
+      "categories": [
+        "singleplayer",
+        "coop",
+        "multiplayer"
+      ],
+      "note": null,
+      "serverPorts": null
     },
     {
       "slug": "world-of-tanks",
@@ -5127,7 +5819,8 @@
         "config",
         "multiplayer"
       ],
-      "note": null
+      "note": null,
+      "serverPorts": null
     }
   ]
 }

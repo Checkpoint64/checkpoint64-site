@@ -67,6 +67,6 @@ Steam Cloud syncs a game's saves between your PCs, when the developer has switch
 
 ## Backing up Steam saves automatically
 
-1. **Install Checkpoint64 and pick the game.** Presets for 140+ games already know which of the three places it saves to, account folder included.
+1. **Install Checkpoint64 and pick the game.** Presets for 180+ games already know which of the three places it saves to, account folder included.
 2. **Leave auto-backup on.** Every 60 seconds it checks the folder for changes and uploads a new version. Only changed files are sent.
 3. **Restore any version in one click** after a corruption, an overwrite or an uninstall, on this PC or another one you're signed in on.

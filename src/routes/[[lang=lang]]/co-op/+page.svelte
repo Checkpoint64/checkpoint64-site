@@ -9,6 +9,7 @@
   import LogbookPreview from '$lib/components/LogbookPreview.svelte'
   import TeamSizes from '$lib/components/TeamSizes.svelte'
   import DediStrip from '$lib/components/DediStrip.svelte'
+  import ConnectSteps from '$lib/components/ConnectSteps.svelte'
   import Faq from '$lib/components/Faq.svelte'
   import PricingTeaser from '$lib/components/PricingTeaser.svelte'
   import DownloadStrip from '$lib/components/DownloadStrip.svelte'
@@ -36,6 +37,7 @@
 <LogbookPreview {t} paper={false} />
 <TeamSizes {t} intl={L.intl} />
 <DediStrip {t} intl={L.intl} prefix={data.prefix} />
+<ConnectSteps {t} />
 <Faq
   {t}
   intl={L.intl}
