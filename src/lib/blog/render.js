@@ -1,4 +1,4 @@
-import { marked } from 'marked'
+import { marked, Renderer } from 'marked'
 import { codeToHtml } from 'shiki'
 import { esc } from '../esc.js'
 import { organizationNode } from '../organization.js'
@@ -109,6 +109,11 @@ marked.use({
         .trim()
         .replace(/\s+/g, '-')
       return `<h${depth} id="${id}">${html}</h${depth}>\n`
+    },
+    // Comparison tables are wider than a phone. The wrapper scrolls them in
+    // place (blog.css), and is focusable so a keyboard can scroll it too.
+    table(token) {
+      return `<div class="table-scroll" tabindex="0">${new Renderer().table.call(this, token)}</div>\n`
     },
   },
 })
