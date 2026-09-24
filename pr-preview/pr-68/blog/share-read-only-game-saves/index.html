@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--1teoznn--><!---->  <title>Share Read Only Game Saves Without Losing Control — Checkpoint64</title>
+  <meta name="description" content="Learn how to share read only game saves without losing your original world, spoiling your run, or letting downloads overwrite months of progress safely." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" type="image/svg+xml" href="../../retro_save_icon.svg" />
+  <link rel="alternate" type="application/rss+xml" title="Checkpoint64 Logbook" href="../../rss.xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&family=Patrick+Hand&family=JetBrains+Mono:wght@400;500;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../../blog.css" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('cp64-theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      } catch (e) { /* localStorage blocked */ }
+    })();
+  </script>
+  <link rel="canonical" href="https://checkpoint64.com/blog/share-read-only-game-saves/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Checkpoint64" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Share Read Only Game Saves Without Losing Control" />
+  <meta property="og:description" content="Learn how to share read only game saves without losing your original world, spoiling your run, or letting downloads overwrite months of progress safely." />
+  <meta property="og:url" content="https://checkpoint64.com/blog/share-read-only-game-saves/" />
+  <meta property="og:image" content="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/a5a4271f-ee85-47d3-97ad-a7052bf533e6/workflows/70971bd9-9462-4741-b25b-032387a4aa15.webp" />
+  <meta property="og:image:alt" content="Checkpoint64 — never lose a save again." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Share Read Only Game Saves Without Losing Control" />
+  <meta name="twitter:description" content="Learn how to share read only game saves without losing your original world, spoiling your run, or letting downloads overwrite months of progress safely." />
+  <meta name="twitter:image" content="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/a5a4271f-ee85-47d3-97ad-a7052bf533e6/workflows/70971bd9-9462-4741-b25b-032387a4aa15.webp" />
+  <meta name="twitter:image:alt" content="Checkpoint64 — never lose a save again." />
+  <meta property="article:published_time" content="2026-09-14" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://checkpoint64.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Logbook",
+        "item": "https://checkpoint64.com/blog/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Share Read Only Game Saves Without Losing Control",
+        "item": "https://checkpoint64.com/blog/share-read-only-game-saves/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Share Read Only Game Saves Without Losing Control",
+    "description": "Learn how to share read only game saves without losing your original world, spoiling your run, or letting downloads overwrite months of progress safely.",
+    "url": "https://checkpoint64.com/blog/share-read-only-game-saves/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://checkpoint64.com/blog/share-read-only-game-saves/"
+    },
+    "datePublished": "2026-09-14",
+    "dateModified": "2026-09-14",
+    "image": "https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/a5a4271f-ee85-47d3-97ad-a7052bf533e6/workflows/70971bd9-9462-4741-b25b-032387a4aa15.webp",
+    "inLanguage": "en",
+    "author": {
+      "@type": "Organization",
+      "@id": "https://checkpoint64.com/#organization",
+      "name": "Checkpoint64",
+      "alternateName": "Checkpoint 64",
+      "url": "https://checkpoint64.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://checkpoint64.com/retro_save_icon.svg"
+      },
+      "email": "support@checkpoint64.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Adam Meadows"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "press@checkpoint64.com",
+          "url": "https://checkpoint64.com/press/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy",
+          "email": "privacy@checkpoint64.com",
+          "url": "https://checkpoint64.com/privacy/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "security",
+          "email": "security@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "legal",
+          "email": "legal@checkpoint64.com",
+          "url": "https://checkpoint64.com/terms/",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn",
+        "https://github.com/checkpoint64",
+        "https://store.steampowered.com/app/4790820/"
+      ]
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://checkpoint64.com/#organization",
+      "name": "Checkpoint64",
+      "alternateName": "Checkpoint 64",
+      "url": "https://checkpoint64.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://checkpoint64.com/retro_save_icon.svg"
+      },
+      "email": "support@checkpoint64.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Adam Meadows"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "press@checkpoint64.com",
+          "url": "https://checkpoint64.com/press/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy",
+          "email": "privacy@checkpoint64.com",
+          "url": "https://checkpoint64.com/privacy/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "security",
+          "email": "security@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "legal",
+          "email": "legal@checkpoint64.com",
+          "url": "https://checkpoint64.com/terms/",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn",
+        "https://github.com/checkpoint64",
+        "https://store.steampowered.com/app/4790820/"
+      ]
+    }
+  }
+  </script><!----><!---->
+</head>
+<body>
+  <!-- data-sveltekit-reload: every navigation is a full page load, matching the
+       old build. Do NOT remove it — the homepage's pre-paint scripts (theme
+       bootstrap, language redirect, analytics) live in <svelte:head>{@html …}
+       and only run on a fresh document load; SvelteKit client-side nav would
+       skip them. -->
+  <div style="display: contents" data-sveltekit-reload><!--[--><!--[0--><!--[--><!--[-1--><!--[--><!---->  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="blog-nav">
+    <div class="blog-wrap">
+      <a class="blog-brand pixel" href="../../">CHECKPOINT64</a>
+      <div class="blog-nav-right">
+        <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch to light mode" title="Toggle theme">
+          <span class="theme-toggle-icon" data-theme-icon aria-hidden="true">☀</span>
+        </button>
+        <a class="blog-allposts" href="../../blog/">All posts →</a>
+      </div>
+    </div>
+  </nav>
+  <main id="main" class="blog-main blog-wrap">
+    <article class="blog-post">
+      <div class="blog-post-header">
+        <nav class="guide-crumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a> <span aria-hidden="true">/</span> <a href="../../blog/">Logbook</a> <span aria-hidden="true">/</span> <span>Share Read Only Game Saves Without Losing Control</span>
+        </nav>
+        <p class="blog-post-meta"><time datetime="2026-09-14">2026-09-14</time> · <span class="blog-author">By the Checkpoint64 team</span></p>
+        <h1 class="blog-post-title pixel">Share Read Only Game Saves Without Losing Control</h1>
+      </div>
+      <figure class="blog-post-lead">
+        <img src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/a5a4271f-ee85-47d3-97ad-a7052bf533e6/workflows/70971bd9-9462-4741-b25b-032387a4aa15.webp" alt="Share Read Only Game Saves Without Losing Control" loading="eager" />
+      </figure>
+      <div class="blog-post-body">
+<p>A save file can be a 200-hour city, a perfectly tuned modpack, a speedrun route, or the one co-op world your mates somehow have not bricked yet. When you <strong>share read only game saves</strong>, the goal is simple: let people play, inspect, record, practise, or build on your work without giving them a loaded shotgun pointed at the original.</p>
+<p>That sounds obvious. In practice, PC saves are messy little gremlins. Someone downloads a world, opens it with a newer mod version, saves over a crucial file, then posts back: “Why is every chest empty?” Read-only sharing is how you distribute a usable copy while keeping the canonical save - the one that actually matters - safe on your cartridge shelf.</p>
+<h2>Why normal save sharing goes wrong</h2>
+<p>Most save sharing is just file sharing with extra optimism. You zip a folder, drop it in Discord, and tell everyone not to overwrite anything. That works right up until somebody has a different game build, different DLC, missing mods, or a save folder already full of similarly named worlds.</p>
+<p>There are two separate risks. First, the recipient can accidentally damage their own copy. That is annoying, but survivable. Second, they can send their altered copy back, and somebody mistakes it for the official version. Now your carefully planned Valheim base has become an archaeological site after one enthusiastic “tidy-up”.</p>
+<p>A read-only share changes the social contract. People can receive the save, but they cannot alter the source everyone else relies on. If they want to experiment, they work on a fork. If they find something worth keeping, they submit it deliberately rather than silently replacing the original.</p>
+<p>That distinction matters most for creators, modding groups, speedrun teams, and co-op crews. A public save is not always a collaborative save. Sometimes it is a showcase, a starting point, a training map, or a bug report frozen at the exact moment things went sideways.</p>
+<h2>What a read-only save share should do</h2>
+<p>A proper read-only share is more than a folder marked “DO NOT EDIT”, because we have all met a folder marked “DO NOT EDIT”. It needs to preserve a known version, give recipients a clean way to get that version, and make it clear that their local changes are theirs.</p>
+<p>The best setup also <a href="https://checkpoint64.com/blog/game-save-version-history/" rel="nofollow noopener">keeps version history</a>. A save can be technically intact yet still be the wrong moment in its history. Maybe you want to share the pre-boss attempt build, the untouched starter world, or the modded city before someone installed a traffic mod with the stability of wet cardboard.</p>
+<p>For a useful share, include the game name, save name, game version, mod loader and modpack version where relevant, plus a short note on what players should expect. “Requires DLC” and “load with mods disabled” are not glamorous notes, but neither is spending Saturday night diagnosing a save that was never compatible in the first place.</p>
+<h2>How to share read only game saves safely</h2>
+<p>Start by deciding which version deserves to be the source of truth. Do not choose the save sitting in a random Downloads folder because it has “final_FINAL_2” in the name. Pick the version you can restore confidently, then make sure it is backed up before anyone receives it.</p>
+<p>Next, create the share from that exact checkpoint. Recipients should receive a copy, not access to your live save folder. Their game can write to their local copy all it likes. The source remains unchanged, and their experiments do not turn into your problem at 1 a.m.</p>
+<p>Then label the share like a human being will need to find it later. Include a date or version number and describe its purpose. “Satisfactory_NuclearBuild_v12_PreUpdate” tells a much better story than “save new”. If the save is intended for a video, challenge, tutorial, or mod test, say so.</p>
+<p>Finally, set expectations around feedback. If people are meant to contribute changes, ask them to send back a separately named copy and a note explaining what changed. If the share is purely for viewing or personal play, say that too. A tiny bit of ceremony prevents an impressive amount of chaos.</p>
+<h3>Treat downloaded copies as forks</h3>
+<p>This is the rule worth keeping: once someone downloads a read-only share, their local version is a fork.</p>
+<p>They can build a second base, test a sketchy mod, practise a fight, or see whether their mate really did hide a ridiculous amount of copper behind the barn. None of that should affect the original. If they create something worth merging into the main world, review it as a conscious choice.</p>
+<p>That is not bureaucracy. It is the same reason you make a backup before updating a heavily modded game. You are separating experimentation from the thing you cannot afford to lose.</p>
+<h2>Read-only sharing versus co-op handoff</h2>
+<p>Read-only sharing and co-op sharing solve different problems, and mixing them up causes trouble.</p>
+<p>Use a read-only share when one person or group owns the canonical save. A creator might share a Minecraft world for viewers to explore. A mod author might provide a broken save so testers can reproduce a bug. A speedrun team might distribute a practice setup without anyone changing the master route.</p>
+<p>Use a <a href="https://checkpoint64.com/blog/co-op-save-management/" rel="nofollow noopener">controlled co-op handoff</a> when multiple people need to take turns hosting the same living world. In that case, each player needs permission to make changes, but only one person should be writing to the active save at a time. Otherwise you get competing timelines: two players both improve the factory, then one upload wins and the other person’s entire evening vanishes.</p>
+<p>Checkpoint64 handles both jobs without pretending they are the same feature. Its read-only creator share codes let people grab a protected copy, while lock-based co-op handoff gives a crew one active editor at a time. The lock expires if somebody disappears, and a shared logbook shows who had the world and when. No dedicated server rental just to ensure Dave cannot overwrite the mushroom farm from his laptop.</p>
+<h2>Compatibility is still your responsibility</h2>
+<p>Read-only does not mean magic-proof. It protects the source from recipients, not recipients from every oddity in PC gaming.</p>
+<p>Game updates can change save formats. DLC can add dependencies. Mods can disappear, rename files, or decide that your carefully curated world now needs seven extra libraries and a blood sacrifice. Emulator saves are their own special case: a save state may depend on the exact emulator version and settings, while an in-game memory-card save may travel more cleanly.</p>
+<p>Before you share, test the copy in a separate location if you can. Confirm it opens, confirm the intended mods are present, and check whether the game creates extra files outside the obvious save folder. Some games stash screenshots, configuration, world metadata, or companion files elsewhere. Sharing only half the save is a classic way to create a very convincing fake disaster.</p>
+<p>For public shares, include a small plain-English note: game version, required mods or DLC, whether achievements are affected, and whether players should <a href="https://checkpoint64.com/blog/cloud-saves-arent-backups/" rel="nofollow noopener">disable cloud sync</a> for that slot. It saves your comments section from becoming unpaid technical support.</p>
+<h2>Keep the original boringly safe</h2>
+<p>The original save should be the least exciting file in the whole operation. It should not be passed around, renamed twenty times, or opened by every person who says they are “just checking something”. It should be backed up automatically, versioned, and easy to restore.</p>
+<p>That last part is where version history earns its keep. Sometimes the source itself gets damaged before you ever share it. A bad mod update, power cut, sync conflict, or accidental overwrite can ruin the clean checkpoint you meant to publish. A backup that only stores the latest version is better than nothing, but it cannot take you back before the mistake.</p>
+<p>Keep multiple restore points, especially before game patches, modpack changes, major builds, and co-op sessions. Storage is cheaper than rebuilding a 200-hour base from screenshots and spite.</p>
+<p>Read-only save sharing is not about distrusting your friends or audience. It is about giving everybody room to play without putting the one save that matters on the chopping block. Share the world. Keep the master copy somewhere nobody can casually turn it into a cautionary tale.</p>
+      </div>
+      <nav class="guide-related" aria-label="More from the Logbook">
+        <h2>Keep reading</h2>
+        <ul>
+          <li><a href="../../blog/shared-world-access-control/">Shared World Access Control Without the Host</a></li>
+          <li><a href="../../blog/do-worlds-need-servers/">Do Worlds Need Servers? The Honest Answer</a></li>
+          <li><a href="../../blog/back-up-your-game-config/">Counter-Strike has no save file; it still has four hours of your settings. Checkpoint64 now backs up game and server configs</a></li>
+        </ul>
+      </nav>
+    </article>
+  </main>
+  <footer class="blog-footer">
+    <div class="blog-wrap">
+      <a href="../../">← Back to checkpoint64.com</a>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var btn = document.querySelector('[data-theme-toggle]');
+      if (!btn) return;
+      var icon = btn.querySelector('[data-theme-icon]');
+      function current() {
+        return document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+      }
+      function apply(theme) {
+        if (theme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        else document.documentElement.removeAttribute('data-theme');
+        if (icon) icon.textContent = theme === 'light' ? '☾' : '☀';
+        btn.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      }
+      apply(current());
+      btn.addEventListener('click', function () {
+        var next = current() === 'light' ? 'dark' : 'light';
+        apply(next);
+        try { localStorage.setItem('cp64-theme', next); } catch (e) {}
+      });
+    })();
+  </script><!----><!--]--><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]--></div>
+</body>
+</html>
