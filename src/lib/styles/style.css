@@ -1941,6 +1941,21 @@ nav.top .links a[aria-current="page"],
 .step-chip.on { background: #c8efb8; }
 .step-chip.warn { background: #ffe0a8; }
 
+/* Checkpoint Connect on /co-op/. The step chips were drawn for a .paper
+   section (ink border, ink text); this one sits on the page background, so
+   the rule line follows --fg and every chip gets a light fill to keep its
+   ink text readable in both themes. */
+.connect .step-chiprow { border-top-color: rgba(var(--fg-rgb), 0.35); }
+.connect .step-chip { color: var(--ink); background: var(--paper); }
+.connect .step-chip.on { background: #c8efb8; }
+.connect-route {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 10px 16px; margin: 0 0 36px; padding: 18px 20px;
+  border: 2px dashed rgba(var(--fg-rgb), 0.45);
+  font-family: var(--f-pixel); font-size: 10px; line-height: 1.6; text-align: center;
+}
+.connect-wire { color: var(--accent); }
+
 /* A section that butts against the one above it (no double padding). */
 .tight { padding-top: 0; }
 .band { display: grid; grid-template-columns: repeat(4, 1fr); border: 2px solid var(--fg); }

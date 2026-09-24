@@ -31,7 +31,7 @@ export default {
 
   hero: {
     h1Html: 'NEVER LOSE<br/>A SAVE <span class="accent">AGAIN.</span>',
-    sub: 'Your saves, backed up automatically — and every version kept. Roll back a corrupted file, a bad night, or a regret. Co-op crews pass one world around like a cartridge, with a lock so nobody saves over anybody. Host on holiday? Take the lock and play on.',
+    sub: 'Your saves, backed up automatically — and every version kept. Roll back a corrupted file, a bad night, or a regret. Co-op crews pass one world around like a cartridge, with a lock so nobody saves over anybody. Want to play live? Host a server on your own PC and your crew joins through Steam, with no port forwarding.',
     ctaPrimary: 'DOWNLOAD FREE',
     ctaPrimaryAria: 'Download Checkpoint64 for free',
     ctaSteam: 'DOWNLOAD ON STEAM',
@@ -116,12 +116,19 @@ export default {
       { tag: 'VERSION HISTORY', title: 'EVERY UPLOAD\nIS A VERSION.', body: 'Scroll through every backup with file count, size, and what changed since last time. Hit Restore and the files go back on disk, marked as current — no guessing, no “final_v2_REAL” folders.' },
       { tag: 'CO-OP LOCKS', title: 'ONE PERSON\nHOLDS THE WORLD.', body: 'Games like Factorio, Valheim, and Satisfactory have one live world at a time. Whoever holds the lock uploads; everyone else downloads. Holder gone quiet? Locks expire on their own, and you can take over — with a warning, and a logbook entry so everyone knows.' },
       { tag: 'ONLY WHAT CHANGED', title: 'TINY\nUPLOADS.', body: 'Only the files that changed get uploaded — renamed files cost nothing extra. A 500 MB Minecraft world re-uploads as a few MB after a normal session, not the whole thing. Easy on your internet, easy on your storage.' },
-      { tag: '140+ GAMES READY', title: 'SET UP IN\nSECONDS.', body: 'Presets for 140+ games — four flavours of modded Minecraft, Stardew, Skyrim, Palworld, Elden Ring — plus seven emulators. Pick which files count and skip the screenshots. If it writes saves to a folder, it works.' },
+      { tag: '180+ GAMES READY', title: 'SET UP IN\nSECONDS.', body: 'Presets for 180+ games — four flavours of modded Minecraft, Stardew, Skyrim, Palworld, Elden Ring — plus seven emulators. Pick which files count and skip the screenshots. If it writes saves to a folder, it works.' },
       { tag: 'SHARE CODES', title: 'ONE WORLD,\nWHOLE CROWD.', body: 'Running a community world? Mint a join code and anyone holding it can download your save — but never upload over it. Codes are capped and revocable, and read-only visitors don’t use up seats. Every plan can host — 3 fans at once on Free, 15 on Lifetime, unlimited on Pro.' },
       { tag: 'LOGBOOK', title: 'WHO DID WHAT,\nWHEN.', body: 'Every upload, restore, and lock-grab gets written down in your group’s logbook. Handy when your co-op partner blames you for the bad run.' },
       { tag: 'ANY LAUNCHER', title: 'COVERS WHAT STEAM\nCLOUD DOESN’T.', body: 'It watches the save folder, not the game, so it doesn’t care which launcher put the game there — emulators, modded setups, GOG and Epic copies whose developers never wired Cloud up.' },
       { tag: 'AUTO-DETECT', title: 'FINDS YOUR\nGAMES.', body: 'Installed-game detection scans your Steam library and offers what it recognises. Anything else, point it at a folder.' },
       { tag: 'DISCORD', title: 'YOUR CREW\nGETS A DM.', body: 'Link a Discord account and the bot DMs your teammates whenever someone manually commits or restores a shared save.' },
+      // v2. Checkpoint Connect is the product name of the Steam P2P tunnel
+      // (core/tunnel in the app repo). Steam build only, team spaces only, UDP
+      // and TCP, and it forwards to a server that is already running — it
+      // never starts or hosts one for you. Keep those limits in the copy.
+      { tag: 'CHECKPOINT CONNECT', title: 'NO PORT\nFORWARDING.', body: 'Run a game server on your own PC and share it with your team. Teammates hit Join and their game connects through Steam, direct or via Valve’s relays. No router settings, and only your team gets in. Steam version.' },
+      { tag: 'CONTROLLER', title: 'PLAYS NICE\nWITH A PAD.', body: 'Drive the whole app with a gamepad: D-pad to move, A to pick, B to back out. On a Steam Deck the controls just work, and text fields open Steam’s keyboard.' },
+      { tag: 'CONFIGS TOO', title: 'SETTINGS,\nNOT JUST SAVES.', body: 'Keybinds, sensitivity, crosshair, video settings and dedicated-server rule sets for 80+ games and servers. The part you rebuild by hand after a reinstall, versioned like a save.' },
     ],
   },
 
@@ -194,6 +201,30 @@ export default {
         { label: '02 · PLAY', h3: 'PLAY YOUR SESSION', body: 'Host the world from your own PC like normal. Auto-backup keeps filing versions while you play, so even the session itself has an undo button.', chip: 'AUTO ON' },
         { label: '03 · PASS', h3: 'PUSH IT BACK', body: 'Release the lock and the latest version is what the next person downloads. Went quiet instead? Locks expire on their own, and a teammate can take over — with a warning, and a logbook entry.', chip: 'LOCK JESS' },
       ],
+    },
+
+    // Checkpoint Connect (v2) — the Steam P2P tunnel. The facts this copy may
+    // state, from docs/STEAM_TUNNEL_PLAN.md and core/tunnel in the app repo:
+    // Steam build only; a TEAM space only (never personal); the host starts
+    // the server themselves and the app shares one already running; UDP and
+    // TCP ports; direct or through Valve's relays; the host's app lets in only
+    // Steam accounts that belong to a team member. Not plan-gated.
+    connect: {
+      tape: 'CHECKPOINT CONNECT',
+      hand: 'new in 2.0 · steam version · beta',
+      h2Html: 'PLAY LIVE.<br/><span class="accent">SKIP THE PORT FORWARD.</span>',
+      lede: 'Some nights you want the world online with everyone in it at once. Run the game’s server on your own PC and Checkpoint Connect carries your team’s traffic through Steam: direct when it can, through Valve’s relays when it can’t. No router settings, no rented box, and CGNAT stops mattering.',
+      steps: [
+        { label: '01 · START', h3: 'RUN YOUR SERVER', body: 'Start the game’s server on your PC like normal. Checkpoint64 shares a server that’s already running; it never starts one for you.', chip: 'UDP 2456-2457' },
+        { label: '02 · SHARE', h3: 'SHARE IT WITH THE TEAM', body: 'Pick the game in your team and hit Share server. Presets know the ports for Valheim, Palworld, Satisfactory, Minecraft and more; anything else, type them in.', chip: 'LIVE' },
+        { label: '03 · JOIN', h3: 'TEAMMATES HIT JOIN', body: 'Everyone else sees Join in the team’s library. Their game connects to 127.0.0.1 as if the server were on their own PC, and Steam does the rest.', chip: 'JOINED' },
+      ],
+      points: [
+        'Team members only: the host’s app checks every Steam account that knocks, and lets in only your teammates. Read-only members and Patreon supporters can join too',
+        'UDP and TCP, so it covers Minecraft Java and Terraria as well as Valheim and Palworld',
+        'On every plan, in the Steam version of Checkpoint64',
+      ],
+      pairsHtml: 'Pairs with the lock: back the world up when you log off, and the next person can take the lock and host it from <em>their</em> PC.',
     },
 
     teamSizes: {
@@ -340,6 +371,7 @@ export default {
         { k: 'Auto-backup + version history', free: '✓', life: '✓', pro: '✓ · 100 versions / 90 days guaranteed' },
         { k: 'Co-op locks + logbook', free: '✓', life: '✓', pro: '✓' },
         { k: 'Read-only share codes', free: '3 fans at once', life: '15 fans at once', pro: 'unlimited' },
+        { k: 'Checkpoint Connect (Steam version)', free: '✓', life: '✓', pro: '✓' },
         { k: 'Priority bandwidth', free: '—', life: '—', pro: '2× API throughput' },
         { k: 'Buy on Steam', free: 'n/a', life: '✓ one-time', pro: '✓ one-time unlock' },
       ],
@@ -347,8 +379,8 @@ export default {
   },
 
   download: {
-    headlineSoonHtml: 'CHECKPOINT64 v1.0<br/>IS OUT.<br/><span class="invert">GRAB IT.</span>',
-    headlineLiveHtml: 'CHECKPOINT64 v1.0<br/>IS OUT.<br/><span class="invert">GRAB IT.</span>',
+    headlineSoonHtml: 'CHECKPOINT64 2.0<br/>IS OUT.<br/><span class="invert">GRAB IT.</span>',
+    headlineLiveHtml: 'CHECKPOINT64 2.0<br/>IS OUT.<br/><span class="invert">GRAB IT.</span>',
     blurbSoon: 'Free download, free plan included. Grab it on Steam, or pull the latest installer straight from GitHub.',
     blurbLive: 'Free download, free plan included. Builds publish straight from GitHub — these buttons always point at the newest installer.',
     signoffSoon: 'free to try — the free plan is real',
@@ -362,7 +394,7 @@ export default {
       h2Html: 'PICK YOUR <span class="accent">PLATFORM.</span>',
       foot: 'Same account everywhere — sign in on a second machine and your shelf is already there.',
       cards: [
-        { name: 'STEAM', items: ['Windows and Linux', 'Steam Deck supported', 'Lifetime and Pro as one-time unlocks — no subscriptions on Steam'] },
+        { name: 'STEAM', items: ['Windows and Linux', 'Steam Deck supported, with full controller navigation', 'Checkpoint Connect: host a server for your team with no port forwarding', 'Lifetime and Pro as one-time unlocks — no subscriptions on Steam'] },
         { name: 'WINDOWS', items: ['.msi installer or portable .exe', 'Windows 10 and 11', 'Updates in-app'] },
         { name: 'MACOS', items: ['Apple Silicon .dmg', 'Same shelf, same account', 'Updates in-app'] },
         { name: 'LINUX', items: ['.deb and .rpm packages', 'x64 and ARM64', 'Steam Deck via Steam'] },
@@ -374,7 +406,7 @@ export default {
       h2Html: 'FIRST BACKUP IN <span class="accent">UNDER A MINUTE.</span>',
       cta: 'HOW IT WORKS',
       steps: [
-        'Add a game. Installed-game detection offers what it finds in your Steam library; presets for 140+ games and 7 emulators know their save paths.',
+        'Add a game. Installed-game detection offers what it finds in your Steam library; presets for 180+ games and 7 emulators know their save paths.',
         'Hit Upload once. That’s version one. Flip auto-backup on and every change becomes a new version on its own.',
         'Play. When something goes wrong, open Versions, pick one from before the problem, and Restore.',
       ],
@@ -386,16 +418,17 @@ export default {
     h2Html: 'FREQUENTLY <span class="accent">CHECKED.</span>',
     // `a` values are raw HTML; item index 3 uses {0} for the savings figure.
     items: [
-      { q: "WHAT COUNTS AS A 'SAVE'?", a: 'Whatever your game writes to your hard drive. Checkpoint64 treats the files in a folder as one save and backs them up together. Presets for 140+ games (and seven emulators) set this up for you; for anything else, point at the folder and pick the files yourself.' },
+      { q: "WHAT COUNTS AS A 'SAVE'?", a: 'Whatever your game writes to your hard drive. Checkpoint64 treats the files in a folder as one save and backs them up together. Presets for 180+ games (and seven emulators) set this up for you; for anything else, point at the folder and pick the files yourself.' },
       { q: 'DO YOU UPLOAD WHILE THE GAME IS RUNNING?', a: 'Yes, carefully. Checkpoint64 never locks your save files. It checks the folder every 60 seconds; if the game is mid-save it waits for things to go quiet and tries again — no broken files, no stutter. The app naps between checks, so you won’t notice it while playing.' },
       { q: 'WHAT IF MY CO-OP PARTNER OVERWRITES MY UPLOAD?', a: 'They can’t, on purpose. Only the person holding the lock can upload. To push their version they have to take the lock first — which warns you, and goes in the logbook for all to see. Worst case, your version is one Restore away in the history.' },
-      { q: 'DO I STILL NEED A DEDICATED SERVER?', a: 'For most groups, no. The whole point of a dedicated server is keeping your world online when the host’s PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves {0} compared to renting a 24/7 server that sits idle 18 hours a day.' },
+      { q: 'DO I STILL NEED A DEDICATED SERVER?', a: 'For most groups, no. The whole point of a dedicated server is keeping your world online when the host’s PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. Want everyone in at once? Run the server on your own PC and teammates join through Checkpoint Connect in the Steam version, with no port forwarding. A typical co-op group saves {0} compared to renting a 24/7 server that sits idle 18 hours a day.' },
       { q: 'DOES THIS WORK FOR EMULATORS OR CONSOLE SAVES?', a: 'Emulators, absolutely — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3, and Cemu all have presets, so your save states finally get real version history. Console saves only work if you can get them onto a PC first. The app itself runs on Windows, macOS (Apple Silicon), and Linux.' },
       { q: 'WHAT DOES IT COST?', a: 'The free plan is real and stays free: 20 MiB, your own space plus one team. Lifetime is a one-time payment — 1 GiB per space, up to 3 teams, bought direct or through Steam. Pro is for big crews: 5 GiB per space, 5 teams, 25 seats each, unlimited read-only share codes. Share codes themselves work on every plan — Free hosts 3 read-only fans at a time, Lifetime 15. No charge per person on any tier.' },
-      { q: 'CAN I USE IT TODAY?', a: 'Yes — v1.0 is out. It’s a free download for Windows, macOS (Apple Silicon), and Linux, and it’s on Steam too.' },
+      { q: 'CAN I USE IT TODAY?', a: 'Yes — 2.0 is out. It’s a free download for Windows, macOS (Apple Silicon), and Linux, and it’s on Steam too.' },
       { q: 'WHO CAN SEE MY SAVES?', a: 'Your teammates — and only the ones you invite. They see your display name, never your email. And your data stays yours: export everything as a zip whenever you like, and deleting your account actually deletes it (after a 7-day cooling-off period, in case of 2am regret).' },
       { q: 'IS THE FREE PLAN A TRIAL?', a: 'No. It has no timer and no card on file. 20 MiB is small on purpose — enough for Stardew, Hollow Knight, or a whole retro library — and it never expires.' },
       { q: 'IS PRO A SUBSCRIPTION?', a: 'Bought direct, yes — monthly, cancel anytime. On Steam, Pro is a one-time unlock; there are no subscriptions of any kind on Steam.' },
+      { q: 'CAN FRIENDS JOIN A SERVER ON MY PC WITHOUT PORT FORWARDING?', a: 'Yes, with Checkpoint Connect in the Steam version. Start the game’s server on your PC, share it with your team, and teammates hit Join. Their game connects to 127.0.0.1 and Steam carries the traffic, direct or through Valve’s relays, so nobody touches a router. It works for UDP and TCP servers, only your team’s members get in, and it’s on every plan.' },
     ],
   },
 
@@ -415,7 +448,7 @@ export default {
       tape: 'GUIDES',
       h2Html: 'WHERE YOUR SAVES <span class="accent">ACTUALLY LIVE.</span>',
       items: [
-        { kind: 'GUIDE', title: 'Save locations & backup guides for 140+ games', slug: 'games' },
+        { kind: 'GUIDE', title: 'Save locations & backup guides for 180+ games', slug: 'games' },
         { kind: 'GUIDE', title: 'Emulator save backup', slug: 'emulator-save-backup' },
         { kind: 'GUIDE', title: 'Modded game save backup', slug: 'modded-game-save-backup' },
         { kind: 'GUIDE', title: 'Game config & server settings backup', slug: 'game-config-backup' },
@@ -496,8 +529,8 @@ export default {
   // prerender if a page has no entry, which is the loud failure we want.
   pages: {
     features: {
-      title: 'Features — Version History, Co-op Locks and 140+ Game Presets',
-      description: 'Every backup kept as a restorable version, server-enforced co-op locks, uploads of only what changed, and presets for 140+ games and 7 emulators. Free plan included.',
+      title: 'Features — Version History, Co-op Locks and 180+ Game Presets',
+      description: 'Every backup kept as a restorable version, server-enforced co-op locks, uploads of only what changed, and presets for 180+ games and 7 emulators. Free plan included.',
       breadcrumb: 'Features',
       hand: 'no fluff, no charge per person',
       h1Html: 'WHAT’S IN <span class="accent">THE BOX.</span>',
@@ -516,8 +549,8 @@ export default {
       lede: 'Three steps, once. After that you never think about save files again — which is the whole point.',
     },
     'co-op': {
-      title: 'Co-op & Teams — Share One World Without Overwriting Each Other',
-      description: 'One live world, one holder. Server-enforced locks mean only the lock holder can upload, locks expire on their own, and every take-over lands in a shared logbook.',
+      title: 'Co-op & Teams — Share One World, or Host It With No Port Forwarding',
+      description: 'One live world, one holder. Server-enforced locks mean only the lock holder can upload, and every take-over lands in a shared logbook. New in 2.0: host a server on your own PC and teammates join through Steam, with no port forwarding.',
       breadcrumb: 'Co-op & teams',
       hand: 'one world, one lock',
       h1Html: 'ONE WORLD.<br/>ONE LOCK.<br/><span class="accent">NO OVERWRITES.</span>',
@@ -560,27 +593,29 @@ export default {
   meta: {
     skipLink: 'Skip to content',
     title: 'Checkpoint64 — Never Lose a Save Again, Solo or Co-op',
-    description: 'Automatic cloud backup and full version history for PC game saves. Roll back corrupted saves and share co-op worlds with locks. Works with Minecraft, Stardew Valley, Elden Ring and 140+ games. Free download for Windows, Mac, Linux.',
+    description: 'Automatic cloud backup and full version history for PC game saves. Roll back corrupted saves and share co-op worlds with locks. Works with Minecraft, Stardew Valley, Elden Ring and 180+ games. Free download for Windows, Mac, Linux.',
     ogTitle: 'Checkpoint64 — Never Lose a Save Again, Solo or Co-op',
-    ogDescription: 'Never lose a save again. Automatic backups, full version history, and co-op locks so friends can share worlds without overwriting each other. 140+ games ready. Free download — pay once for more space.',
+    ogDescription: 'Never lose a save again. Automatic backups, full version history, and co-op locks so friends can share worlds without overwriting each other. 180+ games ready. Free download — pay once for more space.',
     ogImageAlt: 'Checkpoint64 — never lose a save again. A retro cartridge shelf of game saves.',
     twitterTitle: 'Checkpoint64 — Never Lose a Save Again, Solo or Co-op',
-    twitterDescription: 'Never lose a save again. Automatic cloud backups, full version history, co-op locks. 140+ games ready. Free download for Windows, Mac, Linux.',
+    twitterDescription: 'Never lose a save again. Automatic cloud backups, full version history, co-op locks. 180+ games ready. Free download for Windows, Mac, Linux.',
     twitterImageAlt: 'Checkpoint64 — never lose a save again.',
     noscriptHtml: 'Heads-up — JavaScript is disabled, so the animated demo on this page won’t work. The rest of the content is fully visible above.',
   },
 
   jsonld: {
     orgDescription: 'Checkpoint64 makes a save-file backup tool for PC gamers — automatic cloud backups, full version history, and co-op locks so friends can share worlds without overwriting each other.',
-    softwareDescription: 'Automatic cloud backup, full version history, and co-op locks for PC game saves. Free plan included; pay once for more space. Works with Minecraft, Stardew Valley, Skyrim, Palworld, Elden Ring, Factorio, Valheim, plus 140+ more games and 7 emulators out of the box.',
+    softwareDescription: 'Automatic cloud backup, full version history, and co-op locks for PC game saves. Free plan included; pay once for more space. Works with Minecraft, Stardew Valley, Skyrim, Palworld, Elden Ring, Factorio, Valheim, plus 180+ more games and 7 emulators out of the box.',
     featureList: [
       'Automatic background backups every 60 seconds',
       'Full version history with one-click restore',
       'Server-enforced co-op locks — one world holder at a time',
       'Deduplicated uploads — only the files that changed are sent',
-      'Presets for 140+ games and 7 emulators',
+      'Presets for 180+ games and 7 emulators',
       'Shared activity logbook for teams',
       'Read-only share codes for community worlds',
+      'Checkpoint Connect — host a game server on your own PC for your team, with no port forwarding (Steam version)',
+      'Full controller navigation, including Steam Deck',
       'Pay-once Lifetime plan — no subscription required',
     ],
     howToName: 'How to automatically back up PC game saves with Checkpoint64',
@@ -598,16 +633,17 @@ export default {
     // Plain-text FAQ for the FAQPage block. Mirrors the visible FAQ; index 3
     // takes the savings figure as {0}.
     faq: [
-      { q: "What counts as a 'save'?", a: 'Whatever your game writes to your hard drive. Checkpoint64 treats the files in a folder as one save and backs them up together. Presets for 140+ games (and seven emulators) set this up for you; for anything else, point at the folder and pick the files yourself.' },
+      { q: "What counts as a 'save'?", a: 'Whatever your game writes to your hard drive. Checkpoint64 treats the files in a folder as one save and backs them up together. Presets for 180+ games (and seven emulators) set this up for you; for anything else, point at the folder and pick the files yourself.' },
       { q: 'Do you upload while the game is running?', a: "Yes, carefully. Checkpoint64 never locks your save files. It checks the folder every 60 seconds; if the game is mid-save it waits for things to go quiet and tries again — no broken files, no stutter. The app naps between checks, so you won't notice it while playing." },
       { q: 'What if my co-op partner overwrites my upload?', a: "They can't, on purpose. Only the person holding the lock can upload. To push their version they have to take the lock first — which warns you, and goes in the logbook for all to see. Worst case, your version is one Restore away in the history." },
-      { q: 'Do I still need a dedicated server?', a: "For most groups, no. The whole point of a dedicated server is keeping your world online when the host's PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. A typical co-op group saves {0} compared to renting a 24/7 server that sits idle 18 hours a day." },
+      { q: 'Do I still need a dedicated server?', a: "For most groups, no. The whole point of a dedicated server is keeping your world online when the host's PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. Want everyone in at once? Run the server on your own PC and teammates join through Checkpoint Connect in the Steam version, with no port forwarding. A typical co-op group saves {0} compared to renting a 24/7 server that sits idle 18 hours a day." },
       { q: 'Does this work for emulators or console saves?', a: 'Emulators, absolutely — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3, and Cemu all have presets, so your save states finally get real version history. Console saves only work if you can get them onto a PC first. The app itself runs on Windows, macOS (Apple Silicon), and Linux.' },
       { q: 'What does it cost?', a: 'The free plan is real and stays free: 20 MiB, your own space plus one team. Lifetime is a one-time payment — 1 GiB per space, up to 3 teams, bought direct or through Steam. Pro is for big crews: 5 GiB per space, 5 teams, 25 seats each, unlimited read-only share codes. Share codes themselves work on every plan — Free hosts 3 read-only fans at a time, Lifetime 15. No charge per person on any tier.' },
-      { q: 'Can I use it today?', a: 'Yes — v1.0 is out. It’s a free download for Windows, macOS (Apple Silicon), and Linux, and it’s on Steam too.' },
+      { q: 'Can I use it today?', a: 'Yes — 2.0 is out. It’s a free download for Windows, macOS (Apple Silicon), and Linux, and it’s on Steam too.' },
       { q: 'Who can see my saves?', a: 'Your teammates — and only the ones you invite. They see your display name, never your email. And your data stays yours: export everything as a zip whenever you like, and deleting your account actually deletes it (after a 7-day cooling-off period).' },
       { q: 'Is the free plan a trial?', a: 'No. It has no timer and no card on file. 20 MiB is small on purpose — enough for Stardew, Hollow Knight, or a whole retro library — and it never expires.' },
       { q: 'Is Pro a subscription?', a: 'Bought direct, yes — monthly, cancel anytime. On Steam, Pro is a one-time unlock; there are no subscriptions of any kind on Steam.' },
+      { q: 'Can friends join a server on my PC without port forwarding?', a: "Yes, with Checkpoint Connect in the Steam version. Start the game's server on your PC, share it with your team, and teammates hit Join. Their game connects to 127.0.0.1 and Steam carries the traffic, direct or through Valve's relays, so nobody touches a router. It works for UDP and TCP servers, only your team's members get in, and it's on every plan." },
     ],
   },
 }

@@ -14,7 +14,7 @@
 // The /help/ page, in render order. Keys match `t.help.groups[].id`.
 export const FAQ_GROUPS = {
   basics: [0, 1, 4, 6],
-  coop: [2, 3, 7],
+  coop: [2, 3, 10, 7],
   billing: [5, 8, 9],
 }
 
@@ -22,7 +22,7 @@ export const FAQ_GROUPS = {
 export const PAGE_FAQ = {
   'how-it-works': [0, 1, 4],
   pricing: [5, 8, 7],
-  'co-op': [2, 3],
+  'co-op': [2, 3, 10],
 }
 
 /** The visible {q, a} items for a list of indices. Answers may contain HTML. */
