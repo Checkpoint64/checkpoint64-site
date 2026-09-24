@@ -5,6 +5,9 @@
   // `notes` renders the footnotes the design puts under the grid.
   let { t, showHead = true, notes = [] } = $props()
   const f = t.features
+  // Without the section <h2> the tiles sit straight under the page's <h1>, so
+  // they step up a level rather than skip one (h1 → h3 breaks the outline).
+  const tileHeading = showHead ? 'h3' : 'h2'
 </script>
 
 <section id="features" aria-labelledby={showHead ? 'features-heading' : undefined} aria-label={showHead ? undefined : f.tape}>
@@ -20,7 +23,7 @@
       {#each f.items as it}
         <div class="feat">
           <div class="ico">▮ {it.tag}</div>
-          <h3>{it.title}</h3>
+          <svelte:element this={tileHeading}>{it.title}</svelte:element>
           <p>{it.body}</p>
         </div>
       {/each}

@@ -13,7 +13,9 @@
       <span class="tape" style="color:#a82828">{c.tape}</span>
     </div>
     <h2 id="compare-heading">{@html c.h2Html}</h2>
-    <div class="table-scroll">
+    <!-- Focusable so a keyboard user can scroll it on a phone, where it overflows. -->
+    <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+    <div class="table-scroll" tabindex="0">
       <table class="plan-table">
         <thead>
           <tr>

@@ -5,6 +5,9 @@
   // "POINT IT AT A FOLDER. FORGET ABOUT IT." as the <h1>.
   let { t, showHead = true } = $props()
   const h = t.how
+  // Without the section <h2> the tiles sit straight under the page's <h1>, so
+  // they step up a level rather than skip one (h1 → h3 breaks the outline).
+  const tileHeading = showHead ? 'h3' : 'h2'
 
   // Animated auto-backup ticker on step 2 (reduced-motion aware). Ported from
   // the old main.js; drives the bars/label of the bound element directly.
@@ -47,7 +50,7 @@
     <div class="steps">
       <div class="step">
         <div class="n">{h.steps[0].label}</div>
-        <h3>{@html h.steps[0].h3Html}</h3>
+        <svelte:element this={tileHeading}>{@html h.steps[0].h3Html}</svelte:element>
         <p>{@html h.steps[0].bodyHtml}</p>
         <div class="visual step-upload">
           <div class="src-label">SOURCE</div>
@@ -59,7 +62,7 @@
 
       <div class="step">
         <div class="n">{h.steps[1].label}</div>
-        <h3>{@html h.steps[1].h3Html}</h3>
+        <svelte:element this={tileHeading}>{@html h.steps[1].h3Html}</svelte:element>
         <p>{@html h.steps[1].bodyHtml}</p>
         <div class="visual step-auto" data-step-auto bind:this={autoEl}>
           <div class="bars">
@@ -75,7 +78,7 @@
 
       <div class="step">
         <div class="n">{h.steps[2].label}</div>
-        <h3>{@html h.steps[2].h3Html}</h3>
+        <svelte:element this={tileHeading}>{@html h.steps[2].h3Html}</svelte:element>
         <p>{@html h.steps[2].bodyHtml}</p>
         <div class="visual step-restore">
           <div class="v-row"><span>v#012</span><span class="when">12m ago</span><span class="restore">RESTORE</span></div>
