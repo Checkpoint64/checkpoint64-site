@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--1oyyij7--><!---->  <title>Steam Save File Location: Where Steam Games Keep Your Saves — Checkpoint64</title>
+  <!--1oyyij7--><!---->  <title>Steam Save File Location: Where Steam Games Keep Your Saves</title>
   <meta name="description" content="Steam has no single save folder. Most games save to Documents or AppData, some to Steam&#39;s userdata folder under your account ID, and a few inside their install folder. How to find each one on Windows, Linux and Steam Deck, and back them up automatically." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="color-scheme" content="light dark" />
@@ -335,7 +335,7 @@
 <p>These are the saves most at risk, because uninstalling a game deletes its install folder, saves and all.</p>
 <h2 id="games-that-save-inside-steam39s-folders">Games that save inside Steam&#39;s folders</h2>
 <p>Every supported game that keeps its saves in <code>userdata</code> or in its install folder, with the part of the path below the Steam folder. Each one links to its full save location page.</p>
-<table>
+<div class="table-scroll" tabindex="0"><table>
 <thead>
 <tr>
 <th>Game</th>
@@ -403,6 +403,7 @@
 <td><code>steamapps\common\Subnautica\SNAppData\SavedGames</code></td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="linux-and-steam-deck">Linux and Steam Deck</h2>
 <p>On Linux, Steam&#39;s folder is <code>~/.steam/steam</code>, so <code>userdata</code> is at <code>~/.steam/steam/userdata</code>. The Flatpak build keeps its own copy under <code>~/.var/app/com.valvesoftware.Steam/.local/share/Steam</code>.</p>
 <p>Most games on a Steam Deck are Windows games running through Proton, and each one saves inside its own prefix: <code>steamapps/compatdata/&lt;app ID&gt;/pfx/drive_c/users/steamuser</code>, then the same subfolder it would use on Windows. The <a href="../blog/steam-deck-save-file-location/">Steam Deck save file location</a> post walks through finding one. For games that save to Documents or AppData, Checkpoint64 works out the prefix path from the Windows location, so you don&#39;t have to look up the app ID.</p>

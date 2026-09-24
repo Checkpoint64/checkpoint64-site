@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--1teoznn--><!---->  <title>Where Steam Deck game saves actually live; inside a Proton prefix nobody can guess — Checkpoint64</title>
+  <!--1teoznn--><!---->  <title>Where Steam Deck game saves actually live; inside a Proton prefix nobody can guess</title>
   <meta name="description" content="On a Steam Deck, a Windows game&#39;s save doesn&#39;t sit where the game&#39;s own documentation says it does. Proton hands every game a private, Windows-shaped filesystem buried under a numeric folder, and the save is somewhere inside it. Here&#39;s the exact shape of that path, why the number is the hard part, and how Checkpoint64 finds it without being told." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="color-scheme" content="light dark" />
@@ -296,7 +296,7 @@ PC.</p>
 <pre class="shiki github-dark-dimmed" style="background-color:#22272e;color:#adbac7" tabindex="0"><code><span class="line"><span>&#x3C;steam library>/steamapps/compatdata/&#x3C;appid>/pfx/drive_c/</span></span></code></pre><p>Inside <code>drive_c</code> you get the familiar Windows skeleton, except the user is
 always named <code>steamuser</code> — Proton never uses your real username. So the Windows
 locations map onto fixed directories:</p>
-<table>
+<div class="table-scroll" tabindex="0"><table>
 <thead>
 <tr>
 <th>Windows location</th>
@@ -320,6 +320,7 @@ locations map onto fixed directories:</p>
 <td><code>users/steamuser/Documents</code></td>
 </tr>
 </tbody></table>
+</div>
 <p>One wrinkle worth knowing if you&#39;re digging by hand: prefixes created by older
 Proton and Wine builds call that last one <strong><code>My Documents</code></strong> instead of
 <code>Documents</code>. Both are still out there on long-lived Decks, so if a path looks
