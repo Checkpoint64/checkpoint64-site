@@ -1,4 +1,4 @@
-import { markdownToHtml, layout, socialMeta, jsonLd, PUBLISHER, OG_IMAGE } from '../blog/render.js'
+import { markdownToHtml, layout, socialMeta, jsonLd, PUBLISHER, OG_IMAGE, brandTitle } from '../blog/render.js'
 import { aboutGame, POPULAR_SLUGS } from './entities.js'
 import { ctaBlock, faqSection } from '../pages/render.js'
 import { relatedGuideSlugForCatalog, guideHrefForCatalog, gameSummaries, loadPage, launcherGuideSlugForCatalog } from '../pages/load.js'
@@ -420,7 +420,7 @@ ${relatedSection(game, games, prefix)}
   ].join('\n')
 
   return layout({
-    title: `${title} — Checkpoint64`,
+    title: brandTitle(title),
     description,
     body,
     depth,
@@ -539,7 +539,7 @@ ${ctaBlock(prefix)}
   ].filter(Boolean).join('\n')
 
   return layout({
-    title: `${title} — Checkpoint64`,
+    title: brandTitle(title),
     description,
     body,
     depth,

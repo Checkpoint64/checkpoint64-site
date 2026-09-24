@@ -178,6 +178,8 @@ a:hover { text-decoration: underline; }
 }
 .blog-card-excerpt {
   margin: 12px 0 0; color: var(--fg); opacity: 0.85;
+  /* /games/ uses the excerpt for a save path, which has no spaces to break at. */
+  overflow-wrap: anywhere;
 }
 .blog-empty {
   list-style: none; padding: 32px; border: 1px dashed var(--night-line);
@@ -214,6 +216,8 @@ a:hover { text-decoration: underline; }
   border-radius: 6px; border: 1px solid var(--night-line);
 }
 
+/* Save paths have no spaces to wrap at; break them rather than overflow. */
+.blog-post { overflow-wrap: break-word; }
 .blog-post-body { font-size: 16px; }
 .blog-post-body h2 {
   font-family: var(--f-pixel); font-size: 18px; line-height: 1.3;
@@ -234,6 +238,9 @@ a:hover { text-decoration: underline; }
 .blog-post-body code:not(pre code) {
   background: var(--night-2); padding: 2px 6px; border-radius: 3px;
   font-size: 0.9em; color: var(--accent);
+  /* Save paths run 40-60 unbroken characters; without this every game page
+     scrolled sideways on a phone. */
+  overflow-wrap: anywhere;
 }
 .blog-post-body pre {
   background: var(--night-2) !important;
@@ -258,6 +265,11 @@ a:hover { text-decoration: underline; }
   border: 1px solid var(--night-line); padding: 8px 12px; text-align: left;
 }
 .blog-post-body th { background: var(--bg-2); }
+/* Wraps every markdown table (blog/render.js), so one wider than a phone
+   scrolls in place instead of dragging the whole page sideways. */
+.table-scroll { overflow-x: auto; margin: 1.2em 0; }
+.table-scroll > table { margin: 0; }
+.table-scroll:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* ---------- FOOTER ---------- */
 .blog-footer {
@@ -273,6 +285,7 @@ a:hover { text-decoration: underline; }
   .blog-index-header h1 { font-size: 24px; }
   .blog-card-link { padding: 20px; }
   .blog-card-thumb { width: calc(100% + 40px); margin: -20px -20px 16px; }
+  .blog-post-body th, .blog-post-body td { padding: 6px 8px; }
 }
 
 /* ---------- GUIDE PAGES (comparison + hub landing pages) ---------- */

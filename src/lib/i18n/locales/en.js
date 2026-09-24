@@ -211,7 +211,7 @@ export default {
     // Steam accounts that belong to a team member. Not plan-gated.
     connect: {
       tape: 'CHECKPOINT CONNECT',
-      hand: 'new in v2 · steam version',
+      hand: 'new in 2.0 · steam version · beta',
       h2Html: 'PLAY LIVE.<br/><span class="accent">SKIP THE PORT FORWARD.</span>',
       lede: 'Some nights you want the world online with everyone in it at once. Run the game’s server on your own PC and Checkpoint Connect carries your team’s traffic through Steam: direct when it can, through Valve’s relays when it can’t. No router settings, no rented box, and CGNAT stops mattering.',
       steps: [
@@ -220,7 +220,7 @@ export default {
         { label: '03 · JOIN', h3: 'TEAMMATES HIT JOIN', body: 'Everyone else sees Join in the team’s library. Their game connects to 127.0.0.1 as if the server were on their own PC, and Steam does the rest.', chip: 'JOINED' },
       ],
       points: [
-        'Team members only: the host’s app checks every Steam account that knocks, and lets in only your teammates',
+        'Team members only: the host’s app checks every Steam account that knocks, and lets in only your teammates. Read-only members and Patreon supporters can join too',
         'UDP and TCP, so it covers Minecraft Java and Terraria as well as Valheim and Palworld',
         'On every plan, in the Steam version of Checkpoint64',
       ],
@@ -379,8 +379,8 @@ export default {
   },
 
   download: {
-    headlineSoonHtml: 'CHECKPOINT64 v2<br/>IS OUT.<br/><span class="invert">GRAB IT.</span>',
-    headlineLiveHtml: 'CHECKPOINT64 v2<br/>IS OUT.<br/><span class="invert">GRAB IT.</span>',
+    headlineSoonHtml: 'CHECKPOINT64 2.0<br/>IS OUT.<br/><span class="invert">GRAB IT.</span>',
+    headlineLiveHtml: 'CHECKPOINT64 2.0<br/>IS OUT.<br/><span class="invert">GRAB IT.</span>',
     blurbSoon: 'Free download, free plan included. Grab it on Steam, or pull the latest installer straight from GitHub.',
     blurbLive: 'Free download, free plan included. Builds publish straight from GitHub — these buttons always point at the newest installer.',
     signoffSoon: 'free to try — the free plan is real',
@@ -424,7 +424,7 @@ export default {
       { q: 'DO I STILL NEED A DEDICATED SERVER?', a: 'For most groups, no. The whole point of a dedicated server is keeping your world online when the host’s PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. Want everyone in at once? Run the server on your own PC and teammates join through Checkpoint Connect in the Steam version, with no port forwarding. A typical co-op group saves {0} compared to renting a 24/7 server that sits idle 18 hours a day.' },
       { q: 'DOES THIS WORK FOR EMULATORS OR CONSOLE SAVES?', a: 'Emulators, absolutely — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3, and Cemu all have presets, so your save states finally get real version history. Console saves only work if you can get them onto a PC first. The app itself runs on Windows, macOS (Apple Silicon), and Linux.' },
       { q: 'WHAT DOES IT COST?', a: 'The free plan is real and stays free: 20 MiB, your own space plus one team. Lifetime is a one-time payment — 1 GiB per space, up to 3 teams, bought direct or through Steam. Pro is for big crews: 5 GiB per space, 5 teams, 25 seats each, unlimited read-only share codes. Share codes themselves work on every plan — Free hosts 3 read-only fans at a time, Lifetime 15. No charge per person on any tier.' },
-      { q: 'CAN I USE IT TODAY?', a: 'Yes — v2 is out. It’s a free download for Windows, macOS (Apple Silicon), and Linux, and it’s on Steam too.' },
+      { q: 'CAN I USE IT TODAY?', a: 'Yes — 2.0 is out. It’s a free download for Windows, macOS (Apple Silicon), and Linux, and it’s on Steam too.' },
       { q: 'WHO CAN SEE MY SAVES?', a: 'Your teammates — and only the ones you invite. They see your display name, never your email. And your data stays yours: export everything as a zip whenever you like, and deleting your account actually deletes it (after a 7-day cooling-off period, in case of 2am regret).' },
       { q: 'IS THE FREE PLAN A TRIAL?', a: 'No. It has no timer and no card on file. 20 MiB is small on purpose — enough for Stardew, Hollow Knight, or a whole retro library — and it never expires.' },
       { q: 'IS PRO A SUBSCRIPTION?', a: 'Bought direct, yes — monthly, cancel anytime. On Steam, Pro is a one-time unlock; there are no subscriptions of any kind on Steam.' },
@@ -550,7 +550,7 @@ export default {
     },
     'co-op': {
       title: 'Co-op & Teams — Share One World, or Host It With No Port Forwarding',
-      description: 'One live world, one holder. Server-enforced locks mean only the lock holder can upload, and every take-over lands in a shared logbook. New in v2: host a server on your own PC and teammates join through Steam, with no port forwarding.',
+      description: 'One live world, one holder. Server-enforced locks mean only the lock holder can upload, and every take-over lands in a shared logbook. New in 2.0: host a server on your own PC and teammates join through Steam, with no port forwarding.',
       breadcrumb: 'Co-op & teams',
       hand: 'one world, one lock',
       h1Html: 'ONE WORLD.<br/>ONE LOCK.<br/><span class="accent">NO OVERWRITES.</span>',
@@ -639,7 +639,7 @@ export default {
       { q: 'Do I still need a dedicated server?', a: "For most groups, no. The whole point of a dedicated server is keeping your world online when the host's PC is off. Checkpoint64 covers about 90% of that for a one-time fee: whoever wants to play grabs the lock, plays their session, then pushes the save back. Want everyone in at once? Run the server on your own PC and teammates join through Checkpoint Connect in the Steam version, with no port forwarding. A typical co-op group saves {0} compared to renting a 24/7 server that sits idle 18 hours a day." },
       { q: 'Does this work for emulators or console saves?', a: 'Emulators, absolutely — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3, and Cemu all have presets, so your save states finally get real version history. Console saves only work if you can get them onto a PC first. The app itself runs on Windows, macOS (Apple Silicon), and Linux.' },
       { q: 'What does it cost?', a: 'The free plan is real and stays free: 20 MiB, your own space plus one team. Lifetime is a one-time payment — 1 GiB per space, up to 3 teams, bought direct or through Steam. Pro is for big crews: 5 GiB per space, 5 teams, 25 seats each, unlimited read-only share codes. Share codes themselves work on every plan — Free hosts 3 read-only fans at a time, Lifetime 15. No charge per person on any tier.' },
-      { q: 'Can I use it today?', a: 'Yes — v2 is out. It’s a free download for Windows, macOS (Apple Silicon), and Linux, and it’s on Steam too.' },
+      { q: 'Can I use it today?', a: 'Yes — 2.0 is out. It’s a free download for Windows, macOS (Apple Silicon), and Linux, and it’s on Steam too.' },
       { q: 'Who can see my saves?', a: 'Your teammates — and only the ones you invite. They see your display name, never your email. And your data stays yours: export everything as a zip whenever you like, and deleting your account actually deletes it (after a 7-day cooling-off period).' },
       { q: 'Is the free plan a trial?', a: 'No. It has no timer and no card on file. 20 MiB is small on purpose — enough for Stardew, Hollow Knight, or a whole retro library — and it never expires.' },
       { q: 'Is Pro a subscription?', a: 'Bought direct, yes — monthly, cancel anytime. On Steam, Pro is a one-time unlock; there are no subscriptions of any kind on Steam.' },

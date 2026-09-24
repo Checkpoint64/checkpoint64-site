@@ -226,8 +226,8 @@ export default {
   },
 
   download: {
-    headlineSoonHtml: 'CHECKPOINT64 v2<br/>YA ESTÁ FUERA.<br/><span class="invert">LLÉVATELO.</span>',
-    headlineLiveHtml: 'CHECKPOINT64 v2<br/>YA ESTÁ FUERA.<br/><span class="invert">LLÉVATELO.</span>',
+    headlineSoonHtml: 'CHECKPOINT64 2.0<br/>YA ESTÁ FUERA.<br/><span class="invert">LLÉVATELO.</span>',
+    headlineLiveHtml: 'CHECKPOINT64 2.0<br/>YA ESTÁ FUERA.<br/><span class="invert">LLÉVATELO.</span>',
     blurbSoon: 'Descarga gratis, plan gratis incluido. Llévatelo en Steam, o baja el último instalador directamente desde GitHub.',
     blurbLive: 'Descarga gratis, plan gratis incluido. Los builds se publican directamente desde GitHub — estos botones siempre apuntan al último instalador.',
     signoffSoon: 'gratis para probar — el plan gratis es real',
@@ -247,7 +247,7 @@ export default {
       { q: '¿SIGO NECESITANDO UN SERVIDOR DEDICADO?', a: 'Para la mayoría de los grupos, no. Todo el sentido de un servidor dedicado es mantener tu mundo en línea cuando el PC del anfitrión está apagado. Checkpoint64 cubre alrededor del 90 % de eso por una tarifa única: quien quiera jugar toma el bloqueo, juega su sesión y devuelve la partida. ¿Todos a la vez? Monta el servidor en tu propio PC y tu equipo entra con Checkpoint Connect en la versión de Steam, sin abrir puertos. Un grupo de co-op típico ahorra {0} frente a alquilar un servidor 24/7 que está parado 18 horas al día.' },
       { q: '¿FUNCIONA CON EMULADORES O PARTIDAS DE CONSOLA?', a: 'Con emuladores, totalmente — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 y Cemu tienen preajuste, así que tus save states por fin tienen historial de versiones de verdad. Las partidas de consola solo funcionan si primero las llevas a un PC. La app corre en Windows, macOS (Apple Silicon) y Linux.' },
       { q: '¿CUÁNTO CUESTA?', a: 'El plan gratis es real y seguirá siendo gratis: 20 MiB, tu propio espacio más un equipo. El Lifetime es un pago único — 1 GiB por espacio, hasta 3 equipos, comprado directo o vía Steam. El Pro es para grupos grandes: 5 GiB por espacio, 5 equipos, 25 plazas cada uno, códigos de acceso de solo lectura ilimitados. Los códigos funcionan en todos los planes — Gratis aloja 3 fans de solo lectura a la vez, Lifetime 15. Sin cobro por persona en ningún plan.' },
-      { q: '¿PUEDO USARLO HOY?', a: 'Sí — la v2 ya está fuera. Descarga gratis para Windows, macOS (Apple Silicon) y Linux, y también está en Steam.' },
+      { q: '¿PUEDO USARLO HOY?', a: 'Sí — la 2.0 ya está fuera. Descarga gratis para Windows, macOS (Apple Silicon) y Linux, y también está en Steam.' },
       { q: '¿QUIÉN PUEDE VER MIS PARTIDAS?', a: 'Tus compañeros de equipo — y solo los que tú invites. Ven tu nombre visible, nunca tu correo. Y tus datos son tuyos: exporta todo en un zip cuando quieras, y borrar tu cuenta la borra de verdad (tras 7 días de margen, por si el arrepentimiento de las 2 de la mañana ataca).' },
       undefined, // not translated yet — falls back to en.js at this index
       undefined, // not translated yet — falls back to en.js at this index
@@ -301,6 +301,69 @@ export default {
     notAffiliated: 'SIN AFILIACIÓN CON LOS JUEGOS MENCIONADOS ARRIBA',
   },
 
+  pages: {
+    features: {
+      title: 'Funciones — Versiones, bloqueos co-op y 140+ juegos',
+      description: 'Cada backup es una versión restaurable, bloqueos co-op en el servidor, solo se sube lo que cambia y preajustes para 140+ juegos y 7 emuladores. Plan gratis.',
+      breadcrumb: 'Funciones',
+      hand: 'sin paja, sin cobro por persona',
+      h1Html: 'LO QUE HAY <span class="accent">EN LA CAJA.</span>',
+      lede: 'Hecho por gente que recarga partidas a menudo. Sin paja, sin cobro por persona, sin «con tecnología de IA». Solo una caja fuerte de partidas que funciona.',
+      notes: [
+        'solo archivos de guardado — nunca toca juegos ni ROMs',
+        'funciona con Steam, GOG, Epic y emuladores — vigila la carpeta, no el launcher',
+      ],
+    },
+    'how-it-works': {
+      title: 'Cómo funciona — Copia de seguridad de partidas en 3 pasos',
+      description: 'Apunta Checkpoint64 a tu carpeta de guardado, activa el auto-backup y vuelve a cualquier versión en segundos. Revisa cada 60 segundos y solo sube lo que cambió.',
+      breadcrumb: 'Cómo funciona',
+      hand: 'tres pasos, una vez',
+      h1Html: 'APÚNTALO A UNA CARPETA.<br/><span class="accent">OLVÍDATE.</span>',
+      lede: 'Tres pasos, una vez. Después no vuelves a pensar en archivos de guardado — que es justo la idea.',
+    },
+    'co-op': {
+      title: 'Cooperativo y equipos — Comparte un mundo sin sobrescribiros',
+      description: 'Un mundo activo, un portador. Con los bloqueos del servidor solo sube quien tiene el bloqueo, caducan solos y cada relevo queda en una bitácora compartida.',
+      breadcrumb: 'Cooperativo y equipos',
+      hand: 'un mundo, un bloqueo',
+      h1Html: 'UN MUNDO.<br/>UN BLOQUEO.<br/><span class="accent">CERO PISOTONES.</span>',
+      lede: 'Juegos como Factorio, Valheim y Satisfactory tienen un solo mundo activo a la vez. Quien tiene el bloqueo sube; los demás descargan. ¿El portador desapareció? Los bloqueos caducan solos y puedes tomar el relevo — con aviso, y con una línea en la bitácora para que todos se enteren.',
+    },
+    creators: {
+      title: 'Para streamers y creadores — Comparte tu partida con el chat',
+      description: 'Crea un código de acceso de solo lectura: tus fans juegan tu partida, pero nunca la sobrescriben. 3 fans a la vez en Gratis, 15 en Lifetime, sin límite en Pro.',
+      breadcrumb: 'Para creadores',
+      hand: 'un código, todos los fans',
+      h1Html: 'COMPARTE TU PARTIDA<br/>CON <span class="accent">TODO EL CHAT.</span>',
+      lede: '¿Tienes audiencia? Dales tu partida exacta. Genera un código de solo lectura para cualquier mundo: tu archivo al 100 %, una seed de reto, la partida maldita de anoche. Ponlo en la descripción de tu vídeo y tus fans se llevan una copia perfecta a su propia biblioteca. La descargan y juegan; nunca podrán sobrescribir la tuya.',
+    },
+    pricing: {
+      title: 'Precios — Plan Gratis, Lifetime de pago único o Pro',
+      description: 'El plan Gratis es gratis de verdad: sin plazo ni tarjeta. Lifetime se paga una vez. Los códigos de acceso van en todos los planes. Sin cobro por persona.',
+      breadcrumb: 'Precios',
+      hand: 'sin letra pequeña',
+      h1Html: 'ELIGE TU <span class="accent">CARTUCHO.</span>',
+      lede: 'Tres formas de jugarlo. El Gratis es gratis de verdad — no una prueba de siete días. El Lifetime se paga una vez. El Pro es para grupos que respaldan juntos. Sin cobro por persona, sin costes sorpresa, sin letra pequeña.',
+    },
+    download: {
+      title: 'Descargar Checkpoint64 — Gratis para Windows, macOS y Linux',
+      description: 'Descarga gratis con un plan gratis que no es una prueba. Instaladores para Windows, macOS Apple Silicon y Linux, y Steam para Windows y Linux, con Steam Deck.',
+      breadcrumb: 'Descargar',
+      hand: 'plan gratis, gratis de verdad',
+      h1Html: 'LLÉVATELO.',
+      lede: '',
+    },
+    help: {
+      title: 'Ayuda y FAQ — Copia de seguridad de partidas | Checkpoint64',
+      description: 'Las preguntas más frecuentes, por temas: qué cuenta como partida, backups con el juego abierto, bloqueos co-op, emuladores, planes y pagos. Y cómo contactarnos.',
+      breadcrumb: 'Ayuda',
+      hand: 'personas de verdad al otro lado',
+      h1Html: 'PREGUNTAS <span class="accent">FRECUENTES.</span>',
+      lede: 'Las preguntas que más nos hacen, por temas. ¿No está la tuya? Escribe a support@checkpoint64.com o pregunta en Discord.',
+    },
+  },
+
   meta: {
     skipLink: 'Saltar al contenido',
     title: 'Checkpoint64 — Nunca más pierdas una partida, en solitario o en co-op',
@@ -346,7 +409,7 @@ export default {
       { q: '¿Sigo necesitando un servidor dedicado?', a: 'Para la mayoría de los grupos, no. Todo el sentido de un servidor dedicado es mantener tu mundo en línea cuando el PC del anfitrión está apagado. Checkpoint64 cubre alrededor del 90 % de eso por una tarifa única: quien quiera jugar toma el bloqueo, juega su sesión y devuelve la partida. ¿Todos a la vez? Monta el servidor en tu propio PC y tu equipo entra con Checkpoint Connect en la versión de Steam, sin abrir puertos. Un grupo de co-op típico ahorra {0} frente a alquilar un servidor 24/7 que está parado 18 horas al día.' },
       { q: '¿Funciona con emuladores o partidas de consola?', a: 'Con emuladores, totalmente — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 y Cemu tienen preajuste, así que tus save states por fin tienen historial de versiones de verdad. Las partidas de consola solo funcionan si primero las llevas a un PC. La app corre en Windows, macOS (Apple Silicon) y Linux.' },
       { q: '¿Cuánto cuesta?', a: 'El plan gratis es real y seguirá siendo gratis: 20 MiB, tu propio espacio más un equipo. El Lifetime es un pago único — 1 GiB por espacio, hasta 3 equipos, comprado directo o vía Steam. El Pro es para grupos grandes: 5 GiB por espacio, 5 equipos, 25 plazas cada uno, códigos de acceso de solo lectura ilimitados. Los códigos funcionan en todos los planes — Gratis aloja 3 fans de solo lectura a la vez, Lifetime 15. Sin cobro por persona en ningún plan.' },
-      { q: '¿Puedo usarlo hoy?', a: 'Sí — la v2 ya está fuera. Descarga gratis para Windows, macOS (Apple Silicon) y Linux, y también está en Steam.' },
+      { q: '¿Puedo usarlo hoy?', a: 'Sí — la 2.0 ya está fuera. Descarga gratis para Windows, macOS (Apple Silicon) y Linux, y también está en Steam.' },
       { q: '¿Quién puede ver mis partidas?', a: 'Tus compañeros de equipo — y solo los que tú invites. Ven tu nombre visible, nunca tu correo. Y tus datos son tuyos: exporta todo en un zip cuando quieras, y borrar tu cuenta la borra de verdad (tras 7 días de margen).' },
       undefined, // not translated yet — falls back to en.js at this index
       undefined, // not translated yet — falls back to en.js at this index

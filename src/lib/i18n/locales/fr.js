@@ -226,8 +226,8 @@ export default {
   },
 
   download: {
-    headlineSoonHtml: 'CHECKPOINT64 v2<br/>EST SORTI.<br/><span class="invert">PRENEZ-LE.</span>',
-    headlineLiveHtml: 'CHECKPOINT64 v2<br/>EST SORTI.<br/><span class="invert">PRENEZ-LE.</span>',
+    headlineSoonHtml: 'CHECKPOINT64 2.0<br/>EST SORTI.<br/><span class="invert">PRENEZ-LE.</span>',
+    headlineLiveHtml: 'CHECKPOINT64 2.0<br/>EST SORTI.<br/><span class="invert">PRENEZ-LE.</span>',
     blurbSoon: 'Téléchargement gratuit, plan gratuit inclus. Prenez-le sur Steam, ou récupérez le dernier installeur directement depuis GitHub.',
     blurbLive: 'Téléchargement gratuit, plan gratuit inclus. Les builds sont publiés directement depuis GitHub — ces boutons pointent toujours vers le dernier installeur.',
     signoffSoon: 'gratuit à essayer — le plan gratuit est réel',
@@ -247,7 +247,7 @@ export default {
       { q: "AI-JE ENCORE BESOIN D'UN SERVEUR DÉDIÉ ?", a: "Pour la plupart des groupes, non. Tout l'intérêt d'un serveur dédié est de garder votre monde en ligne quand le PC de l'hôte est éteint. Checkpoint64 couvre environ 90 % de ça pour un paiement unique : celui qui veut jouer prend le verrou, joue sa session, puis repousse la sauvegarde. Tout le monde en même temps ? Lancez le serveur sur votre propre PC et votre équipe le rejoint via Checkpoint Connect dans la version Steam, sans redirection de ports. Un groupe co-op typique économise {0} par rapport à un serveur 24/7 qui reste inactif 18 heures par jour." },
       { q: 'ÇA MARCHE AVEC LES ÉMULATEURS OU LES SAUVEGARDES CONSOLE ?', a: "Les émulateurs, carrément — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 et Cemu ont tous leur préréglage : vos save states ont enfin un vrai historique de versions. Les sauvegardes console ne marchent que si vous les amenez d'abord sur un PC. L'appli elle-même tourne sur Windows, macOS (Apple Silicon) et Linux." },
       { q: 'COMBIEN ÇA COÛTE ?', a: "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 1 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 5 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule illimités. Les codes existent sur toutes les formules — le Gratuit héberge 3 fans en lecture seule à la fois, le Lifetime 15. Aucun frais par personne, quelle que soit la formule." },
-      { q: "JE PEUX L'UTILISER DÈS AUJOURD'HUI ?", a: "Oui — la v2 est sortie. Téléchargement gratuit pour Windows, macOS (Apple Silicon) et Linux, et elle est aussi sur Steam." },
+      { q: "JE PEUX L'UTILISER DÈS AUJOURD'HUI ?", a: "Oui — la 2.0 est sortie. Téléchargement gratuit pour Windows, macOS (Apple Silicon) et Linux, et elle est aussi sur Steam." },
       { q: 'QUI PEUT VOIR MES SAUVEGARDES ?', a: "Vos coéquipiers — et seulement ceux que vous invitez. Ils voient votre pseudo, jamais votre e-mail. Et vos données restent les vôtres : exportez tout en zip quand vous voulez, et supprimer votre compte le supprime vraiment (après 7 jours de réflexion, au cas où le regret de 2 h du matin frappe)." },
       undefined, // not translated yet — falls back to en.js at this index
       undefined, // not translated yet — falls back to en.js at this index
@@ -301,6 +301,71 @@ export default {
     notAffiliated: 'NON AFFILIÉ AUX JEUX CITÉS CI-DESSUS',
   },
 
+  // Titre, meta description et en-tête des sept pages produit (voir en.js).
+  // Les clés doivent correspondre aux slugs de src/lib/nav.js.
+  pages: {
+    features: {
+      title: 'Fonctionnalités — versions, verrous co-op et 140+ jeux',
+      description: 'Chaque backup gardé en version restaurable, verrous co-op côté serveur, envoi des seuls changements, préréglages pour 140+ jeux et 7 émulateurs. Plan gratuit.',
+      breadcrumb: 'Fonctions',
+      hand: 'sans blabla, sans frais par personne',
+      h1Html: "CE QU'IL Y A <span class=\"accent\">DANS LA BOÎTE.</span>",
+      lede: "Conçu par des gens qui rechargent beaucoup leurs parties. Sans blabla, sans frais par personne, sans « propulsé par l'IA ». Juste un coffre à sauvegardes qui fonctionne.",
+      notes: [
+        'fichiers de sauvegarde uniquement — il ne touche jamais aux jeux ni aux ROM',
+        'marche avec Steam, GOG, Epic, les émulateurs — il surveille le dossier, pas le launcher',
+      ],
+    },
+    'how-it-works': {
+      title: 'Sauvegarde automatique de jeux en 3 étapes — Checkpoint64',
+      description: "Pointez Checkpoint64 vers votre dossier de sauvegarde, activez l'auto-backup, revenez à toute version. Vérifié toutes les 60 s ; seuls les changements partent.",
+      breadcrumb: 'Comment ça marche',
+      hand: 'trois étapes, une fois',
+      h1Html: 'POINTEZ UN DOSSIER.<br/><span class="accent">OUBLIEZ-LE.</span>',
+      lede: "Trois étapes, une fois. Ensuite vous ne pensez plus jamais aux fichiers de sauvegarde — et c'est exactement le but.",
+    },
+    'co-op': {
+      title: 'Coop & équipes — partagez un monde sans vous écraser',
+      description: "Un monde actif, un seul détenteur. Verrous côté serveur : seul celui qui tient le verrou envoie ; ils expirent seuls et chaque reprise s'inscrit au journal.",
+      breadcrumb: 'Coop & équipes',
+      hand: 'un monde, un verrou',
+      h1Html: 'UN MONDE.<br/>UN VERROU.<br/><span class="accent">ZÉRO ÉCRASEMENT.</span>',
+      lede: "Des jeux comme Factorio, Valheim et Satisfactory n'ont qu'un monde actif à la fois. Celui qui tient le verrou envoie ; les autres téléchargent. Le détenteur a disparu ? Les verrous expirent tout seuls, et vous pouvez prendre le relais — avec un avertissement, et une ligne dans le journal pour que tout le monde le sache.",
+    },
+    creators: {
+      title: 'Streamers & créateurs — partagez votre sauvegarde au chat',
+      description: "Un code en lecture seule donne votre sauvegarde exacte à vos fans, sans qu'ils l'écrasent. 3 fans à la fois en Gratuit, 15 en Lifetime, sans limite en Pro.",
+      breadcrumb: 'Pour les créateurs',
+      hand: 'un code, tous les fans',
+      h1Html: 'PARTAGEZ VOTRE RUN<br/>AVEC <span class="accent">TOUT LE CHAT.</span>',
+      lede: 'Vous avez un public ? Donnez-lui votre sauvegarde exacte. Générez un code en lecture seule pour n’importe quel monde : votre fichier à 100 %, une seed de défi, le run maudit d’hier soir. Glissez-le dans la description de votre vidéo, et vos fans récupèrent une copie parfaite dans leur propre bibliothèque. Ils la téléchargent et y jouent ; jamais ils ne pourront écrire sur la vôtre.',
+    },
+    pricing: {
+      title: 'Tarifs — Gratuit, Lifetime en paiement unique ou Pro',
+      description: 'Le Gratuit est vraiment gratuit : sans limite de durée, sans carte. Le Lifetime se paie une fois. Codes de partage partout. Aucun frais par personne.',
+      breadcrumb: 'Tarifs',
+      hand: 'aucun piège',
+      h1Html: 'CHOISISSEZ VOTRE<br/><span class="accent">CARTOUCHE.</span>',
+      lede: 'Trois façons de jouer. Le Gratuit est vraiment gratuit — pas un essai de sept jours. Le Lifetime se paie une fois. Le Pro est pour les groupes qui sauvegardent ensemble. Pas de frais par personne, pas de frais cachés, aucun piège.',
+    },
+    download: {
+      title: 'Télécharger Checkpoint64 gratuit — Windows, macOS et Linux',
+      description: "Gratuit, avec un plan gratuit qui n'est pas un essai. Installeurs Windows, macOS Apple Silicon et Linux, plus Steam pour Windows et Linux, Steam Deck inclus.",
+      breadcrumb: 'Télécharger',
+      hand: 'plan gratuit, vraiment gratuit',
+      h1Html: 'PRENEZ-LE.',
+      lede: '',
+    },
+    help: {
+      title: 'Aide & FAQ — sauvegarde de jeux avec Checkpoint64',
+      description: 'Les questions fréquentes, par thème : sauvegardes, backup en cours de jeu, verrous co-op, émulateurs, formules et facturation. Plus des guides et le contact.',
+      breadcrumb: 'Aide',
+      hand: 'de vrais humains au bout du fil',
+      h1Html: 'QUESTIONS <span class="accent">FRÉQUENTES.</span>',
+      lede: "Les questions qu'on nous pose le plus, par thème. La vôtre n'y est pas ? Écrivez à support@checkpoint64.com ou demandez sur Discord.",
+    },
+  },
+
   meta: {
     skipLink: 'Aller au contenu',
     title: 'Checkpoint64 — Ne perdez plus jamais une sauvegarde, solo ou co-op',
@@ -346,7 +411,7 @@ export default {
       { q: "Ai-je encore besoin d'un serveur dédié ?", a: "Pour la plupart des groupes, non. Tout l'intérêt d'un serveur dédié est de garder votre monde en ligne quand le PC de l'hôte est éteint. Checkpoint64 couvre environ 90 % de ça pour un paiement unique : celui qui veut jouer prend le verrou, joue sa session, puis repousse la sauvegarde. Tout le monde en même temps ? Lancez le serveur sur votre propre PC et votre équipe le rejoint via Checkpoint Connect dans la version Steam, sans redirection de ports. Un groupe co-op typique économise {0} par rapport à un serveur 24/7 qui reste inactif 18 heures par jour." },
       { q: 'Ça marche avec les émulateurs ou les sauvegardes console ?', a: "Les émulateurs, carrément — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 et Cemu ont tous leur préréglage : vos save states ont enfin un vrai historique de versions. Les sauvegardes console ne marchent que si vous les amenez d'abord sur un PC. L'appli elle-même tourne sur Windows, macOS (Apple Silicon) et Linux." },
       { q: 'Combien ça coûte ?', a: "Le plan gratuit est réel et reste gratuit : 20 Mio, votre espace personnel plus une équipe. Le Lifetime est un paiement unique — 1 Gio par espace, jusqu'à 3 équipes, acheté en direct ou via Steam. Le Pro est pour les grands groupes : 5 Gio par espace, 5 équipes, 25 places chacune, codes de partage en lecture seule illimités. Les codes existent sur toutes les formules — le Gratuit héberge 3 fans en lecture seule à la fois, le Lifetime 15. Aucun frais par personne, quelle que soit la formule." },
-      { q: "Je peux l'utiliser dès aujourd'hui ?", a: "Oui — la v2 est sortie. Téléchargement gratuit pour Windows, macOS (Apple Silicon) et Linux, et elle est aussi sur Steam." },
+      { q: "Je peux l'utiliser dès aujourd'hui ?", a: "Oui — la 2.0 est sortie. Téléchargement gratuit pour Windows, macOS (Apple Silicon) et Linux, et elle est aussi sur Steam." },
       { q: 'Qui peut voir mes sauvegardes ?', a: "Vos coéquipiers — et seulement ceux que vous invitez. Ils voient votre pseudo, jamais votre e-mail. Et vos données restent les vôtres : exportez tout en zip quand vous voulez, et supprimer votre compte le supprime vraiment (après 7 jours de réflexion)." },
       undefined, // not translated yet — falls back to en.js at this index
       undefined, // not translated yet — falls back to en.js at this index

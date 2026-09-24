@@ -1,4 +1,4 @@
-import { marked } from 'marked'
+import { marked, Renderer } from 'marked'
 import { codeToHtml } from 'shiki'
 import { esc } from '../esc.js'
 import { organizationNode } from '../organization.js'
@@ -51,6 +51,18 @@ export const PUBLISHER = organizationNode()
 // JSON.stringify, so callers can pass optional fields without guarding each one.
 export function jsonLd(obj) {
   return `  <script type="application/ld+json">\n${JSON.stringify(obj, null, 2).replace(/^/gm, '  ')}\n  </script>`
+}
+
+// The <title> for every page on the blog/guide/legal shells. The " — Checkpoint64"
+// suffix is dropped when it would push the title past ~60 characters (where
+// Google cuts it off) or when the title already names the brand: on a long
+// title the suffix only pushed the words people search for off the end of the
+// result, and Google shows the site name beside the result anyway.
+const TITLE_SUFFIX = ' — Checkpoint64'
+const TITLE_BUDGET = 60
+export function brandTitle(title) {
+  if (/checkpoint64/i.test(title)) return title
+  return title.length + TITLE_SUFFIX.length <= TITLE_BUDGET ? title + TITLE_SUFFIX : title
 }
 
 // Open Graph + Twitter card tags shared by posts (type 'article') and the
@@ -109,6 +121,11 @@ marked.use({
         .trim()
         .replace(/\s+/g, '-')
       return `<h${depth} id="${id}">${html}</h${depth}>\n`
+    },
+    // Comparison tables are wider than a phone. The wrapper scrolls them in
+    // place (blog.css), and is focusable so a keyboard can scroll it too.
+    table(token) {
+      return `<div class="table-scroll" tabindex="0">${new Renderer().table.call(this, token)}</div>\n`
     },
   },
 })
@@ -230,7 +247,7 @@ export async function renderPost(post, { depth = 2, posts = [] } = {}) {
   const leadSrc = safeImageUrl(post.image)
   const leadImage = leadSrc && !html.includes(leadSrc)
     ? `      <figure class="blog-post-lead">
-        <img src="${esc(leadSrc)}" alt="${esc(post.imageAlt || post.title)}" loading="eager" />
+        <img src="${esc(leadSrc)}" alt="${esc(post.imageAlt || post.title)}" loading="eager" fetchpriority="high" />
       </figure>\n`
     : ''
   const image = absoluteImageUrl(post.image) || OG_IMAGE
@@ -316,7 +333,7 @@ ${relatedNav}    </article>`
     }),
   ].filter(Boolean).join('\n')
   return layout({
-    title: `${post.title} — Checkpoint64`,
+    title: brandTitle(post.title),
     description: post.excerpt,
     body,
     depth,

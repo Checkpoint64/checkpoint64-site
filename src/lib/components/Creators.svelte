@@ -8,6 +8,9 @@
   // heading and lede as the <h1> block.
   let { t, showHead = true, lp = './' } = $props()
   const c = t.creators
+  // Without the section <h2> the tiles sit straight under the page's <h1>, so
+  // they step up a level rather than skip one (h1 → h3 breaks the outline).
+  const tileHeading = showHead ? 'h3' : 'h2'
   const fanCart = { color: '#3df0ff', name: 'STREAM WORLD', meta: 'now · 6.0 MB', files: null, status: 'READ-ONLY', statusKind: 'dim', showVersions: false, size: 'sm' }
 </script>
 
@@ -26,7 +29,7 @@
       {#each c.steps as s}
         <div class="step">
           <div class="n">{s.label}</div>
-          <h3>{@html s.h3Html}</h3>
+          <svelte:element this={tileHeading}>{@html s.h3Html}</svelte:element>
           <p>{s.body}</p>
         </div>
       {/each}

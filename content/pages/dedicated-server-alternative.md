@@ -54,7 +54,7 @@ Taking a lock from someone warns them and lands in the shared **logbook**, so th
 
 Taking turns covers most weeks. Some nights you want the whole crew in the same world at the same time, and that has always meant one of two things: rent a box, or have the host fight their router.
 
-**Checkpoint Connect** is the third option, new in Checkpoint64 v2 (Steam version). The host starts the game's server on their own PC, the way they would anyway, and shares it with their team from the app. Teammates hit **Join**, their game connects to `127.0.0.1` as if the server were on their machine, and Steam carries the traffic between the two, directly when it can and through Valve's relays when it can't. No port forwarding, and CGNAT stops being a problem.
+**Checkpoint Connect** is the third option, new in Checkpoint64 2.0 (Steam version, in beta). The host starts the game's server on their own PC, the way they would anyway, and shares it with their team from the app. Teammates hit **Join**, their game connects to `127.0.0.1` as if the server were on their machine, and Steam carries the traffic between the two, directly when it can and through Valve's relays when it can't. No port forwarding, and CGNAT stops being a problem.
 
 - **Team only.** The host's app checks every Steam account that connects and lets in only members of the team.
 - **UDP and TCP**, so Minecraft Java and Terraria work as well as Valheim, Palworld and Satisfactory. Presets carry each game's ports; anything else, type them in.

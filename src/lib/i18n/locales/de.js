@@ -226,8 +226,8 @@ export default {
   },
 
   download: {
-    headlineSoonHtml: 'CHECKPOINT64 v2<br/>IST DA.<br/><span class="invert">HOL ES DIR.</span>',
-    headlineLiveHtml: 'CHECKPOINT64 v2<br/>IST DA.<br/><span class="invert">HOL ES DIR.</span>',
+    headlineSoonHtml: 'CHECKPOINT64 2.0<br/>IST DA.<br/><span class="invert">HOL ES DIR.</span>',
+    headlineLiveHtml: 'CHECKPOINT64 2.0<br/>IST DA.<br/><span class="invert">HOL ES DIR.</span>',
     blurbSoon: 'Kostenloser Download, Gratis-Plan inklusive. Hol es dir auf Steam, oder zieh dir den neuesten Installer direkt von GitHub.',
     blurbLive: 'Kostenloser Download, Gratis-Plan inklusive. Builds erscheinen direkt über GitHub — diese Buttons zeigen immer auf den neuesten Installer.',
     signoffSoon: 'gratis zum ausprobieren — der gratis-plan ist echt',
@@ -247,7 +247,7 @@ export default {
       { q: 'BRAUCHE ICH NOCH EINEN DEDIZIERTEN SERVER?', a: 'Für die meisten Gruppen nein. Der ganze Sinn eines dedizierten Servers ist, deine Welt online zu halten, wenn der PC des Hosts aus ist. Checkpoint64 deckt davon etwa 90 % für eine einmalige Gebühr ab: Wer spielen will, schnappt sich die Sperre, spielt seine Session und schiebt den Spielstand zurück. Alle gleichzeitig drin? Starte den Server auf deinem eigenen PC, und dein Team kommt in der Steam-Version über Checkpoint Connect rein, ohne Portweiterleitung. Eine typische co-op-Gruppe spart {0} gegenüber einem 24/7-Server, der 18 Stunden am Tag leer steht.' },
       { q: 'FUNKTIONIERT DAS MIT EMULATOREN ODER KONSOLEN-SPIELSTÄNDEN?', a: 'Emulatoren, absolut — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 und Cemu haben alle Vorlagen, deine Save-States bekommen also endlich echten Versionsverlauf. Konsolen-Spielstände funktionieren nur, wenn du sie erst auf einen PC bekommst. Die App selbst läuft auf Windows, macOS (Apple Silicon) und Linux.' },
       { q: 'WAS KOSTET ES?', a: 'Der Gratis-Plan ist echt und bleibt gratis: 20 MiB, dein eigener Bereich plus ein Team. Lifetime ist eine Einmalzahlung — 1 GiB pro Bereich, bis zu 3 Teams, direkt oder über Steam gekauft. Pro ist für große Crews: 5 GiB pro Bereich, 5 Teams, je 25 Plätze, unbegrenzte Nur-Lese-Teilen-Codes. Teilen-Codes selbst gibt es auf jedem Tarif — Gratis hostet 3 Nur-Lese-Fans gleichzeitig, Lifetime 15. Auf keiner Stufe Gebühr pro Person.' },
-      { q: 'KANN ICH ES HEUTE SCHON NUTZEN?', a: 'Ja — v2 ist da. Gratis-Download für Windows, macOS (Apple Silicon) und Linux, und auf Steam gibt es sie auch.' },
+      { q: 'KANN ICH ES HEUTE SCHON NUTZEN?', a: 'Ja — 2.0 ist da. Gratis-Download für Windows, macOS (Apple Silicon) und Linux, und auf Steam gibt es sie auch.' },
       { q: 'WER KANN MEINE SPIELSTÄNDE SEHEN?', a: 'Deine Teamkollegen — und nur die, die du einlädst. Sie sehen deinen Anzeigenamen, nie deine E-Mail. Und deine Daten gehören dir: Exportiere jederzeit alles als Zip, und Konto löschen heißt wirklich löschen (nach 7 Tagen Bedenkzeit, falls dich nachts um zwei die Reue packt).' },
       undefined, // not translated yet — falls back to en.js at this index
       undefined, // not translated yet — falls back to en.js at this index
@@ -301,6 +301,70 @@ export default {
     notAffiliated: 'NICHT MIT DEN OBEN GENANNTEN SPIELEN VERBUNDEN',
   },
 
+  // Seitenweise Head- und Masthead-Texte für die sieben Produktseiten
+  // (siehe en.js). `breadcrumb` entspricht dem Footer-Label der Seite.
+  pages: {
+    features: {
+      title: 'Funktionen — Versionsverlauf, Co-op-Sperren, 140+ Spiele',
+      description: 'Jedes Backup als Version, serverseitige co-op-Sperren, Uploads nur der Änderungen und Vorlagen für 140+ Spiele und 7 Emulatoren. Gratis-Plan inklusive.',
+      breadcrumb: 'Funktionen',
+      hand: 'kein geschwafel, keine gebühr pro person',
+      h1Html: 'WAS <span class="accent">DRINSTECKT.</span>',
+      lede: 'Gebaut von Leuten, die viel zurückladen. Kein Geschwafel, keine Gebühr pro Person, kein „powered by AI“. Nur ein Spielstand-Tresor, der funktioniert.',
+      notes: [
+        'nur spielstände — spiele und ROMs rührt es nie an',
+        'läuft mit Steam, GOG, Epic, Emulatoren — es beobachtet den Ordner, nicht den Launcher',
+      ],
+    },
+    'how-it-works': {
+      title: 'Spielstand-Backup automatisch — so geht Checkpoint64',
+      description: 'Zeig Checkpoint64 auf deinen Spielstand-Ordner, schalte Auto-Backup ein und roll in Sekunden zurück. Prüft alle 60 Sekunden, lädt nur Änderungen hoch.',
+      breadcrumb: "So geht's",
+      hand: 'drei schritte, einmal',
+      h1Html: 'ZEIG AUF EINEN ORDNER.<br/><span class="accent">VERGISS IHN.</span>',
+      lede: 'Drei Schritte, einmal. Danach denkst du nie wieder an Spielstand-Dateien — und genau darum geht es.',
+    },
+    'co-op': {
+      title: 'Koop & Teams — eine Welt teilen, ohne zu überschreiben',
+      description: 'Eine aktive Welt, ein Halter. Serverseitige Sperren: Nur wer die Sperre hält, lädt hoch. Sperren laufen von selbst ab, jede Übernahme steht im Logbuch.',
+      breadcrumb: 'Koop & Teams',
+      hand: 'eine welt, eine sperre',
+      h1Html: 'EINE WELT.<br/>EINE SPERRE.<br/><span class="accent">NULL ÜBERSCHREIBEN.</span>',
+      lede: 'Spiele wie Factorio, Valheim und Satisfactory haben immer nur eine aktive Welt. Wer die Sperre hält, lädt hoch; alle anderen laden herunter. Halter abgetaucht? Sperren laufen von selbst ab, und du kannst übernehmen — mit Vorwarnung und Logbuch-Eintrag, damit es alle wissen.',
+    },
+    creators: {
+      title: 'Für Streamer & Creator — Spielstand mit dem Chat teilen',
+      description: 'Erstell einen Nur-Lese-Teilen-Code und gib deinen Spielstand an alle Fans. Überschreiben können sie ihn nie. Gratis 3 Fans, Lifetime 15, Pro unbegrenzt.',
+      breadcrumb: 'Für Creator',
+      hand: 'ein code, alle fans',
+      h1Html: 'TEILE DEINEN RUN<br/>MIT DEM <span class="accent">GANZEN CHAT.</span>',
+      lede: 'Du hast ein Publikum? Gib ihm genau deinen Spielstand. Erstell einen Nur-Lese-Code für jede Welt: deine 100-%-Datei, einen Challenge-Seed, den verfluchten Run von gestern Nacht. Pack ihn in deine Videobeschreibung, und Fans ziehen sich eine perfekte Kopie in ihre eigene Bibliothek. Sie laden sie herunter und spielen; deine überschreiben können sie nie.',
+    },
+    pricing: {
+      title: 'Preise — Gratis-Plan, Lifetime einmalig oder Pro für Crews',
+      description: 'Gratis ist echt gratis: kein Zeitlimit, keine Karte. Lifetime zahlst du einmal. Teilen-Codes auf jedem Tarif, Pro gibt mehr Platz. Keine Gebühr pro Person.',
+      breadcrumb: 'Preise',
+      hand: 'keine reißleinen',
+      h1Html: 'WÄHLE DEIN <span class="accent">MODUL.</span>',
+      lede: 'Drei Arten zu spielen. Gratis ist wirklich gratis — kein Sieben-Tage-Test. Lifetime ist einmal zahlen. Pro ist für Crews, die zusammen sichern. Keine Gebühr pro Person, keine Überraschungskosten, keine Reißleinen.',
+    },
+    download: {
+      title: 'Checkpoint64 Download — gratis für Windows, macOS und Linux',
+      description: 'Gratis-Download mit echtem Gratis-Plan statt Testversion. Für Windows, macOS (Apple Silicon) und Linux, dazu Steam für Windows, Linux und Steam Deck.',
+      breadcrumb: 'Download',
+      hand: 'gratis-plan, wirklich gratis',
+      h1Html: 'HOL ES DIR.',
+      lede: '',
+    },
+    help: {
+      title: 'Hilfe & FAQ — Checkpoint64 Spielstand-Backup',
+      description: 'Die häufigsten Fragen, sortiert: was als Spielstand zählt, Backup bei laufendem Spiel, co-op-Sperren, Emulatoren, Tarife und Abrechnung. Plus Kontakt.',
+      breadcrumb: 'Hilfe',
+      hand: 'echte menschen am anderen ende',
+      h1Html: 'HÄUFIG <span class="accent">GEPRÜFT.</span>',
+      lede: 'Die häufigsten Fragen, sortiert. Nicht dabei? Schreib an support@checkpoint64.com oder frag im Discord.',
+    },
+  },
 
   meta: {
     skipLink: 'Zum Inhalt springen',
@@ -347,7 +411,7 @@ export default {
       { q: 'Brauche ich noch einen dedizierten Server?', a: 'Für die meisten Gruppen nein. Der ganze Sinn eines dedizierten Servers ist, deine Welt online zu halten, wenn der PC des Hosts aus ist. Checkpoint64 deckt davon etwa 90 % für eine einmalige Gebühr ab: Wer spielen will, schnappt sich die Sperre, spielt seine Session und schiebt den Spielstand zurück. Alle gleichzeitig drin? Starte den Server auf deinem eigenen PC, und dein Team kommt in der Steam-Version über Checkpoint Connect rein, ohne Portweiterleitung. Eine typische co-op-Gruppe spart {0} gegenüber einem 24/7-Server, der 18 Stunden am Tag leer steht.' },
       { q: 'Funktioniert das mit Emulatoren oder Konsolen-Spielständen?', a: 'Emulatoren, absolut — RetroArch, Dolphin, PCSX2, DuckStation, PPSSPP, RPCS3 und Cemu haben alle Vorlagen, deine Save-States bekommen also endlich echten Versionsverlauf. Konsolen-Spielstände funktionieren nur, wenn du sie erst auf einen PC bekommst. Die App selbst läuft auf Windows, macOS (Apple Silicon) und Linux.' },
       { q: 'Was kostet es?', a: 'Der Gratis-Plan ist echt und bleibt gratis: 20 MiB, dein eigener Bereich plus ein Team. Lifetime ist eine Einmalzahlung — 1 GiB pro Bereich, bis zu 3 Teams, direkt oder über Steam gekauft. Pro ist für große Crews: 5 GiB pro Bereich, 5 Teams, je 25 Plätze, unbegrenzte Nur-Lese-Teilen-Codes. Teilen-Codes selbst gibt es auf jedem Tarif — Gratis hostet 3 Nur-Lese-Fans gleichzeitig, Lifetime 15. Auf keiner Stufe Gebühr pro Person.' },
-      { q: 'Kann ich es heute schon nutzen?', a: 'Ja — v2 ist da. Gratis-Download für Windows, macOS (Apple Silicon) und Linux, und auf Steam gibt es sie auch.' },
+      { q: 'Kann ich es heute schon nutzen?', a: 'Ja — 2.0 ist da. Gratis-Download für Windows, macOS (Apple Silicon) und Linux, und auf Steam gibt es sie auch.' },
       { q: 'Wer kann meine Spielstände sehen?', a: 'Deine Teamkollegen — und nur die, die du einlädst. Sie sehen deinen Anzeigenamen, nie deine E-Mail. Und deine Daten gehören dir: Exportiere jederzeit alles als Zip, und Konto löschen heißt wirklich löschen (nach 7 Tagen Bedenkzeit).' },
       undefined, // not translated yet — falls back to en.js at this index
       undefined, // not translated yet — falls back to en.js at this index
