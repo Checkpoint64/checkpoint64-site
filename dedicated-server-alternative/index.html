@@ -51,7 +51,7 @@
       "@type": "WebPage",
       "@id": "https://checkpoint64.com/dedicated-server-alternative/"
     },
-    "dateModified": "2026-07-01",
+    "dateModified": "2026-09-24",
     "image": "https://checkpoint64.com/og-image.png",
     "inLanguage": "en",
     "author": {
@@ -269,6 +269,14 @@
       },
       {
         "@type": "Question",
+        "name": "Can my friends join a server on my PC without port forwarding?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, with Checkpoint Connect in the Steam version of Checkpoint64. Start the game's server on your own PC and share it with your team; teammates hit Join and their game connects through Steam, direct or via Valve's relays. Nobody touches a router, only members of your team get in, and it works for UDP and TCP servers. The catch is the one every self-hosted server has: the world is online while your PC is."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Which games does this work for?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -304,7 +312,7 @@
           <a href="../">Home</a> <span aria-hidden="true">/</span> <span>Dedicated Server Alternative</span>
         </nav>
         <h1 class="blog-post-title pixel">A Dedicated Server Alternative for Co-op Save Sharing</h1>
-        <p class="blog-post-meta">Last updated <time datetime="2026-07-01">2026-07-01</time></p>
+        <p class="blog-post-meta">Last updated <time datetime="2026-09-24">2026-09-24</time></p>
       </div>
       <div class="blog-post-body">
 <p><strong>For a small co-op group, Checkpoint64 replaces about 90% of a dedicated server for a one-time fee.</strong> Instead of renting a 24/7 machine that sits idle most of the day, you pass a single-world game around safely: whoever wants to play grabs the lock, plays, and pushes the save back — with a shared logbook so nobody overwrites anybody.</p>
@@ -360,12 +368,26 @@
 <td>Pays 24/7 for a few hours&#39; use</td>
 <td>You pay once</td>
 </tr>
+<tr>
+<td><strong>Everyone in at once</strong></td>
+<td>Yes</td>
+<td>Yes, on the host&#39;s PC via Checkpoint Connect (Steam version)</td>
+</tr>
 </tbody></table>
 </div>
+<h2 id="want-everyone-in-at-once-host-it-yourself-skip-the-port-forward">Want everyone in at once? Host it yourself, skip the port forward</h2>
+<p>Taking turns covers most weeks. Some nights you want the whole crew in the same world at the same time, and that has always meant one of two things: rent a box, or have the host fight their router.</p>
+<p><strong>Checkpoint Connect</strong> is the third option, new in Checkpoint64 2.0 (Steam version, in beta). The host starts the game&#39;s server on their own PC, the way they would anyway, and shares it with their team from the app. Teammates hit <strong>Join</strong>, their game connects to <code>127.0.0.1</code> as if the server were on their machine, and Steam carries the traffic between the two, directly when it can and through Valve&#39;s relays when it can&#39;t. No port forwarding, and CGNAT stops being a problem.</p>
+<ul>
+<li><strong>Team only.</strong> The host&#39;s app checks every Steam account that connects and lets in only members of the team.</li>
+<li><strong>UDP and TCP</strong>, so Minecraft Java and Terraria work as well as Valheim, Palworld and Satisfactory. Presets carry each game&#39;s ports; anything else, type them in.</li>
+<li><strong>It shares a running server; it never runs one for you.</strong> The world is online while the host&#39;s PC is, which is the trade you make for not paying rent.</li>
+</ul>
+<p>It pairs with the lock: when the host logs off, their last backup is the latest world, so the next person can take the lock and host from their own PC. The <a href="../co-op/#connect">co-op page</a> has the walkthrough.</p>
 <h2 id="if-you-do-run-a-server-back-up-its-config">If you do run a server, back up its config</h2>
 <p>Keeping a real server is a perfectly good answer for some groups, and it comes with its own thing to lose: the rule set. Multipliers, decay timers, slot counts, the admin list — hours of fiddling that exist on one box, usually the one nobody else has access to. Sixteen dedicated servers have a catalog entry of their own for exactly that, separate from the game client; the <a href="../game-config-backup/">game config backup guide</a> covers which ones and where their files live.</p>
 <h2 id="when-you-still-want-a-real-server">When you still want a real server</h2>
-<p>Be honest about the 10%. A dedicated server still wins if your group needs the world <strong>online around the clock</strong> — a big community that plays across time zones, or 20+ players who expect to drop in any time. Checkpoint64 is built for the small crew that plays together in bursts, not the always-on public server.</p>
+<p>Be honest about the 10%. A dedicated server still wins if your group needs the world <strong>online around the clock</strong>, with nobody&#39;s PC left on for it — a big community that plays across time zones, or 20+ players who expect to drop in any time. Checkpoint64 is built for the small crew that plays together in bursts, not the always-on public server.</p>
 <h2 id="games-this-works-for">Games this works for</h2>
 <p>Single-world co-op games where only one save is live at a time: <strong><a href="../games/valheim/guide/">Valheim</a>, <a href="../games/factorio/guide/">Factorio</a>, <a href="../games/satisfactory/guide/">Satisfactory</a>, <a href="../games/dont-starve-together/guide/">Don&#39;t Starve Together</a>, <a href="../games/7-days-to-die/guide/">7 Days to Die</a>, <a href="../games/sons-of-the-forest/guide/">Sons of the Forest</a>, <a href="../games/enshrouded/guide/">Enshrouded</a>, and <a href="../games/palworld/guide/">Palworld</a></strong> — plus any other game where the group shares one world folder. Each link is that game&#39;s full backup guide: where the saves live, how they break, and how the lock-and-pass flow fits.</p>
 
@@ -384,6 +406,10 @@
           <details class="guide-faq-item">
             <summary>How much does a dedicated co-op server cost?</summary>
             <p>Typically €120–240 per year for a small group, and it sits idle roughly 18 hours a day because everyone plays in the same evening window. Checkpoint64&#39;s paid tier is a one-time payment, not a subscription, so it replaces most of that recurring cost outright.</p>
+          </details>
+          <details class="guide-faq-item">
+            <summary>Can my friends join a server on my PC without port forwarding?</summary>
+            <p>Yes, with Checkpoint Connect in the Steam version of Checkpoint64. Start the game&#39;s server on your own PC and share it with your team; teammates hit Join and their game connects through Steam, direct or via Valve&#39;s relays. Nobody touches a router, only members of your team get in, and it works for UDP and TCP servers. The catch is the one every self-hosted server has: the world is online while your PC is.</p>
           </details>
           <details class="guide-faq-item">
             <summary>Which games does this work for?</summary>

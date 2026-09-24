@@ -274,7 +274,7 @@
         "name": "What ports does Palworld (Dedicated Server) use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Palworld (Dedicated Server) listens on UDP 8211. That is the port to forward to the machine running it, and to allow through its firewall. The server's own files — the rule set it reads at startup — stay on that machine, and Checkpoint64 backs them up automatically and keeps every version, so rebuilding the server doesn't mean rewriting the config."
+          "text": "Palworld (Dedicated Server) listens on UDP 8211. That is the port to forward to the machine running it, and to allow through its firewall — or, when it runs on your own PC, share it with your team through Checkpoint Connect in the Steam version of Checkpoint64 and nobody forwards anything. The server's own files — the rule set it reads at startup — stay on that machine, and Checkpoint64 backs them up automatically and keeps every version, so rebuilding the server doesn't mean rewriting the config."
         }
       }
     ]
@@ -330,6 +330,7 @@
         <ul>
           <li><code>UDP 8211</code> — inbound, to the machine running the server.</li>
         </ul>
+        <p>If that machine is your own PC, you can skip the port forward: in the Steam version of Checkpoint64, <a href="../../../co-op/#connect">Checkpoint Connect</a> shares the running server with your team, and they join through Steam, direct or via Valve's relays.</p>
         <p>Ports are the half of hosting that happens on the router. The other half is on disk — the rule set this server reads at startup, which nothing else holds a copy of. Checkpoint64 backs that folder up automatically and keeps every version, so rebuilding the box doesn't mean rebuilding the config. And if keeping it running stops being worth it, a small group can pass one world between them instead: the <a href="../../../dedicated-server-alternative/">dedicated server alternative</a> guide walks through it.</p>
       </div>
         <section class="guide-faq" aria-label="Frequently asked questions">
@@ -348,7 +349,7 @@
           </details>
           <details class="guide-faq-item">
             <summary>What ports does Palworld (Dedicated Server) use?</summary>
-            <p>Palworld (Dedicated Server) listens on UDP 8211. That is the port to forward to the machine running it, and to allow through its firewall. The server&#39;s own files — the rule set it reads at startup — stay on that machine, and Checkpoint64 backs them up automatically and keeps every version, so rebuilding the server doesn&#39;t mean rewriting the config.</p>
+            <p>Palworld (Dedicated Server) listens on UDP 8211. That is the port to forward to the machine running it, and to allow through its firewall — or, when it runs on your own PC, share it with your team through Checkpoint Connect in the Steam version of Checkpoint64 and nobody forwards anything. The server&#39;s own files — the rule set it reads at startup — stay on that machine, and Checkpoint64 backs them up automatically and keeps every version, so rebuilding the server doesn&#39;t mean rewriting the config.</p>
           </details>
         </section>
         <aside class="guide-cta">

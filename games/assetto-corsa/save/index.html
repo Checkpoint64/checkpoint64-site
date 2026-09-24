@@ -274,7 +274,7 @@
         "name": "What ports does a Assetto Corsa server use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A player-hosted Assetto Corsa server listens on UDP 9600 and TCP 9600. Those are the ports to forward to the machine running it, and to allow through its firewall. The save folder itself is local to that machine too — Checkpoint64 backs it up automatically and keeps every version, so the world survives a reinstall of the server."
+          "text": "A player-hosted Assetto Corsa server listens on UDP 9600 and TCP 9600. Those are the ports to forward to the machine running it, and to allow through its firewall — or, when it runs on your own PC, share it with your team through Checkpoint Connect in the Steam version of Checkpoint64 and nobody forwards anything. The save folder itself is local to that machine too — Checkpoint64 backs it up automatically and keeps every version, so the world survives a reinstall of the server."
         }
       }
     ]
@@ -331,6 +331,7 @@
           <li><code>UDP 9600</code> — inbound, to the machine running the server.</li>
           <li><code>TCP 9600</code> — inbound, to the machine running the server.</li>
         </ul>
+        <p>Or skip the port forward entirely: in the Steam version of Checkpoint64, <a href="../../../co-op/#connect">Checkpoint Connect</a> lets the host share the server running on their PC with their team, and teammates join through Steam, direct or via Valve's relays.</p>
         <p>Ports are the half of hosting that happens on the router. The other half is on disk — the world itself, which lives on one PC and which nobody else has a copy of. Checkpoint64 doesn't host anything for you; it backs that folder up automatically and keeps every version, so a corrupted or overwritten world is one click from restored. If you'd rather not run a server at all, a small group can pass one world between them instead: the <a href="../../../dedicated-server-alternative/">dedicated server alternative</a> guide walks through it.</p>
       </div>
         <section class="guide-faq" aria-label="Frequently asked questions">
@@ -349,7 +350,7 @@
           </details>
           <details class="guide-faq-item">
             <summary>What ports does a Assetto Corsa server use?</summary>
-            <p>A player-hosted Assetto Corsa server listens on UDP 9600 and TCP 9600. Those are the ports to forward to the machine running it, and to allow through its firewall. The save folder itself is local to that machine too — Checkpoint64 backs it up automatically and keeps every version, so the world survives a reinstall of the server.</p>
+            <p>A player-hosted Assetto Corsa server listens on UDP 9600 and TCP 9600. Those are the ports to forward to the machine running it, and to allow through its firewall — or, when it runs on your own PC, share it with your team through Checkpoint Connect in the Steam version of Checkpoint64 and nobody forwards anything. The save folder itself is local to that machine too — Checkpoint64 backs it up automatically and keeps every version, so the world survives a reinstall of the server.</p>
           </details>
         </section>
         <aside class="guide-cta">
