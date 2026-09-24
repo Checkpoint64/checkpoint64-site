@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--1oyyij7--><!---->  <title>A Dedicated Server Alternative for Co-op Save Sharing — Checkpoint64</title>
+  <!--1oyyij7--><!---->  <title>A Dedicated Server Alternative for Co-op Save Sharing</title>
   <meta name="description" content="Renting a 24/7 dedicated server for a small co-op group costs €120–240 a year and sits idle most of the day. Checkpoint64 covers ~90% of that for a one-time fee: pass a single-world game around safely with built-in locks. Free download." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="color-scheme" content="light dark" />
@@ -330,7 +330,7 @@
 </ol>
 <p>Taking a lock from someone warns them and lands in the shared <strong>logbook</strong>, so there&#39;s a record of who did what. The world&#39;s full history is preserved instead of overwritten — a bad session is one Restore away. It solves &quot;who has the latest save?&quot; forever, which is the real day-to-day pain, without a monthly bill.</p>
 <h2 id="dedicated-server-vs-checkpoint64">Dedicated server vs Checkpoint64</h2>
-<table>
+<div class="table-scroll" tabindex="0"><table>
 <thead>
 <tr>
 <th></th>
@@ -374,9 +374,10 @@
 <td>Yes, on the host&#39;s PC via Checkpoint Connect (Steam version)</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="want-everyone-in-at-once-host-it-yourself-skip-the-port-forward">Want everyone in at once? Host it yourself, skip the port forward</h2>
 <p>Taking turns covers most weeks. Some nights you want the whole crew in the same world at the same time, and that has always meant one of two things: rent a box, or have the host fight their router.</p>
-<p><strong>Checkpoint Connect</strong> is the third option, new in Checkpoint64 v2 (Steam version). The host starts the game&#39;s server on their own PC, the way they would anyway, and shares it with their team from the app. Teammates hit <strong>Join</strong>, their game connects to <code>127.0.0.1</code> as if the server were on their machine, and Steam carries the traffic between the two, directly when it can and through Valve&#39;s relays when it can&#39;t. No port forwarding, and CGNAT stops being a problem.</p>
+<p><strong>Checkpoint Connect</strong> is the third option, new in Checkpoint64 2.0 (Steam version, in beta). The host starts the game&#39;s server on their own PC, the way they would anyway, and shares it with their team from the app. Teammates hit <strong>Join</strong>, their game connects to <code>127.0.0.1</code> as if the server were on their machine, and Steam carries the traffic between the two, directly when it can and through Valve&#39;s relays when it can&#39;t. No port forwarding, and CGNAT stops being a problem.</p>
 <ul>
 <li><strong>Team only.</strong> The host&#39;s app checks every Steam account that connects and lets in only members of the team.</li>
 <li><strong>UDP and TCP</strong>, so Minecraft Java and Terraria work as well as Valheim, Palworld and Satisfactory. Presets carry each game&#39;s ports; anything else, type them in.</li>
