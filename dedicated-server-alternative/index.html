@@ -51,7 +51,7 @@
       "@type": "WebPage",
       "@id": "https://checkpoint64.com/dedicated-server-alternative/"
     },
-    "dateModified": "2026-09-24",
+    "dateModified": "2026-09-25",
     "image": "https://checkpoint64.com/og-image.png",
     "inLanguage": "en",
     "author": {
@@ -272,7 +272,7 @@
         "name": "Can my friends join a server on my PC without port forwarding?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, with Checkpoint Connect in the Steam version of Checkpoint64. Start the game's server on your own PC and share it with your team; teammates hit Join and their game connects through Steam, direct or via Valve's relays. Nobody touches a router, only members of your team get in, and it works for UDP and TCP servers. The catch is the one every self-hosted server has: the world is online while your PC is."
+          "text": "Yes, with Checkpoint Connect in Checkpoint64. Start the game's server on your own PC and share it with your team; teammates hit Join and their game connects directly when it can and through a relay when it can't. Nobody touches a router, only members of your team get in, and it works for UDP and TCP servers. The catch is the one every self-hosted server has: the world is online while your PC is."
         }
       },
       {
@@ -312,7 +312,7 @@
           <a href="../">Home</a> <span aria-hidden="true">/</span> <span>Dedicated Server Alternative</span>
         </nav>
         <h1 class="blog-post-title pixel">A Dedicated Server Alternative for Co-op Save Sharing</h1>
-        <p class="blog-post-meta">Last updated <time datetime="2026-09-24">2026-09-24</time></p>
+        <p class="blog-post-meta">Last updated <time datetime="2026-09-25">2026-09-25</time></p>
       </div>
       <div class="blog-post-body">
 <p><strong>For a small co-op group, Checkpoint64 replaces about 90% of a dedicated server for a one-time fee.</strong> Instead of renting a 24/7 machine that sits idle most of the day, you pass a single-world game around safely: whoever wants to play grabs the lock, plays, and pushes the save back — with a shared logbook so nobody overwrites anybody.</p>
@@ -371,15 +371,15 @@
 <tr>
 <td><strong>Everyone in at once</strong></td>
 <td>Yes</td>
-<td>Yes, on the host&#39;s PC via Checkpoint Connect (Steam version)</td>
+<td>Yes, on the host&#39;s PC via Checkpoint Connect</td>
 </tr>
 </tbody></table>
 </div>
 <h2 id="want-everyone-in-at-once-host-it-yourself-skip-the-port-forward">Want everyone in at once? Host it yourself, skip the port forward</h2>
 <p>Taking turns covers most weeks. Some nights you want the whole crew in the same world at the same time, and that has always meant one of two things: rent a box, or have the host fight their router.</p>
-<p><strong>Checkpoint Connect</strong> is the third option, new in Checkpoint64 2.0 (Steam version, in beta). The host starts the game&#39;s server on their own PC, the way they would anyway, and shares it with their team from the app. Teammates hit <strong>Join</strong>, their game connects to <code>127.0.0.1</code> as if the server were on their machine, and Steam carries the traffic between the two, directly when it can and through Valve&#39;s relays when it can&#39;t. No port forwarding, and CGNAT stops being a problem.</p>
+<p><strong>Checkpoint Connect</strong> is the third option, new in Checkpoint64 2.0 (in beta). The host starts the game&#39;s server on their own PC, the way they would anyway, and shares it with their team from the app. Teammates hit <strong>Join</strong>, their game connects to <code>127.0.0.1</code> as if the server were on their machine, and the two copies of the app connect directly when they can and through a relay when they can&#39;t. No port forwarding, and CGNAT stops being a problem.</p>
 <ul>
-<li><strong>Team only.</strong> The host&#39;s app checks every Steam account that connects and lets in only members of the team.</li>
+<li><strong>Team only.</strong> Our backend vouches for everyone who connects, and the host&#39;s app lets in only members of the team.</li>
 <li><strong>UDP and TCP</strong>, so Minecraft Java and Terraria work as well as Valheim, Palworld and Satisfactory. Presets carry each game&#39;s ports; anything else, type them in.</li>
 <li><strong>It shares a running server; it never runs one for you.</strong> The world is online while the host&#39;s PC is, which is the trade you make for not paying rent.</li>
 </ul>
@@ -409,7 +409,7 @@
           </details>
           <details class="guide-faq-item">
             <summary>Can my friends join a server on my PC without port forwarding?</summary>
-            <p>Yes, with Checkpoint Connect in the Steam version of Checkpoint64. Start the game&#39;s server on your own PC and share it with your team; teammates hit Join and their game connects through Steam, direct or via Valve&#39;s relays. Nobody touches a router, only members of your team get in, and it works for UDP and TCP servers. The catch is the one every self-hosted server has: the world is online while your PC is.</p>
+            <p>Yes, with Checkpoint Connect in Checkpoint64. Start the game&#39;s server on your own PC and share it with your team; teammates hit Join and their game connects directly when it can and through a relay when it can&#39;t. Nobody touches a router, only members of your team get in, and it works for UDP and TCP servers. The catch is the one every self-hosted server has: the world is online while your PC is.</p>
           </details>
           <details class="guide-faq-item">
             <summary>Which games does this work for?</summary>
@@ -514,6 +514,7 @@
           <h2>Ports a player-hosted server needs</h2>
           <p>If you do run the server yourself, these are the ports that have to reach the host's PC. Each link is that game's save file location — the folder the host has, and everyone else doesn't.</p>
           <ul>
+            <li><a href="../games/conan-exiles/save/">Conan Exiles</a> — <code>UDP 7777</code></li>
             <li><a href="../games/dont-starve-together/save/">Don&#39;t Starve Together</a> — <code>UDP 10999</code></li>
             <li><a href="../games/factorio/save/">Factorio</a> — <code>UDP 34197</code></li>
             <li><a href="../games/icarus/save/">ICARUS</a> — <code>UDP 17777</code></li>

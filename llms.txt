@@ -24,7 +24,7 @@ Portuguese, and Russian.
   Valheim only have one live world file at a time. Whoever holds the lock can upload;
   everyone else downloads. Locks expire on their own, and taking one over warns the holder
   and is recorded in the group logbook. Solves "who has the latest save?" forever.
-- **Per-game backup rules with 277 built-in presets.** 265 games, 7 emulators, and 5
+- **Per-game backup rules with 278 built-in presets.** 266 games, 7 emulators, and 5
   modded-Minecraft launchers (CurseForge, Modrinth, Prism, FTB, Pinecone), each tagged
   by category (singleplayer, co-op, multiplayer, server, emulator, launcher) so you can
   filter the list. Choose which files to back up and which to ignore — skip crash logs
@@ -99,7 +99,7 @@ overwrites, or co-op friends saving on top of each other. Particularly useful fo
 
 ## Games Checkpoint64 supports out of the box
 
-277 presets ship built in: 265 games, 7 emulators, and 5 modded-Minecraft launchers.
+278 presets ship built in: 266 games, 7 emulators, and 5 modded-Minecraft launchers.
 
 Factorio, Satisfactory, Valheim, Stardew Valley, Elden Ring, Baldur's Gate 3, Minecraft
 (vanilla plus CurseForge, Modrinth, Prism, FTB, and Pinecone), Skyrim SE, Fallout 4,
@@ -362,6 +362,7 @@ to know what Checkpoint64 is and does.
 - [Big Walk save file location](https://checkpoint64.com/games/big-walk/save/)
 - [Black Mesa save file location](https://checkpoint64.com/games/black-mesa/save/)
 - [Black Myth: Wukong save file location](https://checkpoint64.com/games/black-myth-wukong/save/)
+- [Brave New Wonders save file location](https://checkpoint64.com/games/brave-new-wonders/save/)
 - [Call of Duty: Black Ops 6 save file location](https://checkpoint64.com/games/cod-black-ops-6/save/)
 - [Call of Duty: Modern Warfare III save file location](https://checkpoint64.com/games/cod-mw3/save/)
 - [Calyx save file location](https://checkpoint64.com/games/calyx/save/)

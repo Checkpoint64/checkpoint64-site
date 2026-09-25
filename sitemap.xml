@@ -934,7 +934,7 @@
   </url>
   <url>
     <loc>https://checkpoint64.com/dedicated-server-alternative/</loc>
-    <lastmod>2026-09-24</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1337,6 +1337,11 @@
   </url>
   <url>
     <loc>https://checkpoint64.com/games/black-myth-wukong/save/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://checkpoint64.com/games/brave-new-wonders/save/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
