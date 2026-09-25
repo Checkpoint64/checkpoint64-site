@@ -36,8 +36,8 @@ nothing about the free plan is a countdown to a trial expiring.
   co-op locks included.
 - **Lifetime** — a **one-time purchase**, bought directly or as a Steam DLC unlock. Not a
   subscription.
-- **Pro** — the only tier with a recurring option, and only when bought direct; on Steam it is a
-  one-time unlock.
+- **Pro** — also a **one-time purchase**, bought directly or as a Steam DLC unlock. Not a
+  subscription.
 
 Current prices are listed on the [pricing page](/pricing/).
 
