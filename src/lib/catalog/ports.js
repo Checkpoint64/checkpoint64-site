@@ -81,7 +81,7 @@ export function portsSection(game, ports, prefix, { server = false } = {}) {
   const disk = server
     ? `the rule set this server reads at startup, which nothing else holds a copy of. Checkpoint64 backs that folder up automatically and keeps every version, so rebuilding the box doesn't mean rebuilding the config. And if keeping it running stops being worth it, a small group can pass one world between them instead: the <a href="${prefix}dedicated-server-alternative/">dedicated server alternative</a> guide walks through it.`
     : `the world itself, which lives on one PC and which nobody else has a copy of. Checkpoint64 doesn't host anything for you; it backs that folder up automatically and keeps every version, so a corrupted or overwritten world is one click from restored. If you'd rather not run a server at all, a small group can pass one world between them instead: the <a href="${prefix}dedicated-server-alternative/">dedicated server alternative</a> guide walks through it.`
-  // Checkpoint Connect (v2, Steam build) is the no-router route to the same
+  // Checkpoint Connect (v2's team tunnel) is the no-router route to the same
   // server, and a game with a port list is exactly a game the app's Connect
   // presets cover — so every section that tells someone to forward a port
   // also says they don't have to. It forwards to a server already running on
@@ -89,8 +89,8 @@ export function portsSection(game, ports, prefix, { server = false } = {}) {
   // public. Server entries are read by whoever runs the box, which may not be
   // a PC they sit at, hence the "if".
   const connect = server
-    ? `<p>If that machine is your own PC, you can skip the port forward: in the Steam version of Checkpoint64, <a href="${prefix}co-op/#connect">Checkpoint Connect</a> shares the running server with your team, and they join through Steam, direct or via Valve's relays.</p>`
-    : `<p>Or skip the port forward entirely: in the Steam version of Checkpoint64, <a href="${prefix}co-op/#connect">Checkpoint Connect</a> lets the host share the server running on their PC with their team, and teammates join through Steam, direct or via Valve's relays.</p>`
+    ? `<p>If that machine is your own PC, you can skip the port forward: in Checkpoint64, <a href="${prefix}co-op/#connect">Checkpoint Connect</a> shares the running server with your team, and they join directly when they can and through a relay when they can't.</p>`
+    : `<p>Or skip the port forward entirely: in Checkpoint64, <a href="${prefix}co-op/#connect">Checkpoint Connect</a> lets the host share the server running on their PC with their team, and teammates join directly when they can and through a relay when they can't.</p>`
   return `        <h2>${esc(portsQuestion(game, { server }))}</h2>
         ${intro}
         <ul>
@@ -122,7 +122,7 @@ export function portsFaq(game, ports, { server = false } = {}) {
   const plural = ports.length > 1 || portCount(ports[0]) > 1
   return [{
     q: portsQuestion(game, { server }),
-    a: `${server ? `${game.displayName} listens` : `A player-hosted ${game.displayName} server listens`} on ${sentence}. ${plural ? 'Those are the ports' : 'That is the port'} to forward to the machine running it, and to allow through its firewall — or, when it runs on your own PC, share it with your team through Checkpoint Connect in the Steam version of Checkpoint64 and nobody forwards anything. ${server
+    a: `${server ? `${game.displayName} listens` : `A player-hosted ${game.displayName} server listens`} on ${sentence}. ${plural ? 'Those are the ports' : 'That is the port'} to forward to the machine running it, and to allow through its firewall — or, when it runs on your own PC, share it with your team through Checkpoint Connect in Checkpoint64 and nobody forwards anything. ${server
       ? "The server's own files — the rule set it reads at startup — stay on that machine, and Checkpoint64 backs them up automatically and keeps every version, so rebuilding the server doesn't mean rewriting the config."
       : `The save folder itself is local to that machine too — Checkpoint64 backs it up automatically and keeps every version, so the world survives a reinstall of the server.`}`,
   }]

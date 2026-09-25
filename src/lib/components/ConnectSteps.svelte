@@ -1,5 +1,5 @@
 <script>
-  // Checkpoint Connect — v2's Steam P2P tunnel, pitched on /co-op/ right after
+  // Checkpoint Connect — v2's team tunnel, pitched on /co-op/ right after
   // the dedicated-server receipt: the receipt says "stop renting a box", this
   // says "and when you do want everyone in at once, host it yourself". The
   // chips and the 127.0.0.1 line are app chrome, so they stay English.
@@ -19,7 +19,7 @@
 
     <div class="connect-route" aria-hidden="true">
       <span class="connect-end">TEAMMATE · 127.0.0.1:2456</span>
-      <span class="connect-wire">═══ STEAM ═══</span>
+      <span class="connect-wire">═══ CONNECT ═══</span>
       <span class="connect-end">HOST · VALHEIM SERVER</span>
     </div>
 
