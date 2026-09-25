@@ -129,7 +129,7 @@ What we keep:
 - **For each relay password**, Cloudflare's username for it, your user ID, the team, and when it expires, so that we can withdraw it. We never store the password itself. We withdraw it at Cloudflare within about a minute once nobody is hosting on the team any more, or once you leave the team, and we delete the record 12 hours after the password was issued.
 - **Nothing of the game traffic.** It never passes through our servers, whether the connection is direct or relayed.
 
-Our servers do not log the contents of connection-setup messages. The App's own log file on your PC notes each connection by display name, and whether it is direct or relayed. It never records IP addresses, connection-setup messages, or relay passwords, and it leaves your PC only if you attach it to a feedback report. The App's analytics events about Checkpoint Connect (Section 2.5) contain counts, durations, whether a connection was relayed, and why a session ended, never IP addresses or port numbers.
+Our servers do not log the contents of connection-setup messages. The App's own log file on your PC notes each connection by display name, and its route (the same network, direct, or relayed). It never records IP addresses, connection-setup messages, or relay passwords, and it leaves your PC only if you attach it to a feedback report. The App's analytics events about Checkpoint Connect (Section 2.5) contain counts, durations, the kind of route a connection took (the same network, direct, or relayed), and why a session ended, never IP addresses or port numbers.
 
 ## 3. Why we use your data, and the lawful basis
 
