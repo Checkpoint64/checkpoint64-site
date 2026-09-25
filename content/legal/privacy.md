@@ -1,12 +1,12 @@
 ---
 title: Privacy Policy
 description: What personal data Checkpoint64 collects, where it is stored, who processes it, how long we keep it, and the rights you have over it under the UK GDPR and applicable data-protection laws.
-updated: 2026-08-12
+updated: 2026-09-25
 ---
 
 # Privacy Policy
 
-**Last updated:** 12 August 2026
+**Last updated:** 25 September 2026
 
 This Privacy Policy explains what personal data **Checkpoint64** ("**we**", "**us**", "**our**") collects when you use the website at [checkpoint64.com](https://checkpoint64.com/), install the Checkpoint64 desktop app (the "**App**"), or use the Checkpoint64 cloud backup service (together, the "**Service**"), why we collect it, where it is stored, who we share it with, and the rights you have over it.
 
@@ -17,7 +17,8 @@ We are the **data controller** for the personal data described below. We are bas
 - We collect the **minimum we need** to run the Service: your email and account details, the save files you ask us to back up, and basic technical information to keep the Service running and secure.
 - We **never sell your data**, and we **never read the contents of your save files** for advertising, profiling, or model training. The one automated exception is malware scanning of **team** save files — see Section 2.7.
 - Save files are **encrypted at rest** by our storage providers and **encrypted in transit**. They are **not** end-to-end encrypted — see Section 10.2 for exactly what that means.
-- We use a small number of **third-party processors** to host the Service, send transactional email, process payments, monitor errors, and measure how the website is used. They are all listed in Section 8.
+- We use a small number of **third-party processors** to host the Service, relay game connections, send transactional email, process payments, monitor errors, and measure how the website is used. They are all listed in Section 8.
+- If you use **Checkpoint Connect** to host or join a teammate's game server, your copy of the App and theirs exchange **IP addresses** so that they can connect directly, and a connection that can't go direct is relayed by **Cloudflare**. Section 2.8 has the details.
 - You have **strong rights** over your data, including the right to access, correct, export, and delete it. Section 11 explains how to exercise them.
 
 ## 1.1 Quick answers
@@ -26,6 +27,7 @@ We are the **data controller** for the personal data described below. We are bas
 | --- | --- |
 | Exactly what personal information we collect | [Section 2](#2-the-data-we-collect) |
 | Whether we collect IP addresses and device information | [Section 2.3](#23-technical-and-security-data-including-ip-addresses) |
+| Who sees my IP address when I host or join a game server | [Section 2.8](#28-checkpoint-connect-hosting-and-joining-game-servers) |
 | What analytics and telemetry run, on the site and in the App | [Sections 2.4–2.6](#24-analytics-on-the-marketing-website) |
 | What cookies and tracking we use, and whether we ask for consent | [Section 4](#4-cookies-and-similar-technologies) |
 | Where the servers are physically located | [Section 7](#7-where-your-data-is-stored) |
@@ -67,7 +69,7 @@ Your Content stays yours — see Section 4 of the [Terms](/terms/).
 
 To operate and protect the Service we collect or generate:
 
-- **IP addresses.** Your IP address is processed by our hosting provider and our backend on every request. We use it for **rate limiting and abuse prevention**, and it appears in **server logs**. We do not use IP addresses to build advertising or behavioural profiles.
+- **IP addresses.** Your IP address is processed by our hosting provider and our backend on every request. We use it for **rate limiting and abuse prevention**, and it appears in **server logs**. If you use **Checkpoint Connect**, your App also shares its IP addresses with a teammate's App so that the two can connect (Section 2.8). We do not use IP addresses to build advertising or behavioural profiles.
 - **Server logs** containing request paths, HTTP status codes, timestamps, user IDs (where you are signed in), and IP addresses.
 - **Device and app information**: App version, operating system and version, and CPU architecture. This is used to serve the correct binary update and to reproduce bugs.
 - **Rate-limiting counters** keyed by user, namespace, and client IP.
@@ -109,6 +111,26 @@ Three things about this:
 - It applies to **team namespaces only**. Files in your **personal** namespace are **never scanned**.
 - The scanner runs on **our own servers**, not a third-party scanning service, so team save contents are not sent to an outside provider for this purpose.
 
+### 2.8 Checkpoint Connect: hosting and joining game servers
+
+**Checkpoint Connect** lets a member of a team share a game server running on their own PC, so that teammates can join it without port forwarding. When you host or join, your copy of the App and the one at the other end connect to each other: **directly** when your networks allow it, and through a **relay** when they don't.
+
+To make that connection:
+
+- **Your App looks up its addresses.** It asks a **Cloudflare STUN server** which public IP address and port your connection appears from, and it reads your PC's local network addresses.
+- **The two Apps swap them through our backend.** The connection-setup messages contain your **public and local IP addresses and ports**, your Checkpoint64 user ID, and the keys that encrypt the connection. Our backend passes them only between members of the same team, and only while one of them is hosting there. It keeps each message only until the other App collects it, usually within a second or two, and deletes any message that is never collected within about 90 seconds.
+- **A direct connection runs straight between the two PCs.** The App at the other end then has your IP address, and yours has theirs, as with any direct connection between two computers. The App never displays IP addresses, but anyone can see the addresses of their own PC's connections with standard tools.
+- **Otherwise, Cloudflare relays it.** Cloudflare's relay (TURN) forwards the packets between the two Apps. It sees both IP addresses and how much data flows, but not what is sent, because the game traffic is **encrypted between the two Apps**. While you host or join, the App uses a relay password that we request from Cloudflare. It expires after 12 hours, and our request contains nothing that identifies you.
+- **Some teams always use the relay.** On a team with a read-only member or a linked Patreon campaign, the host's App offers only the relay, so members who join never receive the host's IP address. The addresses of the members who join still reach the host's App, which needs them to set up each connection.
+
+What we keep:
+
+- **While you host**, a record of the session: your user ID, the team, the game, and the ports you shared. It is deleted when you stop hosting, or about 2 minutes after your App stops checking in.
+- **For each relay password**, Cloudflare's username for it, your user ID, the team, and when it expires, so that we can withdraw it. We never store the password itself. We withdraw it at Cloudflare within about a minute once nobody is hosting on the team any more, or once you leave the team, and we delete the record 12 hours after the password was issued.
+- **Nothing of the game traffic.** It never passes through our servers, whether the connection is direct or relayed.
+
+Our servers do not log the contents of connection-setup messages. The App's own log file on your PC notes each connection by display name, and whether it is direct or relayed. It never records IP addresses, connection-setup messages, or relay passwords, and it leaves your PC only if you attach it to a feedback report. The App's analytics events about Checkpoint Connect (Section 2.5) contain counts, durations, whether a connection was relayed, and why a session ended, never IP addresses or port numbers.
+
 ## 3. Why we use your data, and the lawful basis
 
 | What we use it for | Lawful basis under the UK/EU GDPR |
@@ -117,6 +139,7 @@ Three things about this:
 | Sending transactional emails: account verification, password reset, deletion confirmation, receipts, security alerts, important Service notices | **Contract** (Art. 6(1)(b)); **legal obligation** (Art. 6(1)(c)) for invoices and tax records. |
 | Keeping the Service secure: server logs, IP-based rate limiting, abuse detection, error monitoring, security review | **Legitimate interests** (Art. 6(1)(f)) — protecting the Service and our users against abuse, outage, and data loss. We have weighed this against your rights and consider the impact minimal, as the data is technical and retained briefly. |
 | Malware scanning of team save files (Section 2.7) | **Legitimate interests** (Art. 6(1)(f)) — protecting members of a shared namespace from a malicious or infected upload by another member. |
+| Checkpoint Connect (Section 2.8): passing connection-setup messages, including IP addresses, between teammates' Apps, and relaying connections through Cloudflare when a direct one isn't possible | **Contract** (Art. 6(1)(b)) — you choose to host or join, and the two Apps can't connect without it. |
 | Optional integrations you initiate: Discord linking, Patreon supporter access, Steam achievements | **Contract** (Art. 6(1)(b)) where the feature is part of the Service; **consent** (Art. 6(1)(a)) for the act of linking an external account, which you can withdraw by unlinking. |
 | Improving the App and Service: pseudonymous product analytics and crash reports | **Legitimate interests** (Art. 6(1)(f)) — understanding which features are used and where the App fails. |
 | Marketing-website analytics — Google Analytics 4 | **Consent** (Art. 6(1)(a)), collected through the cookie banner before the tag loads, and withdrawable at any time from Cookie settings in the footer. |
@@ -152,7 +175,7 @@ We share the minimum necessary data with:
 - **Steam / Valve** — if you use a Steam build, we send your **Steam ID** and an achievement identifier to Valve's Web API when you earn an in-game achievement, and we check your DLC entitlements to determine your plan.
 - **Discord** — only if you link your Discord account. We store your Discord user ID and username, and we periodically check whether you are still a member of our Discord server, because server membership grants a storage bonus. Unlink at any time to stop this.
 - **Patreon** — only if you link a Patreon account to grant or receive supporter access. We store the Patreon account identifier, campaign identifier, tier information, and an **encrypted** OAuth token, and we periodically check membership status to keep access in sync.
-- **Other members of a team you join** — your display name and your activity within that namespace. Your email address is **never** shown to other users.
+- **Other members of a team you join** — your display name and your activity within that namespace, and, when you host or join a game server there with Checkpoint Connect, your IP addresses to the App at the other end of each connection (Section 2.8). Your email address is **never** shown to other users.
 - **Authorities, courts, and other parties where legally required** — for example in response to a valid court order, a binding regulatory request, or to comply with a legal obligation. We will challenge requests we believe to be overbroad or unlawful, and we will notify you where we are legally permitted to do so.
 - **To protect rights and safety** — where necessary to investigate fraud or abuse, or to establish, exercise, or defend legal claims.
 - **A successor entity** — if the Service is involved in a merger, acquisition, restructuring, or sale of assets, your data may transfer to the successor, subject to the same protections set out in this policy. We will tell you before this happens.
@@ -162,6 +185,8 @@ We share the minimum necessary data with:
 Some of our processors are based outside the United Kingdom and the EEA — in particular in the **United States** (see the "Where it processes data" column in Section 8). Where we transfer personal data to a country the UK or EU has not deemed adequate, we rely on appropriate safeguards, typically the **Standard Contractual Clauses** issued by the European Commission together with the **UK International Data Transfer Addendum**, plus supplementary technical measures such as encryption in transit and at rest.
 
 We have deliberately kept **Your Content** (save files and manifests) within the **UK and EU** — see Section 7. The transfers to the United States concern account, billing, email, error-monitoring, and website-analytics data, not your save file contents.
+
+**Checkpoint Connect** (Section 2.8) uses a STUN server and a relay on **Cloudflare's global network**, so your IP address, and the encrypted traffic of a relayed connection, may be handled at a Cloudflare site outside the UK and EEA, normally the one nearest you.
 
 You can request a copy of the safeguards applying to a specific transfer by emailing [privacy@checkpoint64.com](mailto:privacy@checkpoint64.com).
 
@@ -184,6 +209,7 @@ Because our backend runs in both London and Chicago, **account and request data 
 | **Fly.io** | Hosts the backend API; TLS termination | UK (London) + US (Chicago) |
 | **Amazon Web Services (S3)** | Stores save-file blobs, encrypted at rest | UK (`eu-west-2`) |
 | **Cloudflare (R2)** | Alternative save-file blob store, encrypted at rest | EU (jurisdiction-restricted) |
+| **Cloudflare (Realtime TURN and STUN)** | Checkpoint Connect: tells the App its public IP address, and relays connections between teammates' Apps when a direct one isn't possible | Global network, normally the site nearest you |
 | **MongoDB** (managed cloud database) | Stores account, manifest, namespace, and activity data | EU / UK |
 | **Sentry** | Backend error monitoring and crash diagnostics | US |
 | **Stripe** | Processes payments; stores customer and payment records | US + EU |
@@ -212,6 +238,7 @@ This list is current as at the "Last updated" date. We will update this page **b
 | **Server logs and rate-limit data** | We retain these for **no longer than 30 days**, except where a specific, documented security investigation requires us to preserve a record for longer. Rate-limit counters expire within hours. |
 | **Error reports (Sentry)** | Up to **90 days**, per Sentry's retention settings. |
 | **Activity logs (per-namespace)** | For as long as the namespace exists, so team members have a complete history. Deleted with the namespace. |
+| **Checkpoint Connect records** (Section 2.8) | Connection-setup messages: until the other App collects them, and never longer than about 90 seconds. A hosting session: until you stop hosting, or about 2 minutes after your App stops checking in. Relay-password records: 12 hours after the password was issued. |
 | **Billing and accounting records** | **7 years** after the transaction, to meet UK accounting and tax obligations. This retention survives account deletion because it is a legal obligation. |
 | **Support and feedback correspondence** | **2 years** after the issue is closed. |
 | **Website analytics** | Per Google's and Ahrefs' own retention settings; aggregated reporting data contains no identifiers and may be kept indefinitely. |
@@ -229,6 +256,7 @@ When we no longer need data, we delete it or irreversibly anonymise it.
 - **Principle of least privilege** on internal access to systems and data.
 - **Strict separation** between the App and the backend: the desktop client never holds cloud-storage credentials. It uploads and downloads via short-lived, single-purpose signed URLs issued by the backend.
 - **Encrypted storage of third-party OAuth tokens** (for example Patreon) using AES-256.
+- **Checkpoint Connect** connections are encrypted between the two Apps. Our backend stamps every connection-setup message with the account that sent it, the Apps refuse any message that claims to come from someone else, and a host's App accepts connections only on the ports it chose to share.
 - Regular **security review** of the App, backend, and infrastructure.
 
 ### 10.2 Encryption of Your Content
