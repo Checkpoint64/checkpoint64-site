@@ -399,10 +399,10 @@ export default {
       h2Html: 'PICK YOUR <span class="accent">PLATFORM.</span>',
       foot: 'Same account everywhere — sign in on a second machine and your shelf is already there.',
       cards: [
-        { name: 'STEAM', items: ['Windows and Linux', 'Steam Deck supported, with full controller navigation', 'Lifetime and Pro as one-time unlocks — no subscriptions on Steam'] },
-        { name: 'WINDOWS', items: ['.msi installer or portable .exe', 'Windows 10 and 11', 'Updates in-app'] },
+        { name: 'STEAM', items: ['Windows and Linux', 'Steam Deck supported, with full controller navigation', 'Checkpoint Connect: host a server for your team with no port forwarding', 'Lifetime and Pro as one-time unlocks — no subscriptions on Steam'] },
+        { name: 'WINDOWS', items: ['.msi installer or portable .exe', 'Windows 10 and 11', 'Checkpoint Connect: host a server for your team with no port forwarding', 'Updates in-app'] },
         { name: 'MACOS', items: ['Apple Silicon .dmg', 'Same shelf, same account', 'Updates in-app'] },
-        { name: 'LINUX', items: ['.deb and .rpm packages', 'x64 and ARM64', 'Steam Deck via Steam'] },
+        { name: 'LINUX', items: ['.deb and .rpm packages', 'x64 and ARM64', 'Checkpoint Connect: host a server for your team with no port forwarding', 'Steam Deck via Steam'] },
       ],
     },
 
