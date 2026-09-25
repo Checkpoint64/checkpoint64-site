@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--1teoznn--><!---->  <title>Anatomy of a save corruption; what actually happens on disk — Checkpoint64</title>
+  <!--1teoznn--><!---->  <title>Anatomy of a save corruption; what actually happens on disk</title>
   <meta name="description" content="Corruption sounds like bad luck, but it&#39;s usually one of a handful of very specific things going wrong at the byte level — almost always during the write. Here&#39;s what a save file really is, the three ways it gets mangled, and why a single save slot is a single point of failure." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="color-scheme" content="light dark" />
@@ -91,21 +91,163 @@
       "@type": "Organization",
       "@id": "https://checkpoint64.com/#organization",
       "name": "Checkpoint64",
+      "alternateName": "Checkpoint 64",
       "url": "https://checkpoint64.com/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://checkpoint64.com/retro_save_icon.svg"
-      }
+      },
+      "email": "support@checkpoint64.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Adam Meadows"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "press@checkpoint64.com",
+          "url": "https://checkpoint64.com/press/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy",
+          "email": "privacy@checkpoint64.com",
+          "url": "https://checkpoint64.com/privacy/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "security",
+          "email": "security@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "legal",
+          "email": "legal@checkpoint64.com",
+          "url": "https://checkpoint64.com/terms/",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn",
+        "https://github.com/checkpoint64",
+        "https://store.steampowered.com/app/4790820/"
+      ]
     },
     "publisher": {
       "@type": "Organization",
       "@id": "https://checkpoint64.com/#organization",
       "name": "Checkpoint64",
+      "alternateName": "Checkpoint 64",
       "url": "https://checkpoint64.com/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://checkpoint64.com/retro_save_icon.svg"
-      }
+      },
+      "email": "support@checkpoint64.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Adam Meadows"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "press@checkpoint64.com",
+          "url": "https://checkpoint64.com/press/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy",
+          "email": "privacy@checkpoint64.com",
+          "url": "https://checkpoint64.com/privacy/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "security",
+          "email": "security@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "legal",
+          "email": "legal@checkpoint64.com",
+          "url": "https://checkpoint64.com/terms/",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn",
+        "https://github.com/checkpoint64",
+        "https://store.steampowered.com/app/4790820/"
+      ]
     }
   }
   </script><!----><!---->
@@ -116,7 +258,7 @@
        bootstrap, language redirect, analytics) live in <svelte:head>{@html …}
        and only run on a fresh document load; SvelteKit client-side nav would
        skip them. -->
-  <div style="display: contents" data-sveltekit-reload><!--[--><!--[0--><!--[--><!--[--><!---->  <a class="skip-link" href="#main">Skip to content</a>
+  <div style="display: contents" data-sveltekit-reload><!--[--><!--[0--><!--[--><!--[-1--><!--[--><!---->  <a class="skip-link" href="#main">Skip to content</a>
   <nav class="blog-nav">
     <div class="blog-wrap">
       <a class="blog-brand pixel" href="../../">CHECKPOINT64</a>
@@ -130,13 +272,13 @@
   </nav>
   <main id="main" class="blog-main blog-wrap">
     <article class="blog-post">
-      <header class="blog-post-header">
+      <div class="blog-post-header">
         <nav class="guide-crumb" aria-label="Breadcrumb">
           <a href="../../">Home</a> <span aria-hidden="true">/</span> <a href="../../blog/">Logbook</a> <span aria-hidden="true">/</span> <span>Anatomy of a save corruption; what actually happens on disk</span>
         </nav>
         <p class="blog-post-meta"><time datetime="2026-06-11">2026-06-11</time> · <span class="blog-author">By the Checkpoint64 team</span> · <span class="blog-tag">post-mortem</span> <span class="blog-tag">corruption</span> <span class="blog-tag">backups</span> <span class="blog-tag">versioning</span></p>
         <h1 class="blog-post-title pixel">Anatomy of a save corruption; what actually happens on disk</h1>
-      </header>
+      </div>
       <div class="blog-post-body">
 <p>&quot;My save is corrupted&quot; is one of the most dreaded sentences in gaming, and one
 of the most mysterious. The game just says the file is bad and refuses to load
@@ -150,7 +292,7 @@ kept the version from before that moment.</p>
 <p>Strip away the game and a save is just bytes in a file: a structured blob the
 game knows how to read back. Depending on the game it might be one binary file,
 a zip of several files, a little embedded database, or a
-<a href="/minecraft-save-backup/">folder full of region chunks</a>. Whatever the shape,
+<a href="/games/minecraft/guide/">folder full of region chunks</a>. Whatever the shape,
 two things are usually true:</p>
 <ul>
 <li><strong>It has structure the game trusts.</strong> A header, offsets, lengths, sometimes a
@@ -188,7 +330,7 @@ nonsense, and the loader trips over the contradiction.</p>
 <h3 id="3-the-format-mismatch">3. The format mismatch</h3>
 <p>The bytes are perfectly intact — but the thing reading them changed. A game
 patch alters the save format
-(<a href="/7-days-to-die-save-backup/">7 Days to Die does this on most major updates</a>),
+(<a href="/games/7-days-to-die/guide/">7 Days to Die does this on most major updates</a>),
 a <a href="/modded-game-save-backup/">mod that wrote custom data into the save</a> gets
 removed or updated, an
 <a href="/emulator-save-backup/">emulator core changes how it lays out a memory card</a>.
@@ -251,7 +393,7 @@ emulators</a> and the safety net under
 valuable thing in the game. It should be impossible to lose to a single bad
 write.</p>
 <hr>
-<p><a href="/#download">Download Checkpoint64</a> — it&#39;s free, and the free plan is real.
+<p><a href="/download/">Download Checkpoint64</a> — it&#39;s free, and the free plan is real.
 No email list, no follow-ups.</p>
 
       </div>
@@ -291,6 +433,6 @@ No email list, no follow-ups.</p>
         try { localStorage.setItem('cp64-theme', next); } catch (e) {}
       });
     })();
-  </script><!----><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]--></div>
+  </script><!----><!--]--><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]--></div>
 </body>
 </html>

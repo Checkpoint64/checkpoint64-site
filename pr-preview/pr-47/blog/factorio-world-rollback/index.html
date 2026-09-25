@@ -86,21 +86,163 @@
       "@type": "Organization",
       "@id": "https://checkpoint64.com/#organization",
       "name": "Checkpoint64",
+      "alternateName": "Checkpoint 64",
       "url": "https://checkpoint64.com/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://checkpoint64.com/retro_save_icon.svg"
-      }
+      },
+      "email": "support@checkpoint64.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Adam Meadows"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "press@checkpoint64.com",
+          "url": "https://checkpoint64.com/press/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy",
+          "email": "privacy@checkpoint64.com",
+          "url": "https://checkpoint64.com/privacy/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "security",
+          "email": "security@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "legal",
+          "email": "legal@checkpoint64.com",
+          "url": "https://checkpoint64.com/terms/",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn",
+        "https://github.com/checkpoint64",
+        "https://store.steampowered.com/app/4790820/"
+      ]
     },
     "publisher": {
       "@type": "Organization",
       "@id": "https://checkpoint64.com/#organization",
       "name": "Checkpoint64",
+      "alternateName": "Checkpoint 64",
       "url": "https://checkpoint64.com/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://checkpoint64.com/retro_save_icon.svg"
-      }
+      },
+      "email": "support@checkpoint64.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Adam Meadows"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "press@checkpoint64.com",
+          "url": "https://checkpoint64.com/press/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy",
+          "email": "privacy@checkpoint64.com",
+          "url": "https://checkpoint64.com/privacy/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "security",
+          "email": "security@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "legal",
+          "email": "legal@checkpoint64.com",
+          "url": "https://checkpoint64.com/terms/",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn",
+        "https://github.com/checkpoint64",
+        "https://store.steampowered.com/app/4790820/"
+      ]
     }
   }
   </script><!----><!---->
@@ -111,7 +253,7 @@
        bootstrap, language redirect, analytics) live in <svelte:head>{@html …}
        and only run on a fresh document load; SvelteKit client-side nav would
        skip them. -->
-  <div style="display: contents" data-sveltekit-reload><!--[--><!--[0--><!--[--><!--[--><!---->  <a class="skip-link" href="#main">Skip to content</a>
+  <div style="display: contents" data-sveltekit-reload><!--[--><!--[0--><!--[--><!--[-1--><!--[--><!---->  <a class="skip-link" href="#main">Skip to content</a>
   <nav class="blog-nav">
     <div class="blog-wrap">
       <a class="blog-brand pixel" href="../../">CHECKPOINT64</a>
@@ -125,13 +267,13 @@
   </nav>
   <main id="main" class="blog-main blog-wrap">
     <article class="blog-post">
-      <header class="blog-post-header">
+      <div class="blog-post-header">
         <nav class="guide-crumb" aria-label="Breadcrumb">
           <a href="../../">Home</a> <span aria-hidden="true">/</span> <a href="../../blog/">Logbook</a> <span aria-hidden="true">/</span> <span>Factorio World Rollback Without the Panic</span>
         </nav>
         <p class="blog-post-meta"><time datetime="2026-07-08">2026-07-08</time> · <span class="blog-author">By the Checkpoint64 team</span></p>
         <h1 class="blog-post-title pixel">Factorio World Rollback Without the Panic</h1>
-      </header>
+      </div>
       <div class="blog-post-body">
 <p>One wrong save in Factorio and suddenly your neat little factory turns into a crime scene. A mod update eats half the map, someone hosts co-op from the wrong file, autosave catches the exact moment the base starts imploding, and now you need a factorio world rollback fast - not a lecture on folder structures while your oil setup burns.</p>
 <p>The good news is that a rollback is usually possible. The less good news is that the right fix depends on what actually went wrong. If you restore the wrong file, load the wrong mod set, or overwrite the only healthy save you had left, you can make a bad evening worse.</p>
@@ -142,7 +284,7 @@
 <h2>How Factorio saves work, minus the nonsense</h2>
 <p>Factorio stores saves as zip files, and by default it also keeps autosaves. That helps, but autosaves are not magic. They rotate. They get replaced. And if the problem happened hours ago, your autosaves may now be a neat collection of increasingly bad decisions.</p>
 <p>Manual saves are safer, but only if you actually make them before doing risky stuff like adding a fresh mod pack, refactoring your train network while half awake, or letting your mate "just sort the logistics".</p>
-<p>If you use Steam Cloud, local saves, manual copies, or a <a href="https://checkpoint64.com/factorio-save-backup/" rel="nofollow noopener">dedicated backup tool</a>, you may have several possible versions. That is great, but it also means you need to be careful not to overwrite your current folder before checking what each save actually contains.</p>
+<p>If you use Steam Cloud, local saves, manual copies, or a <a href="https://checkpoint64.com/games/factorio/guide/" rel="nofollow noopener">dedicated backup tool</a>, you may have several possible versions. That is great, but it also means you need to be careful not to overwrite your current folder before checking what each save actually contains.</p>
 <h2>How to do a Factorio world rollback safely</h2>
 <p>Start by stopping the damage. Close the game completely. If the world is currently open on any machine, especially in co-op, get everyone out first. A rollback only works if nobody is still happily saving new chaos on top of the old chaos.</p>
 <p>Next, go to your save location and copy the entire save folder somewhere safe. Not because it is elegant, but because panic-clicking is real. Keep the broken present before you touch the past.</p>
@@ -212,6 +354,6 @@
         try { localStorage.setItem('cp64-theme', next); } catch (e) {}
       });
     })();
-  </script><!----><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]--></div>
+  </script><!----><!--]--><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]--></div>
 </body>
 </html>

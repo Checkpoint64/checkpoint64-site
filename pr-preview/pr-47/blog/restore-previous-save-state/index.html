@@ -83,21 +83,163 @@
       "@type": "Organization",
       "@id": "https://checkpoint64.com/#organization",
       "name": "Checkpoint64",
+      "alternateName": "Checkpoint 64",
       "url": "https://checkpoint64.com/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://checkpoint64.com/retro_save_icon.svg"
-      }
+      },
+      "email": "support@checkpoint64.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Adam Meadows"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "press@checkpoint64.com",
+          "url": "https://checkpoint64.com/press/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy",
+          "email": "privacy@checkpoint64.com",
+          "url": "https://checkpoint64.com/privacy/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "security",
+          "email": "security@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "legal",
+          "email": "legal@checkpoint64.com",
+          "url": "https://checkpoint64.com/terms/",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn",
+        "https://github.com/checkpoint64",
+        "https://store.steampowered.com/app/4790820/"
+      ]
     },
     "publisher": {
       "@type": "Organization",
       "@id": "https://checkpoint64.com/#organization",
       "name": "Checkpoint64",
+      "alternateName": "Checkpoint 64",
       "url": "https://checkpoint64.com/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://checkpoint64.com/retro_save_icon.svg"
-      }
+      },
+      "email": "support@checkpoint64.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Adam Meadows"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "press@checkpoint64.com",
+          "url": "https://checkpoint64.com/press/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy",
+          "email": "privacy@checkpoint64.com",
+          "url": "https://checkpoint64.com/privacy/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "security",
+          "email": "security@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "legal",
+          "email": "legal@checkpoint64.com",
+          "url": "https://checkpoint64.com/terms/",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn",
+        "https://github.com/checkpoint64",
+        "https://store.steampowered.com/app/4790820/"
+      ]
     }
   }
   </script><!----><!---->
@@ -108,7 +250,7 @@
        bootstrap, language redirect, analytics) live in <svelte:head>{@html …}
        and only run on a fresh document load; SvelteKit client-side nav would
        skip them. -->
-  <div style="display: contents" data-sveltekit-reload><!--[--><!--[0--><!--[--><!--[--><!---->  <a class="skip-link" href="#main">Skip to content</a>
+  <div style="display: contents" data-sveltekit-reload><!--[--><!--[0--><!--[--><!--[-1--><!--[--><!---->  <a class="skip-link" href="#main">Skip to content</a>
   <nav class="blog-nav">
     <div class="blog-wrap">
       <a class="blog-brand pixel" href="../../">CHECKPOINT64</a>
@@ -122,15 +264,15 @@
   </nav>
   <main id="main" class="blog-main blog-wrap">
     <article class="blog-post">
-      <header class="blog-post-header">
+      <div class="blog-post-header">
         <nav class="guide-crumb" aria-label="Breadcrumb">
           <a href="../../">Home</a> <span aria-hidden="true">/</span> <a href="../../blog/">Logbook</a> <span aria-hidden="true">/</span> <span>Restore Previous Save State Without the Panic</span>
         </nav>
         <p class="blog-post-meta"><time datetime="2026-07-20">2026-07-20</time> · <span class="blog-author">By the Checkpoint64 team</span></p>
         <h1 class="blog-post-title pixel">Restore Previous Save State Without the Panic</h1>
-      </header>
+      </div>
       <figure class="blog-post-lead">
-        <img src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/3f035230-3257-42ac-bd08-94c72f0c306c/78b18b37-731c-4b91-bba6-d15298e200b4.webp" alt="Restore Previous Save State Without the Panic" loading="eager" />
+        <img src="https://afocirmbqdxnkyescnev.supabase.co/storage/v1/object/public/featured-images/3f035230-3257-42ac-bd08-94c72f0c306c/78b18b37-731c-4b91-bba6-d15298e200b4.webp" alt="Restore Previous Save State Without the Panic" loading="eager" fetchpriority="high" />
       </figure>
       <div class="blog-post-body">
 <p>Your 86-hour Valheim world does not care that the power cut happened during an autosave. Your modded Stardew farm does not care that one innocent-looking update turned everyone into void furniture. When the damage is done, the only question that matters is whether you can <strong>restore previous save state</strong> before the group chat starts planning a funeral.</p>
@@ -141,7 +283,7 @@
 <p><a href="https://checkpoint64.com/blog/game-save-version-history/" rel="nofollow noopener">Version history</a> changes the equation. Instead of one save file being your entire civilisation, you have a timeline: before the mod update, before the boss wipe, before someone built a conveyor belt through the base kitchen. Choose a point, restore it, carry on.</p>
 <h2>When you should restore previous save state</h2>
 <p>A rollback is not just for obvious corruption. Plenty of save disasters look normal at first. You launch the game, load in, and something feels deeply cursed.</p>
-<p>Maybe an update has stripped items from modded characters. Maybe a Minecraft world has generated a chunk as a blank mess. Maybe your <a href="https://checkpoint64.com/elden-ring-save-backup/" rel="nofollow noopener">Elden Ring character</a> is suddenly missing progress after a cloud-sync argument between two PCs. In co-op games, the classic disaster is less technical: somebody loads an old local copy, saves over the shared world, and accidentally sends last week's progress into the shadow realm.</p>
+<p>Maybe an update has stripped items from modded characters. Maybe a Minecraft world has generated a chunk as a blank mess. Maybe your <a href="https://checkpoint64.com/games/elden-ring/guide/" rel="nofollow noopener">Elden Ring character</a> is suddenly missing progress after a cloud-sync argument between two PCs. In co-op games, the classic disaster is less technical: somebody loads an old local copy, saves over the shared world, and accidentally sends last week's progress into the shadow realm.</p>
 <p>The key is to stop playing as soon as you spot a problem. Every new save can overwrite useful evidence and make it harder to identify the last known-good version. Exit the game, do not click Save Again just to check, and make a copy of the current files if you can. Even a broken save may be useful later for testing or recovering specific data.</p>
 <p>There is one trade-off worth saying out loud: restoring an older state also removes progress made after that point. If your group played for three hours after the version you restore, those three hours are gone from the restored world. That is still often better than losing 300 hours, but it is why timestamps and clear version history matter.</p>
 <h2>A sane rollback process</h2>
@@ -213,6 +355,6 @@
         try { localStorage.setItem('cp64-theme', next); } catch (e) {}
       });
     })();
-  </script><!----><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]--></div>
+  </script><!----><!--]--><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]--></div>
 </body>
 </html>

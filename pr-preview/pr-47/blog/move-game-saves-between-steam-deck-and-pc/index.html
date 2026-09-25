@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!--1teoznn--><!---->  <title>Moving a save between your Steam Deck and your PC; the path re-resolves itself — Checkpoint64</title>
+  <!--1teoznn--><!---->  <title>Moving a save between your Steam Deck and your PC; the path re-resolves itself</title>
   <meta name="description" content="Back up a save on Windows, restore it on a Steam Deck, and those files have to land somewhere completely different — a Proton prefix instead of %APPDATA%. Checkpoint64 works the destination out on whichever machine is doing the restoring, so you never carry a path across. What it deliberately won&#39;t do is move your save behind your back." />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="color-scheme" content="light dark" />
@@ -92,21 +92,163 @@
       "@type": "Organization",
       "@id": "https://checkpoint64.com/#organization",
       "name": "Checkpoint64",
+      "alternateName": "Checkpoint 64",
       "url": "https://checkpoint64.com/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://checkpoint64.com/retro_save_icon.svg"
-      }
+      },
+      "email": "support@checkpoint64.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Adam Meadows"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "press@checkpoint64.com",
+          "url": "https://checkpoint64.com/press/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy",
+          "email": "privacy@checkpoint64.com",
+          "url": "https://checkpoint64.com/privacy/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "security",
+          "email": "security@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "legal",
+          "email": "legal@checkpoint64.com",
+          "url": "https://checkpoint64.com/terms/",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn",
+        "https://github.com/checkpoint64",
+        "https://store.steampowered.com/app/4790820/"
+      ]
     },
     "publisher": {
       "@type": "Organization",
       "@id": "https://checkpoint64.com/#organization",
       "name": "Checkpoint64",
+      "alternateName": "Checkpoint 64",
       "url": "https://checkpoint64.com/",
       "logo": {
         "@type": "ImageObject",
         "url": "https://checkpoint64.com/retro_save_icon.svg"
-      }
+      },
+      "email": "support@checkpoint64.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Adam Meadows"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "technical support",
+          "email": "support@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "press",
+          "email": "press@checkpoint64.com",
+          "url": "https://checkpoint64.com/press/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "privacy",
+          "email": "privacy@checkpoint64.com",
+          "url": "https://checkpoint64.com/privacy/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "security",
+          "email": "security@checkpoint64.com",
+          "url": "https://checkpoint64.com/contact/",
+          "availableLanguage": [
+            "English"
+          ]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "legal",
+          "email": "legal@checkpoint64.com",
+          "url": "https://checkpoint64.com/terms/",
+          "availableLanguage": [
+            "English"
+          ]
+        }
+      ],
+      "sameAs": [
+        "https://discord.gg/kxeYwuuHEn",
+        "https://github.com/checkpoint64",
+        "https://store.steampowered.com/app/4790820/"
+      ]
     }
   }
   </script><!----><!---->
@@ -117,7 +259,7 @@
        bootstrap, language redirect, analytics) live in <svelte:head>{@html …}
        and only run on a fresh document load; SvelteKit client-side nav would
        skip them. -->
-  <div style="display: contents" data-sveltekit-reload><!--[--><!--[0--><!--[--><!--[--><!---->  <a class="skip-link" href="#main">Skip to content</a>
+  <div style="display: contents" data-sveltekit-reload><!--[--><!--[0--><!--[--><!--[-1--><!--[--><!---->  <a class="skip-link" href="#main">Skip to content</a>
   <nav class="blog-nav">
     <div class="blog-wrap">
       <a class="blog-brand pixel" href="../../">CHECKPOINT64</a>
@@ -131,13 +273,13 @@
   </nav>
   <main id="main" class="blog-main blog-wrap">
     <article class="blog-post">
-      <header class="blog-post-header">
+      <div class="blog-post-header">
         <nav class="guide-crumb" aria-label="Breadcrumb">
           <a href="../../">Home</a> <span aria-hidden="true">/</span> <a href="../../blog/">Logbook</a> <span aria-hidden="true">/</span> <span>Moving a save between your Steam Deck and your PC; the path re-resolves itself</span>
         </nav>
         <p class="blog-post-meta"><time datetime="2026-08-19">2026-08-19</time> · <span class="blog-author">By the Checkpoint64 team</span> · <span class="blog-tag">steam-deck</span> <span class="blog-tag">cross-device</span> <span class="blog-tag">linux</span> <span class="blog-tag">proton</span> <span class="blog-tag">restore</span></p>
         <h1 class="blog-post-title pixel">Moving a save between your Steam Deck and your PC; the path re-resolves itself</h1>
-      </header>
+      </div>
       <div class="blog-post-body">
 <p>The setup is common enough to be boring: a desktop where you actually play, and
 a Steam Deck for the sofa, the train, the bath. Same games, same account, one
@@ -183,7 +325,7 @@ still sitting there.</p>
 <p>Going from desk to Deck:</p>
 <ol>
 <li>Finish your session on the desktop. Auto-backup has already taken a version —
-it checks every 30 seconds and uploads when something changed.</li>
+it checks every 60 seconds and uploads when something changed.</li>
 <li>Pick up the Deck, open the save, hit <strong>Restore</strong> on the newest version.</li>
 <li>Play.</li>
 </ol>
@@ -204,7 +346,7 @@ one you used.</p>
 month, the broader version of this is
 <a href="/blog/how-to-sync-saves-across-pcs/">syncing saves across PCs</a>.</p>
 <hr>
-<p><a href="/#download">Download Checkpoint64</a> — it&#39;s free, and the free plan is real.
+<p><a href="/download/">Download Checkpoint64</a> — it&#39;s free, and the free plan is real.
 No email list, no follow-ups.</p>
 
       </div>
@@ -244,6 +386,6 @@ No email list, no follow-ups.</p>
         try { localStorage.setItem('cp64-theme', next); } catch (e) {}
       });
     })();
-  </script><!----><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]--></div>
+  </script><!----><!--]--><!--]--><!----><!--]--><!--]--> <!--[-1--><!--]--><!--]--></div>
 </body>
 </html>
